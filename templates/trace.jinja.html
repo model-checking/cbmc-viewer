@@ -1,0 +1,84 @@
+{% import 'link.jinja.html' as link %}
+<html>
+  <head>
+    <title>{{prop_name}}</title>
+    {{link.to_viewer_css('..')}}
+  </head>
+
+  <body>
+    <h2>Error trace for property {{prop_name}}</h2>
+
+    <div id="trace-header">
+    <div id="trace-description">
+    <p>
+      Property that failed:
+      <ul>
+        <li> Name: {{prop_name}}
+        <li> Description: {{prop_desc}}
+        <li> Location: {{prop_srcloc}}
+      </ul>
+    </p>
+    </div>
+
+    <div id="trace-navigation">
+    <p>
+      Trace navigation tips:
+      <ul>
+        <li>
+          <strong>Shift-Click: Hide function steps:</strong>
+          Shift-click on any step of a function to toggle the display
+          of function steps (hide or display steps).
+          This corresponds to stepping over a function in a debugger.
+          <em>Example:</em> Shift-click on any step of malloc to hide
+          the initialization of the struct members being malloc'd.
+        </li>
+        <li>
+          <strong>Shift-Alt-Click: Focus on function steps:</strong>
+          Shift-Alt-click on any step of a function to hide all steps
+          of all functions not currently on the call stack.
+          This corresponds to viewing the call stack in a debugger.
+          <em>Example:</em> Shift-Alt-click on a failure step to the display the
+          most direct path from the initial state to the failure.
+        </li>
+      </ul>
+    </p>
+    </div>
+    </div>
+
+    <div class="trace">
+
+      {% for step in steps %}
+
+        {% if step.kind == 'function-call' %}
+        <div class="function">
+        <div class="function-call">
+        {% endif %}
+
+        {% if step.kind == 'function-return' %}
+        </div> {# end function-body #}
+        <div class="function-return">
+        {% endif %}
+
+        <div id="step{{step.num}}" class="step">
+        <div class="header">Step {{step.num}}: {{step.srcloc}}</div>
+        {% if code %}
+        <div class="code">{{step.code}}</div>
+        {% endif %}
+        <div class="cbmc">{{step.cbmc}}</div>
+        </div>
+
+        {% if step.kind == 'function-call' %}
+        </div> {# end function-call #}
+        <div class="function-body">
+        {% endif %}
+
+        {% if step.kind == 'function-return' %}
+        </div> {# end function-return #}
+        </div> {# end function #}
+        {% endif %}
+
+      {% endfor %}
+    </div>
+  </body>
+  {{link.to_viewer_js('..')}}
+</html>

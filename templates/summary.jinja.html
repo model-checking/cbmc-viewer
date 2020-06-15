@@ -1,0 +1,154 @@
+{% import 'link.jinja.html' as link %}
+
+<html>
+  <head>
+    <title>CBMC</title>
+    {{link.to_viewer_css(path_to_root)}}
+  </head>
+
+  <body>
+    <h1>CBMC report</h1>
+
+    <div class="coverage">
+      <h2>Coverage</h2>
+
+      {% set overall = summary.coverage.overall %}
+      <p>
+        Coverage: {{'{:.2f}'.format(overall.percentage)}} (reached {{overall.hit}} of {{overall.total}} reachable lines)
+      </p>
+
+      {% set function = summary.coverage.function %}
+      <table class="coverage">
+        <tr>
+          <th class="coverage">Coverage</th>
+          <th class="function">Function</th>
+          <th class="file">File</th>
+        </tr>
+        {% for func in function|sort(attribute="percentage", reverse=True)|sort(attribute="file_name,func_name") %}
+        <tr>
+          <td class="coverage">{{'{:.2f}'.format(func.percentage)}} ({{func.hit}}/{{func.total}})</td>
+          <td class="function">{{link.to_line(func.file_name, func.line_num, func.func_name)}}</td>
+          <td class="file">{{link.to_file(func.file_name, func.file_name)}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+
+    <div class="warnings">
+      <h2> Warnings</h2>
+      {% set warnings = summary.warnings %}
+
+      {% if warnings.expected_missing_function %}
+      <p>
+      Functions omitted from test (expected):
+      </p>
+      <ul>
+        {% for func in warnings.expected_missing_function|sort %}
+        <li> {{func}} </li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+
+      {% if warnings.unexpected_missing_function %}
+      <p>
+      Functions omitted from test (unexpected):
+      </p>
+      <ul>
+        {% for func in warnings.unexpected_missing_function|sort %}
+        <li> {{func}} </li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+
+      {% if warnings.other %}
+      <p>
+      Other warnings:
+      </p>
+      <ul>
+        {% for warning in warnings.other|sort %}
+        <li> {{warning}} </li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+
+      {% if not warnings.expected_missing_function and
+            not warnings.unexpected_missing_function and
+            not warnings.other %}
+      None
+      {% endif %}
+
+    <div class="errors">
+      <h2>Errors</h2>
+      {% set errors = summary.failures %}
+
+      {% if errors.loop %}
+      <ul>
+        <li>Loop unwinding failures
+          <ul>
+            {% for error in errors.loop %}
+            <li> [{{link.to_trace(error.prop_name)}}]
+              {{error.prop_name}}
+              in line
+              {{link.to_line(error.file_name, error.line_num, error.line_num)}}
+              in file
+              {{link.to_file(error.file_name, error.line_num)}}
+            </li>
+            {% endfor %}
+          </ul>
+        </li>
+      </ul>
+      {% endif %}
+
+      {% if errors.other %}
+      <ul>
+        <li>Other failures
+          <ul>
+            {% for error in errors.other %}
+            <li> {{error}} </li>
+            {% endfor %}
+          </ul>
+        </li>
+      </ul>
+      {% endif %}
+
+      {% if errors.property %}
+      <ul>
+        {% for file_name, file_errors in errors.property|groupby("file_name") %}
+        <li> File {{link.to_file(file_name, file_name)}}
+          <ul>
+            {% for func_name, func_errors in file_errors|groupby("func_name") %}
+            {% set func_line = func_errors[0]["func_line"] %}
+            <li>
+              Function {{link.to_line(file_name, func_line, func_name)}}
+              <ul>
+                {% for line_num, line_errors in func_errors|groupby("line_num") %}
+                <li>
+                  Line {{link.to_line(file_name, line_num, line_num)}}
+                  <ul>
+                    {% for error in line_errors|sort(attribute="prop_name") %}
+                    <li>
+                      [{{link.to_trace(error.prop_name)}}]
+                      {{error.prop_desc}}
+                    </li>
+                    {% endfor %} {# end for error #}
+                  </ul>
+                </li>
+                {% endfor %} {# end for line number #}
+              </ul>
+            </li>
+            {% endfor %} {# end for function #}
+          </ul>
+        </li>
+        {% endfor %} {# end for file #}
+      </ul>
+      {% endif %}
+
+      {% if not errors.loop and
+            not errors.other and
+            not errors.property %}
+      None
+      {% endif %}
+
+    </div>
+  </body>
+</html>

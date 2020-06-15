@@ -1,0 +1,15 @@
+{% import 'link.jinja.html' as link %}
+<html>
+<head>
+<title>{{filename}}</title>
+{{link.to_viewer_css(path_to_root)}}
+</head>
+
+<body>
+<div class="code">
+{% for line in lines -%}
+<div id="{{line.num}}" class="line {{line.status}}">{{"{:>5}".format(line.num)}} {{line.code}}</div>
+{%- endfor %}
+</div>
+</body>
+</html>
