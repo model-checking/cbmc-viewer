@@ -1,0 +1,13 @@
+#!/usr/bin/env python3
+
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: Apache-2.0
+
+# -*- mode: python-mode -*-
+
+"""Assemble a report on the results of cbmc."""
+
+import viewer
+
+if __name__ == '__main__':
+    viewer.viewer()
