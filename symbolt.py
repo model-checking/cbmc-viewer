@@ -407,17 +407,6 @@ def fail(msg):
     logging.info(msg)
     raise UserWarning(msg)
 
-def validate_option_groups(viewer_symbol, make_source, goto,
-                           wkdir, srcdir, files):
-    """Check mutually exclusive groupings of command line options."""
-
-    groups = [viewer_symbol is not None,
-              make_source is not None,
-              goto is not None and wkdir is not None and srcdir is not None,
-              srcdir is not None and files is not None]
-    if len([group for group in groups if group]) != 1:
-        fail("Specify --symbols, --sources, or --srcdir and --files.")
-
 def do_make_symbol(viewer_symbol, make_source, tags_method,
                    goto, wkdir, srcdir, files):
     """Implementation of make-symbol."""
@@ -425,16 +414,13 @@ def do_make_symbol(viewer_symbol, make_source, tags_method,
     wkdir = srcloct.abspath(wkdir) if wkdir else None
     srcdir = srcloct.abspath(srcdir) if srcdir else None
 
-    validate_option_groups(viewer_symbol, make_source, goto,
-                           wkdir, srcdir, files)
+    # Command line options may enable more than one way
+    # to generate the symbol table, so choose the one
+    # that gives the most "accurate" results.
 
     if viewer_symbol:
         logging.info("Symbols by SymbolFromJson")
         return SymbolFromJson(viewer_symbol)
-
-    if goto and wkdir and srcdir:
-        logging.info("Symbols by SymbolFromGoto")
-        return SymbolFromGoto(goto, wkdir, srcdir)
 
     if make_source:
         sources = sourcet.SourceFromJson(make_source)
@@ -450,6 +436,10 @@ def do_make_symbol(viewer_symbol, make_source, tags_method,
         if tags_method == Tags.ETAGS:
             logging.info("Symbols by SymbolFromEtags")
             return SymbolFromEtags(srcdir, files)
+
+    if goto and wkdir and srcdir:
+        logging.info("Symbols by SymbolFromGoto")
+        return SymbolFromGoto(goto, wkdir, srcdir)
 
     fail("Unable to generate a symbol table (is ctags installed?).")
 

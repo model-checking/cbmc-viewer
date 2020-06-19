@@ -636,8 +636,11 @@ def do_make_trace(viewer_trace, cbmc_trace, srcdir, wkdir):
         fail("Expected json files: {}".format(viewer_trace))
 
     if cbmc_trace and srcdir:
-        if filet.are_text_files(cbmc_trace) and wkdir:
-            return TraceFromCbmcText(cbmc_trace, srcdir, wkdir)
+        if filet.are_text_files(cbmc_trace):
+            if wkdir:
+                return TraceFromCbmcText(cbmc_trace, srcdir, wkdir)
+            else:
+                fail("Expected --srcdir, --wkdir, and cbmc trace output.")
         if filet.are_json_files(cbmc_trace):
             return TraceFromCbmcJson(cbmc_trace, srcdir)
         if filet.are_xml_files(cbmc_trace):
@@ -645,7 +648,7 @@ def do_make_trace(viewer_trace, cbmc_trace, srcdir, wkdir):
         fail("Expected json files or xml files, not both: {}"
              .format(cbmc_trace))
 
-    fail("Expected --make-trace or --srcdir and --wkdir and "
-         "cbmc trace data.")
+    fail("Expected --make-trace or --srcdir, --wkdir, and "
+         "cbmc trace output.")
 
 ################################################################

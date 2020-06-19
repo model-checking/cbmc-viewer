@@ -81,32 +81,12 @@ def create_parser():
         'Depricated',
         'Options from prior versions now depricated.'
     )
-    depricated.add_argument(
-        '--block',
-        metavar='BLOCK',
-        dest='coverage',
-        help="""Use --coverage instead."""
-    )
-    depricated.add_argument(
-        '--htmldir',
-        metavar='HTMLDIR',
-        dest='reportdir',
-        help="""Use --reportdir instead."""
-    )
-    depricated.add_argument(
-        '--srcexclude',
-        metavar='EXCLUDE',
-        dest='exclude',
-        help="""Use --exclude instead."""
-    )
-    depricated.add_argument(
-        '--blddir',
-        help="""Ignored."""
-    )
-    depricated.add_argument(
-        '--storm',
-        help="""Ignored."""
-    )
+    depricated = optionst.block(depricated)
+    depricated = optionst.htmldir(depricated)
+    depricated = optionst.srcexclude(depricated)
+    depricated = optionst.blddir(depricated)
+    depricated = optionst.storm(depricated)
+
     return parser
 
 ################################################################

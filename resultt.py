@@ -211,8 +211,10 @@ class ResultFromCbmcText(Result):
     def parse_results(textfile):
         """Parse CBMC results in text output"""
 
+        # Using --verbosity 4 omits the program version data in
+        # textual output, so default to "CBMC" in case it is missing.
         results = {
-            PROGRAM: None, STATUS: [], WARNING: [],
+            PROGRAM: "CBMC", STATUS: [], WARNING: [],
             RESULT: {True: [], False: []}, PROVER: None
         }
 
@@ -234,7 +236,7 @@ class ResultFromCbmcText(Result):
                     results[STATUS].append(line)
                     results[PROVER] = FAILURE
                     continue
-                if line == 'VERIFICATION SUCCEEDED':
+                if line == 'VERIFICATION SUCCESSFUL':
                     results[STATUS].append(line)
                     results[PROVER] = SUCCESS
                     continue

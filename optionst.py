@@ -4,6 +4,7 @@
 """Command line options."""
 
 import logging
+import os
 import platform
 
 from sourcet import Sources
@@ -41,6 +42,7 @@ def wkdir(parser):
 
     parser.add_argument(
         '--wkdir',
+        default=".",
         help="""
         The working directory in source locations in the goto binary
         (and omitted when source locations are printed in textual form).
@@ -287,7 +289,7 @@ def viewer_trace(parser):
     return parser
 
 ################################################################
-# Set logging levels
+# Other line options
 
 def log(parser):
     'Define --verbose and --debug command line options.'
@@ -314,6 +316,100 @@ def version(parser):
         help="""Display version number and exit."""
     )
     return parser
+
+################################################################
+# Depricated command line options
+#
+# Handle command line options from prior versions of cbmc-viewer that
+# are depricated in the current version.  Some old options have
+# natural equivalents among the new options, some have a slight change
+# in semantics that aren't easy to fix, and some we no longer support.
+
+def block(parser):
+    'Define --block command line option.'
+    parser.add_argument(
+        '--block',
+        metavar='BLOCK',
+        help="""Use --coverage instead."""
+    )
+    return parser
+
+def htmldir(parser):
+    'Define --htmldir command line option.'
+    parser.add_argument(
+        '--htmldir',
+        metavar='HTMLDIR',
+        help="""Use --reportdir instead."""
+    )
+    return parser
+
+def srcexclude(parser):
+    'Define --srcexclude command line option.'
+    parser.add_argument(
+        '--srcexclude',
+        metavar='EXCLUDE',
+        help="""Use --exclude instead."""
+    )
+    return parser
+
+def blddir(parser):
+    'Define --blddir command line option.'
+    parser.add_argument(
+        '--blddir',
+        help="""Ignored."""
+    )
+    return parser
+
+def storm(parser):
+    'Define --storm command line option.'
+    parser.add_argument(
+        '--storm',
+        help="""Ignored."""
+    )
+    return parser
+
+def handle_depricated_arguments(args):
+    """Warn about depricated arguments, use them  when possible."""
+
+    if hasattr(args, 'block') and args.block:
+        if hasattr(args, 'coverage'):
+            logging.warning("--block is depricated, using --coverage %s.",
+                            args.block)
+            args.coverage = [args.block] # block is a string, coverage is a list
+        else:
+            logging.warning("--block is depricated, use --coverage instead.")
+        args.block = None
+
+    if hasattr(args, 'htmldir') and args.htmldir:
+        if hasattr(args, 'reportdir'):
+            logging.warning("--htmldir is depricated, using --reportdir %s.",
+                            args.htmldir)
+            args.reportdir = args.htmldir
+        else:
+            logging.warning("--htmldir is depricated, use --reportdir instead.")
+        args.htmldir = None
+
+    if hasattr(args, 'srcexclude') and args.srcexclude:
+        if hasattr(args, 'exclude'):
+            logging.warning("--srcexclude is depricated, using --exclude %s.",
+                            args.srcexclude)
+            args.exclude = args.srcexclude
+        else:
+            logging.warning("--srcexclude is depricated, "
+                            "use --exclude instead.")
+        logging.warning("--srcexclude and --exclude use slight different "
+                        "regular expressions.")
+        args.srcexclude = None
+
+    if hasattr(args, 'blddir') and args.blddir:
+        logging.warning("--blddir is depricated, ignoring --blddir.")
+        args.blddir = None
+
+    if hasattr(args, 'storm') and args.storm:
+        logging.warning("--storm is depricated, ignoring --storm.")
+        args.storm = None
+
+    return args
 
 ################################################################
 # Set default values for arguments
@@ -402,13 +498,9 @@ def default_tags_method(args):
             elif symbolt.have_etags():
                 args.tags_method = Tags.ETAGS
             else:
-                # No ctags or etags means symbols will not be linked to code
-                logging.warning("Install ctags for better results.")
+                logging.warning("Can't find ctags or etags.")
 
-        if args.tags_method == Tags.ETAGS:
-            # Scanning a large source tree for symbols is slow.
-            # etags can be faster than ctags, but ctags is a more
-            # reliable parser of oddly-formatted code
+        if args.tags_method != Tags.CTAGS:
             logging.warning("Consider installing ctags for better results.")
 
     return args
@@ -418,8 +510,7 @@ def warn_against_using_text_for_cbmc_output(args):
 
     for attr in ['result', 'coverage', 'property']:
         filenames = getattr(args, attr, None)
-        if (filenames and
-                any([filet.filetype(name) == File.TEXT for name in filenames])):
+        if filenames and filet.any_text_files(filenames):
             logging.warning("Use xml or json instead of text for "
                             "better results: %s", filenames)
 
@@ -427,6 +518,7 @@ def defaults(args):
     'Set default values based on command line arguments.'
 
     args = default_logging(args)
+    args = handle_depricated_arguments(args)
     args = default_source_method(args)
     args = default_tags_method(args)
     warn_against_using_text_for_cbmc_output(args)

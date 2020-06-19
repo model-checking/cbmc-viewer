@@ -38,7 +38,7 @@ def filetype(filename):
     except KeyError:
         raise UserWarning(
             "Can't determine file type of file {}".format(filename)
-        )
+        ) from None # squash the KeyError context, raise just a UserWarning
 
 ################################################################
 
@@ -61,5 +61,9 @@ def are_json_files(jsons):
 def are_xml_files(xmls):
     """Files are xml files."""
     return all([is_xml_file(xml) for xml in xmls])
+
+def any_text_files(txts):
+    """Any of the files are text files."""
+    return any([is_text_file(txt) for txt in txts])
 
 ################################################################
