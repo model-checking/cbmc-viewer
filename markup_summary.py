@@ -200,7 +200,9 @@ def property_definition(prop_name, properties, symbols):
         'file_name': srcloc['file'],
         'func_name': srcloc['function'],
         'line_num': srcloc['line'],
-        'func_line': symbols.lookup(srcloc['function'])['line']
+        'func_line': (symbols.lookup(srcloc['function']) or {'line': 0})['line']
+        # Functions like strcmp modeled by CBMC may not be in the symbol table
+        # Return a line number 0 for such functions
     }
 
 def loop_definition(prop_name, loops):

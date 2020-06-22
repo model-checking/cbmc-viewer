@@ -339,7 +339,8 @@ def parse_xml_step(step, root=None):
               parse_xml_location_only if kind == 'location-only' else None)
 
     if parser is None:
-        raise UserWarning("Unknown xml step type: {}".format(kind))
+        logging.warning('Skipping step type: %s', kind)
+        return None
 
     return parser(step, root)
 
