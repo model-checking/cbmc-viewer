@@ -210,14 +210,14 @@ def do_make_property(viewer_property, cbmc_property, srcdir):
     """The implementation of make-property."""
 
     if viewer_property:
-        if filet.are_json_files(viewer_property):
+        if filet.all_json_files(viewer_property):
             return PropertyFromJson(viewer_property)
         fail("Expected json files: {}".format(viewer_property))
 
     if cbmc_property and srcdir:
-        if filet.are_json_files(cbmc_property):
+        if filet.all_json_files(cbmc_property):
             return PropertyFromCbmcJson(cbmc_property, srcdir)
-        if filet.are_xml_files(cbmc_property):
+        if filet.all_xml_files(cbmc_property):
             return PropertyFromCbmcXml(cbmc_property, srcdir)
         fail("Expected json files or xml files, not both: {}"
              .format(cbmc_property))

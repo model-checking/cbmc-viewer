@@ -426,16 +426,16 @@ def do_make_result(viewer_result, cbmc_result):
     """Implementation of make-result."""
 
     if viewer_result:
-        if filet.are_json_files(viewer_result):
+        if filet.all_json_files(viewer_result):
             return ResultFromJson(viewer_result)
         fail("Expected json files: {}".format(viewer_result))
 
     if cbmc_result:
-        if filet.are_text_files(cbmc_result):
+        if filet.all_text_files(cbmc_result):
             return ResultFromCbmcText(cbmc_result)
-        if filet.are_json_files(cbmc_result):
+        if filet.all_json_files(cbmc_result):
             return ResultFromCbmcJson(cbmc_result)
-        if filet.are_xml_files(cbmc_result):
+        if filet.all_xml_files(cbmc_result):
             return ResultFromCbmcXml(cbmc_result)
         fail("Expected text files json files or xml files, not both: {}"
              .format(cbmc_result))

@@ -4,14 +4,12 @@
 """Command line options."""
 
 import logging
-import os
 import platform
 
 from sourcet import Sources
 import symbolt
 from symbolt import Tags
 import filet
-from filet import File
 
 import version as viewer_version
 

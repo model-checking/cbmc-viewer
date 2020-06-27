@@ -530,14 +530,14 @@ def do_make_coverage(viewer_coverage, srcdir, cbmc_coverage):
     """The implementation of make-coverage."""
 
     if viewer_coverage:
-        if filet.are_json_files(viewer_coverage):
+        if filet.all_json_files(viewer_coverage):
             return CoverageFromJson(viewer_coverage)
         fail("Expected json files: {}".format(viewer_coverage))
 
     if cbmc_coverage and srcdir:
-        if filet.are_json_files(cbmc_coverage):
+        if filet.all_json_files(cbmc_coverage):
             return CoverageFromCbmcJson(cbmc_coverage, srcdir)
-        if filet.are_xml_files(cbmc_coverage):
+        if filet.all_xml_files(cbmc_coverage):
             return CoverageFromCbmcXml(cbmc_coverage, srcdir)
         fail("Expected json files or xml files, not both: {}"
              .format(cbmc_coverage))

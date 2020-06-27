@@ -231,14 +231,14 @@ def do_make_loop(viewer_loop, cbmc_loop, srcdir, goto):
     """The implementation of make-loop"""
 
     if viewer_loop:
-        if filet.are_json_files(viewer_loop):
+        if filet.all_json_files(viewer_loop):
             return LoopFromJson(viewer_loop)
         fail("Expected json files: {}".format(viewer_loop))
 
     if cbmc_loop and srcdir:
-        if filet.are_json_files(cbmc_loop):
+        if filet.all_json_files(cbmc_loop):
             return LoopFromCbmcJson(cbmc_loop, srcdir)
-        if filet.are_xml_files(cbmc_loop):
+        if filet.all_xml_files(cbmc_loop):
             return LoopFromCbmcXml(cbmc_loop, srcdir)
         fail("Expected json files or xml files, not both: {}"
              .format(cbmc_loop))

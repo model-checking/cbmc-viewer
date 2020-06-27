@@ -52,13 +52,13 @@ def is_xml_file(xml):
     """File is an xml file."""
     return filetype(xml) == File.XML
 
-def are_text_files(txts):
+def all_text_files(txts):
     """Files are text files."""
     return all([is_text_file(txt) for txt in txts])
-def are_json_files(jsons):
+def all_json_files(jsons):
     """Files are json files."""
     return all([is_json_file(json) for json in jsons])
-def are_xml_files(xmls):
+def all_xml_files(xmls):
     """Files are xml files."""
     return all([is_xml_file(xml) for xml in xmls])
 

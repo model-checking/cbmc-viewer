@@ -632,19 +632,18 @@ def do_make_trace(viewer_trace, cbmc_trace, srcdir, wkdir):
     """Implementation of make-trace"""
 
     if viewer_trace:
-        if filet.are_json_files(viewer_trace):
+        if filet.all_json_files(viewer_trace):
             return TraceFromJson(viewer_trace)
         fail("Expected json files: {}".format(viewer_trace))
 
     if cbmc_trace and srcdir:
-        if filet.are_text_files(cbmc_trace):
+        if filet.all_text_files(cbmc_trace):
             if wkdir:
                 return TraceFromCbmcText(cbmc_trace, srcdir, wkdir)
-            else:
-                fail("Expected --srcdir, --wkdir, and cbmc trace output.")
-        if filet.are_json_files(cbmc_trace):
+            fail("Expected --srcdir, --wkdir, and cbmc trace output.")
+        if filet.all_json_files(cbmc_trace):
             return TraceFromCbmcJson(cbmc_trace, srcdir)
-        if filet.are_xml_files(cbmc_trace):
+        if filet.all_xml_files(cbmc_trace):
             return TraceFromCbmcXml(cbmc_trace, srcdir)
         fail("Expected json files or xml files, not both: {}"
              .format(cbmc_trace))

@@ -194,14 +194,14 @@ def do_make_reachable(viewer_reachable, cbmc_reachable, srcdir, goto):
     """The implementation of make-reachable."""
 
     if viewer_reachable:
-        if filet.are_json_files(viewer_reachable):
+        if filet.all_json_files(viewer_reachable):
             return ReachableFromJson(viewer_reachable)
         fail("Expected json files: {}".format(viewer_reachable))
 
     if cbmc_reachable and srcdir:
-        if filet.are_json_files(cbmc_reachable):
+        if filet.all_json_files(cbmc_reachable):
             return ReachableFromCbmcJson(cbmc_reachable, srcdir)
-        if filet.are_xml_files(cbmc_reachable):
+        if filet.all_xml_files(cbmc_reachable):
             return ReachableFromCbmcXml(cbmc_reachable, srcdir)
         fail("Expected json files or xml files, not both: {}"
              .format(cbmc_reachable))
