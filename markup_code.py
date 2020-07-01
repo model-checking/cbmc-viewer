@@ -3,6 +3,7 @@
 
 """Annotated source code."""
 
+import html
 import os
 import re
 
@@ -39,7 +40,7 @@ class Code:
 
         # load code into a string
         with open(os.path.join(root, path)) as source:
-            code = untabify_code(source.read())
+            code = html.escape(untabify_code(source.read()), quote=False)
 
         # split code into blocks of code, comments, and string literals
         blocks = split_code_into_blocks(code)

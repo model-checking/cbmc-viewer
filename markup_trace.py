@@ -3,6 +3,7 @@
 
 """Trace annotated with debugging information."""
 
+import html
 import os
 import re
 
@@ -65,7 +66,7 @@ class CodeSnippet:
         try:
             if path not in self.source:
                 with open(os.path.join(self.root, path)) as code:
-                    self.source[path] = code.read().splitlines()
+                    self.source[path] = html.escape(code.read()).splitlines()
         except FileNotFoundError:
             if srcloct.is_builtin(path): # <builtin-library-malloc>, etc.
                 return None
