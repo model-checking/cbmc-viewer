@@ -38,7 +38,7 @@ def run(cmd, cwd=None, ignored=None, encoding=None):
     logging.debug('run: cmd: %s', cmd)
     logging.debug('run: kwds: %s', kwds)
 
-    result = subprocess.run(cmd, **kwds)
+    result = subprocess.run(cmd, **kwds, check=False)
 
     if result.returncode:
         logging.debug('Failed to run command: %s', ' '.join(cmd))
