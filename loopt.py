@@ -115,14 +115,34 @@ class Loop:
 
         return self.loops.get(name)
 
+    def lookup_static(self, name):
+        """Look up the srcloc for the named loop in a static function."""
+
+        # CBMC property checking refers to loop K in function FCN as FCN.K,
+        # but the goto-cc --export-file-local-symbols flag renames FCN.K
+        # appearing in a file FILE in a static function FCN as
+        # __CPROVER_file_local_FILE_FCN_LOOP.N
+        keys = [key for key in self.loops.keys() if key.endswith('_'+name)]
+        if not keys:
+            return None
+        if len(keys) != 1:
+            raise UserWarning("Loop name {} matches {} static loop names: {}"
+                              .format(name, len(keys), keys))
+
+        return self.loops.get(keys[0])
+
     def lookup_assertion(self, name):
         """Look up the srcloc for the named loop unwinding assertion."""
 
+        # CBMC refers to the loop K in function FCN as FCN.K and to
+        # the unwinding assertion associated with that loop as
+        # FCN.unwind.K
         match = re.match(r'^(.*)\.unwind\.([0-9]+)$', name)
         if match is None:
             return None
         loop = '{}.{}'.format(match.group(1), match.group(2))
-        return self.lookup(loop)
+
+        return self.lookup(loop) or self.lookup_static(loop)
 
 ################################################################
 
