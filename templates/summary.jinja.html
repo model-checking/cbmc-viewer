@@ -86,12 +86,12 @@
         <li>Loop unwinding failures
           <ul>
             {% for error in errors.loop %}
-            <li> [{{link.to_trace(error.prop_name)}}]
-              {{error.prop_name}}
+            <li> [{{link.to_trace(error.loop_name)}}]
+              {{error.loop_name}}
               in line
               {{link.to_line(error.file_name, error.line_num, error.line_num)}}
               in file
-              {{link.to_file(error.file_name, error.line_num)}}
+              {{link.to_file(error.file_name, error.file_name)}}
             </li>
             {% endfor %}
           </ul>
