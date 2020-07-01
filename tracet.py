@@ -94,7 +94,7 @@ VALID_TRACE = voluptuous.schema_builder.Schema(
 VALID_TRACES = voluptuous.schema_builder.Schema({
     'traces': {
         # failed property name -> failure trace
-        str : VALID_TRACE}
+        voluptuous.schema_builder.Optional(str): VALID_TRACE}
 }, required=True)
 
 ################################################################
