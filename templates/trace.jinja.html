@@ -61,7 +61,7 @@
 
         <div id="step{{step.num}}" class="step">
         <div class="header">Step {{step.num}}: {{step.srcloc}}</div>
-        {% if code %}
+        {% if step.code %}
         <div class="code">{{step.code}}</div>
         {% endif %}
         <div class="cbmc">{{step.cbmc}}</div>
