@@ -259,8 +259,7 @@ class ResultFromCbmcText(Result):
                 if section == 'trace':
                     # trace module collects traces
                     continue
-                else:
-                    results[STATUS].append(line)
+                results[STATUS].append(line)
 
         return results
 

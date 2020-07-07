@@ -1,27 +1,43 @@
-{% macro to_file(file_name, text, root='.') -%}
-    <a href="{{root}}/{{file_name}}.html">{{text}}</a>
-{%- endmacro %}
+{%- macro to_file(file_name, text, root='.') -%}
+    {%- if file_name.startswith("<") and file_name.endswith(">") -%}
+        {{text|e}}
+    {%- else -%}
+        <a href="{{root}}/{{file_name|e}}.html">{{text|e}}</a>
+    {%- endif -%}
+{%- endmacro -%}
 
-{% macro to_line(file_name, line_num, text, root='.') -%}
-    <a href="{{root}}/{{file_name}}.html#{{line_num}}">{{text}}</a>
-{%- endmacro %}
+{%- macro to_line(file_name, line_num, text, root='.') -%}
+    {%- if file_name.startswith("<") and file_name.endswith(">") -%}
+        {{text|e}}
+    {%- else -%}
+        <a href="{{root}}/{{file_name|e}}.html#{{line_num}}">{{text|e}}</a>
+    {%- endif -%}
+{%- endmacro -%}
 
-{% macro to_file_in_code(file_name, text, root='.') -%}
-    <a href="{{root}}/{{file_name}}.html" target="_code">{{text}}</a>
-{%- endmacro %}
+{%- macro to_file_in_code(file_name, text, root='.') -%}
+    {%- if file_name.startswith("<") and file_name.endswith(">") -%}
+        {{text|e}}
+    {%- else -%}
+        <a href="{{root}}/{{file_name|e}}.html" target="_code">{{text|e}}</a>
+    {%- endif -%}
+{%- endmacro -%}
 
-{% macro to_line_in_code(file_name, line_num, text, root='.') -%}
-    <a href="{{root}}/{{file_name}}.html#{{line_num}}" target="_code">{{text}}</a>
-{%- endmacro %}
+{%- macro to_line_in_code(file_name, line_num, text, root='.') -%}
+    {%- if file_name.startswith("<") and file_name.endswith(">") -%}
+        {{text|e}}
+    {%- else -%}
+        <a href="{{root}}/{{file_name|e}}.html#{{line_num}}" target="_code">{{text|e}}</a>
+    {%- endif -%}
+{%- endmacro -%}
 
-{% macro to_trace(trace_name, text='trace', root='.') -%}
-    <a href="{{root}}/traces/{{trace_name}}.html">{{text}}</a>
-{%- endmacro %}
+{%- macro to_trace(trace_name, text='trace', root='.') -%}
+    <a href="{{root}}/traces/{{trace_name|e}}.html">{{text|e}}</a>
+{%- endmacro -%}
 
-{% macro to_viewer_css(root='.') -%}
-<link rel="stylesheet" type="text/css" href="{{root}}/viewer.css">
-{%- endmacro %}
+{%- macro to_viewer_css(root='.') -%}
+    <link rel="stylesheet" type="text/css" href="{{root}}/viewer.css">
+{%- endmacro -%}
 
-{% macro to_viewer_js(root='.') -%}
-<script type="text/javascript" src="{{root}}/viewer.js"></script>
-{%- endmacro %}
+{%- macro to_viewer_js(root='.') -%}
+    <script type="text/javascript" src="{{root}}/viewer.js"></script>
+{%- endmacro -%}

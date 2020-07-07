@@ -3,6 +3,7 @@
 
 """Trace annotated with debugging information."""
 
+import html
 import os
 import re
 
@@ -65,7 +66,7 @@ class CodeSnippet:
         try:
             if path not in self.source:
                 with open(os.path.join(self.root, path)) as code:
-                    self.source[path] = code.read().splitlines()
+                    self.source[path] = html.escape(code.read()).splitlines()
         except FileNotFoundError:
             if srcloct.is_builtin(path): # <builtin-library-malloc>, etc.
                 return None
@@ -95,10 +96,13 @@ class CodeSnippet:
 class Trace:
     """Trace annotated with debugging information."""
 
-    def __init__(self, name, trace, symbols, properties, snippets, outdir='.'):
+    def __init__(self, name, trace, symbols, properties, loops, snippets,
+                 outdir='.'):
         self.prop_name = name
         self.prop_desc = properties.get_description(name)
-        self.prop_srcloc = format_srcloc(properties.get_srcloc(name), symbols)
+        self.prop_srcloc = format_srcloc(properties.get_srcloc(name)
+                                         or loops.lookup_assertion(name),
+                                         symbols)
         self.steps = [{
             'kind': step['kind'],
             'num': num+1, # convert 0-based index to 1-based line number
@@ -136,6 +140,9 @@ class Trace:
 
 def format_srcloc(srcloc, symbols):
     """Format a source location for a trace step."""
+
+    if srcloc is None:
+        return 'Function none, File none, Line none'
 
     fyle, func, line = srcloc['file'], srcloc['function'], srcloc['line']
     func_srcloc = symbols.lookup(func)

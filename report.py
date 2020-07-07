@@ -54,6 +54,6 @@ def report(config, sources, symbols, results, coverage, traces, properties,
     progress("Annotating traces")
     snippets = markup_trace.CodeSnippet(sources.root)
     for name, trace in traces.traces.items():
-        markup_trace.Trace(name, trace, symbols, properties, snippets).dump(
+        markup_trace.Trace(name, trace, symbols, properties, loops, snippets).dump(
             outdir=trace_dir)
     progress("Annotating traces", True)
