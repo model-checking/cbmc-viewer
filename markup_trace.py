@@ -4,6 +4,7 @@
 """Trace annotated with debugging information."""
 
 import html
+import logging
 import os
 import re
 
@@ -58,9 +59,8 @@ class CodeSnippet:
         """A line of source code."""
 
         if line <= 0: # line numbers are 1-based
-            raise UserWarning(
-                "CodeSnippet lookup: line number not positive: {}".format(line)
-            )
+            logging.info("CodeSnippet lookup: line number not positive: %s", line)
+            return None
         line -= 1    # list indices are 0-based
 
         try:
