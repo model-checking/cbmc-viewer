@@ -23,6 +23,7 @@ JSON_TAG = 'viewer-trace'
 VALID_FUNCTION_CALL = voluptuous.schema_builder.Schema({
     'kind': 'function-call',
     'location': srcloct.VALID_SRCLOC, # function call
+    'hidden': bool,
     'detail' : {
         'name': str,
         'location': srcloct.VALID_SRCLOC # function being called
@@ -32,6 +33,7 @@ VALID_FUNCTION_CALL = voluptuous.schema_builder.Schema({
 VALID_FUNCTION_RETURN = voluptuous.schema_builder.Schema({
     'kind': 'function-return',
     'location': srcloct.VALID_SRCLOC, # function return
+    'hidden': bool,
     'detail' : {
         'name': str,
         'location': srcloct.VALID_SRCLOC # function being returned to
@@ -41,6 +43,7 @@ VALID_FUNCTION_RETURN = voluptuous.schema_builder.Schema({
 VALID_VARIABLE_ASSIGNMENT = voluptuous.schema_builder.Schema({
     'kind': 'variable-assignment',
     'location': srcloct.VALID_SRCLOC,
+    'hidden': bool,
     'detail': {
         'lhs': str,
         'rhs-value': str,
@@ -51,6 +54,7 @@ VALID_VARIABLE_ASSIGNMENT = voluptuous.schema_builder.Schema({
 VALID_PARAMETER_ASSIGNMENT = voluptuous.schema_builder.Schema({
     'kind': 'parameter-assignment',
     'location': srcloct.VALID_SRCLOC,
+    'hidden': bool,
     'detail': {
         'lhs': str,
         'rhs-value': str,
@@ -61,6 +65,7 @@ VALID_PARAMETER_ASSIGNMENT = voluptuous.schema_builder.Schema({
 VALID_FAILURE = voluptuous.schema_builder.Schema({
     'kind': 'failure',
     'location': srcloct.VALID_SRCLOC,
+    'hidden': bool,
     'detail': {
         'property': voluptuous.validators.Any(str, None),
         'reason': str
@@ -70,6 +75,7 @@ VALID_FAILURE = voluptuous.schema_builder.Schema({
 VALID_ASSUMPTION = voluptuous.schema_builder.Schema({
     'kind': 'assumption',
     'location': srcloct.VALID_SRCLOC,
+    'hidden': bool,
     'detail' : {
         "predicate": str
     }
@@ -236,6 +242,7 @@ def parse_text_state(block, root=None, wkdir=None):
     return {
         'kind': 'variable-assignment',
         'location': srcloc,
+        'hidden': False,
         'detail': {
             'lhs': lhs,
             'rhs-value': rhs_value,
@@ -251,6 +258,7 @@ def parse_text_assumption(block, root=None, wkdir=None):
     return {
         'kind': 'assumption',
         'location': srcloc,
+        'hidden': False,
         'detail': {
             'predicate': lines[2].strip()
         }
@@ -264,6 +272,7 @@ def parse_text_failure(block, root=None, wkdir=None):
     return {
         'kind': 'failure',
         'location': srcloc,
+        'hidden': False,
         'detail': {
             'property': None,
             'reason': lines[2].strip()
@@ -321,14 +330,8 @@ def parse_xml_step(step, root=None):
     """Parse a step in an xml trace."""
 
     if step.get('hidden') == 'true':
-        # Skip hidden steps, but not function returns for built-in
-        # functions which are hidden in xml output (probably by
-        # mistake).
-        if step.tag != 'function_return':
-            # skip step: not a function return
-            return None
-        if not step.find('function').find('location').get('file').startswith('<builtin-library'):
-            # skip step: not a built-in function return
+        # Skip hidden steps, but retain function call/return pairs
+        if step.tag not in ['function_call', 'function_return']:
             return None
 
     kind = step.tag
@@ -342,7 +345,10 @@ def parse_xml_step(step, root=None):
         logging.warning('Skipping step type: %s', kind)
         return None
 
-    return parser(step, root)
+    parsed_step = parser(step, root)
+    if parsed_step:
+        parsed_step['hidden'] = bool(step.get('hidden'))
+    return parsed_step
 
 def parse_xml_failure(step, root=None):
     """Parse a failure step in an xml trace."""
@@ -450,14 +456,8 @@ def parse_json_step(step, root=None):
     """Parse a step of a json trace."""
 
     if step['hidden']:
-        # Skip hidden steps, but not function returns for built-in
-        # functions which are hidden in json output (probably by
-        # mistake).
-        if step['stepType'] != 'function-return':
-            # skip step: not a function return
-            return None
-        if not step['function']['sourceLocation']['file'].startswith('<builtin-library'):
-            # skip step: not a built-in function return
+        # Skip hidden steps, but retain function call/return pairs
+        if step['stepType'] not in ['function-call', 'function-return']:
             return None
 
     kind = step['stepType']
@@ -469,7 +469,10 @@ def parse_json_step(step, root=None):
     if parser is None:
         raise UserWarning("Unknown json step type: {}".format(kind))
 
-    return parser(step, root)
+    parsed_step = parser(step, root)
+    if parsed_step:
+        parsed_step['hidden'] = bool(step['hidden'])
+    return parsed_step
 
 def parse_json_failure(step, root=None):
     """Parse a failure step of a json trace."""
@@ -611,7 +614,8 @@ def close_function_stack_frames(trace):
                 "name": callee_name
             },
             "kind": "function-return",
-            "location": location
+            "location": location,
+            "hidden": True # TODO: should match corresponding call
         }
         trace.append(function_return)
 
