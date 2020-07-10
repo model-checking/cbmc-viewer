@@ -4,6 +4,7 @@
 """Command line options."""
 
 import logging
+import os
 import platform
 
 from sourcet import Sources
@@ -520,6 +521,12 @@ def defaults(args):
     args = default_source_method(args)
     args = default_tags_method(args)
     warn_against_using_text_for_cbmc_output(args)
+
+    if hasattr(args, 'srcdir'):
+        args.srcdir = os.path.abspath(args.srcdir)
+    if hasattr(args, 'wkdir'):
+        args.wkdir = os.path.abspath(args.wkdir)
+
     return args
 
 ################################################################
