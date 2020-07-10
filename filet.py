@@ -30,6 +30,7 @@ def filetype(filename):
     # Return the file type
     try:
         return {
+            'log': File.TEXT,
             'txt': File.TEXT,
             'jsn': File.JSON,
             'json': File.JSON,
