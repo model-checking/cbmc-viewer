@@ -4,6 +4,7 @@
 """Annotated source code."""
 
 import html
+import logging
 import os
 import re
 
@@ -38,25 +39,41 @@ class Code:
 
     def __init__(self, root, path, symbols, coverage, outdir='.'):
 
-        # load code into a string
-        with open(os.path.join(root, path)) as source:
-            code = html.escape(untabify_code(source.read()), quote=False)
+        try:
+            # load code into a string
+            with open(os.path.join(root, path)) as source:
+                code = html.escape(untabify_code(source.read()), quote=False)
 
-        # split code into blocks of code, comments, and string literals
-        blocks = split_code_into_blocks(code)
+            # split code into blocks of code, comments, and string literals
+            blocks = split_code_into_blocks(code)
 
-        # link symbols in code blocks to symbol definitions
-        linked_blocks = link_symbols_in_code_blocks(path, blocks, symbols)
+            # link symbols in code blocks to symbol definitions
+            linked_blocks = link_symbols_in_code_blocks(path, blocks, symbols)
 
-        # reform code as a string with symbols linked to definitions
-        linked_code = ''.join(linked_blocks)
+            # reform code as a string with symbols linked to definitions
+            linked_code = ''.join(linked_blocks)
 
-        # break code into lines annotated with line number and line coverage
-        annotated_lines = annotate_code(path, linked_code, coverage)
+            # break code into lines annotated with line number and line coverage
+            annotated_lines = annotate_code(path, linked_code, coverage)
+
+            self.lines = annotated_lines
+        except FileNotFoundError:
+            # The goto symbol table occassional refers to header files
+            # like gcc_builtin_headers_types.h that are part of the
+            # CBMC implementation.
+            #   * We skip source annotation: We treat the file as a
+            #     zero-length file with nothing to annotate.
+            #   * We print a simple warning message: The relative path
+            #     to the file in the symbol table was interpreted by
+            #     the symbol table parser as relative to the working
+            #     directory.  Printing this path in the warning is
+            #     confusing, so we print just the base name.
+            logging.warning("Skipping source file annotation: %s",
+                            os.path.basename(path))
+            self.lines = []
 
         self.filename = path
         self.path_to_root = markup_link.path_to_file('.', path)
-        self.lines = annotated_lines
         self.outdir = outdir
         self.validate()
 
