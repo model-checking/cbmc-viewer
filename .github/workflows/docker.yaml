@@ -1,0 +1,56 @@
+name: Docker containers
+
+# Build containers only on pushes of tags matching a given expression
+on:
+  push:
+    tags:
+      - docker-*
+
+env:
+  # $ACCT is a DockerHub account
+  ACCT: markrtuttle
+
+  # $REPO is a DockerHub repository
+  REPO: viewer-binaries
+
+  # $GITHUB_REF = /refs/tags/docker-N.M where N.M is the version number
+  # $TAG_PREFIX is the prefix of $GITHUB_REF preceding the version number
+  TAG_PREFIX: .*docker-
+
+  # $DOCKER is path to directory containing docker makefiles and scripts
+  DOCKER: .github/workflows/docker
+
+  # $TOKEN is a DockerHub personal access token stored as a GitHub secret
+  TOKEN: ${{secrets.DOCKER_TOKEN}}
+
+jobs:
+  Build:
+    name: Build and push container
+    runs-on: ubuntu-20.04
+    steps:
+
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+
+      - name: Update the submodules
+        run: git submodule update --init
+
+      - name: Build the container
+        run: |
+          VER=`echo ${GITHUB_REF} | sed "s/${TAG_PREFIX}//"`
+          make -C ${DOCKER} ACCT=${ACCT} REPO=${REPO} VER=${VER} build
+
+      - name: Push the package
+        run: |
+          echo ${TOKEN} | docker login --username ${ACCT} --password-stdin
+
+          VER=`echo ${GITHUB_REF} | sed "s/${TAG_PREFIX}//"`
+          make -C ${DOCKER} ACCT=${ACCT} REPO=${REPO} VER=${VER} push
+
+          docker logout
+
+      # At the moment only the viewer workflow creates the cbmc/viewer container
+      - name: Build and push combined container
+        run: |
+          echo ${TOKEN} | docker login --username ${ACCT} --password-stdin
+          make -C ${DOCKER} -f Makefile-combined ACCT=${ACCT} build-and-push

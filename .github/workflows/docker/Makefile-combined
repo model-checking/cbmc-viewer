@@ -1,0 +1,44 @@
+# -*- mode: makefile -*-
+# The first line sets the emacs major mode to Makefile
+
+# Call this Makefile from this directory
+# make -C $(DOCKERPATH) build-combined
+# make -C $(DOCKERPATH) push-combined
+
+ACCT = markrtuttle
+REPO = cbmc
+
+ROOT = .
+DOCKERPATH = .
+DOCKERFILE = Dockerfile-combined
+
+VIEWER ?= viewer-binaries
+CBMC ?= cbmc-binaries
+LAST = ./last-version.py
+
+build-and-push:
+	CBMC_VER=$(shell $(LAST) --account $(ACCT) --repository $(CBMC)); \
+	VIEWER_VER=$(shell $(LAST) --account $(ACCT) --repository $(VIEWER)); \
+	VER=$${CBMC_VER}-$${VIEWER_VER}; \
+	docker pull $(ACCT)/$(CBMC):$${CBMC_VER} && \
+	docker tag $(ACCT)/$(CBMC):$${CBMC_VER} $(CBMC) && \
+	docker pull $(ACCT)/$(VIEWER):$${VIEWER_VER} && \
+	docker tag $(ACCT)/$(VIEWER):$${VIEWER_VER} $(VIEWER) && \
+	make \
+	  ROOT=$(ROOT) \
+	  DOCKERPATH=$(DOCKERPATH) \
+	  DOCKERFILE=$(DOCKERFILE) \
+	  ACCT=$(ACCT) \
+	  REPO=$(REPO) \
+	  VER=$${VER}  \
+	    build && \
+	make \
+	  ROOT=$(ROOT) \
+	  DOCKERPATH=$(DOCKERPATH) \
+	  DOCKERFILE=$(DOCKERFILE) \
+	  ACCT=$(ACCT) \
+	  REPO=$(REPO) \
+	  VER=$${VER}  \
+	    push
+
+.PHONY: build-and-push
