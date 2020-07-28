@@ -25,6 +25,8 @@ RUN \
   apt update && apt install -y \
     ctags \
     gcc \
+    git \
+    libc6-dev-i386 \
     ninja-build \
     python-is-python3 \
     python3 \
