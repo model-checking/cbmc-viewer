@@ -10,8 +10,8 @@
 import argparse
 import sys
 
-import reachablet
-import optionst
+from cbmc_viewer import optionst
+from cbmc_viewer import reachablet
 
 ################################################################
 

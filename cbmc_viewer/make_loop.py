@@ -10,8 +10,8 @@
 import argparse
 import sys
 
-import loopt
-import optionst
+from cbmc_viewer import loopt
+from cbmc_viewer import optionst
 
 ################################################################
 

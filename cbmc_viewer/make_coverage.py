@@ -11,8 +11,8 @@
 import argparse
 import sys
 
-import coveraget
-import optionst
+from cbmc_viewer import coveraget
+from cbmc_viewer import optionst
 
 def create_parser():
     """Command line parser."""

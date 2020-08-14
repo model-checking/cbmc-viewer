@@ -13,17 +13,17 @@ import datetime
 import logging
 import os
 
-import configt
-import coveraget
-import loopt
-import optionst
-import propertyt
-import reachablet
-import report
-import resultt
-import sourcet
-import symbolt
-import tracet
+from cbmc_viewer import configt
+from cbmc_viewer import coveraget
+from cbmc_viewer import loopt
+from cbmc_viewer import optionst
+from cbmc_viewer import propertyt
+from cbmc_viewer import reachablet
+from cbmc_viewer import report
+from cbmc_viewer import resultt
+from cbmc_viewer import sourcet
+from cbmc_viewer import symbolt
+from cbmc_viewer import tracet
 
 def create_parser():
     """Create the command line parser."""

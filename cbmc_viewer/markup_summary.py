@@ -6,8 +6,8 @@
 import voluptuous
 import voluptuous.humanize
 
-import templates
-import util
+from cbmc_viewer import templates
+from cbmc_viewer import util
 
 ################################################################
 # Data passed to jinja to generate proof summary from summary.jinja.html

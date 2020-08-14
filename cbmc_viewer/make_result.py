@@ -5,32 +5,31 @@
 
 # -*- mode: python-mode -*-
 
-"""List CBMC error traces."""
+"""List CBMC property checking results."""
 
 import argparse
 import sys
 
-import optionst
-import tracet
+from cbmc_viewer import optionst
+from cbmc_viewer import resultt
 
 def create_parser():
     """Command line parser."""
 
     parser = argparse.ArgumentParser(
-        description="List CBMC error traces."
+        description='List CBMC property checking results.'
     )
 
-    optionst.viewer_trace(parser)
-    optionst.wkdir(parser)
-    optionst.srcdir(parser)
-
+    optionst.viewer_result(parser)
     parser.add_argument(
-        'cbmc_trace',
+        'cbmc_result',
         nargs='*',
         help="""
-        An xml or json file containing the output of cbmc property checking.
-        Merge the traces if more than one file is given.
-        Do not mix xml and json files.
+        One or more files containing the output of cbmc property checking
+        as text, xml, or json.
+        Multiple files will be merged into a single list of
+        property checking results.
+        Do not mix text, xml, and json files.
         """
     )
 
@@ -41,15 +40,15 @@ def create_parser():
 ################################################################
 
 def main():
-    """List CBMC error traces."""
+    """List CBMC property checking results."""
 
     args = create_parser().parse_args()
     args = optionst.defaults(args)
 
     try:
-        traces = tracet.do_make_trace(args.viewer_trace, args.cbmc_trace,
-                                      args.srcdir, args.wkdir)
-        print(traces)
+        results = resultt.do_make_result(args.viewer_result,
+                                         args.cbmc_result)
+        print(results)
     except UserWarning as error:
         sys.exit(error)
 

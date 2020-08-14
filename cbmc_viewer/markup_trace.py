@@ -11,10 +11,10 @@ import re
 import voluptuous
 import voluptuous.humanize
 
-import markup_link
-import srcloct
-import templates
-import util
+from cbmc_viewer import markup_link
+from cbmc_viewer import srcloct
+from cbmc_viewer import templates
+from cbmc_viewer import util
 
 # Name of directory holding annotated traces
 TRACES = "traces"

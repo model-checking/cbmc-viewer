@@ -15,10 +15,10 @@ import logging
 import voluptuous
 import voluptuous.humanize
 
-import filet
-import parse
-import srcloct
-import util
+from cbmc_viewer import filet
+from cbmc_viewer import parse
+from cbmc_viewer import srcloct
+from cbmc_viewer import util
 
 JSON_TAG = "viewer-property"
 

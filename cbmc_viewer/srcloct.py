@@ -3,9 +3,9 @@
 
 """Manipulate source locations and path names appearing in CBMC output."""
 
+import logging
 import os
 import re
-import logging
 
 import voluptuous
 
