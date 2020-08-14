@@ -7,8 +7,8 @@ import logging
 import os
 import re
 
-import srcloct
-import runt
+from cbmc_viewer import runt
+from cbmc_viewer import srcloct
 
 def symbol_table(goto):
     """Extract symbol table from goto binary as lines of text."""

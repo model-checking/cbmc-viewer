@@ -16,10 +16,10 @@ import logging
 import voluptuous
 import voluptuous.humanize
 
-import filet
-import parse
-import propertyt
-import util
+from cbmc_viewer import filet
+from cbmc_viewer import parse
+from cbmc_viewer import propertyt
+from cbmc_viewer import util
 
 JSON_TAG = 'viewer-result'
 

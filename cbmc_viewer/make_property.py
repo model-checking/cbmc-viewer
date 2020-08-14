@@ -10,8 +10,8 @@
 import argparse
 import sys
 
-import propertyt
-import optionst
+from cbmc_viewer import optionst
+from cbmc_viewer import propertyt
 
 ################################################################
 

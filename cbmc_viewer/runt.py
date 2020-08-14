@@ -3,10 +3,9 @@
 
 """Run a command with simple error handling."""
 
-import sys
-
 import logging
 import subprocess
+import sys
 
 def run(cmd, cwd=None, ignored=None, encoding=None):
     """Run command cmd in directory cwd.

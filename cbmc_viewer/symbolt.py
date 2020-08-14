@@ -11,12 +11,12 @@ import os
 import voluptuous
 import voluptuous.humanize
 
-import parse
-import runt
-import sourcet
-import srcloct
-import symbol_table
-import util
+from cbmc_viewer import parse
+from cbmc_viewer import runt
+from cbmc_viewer import sourcet
+from cbmc_viewer import srcloct
+from cbmc_viewer import symbol_table
+from cbmc_viewer import util
 
 JSON_TAG = 'viewer-symbol'
 

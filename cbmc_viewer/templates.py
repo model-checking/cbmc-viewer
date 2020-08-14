@@ -3,9 +3,12 @@
 
 """Jinja templates."""
 
-import os
-import sys
 import jinja2
+
+import pkg_resources
+
+PACKAGE = 'cbmc_viewer'
+TEMPLATES = 'templates'
 
 SUMMARY_TEMPLATE = 'summary.jinja.html'
 CODE_TEMPLATE = 'code.jinja.html'
@@ -20,7 +23,7 @@ def env():
     global ENV
 
     if ENV is None:
-        template_dir = os.path.join(os.path.abspath(sys.path[0]), 'templates')
+        template_dir = pkg_resources.resource_filename(PACKAGE, TEMPLATES)
         ENV = jinja2.Environment(
             loader=jinja2.FileSystemLoader(template_dir)
         )

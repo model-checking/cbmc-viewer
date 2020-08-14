@@ -14,7 +14,7 @@ import html
 import os
 import re
 
-import srcloct
+from cbmc_viewer import srcloct
 
 ################################################################
 

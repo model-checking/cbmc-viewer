@@ -1,0 +1,14 @@
+cbmc-viewer
+cbmc_viewer.egg-info/
+easy_install
+easy_install-*
+make-coverage
+make-loop
+make-property
+make-reachable
+make-result
+make-source
+make-symbol
+make-trace
+build/
+dist/

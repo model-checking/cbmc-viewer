@@ -7,12 +7,11 @@ import logging
 import os
 import platform
 
-from sourcet import Sources
-import symbolt
-from symbolt import Tags
-import filet
-
-import version as viewer_version
+from cbmc_viewer import filet
+from cbmc_viewer import symbolt
+from cbmc_viewer import version as viewer_version
+from cbmc_viewer.sourcet import Sources
+from cbmc_viewer.symbolt import Tags
 
 def goto(parser):
     'Define --goto command line option.'

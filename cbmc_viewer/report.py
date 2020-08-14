@@ -6,11 +6,16 @@
 import logging
 import os
 import shutil
-import sys
 
-import markup_code
-import markup_summary
-import markup_trace
+import pkg_resources
+
+from cbmc_viewer import markup_code
+from cbmc_viewer import markup_summary
+from cbmc_viewer import markup_trace
+
+PACKAGE = 'cbmc_viewer'
+VIEWER_JS = 'viewer.js'
+VIEWER_CSS = 'viewer.css'
 
 def progress_default(string):
     """A default method for logging progress."""
@@ -32,12 +37,10 @@ def report(config, sources, symbols, results, coverage, traces, properties,
     trace_dir = os.path.join(report_dir, markup_trace.TRACES)
 
     os.makedirs(report_dir, exist_ok=True)
-    script_dir = sys.path[0] # cbmc-viewer installation directory
-
-    shutil.copy(os.path.join(script_dir, 'viewer.css'),
-                os.path.join(report_dir, 'viewer.css'))
-    shutil.copy(os.path.join(script_dir, 'viewer.js'),
-                os.path.join(report_dir, 'viewer.js'))
+    shutil.copy(pkg_resources.resource_filename(PACKAGE, VIEWER_CSS),
+                report_dir)
+    shutil.copy(pkg_resources.resource_filename(PACKAGE, VIEWER_JS),
+                report_dir)
 
     progress("Preparing report summary")
     markup_summary.Summary(

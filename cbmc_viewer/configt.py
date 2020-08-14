@@ -3,7 +3,7 @@
 
 """CBMC viewer configuration."""
 
-import parse
+from cbmc_viewer import parse
 
 EXPECTED_MISSING = 'expected-missing-functions'
 
