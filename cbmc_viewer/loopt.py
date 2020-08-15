@@ -59,7 +59,7 @@ class Loop:
     def __str__(self):
         """A string representation of the loop table."""
 
-        return json.dumps({JSON_TAG: self.__repr__()}, indent=2)
+        return json.dumps({JSON_TAG: self.__repr__()}, indent=2, sort_keys=True)
 
     def validate(self):
         """Validate loops."""

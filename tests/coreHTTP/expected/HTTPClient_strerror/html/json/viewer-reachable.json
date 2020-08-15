@@ -1,0 +1,12 @@
+{
+  "viewer-reachable": {
+    "reachable": {
+      "source/core_http_client.c": [
+        "HTTPClient_strerror"
+      ],
+      "test/cbmc/proofs/HTTPClient_strerror/HTTPClient_strerror_harness.c": [
+        "HTTPClient_strerror_harness"
+      ]
+    }
+  }
+}

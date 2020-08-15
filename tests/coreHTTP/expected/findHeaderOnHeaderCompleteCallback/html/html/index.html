@@ -1,0 +1,191 @@
+
+
+<html>
+  <head>
+    <title>CBMC</title>
+    <link rel="stylesheet" type="text/css" href="/viewer.css">
+  </head>
+
+  <body>
+    <h1>CBMC report</h1>
+
+    <div class="coverage">
+      <h2>Coverage</h2>
+
+      
+      <p>
+        Coverage: 1.00 (reached 24 of 24 reachable lines)
+      </p>
+
+      
+      <table class="coverage">
+        <tr>
+          <th class="coverage">Coverage</th>
+          <th class="function">Function</th>
+          <th class="file">File</th>
+        </tr>
+        
+        <tr>
+          <td class="coverage">1.00 (7/7)</td>
+          <td class="function"><a href="./source/core_http_client.c.html#2354">findHeaderOnHeaderCompleteCallback</a></td>
+          <td class="file"><a href="./source/core_http_client.c.html">source/core_http_client.c</a></td>
+        </tr>
+        
+        <tr>
+          <td class="coverage">1.00 (4/4)</td>
+          <td class="function"><a href="./test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/findHeaderOnHeaderCompleteCallback_harness.c.html#33">findHeaderOnHeaderCompleteCallback_harness</a></td>
+          <td class="file"><a href="./test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/findHeaderOnHeaderCompleteCallback_harness.c.html">test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/findHeaderOnHeaderCompleteCallback_harness.c</a></td>
+        </tr>
+        
+        <tr>
+          <td class="coverage">1.00 (5/5)</td>
+          <td class="function"><a href="./test/cbmc/sources/http_cbmc_state.c.html#272">allocateFindHeaderContext</a></td>
+          <td class="file"><a href="./test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a></td>
+        </tr>
+        
+        <tr>
+          <td class="coverage">1.00 (8/8)</td>
+          <td class="function"><a href="./test/cbmc/sources/http_cbmc_state.c.html#256">allocateHttpReadHeaderParser</a></td>
+          <td class="file"><a href="./test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a></td>
+        </tr>
+        
+      </table>
+    </div>
+
+    <div class="warnings">
+      <h2> Warnings</h2>
+      
+
+      
+
+      
+
+      
+
+      
+      None
+      
+
+    <div class="errors">
+      <h2>Errors</h2>
+      
+
+      
+
+      
+
+      
+      <ul>
+        
+        <li> File <a href="./source/core_http_client.c.html">source/core_http_client.c</a>
+          <ul>
+            
+            
+            <li>
+              Function <a href="./source/core_http_client.c.html#2354">findHeaderOnHeaderCompleteCallback</a>
+              <ul>
+                
+                <li>
+                  Line <a href="./source/core_http_client.c.html#2363">2363</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderOnHeaderCompleteCallback.assertion.1.html">trace</a>]
+                      assertion pHttpParser != NULL
+                    </li>
+                     
+                  </ul>
+                </li>
+                
+                <li>
+                  Line <a href="./source/core_http_client.c.html#2365">2365</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderOnHeaderCompleteCallback.pointer_dereference.1.html">trace</a>]
+                      dereference failure: pointer NULL in pHttpParser->data
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderOnHeaderCompleteCallback.pointer_dereference.3.html">trace</a>]
+                      dereference failure: deallocated dynamic object in pHttpParser->data
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderOnHeaderCompleteCallback.pointer_dereference.4.html">trace</a>]
+                      dereference failure: dead object in pHttpParser->data
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderOnHeaderCompleteCallback.pointer_dereference.5.html">trace</a>]
+                      dereference failure: pointer outside object bounds in pHttpParser->data
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderOnHeaderCompleteCallback.pointer_dereference.6.html">trace</a>]
+                      dereference failure: invalid integer address in pHttpParser->data
+                    </li>
+                     
+                  </ul>
+                </li>
+                 
+              </ul>
+            </li>
+             
+          </ul>
+        </li>
+        
+        <li> File <a href="./test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>
+          <ul>
+            
+            
+            <li>
+              Function <a href="./test/cbmc/sources/http_cbmc_state.c.html#256">allocateHttpReadHeaderParser</a>
+              <ul>
+                
+                <li>
+                  Line <a href="./test/cbmc/sources/http_cbmc_state.c.html#267">267</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpReadHeaderParser.pointer_dereference.1.html">trace</a>]
+                      dereference failure: pointer NULL in pHttpParser->data
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpReadHeaderParser.pointer_dereference.3.html">trace</a>]
+                      dereference failure: deallocated dynamic object in pHttpParser->data
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpReadHeaderParser.pointer_dereference.4.html">trace</a>]
+                      dereference failure: dead object in pHttpParser->data
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpReadHeaderParser.pointer_dereference.5.html">trace</a>]
+                      dereference failure: pointer outside object bounds in pHttpParser->data
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpReadHeaderParser.pointer_dereference.6.html">trace</a>]
+                      dereference failure: invalid integer address in pHttpParser->data
+                    </li>
+                     
+                  </ul>
+                </li>
+                 
+              </ul>
+            </li>
+             
+          </ul>
+        </li>
+         
+      </ul>
+      
+
+      
+
+    </div>
+  </body>
+</html>

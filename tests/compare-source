@@ -1,0 +1,44 @@
+#! /usr/bin/env python3
+
+# Set emacs mode to Python
+# -*- mode: Python;-*-
+
+import argparse
+import json
+
+def parse_arguments():
+    parser = argparse.ArgumentParser(description='Compare JSON output of make-source.')
+    parser.add_argument(
+        'JSON1',
+        help='JSON output of make-source'
+    )
+    parser.add_argument(
+        'JSON2',
+        help='JSON output of make-source'
+    )
+    return parser.parse_args()
+
+def clean(source):
+    root = source['viewer-source']['root'] + '/'
+    all_files = source['viewer-source']['all_files']
+
+    # Ignore system files not under the source root
+    # Strip the source root from absolute paths of files under the source root
+    all_files = [path[len(root):] for path in all_files if path.startswith(root)]
+
+    source['viewer-source']['root'] = ''
+    source['viewer-source']['all_files'] = all_files
+
+    return source
+
+def main():
+    args = parse_arguments()
+    with open(args.JSON1) as fp:
+        json1 = clean(json.load(fp))
+    with open(args.JSON2) as fp:
+        json2 = clean(json.load(fp))
+
+    if json1 != json2:
+        raise UserWarning(f"make-source output differs: {args.JSON1} {args.JSON2}")
+
+main()

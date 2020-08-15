@@ -1,0 +1,2996 @@
+{
+  "viewer-property": {
+    "properties": {
+      "allocateHttpReadHeaderParser.pointer_dereference.1": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer NULL in pHttpParser->data",
+        "expression": "!(POINTER_OBJECT(pHttpParser) == POINTER_OBJECT(((void **)NULL)))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpReadHeaderParser",
+          "line": 267
+        }
+      },
+      "allocateHttpReadHeaderParser.pointer_dereference.2": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer invalid in pHttpParser->data",
+        "expression": "!IS_INVALID_POINTER(pHttpParser)",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpReadHeaderParser",
+          "line": 267
+        }
+      },
+      "allocateHttpReadHeaderParser.pointer_dereference.3": {
+        "class": "pointer dereference",
+        "description": "dereference failure: deallocated dynamic object in pHttpParser->data",
+        "expression": "!(POINTER_OBJECT(pHttpParser) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpReadHeaderParser",
+          "line": 267
+        }
+      },
+      "allocateHttpReadHeaderParser.pointer_dereference.4": {
+        "class": "pointer dereference",
+        "description": "dereference failure: dead object in pHttpParser->data",
+        "expression": "!(POINTER_OBJECT(pHttpParser) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpReadHeaderParser",
+          "line": 267
+        }
+      },
+      "allocateHttpReadHeaderParser.pointer_dereference.5": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer outside object bounds in pHttpParser->data",
+        "expression": "POINTER_OFFSET(pHttpParser) + 24l >= 0l && OBJECT_SIZE(pHttpParser) >= (unsigned long int)POINTER_OFFSET(pHttpParser) + 32ul",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpReadHeaderParser",
+          "line": 267
+        }
+      },
+      "allocateHttpReadHeaderParser.pointer_dereference.6": {
+        "class": "pointer dereference",
+        "description": "dereference failure: invalid integer address in pHttpParser->data",
+        "expression": "!(POINTER_OBJECT(((void **)NULL)) == POINTER_OBJECT(pHttpParser)) || (char *)pHttpParser + 24l == ((char *)NULL)",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpReadHeaderParser",
+          "line": 267
+        }
+      },
+      "allocateHttpResponse.overflow.1": {
+        "class": "overflow",
+        "description": "arithmetic overflow on unsigned to signed type conversion in (signed long int)headerOffset",
+        "expression": "!(headerOffset >= 9223372036854775808ul)",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 124
+        }
+      },
+      "allocateHttpResponse.overflow.2": {
+        "class": "overflow",
+        "description": "arithmetic overflow on unsigned to signed type conversion in (signed long int)bodyOffset",
+        "expression": "!(bodyOffset >= 9223372036854775808ul)",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 146
+        }
+      },
+      "allocateHttpResponse.pointer_arithmetic.1": {
+        "class": "pointer arithmetic",
+        "description": "pointer arithmetic: pointer NULL in pResponse->pBuffer + (signed long int)headerOffset",
+        "expression": "!(POINTER_OBJECT(pResponse->pBuffer) == POINTER_OBJECT(((uint8_t *)NULL)))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 124
+        }
+      },
+      "allocateHttpResponse.pointer_arithmetic.10": {
+        "class": "pointer arithmetic",
+        "description": "pointer arithmetic: dead object in pResponse->pBuffer + (signed long int)bodyOffset",
+        "expression": "!(POINTER_OBJECT(pResponse->pBuffer) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 146
+        }
+      },
+      "allocateHttpResponse.pointer_arithmetic.11": {
+        "class": "pointer arithmetic",
+        "description": "pointer arithmetic: pointer outside object bounds in pResponse->pBuffer + (signed long int)bodyOffset",
+        "expression": "POINTER_OFFSET(pResponse->pBuffer) + (signed long int)bodyOffset >= 0l && OBJECT_SIZE(pResponse->pBuffer) >= (unsigned long int)POINTER_OFFSET(pResponse->pBuffer) + (unsigned long int)(signed long int)bodyOffset",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 146
+        }
+      },
+      "allocateHttpResponse.pointer_arithmetic.12": {
+        "class": "pointer arithmetic",
+        "description": "pointer arithmetic: invalid integer address in pResponse->pBuffer + (signed long int)bodyOffset",
+        "expression": "!(POINTER_OBJECT(((uint8_t *)NULL)) == POINTER_OBJECT(pResponse->pBuffer)) || pResponse->pBuffer + (signed long int)bodyOffset == ((uint8_t *)NULL)",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 146
+        }
+      },
+      "allocateHttpResponse.pointer_arithmetic.2": {
+        "class": "pointer arithmetic",
+        "description": "pointer arithmetic: pointer invalid in pResponse->pBuffer + (signed long int)headerOffset",
+        "expression": "!IS_INVALID_POINTER(pResponse->pBuffer)",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 124
+        }
+      },
+      "allocateHttpResponse.pointer_arithmetic.3": {
+        "class": "pointer arithmetic",
+        "description": "pointer arithmetic: deallocated dynamic object in pResponse->pBuffer + (signed long int)headerOffset",
+        "expression": "!(POINTER_OBJECT(pResponse->pBuffer) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 124
+        }
+      },
+      "allocateHttpResponse.pointer_arithmetic.4": {
+        "class": "pointer arithmetic",
+        "description": "pointer arithmetic: dead object in pResponse->pBuffer + (signed long int)headerOffset",
+        "expression": "!(POINTER_OBJECT(pResponse->pBuffer) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 124
+        }
+      },
+      "allocateHttpResponse.pointer_arithmetic.5": {
+        "class": "pointer arithmetic",
+        "description": "pointer arithmetic: pointer outside object bounds in pResponse->pBuffer + (signed long int)headerOffset",
+        "expression": "POINTER_OFFSET(pResponse->pBuffer) + (signed long int)headerOffset >= 0l && OBJECT_SIZE(pResponse->pBuffer) >= (unsigned long int)POINTER_OFFSET(pResponse->pBuffer) + (unsigned long int)(signed long int)headerOffset",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 124
+        }
+      },
+      "allocateHttpResponse.pointer_arithmetic.6": {
+        "class": "pointer arithmetic",
+        "description": "pointer arithmetic: invalid integer address in pResponse->pBuffer + (signed long int)headerOffset",
+        "expression": "!(POINTER_OBJECT(((uint8_t *)NULL)) == POINTER_OBJECT(pResponse->pBuffer)) || pResponse->pBuffer + (signed long int)headerOffset == ((uint8_t *)NULL)",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 124
+        }
+      },
+      "allocateHttpResponse.pointer_arithmetic.7": {
+        "class": "pointer arithmetic",
+        "description": "pointer arithmetic: pointer NULL in pResponse->pBuffer + (signed long int)bodyOffset",
+        "expression": "!(POINTER_OBJECT(pResponse->pBuffer) == POINTER_OBJECT(((uint8_t *)NULL)))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 146
+        }
+      },
+      "allocateHttpResponse.pointer_arithmetic.8": {
+        "class": "pointer arithmetic",
+        "description": "pointer arithmetic: pointer invalid in pResponse->pBuffer + (signed long int)bodyOffset",
+        "expression": "!IS_INVALID_POINTER(pResponse->pBuffer)",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 146
+        }
+      },
+      "allocateHttpResponse.pointer_arithmetic.9": {
+        "class": "pointer arithmetic",
+        "description": "pointer arithmetic: deallocated dynamic object in pResponse->pBuffer + (signed long int)bodyOffset",
+        "expression": "!(POINTER_OBJECT(pResponse->pBuffer) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 146
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.1": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer NULL in pResponse->bufferLen",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(((size_t *)NULL)))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 115
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.10": {
+        "class": "pointer dereference",
+        "description": "dereference failure: dead object in pResponse->pBuffer",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 115
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.11": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer outside object bounds in pResponse->pBuffer",
+        "expression": "POINTER_OFFSET(pResponse) >= 0l && OBJECT_SIZE(pResponse) >= (unsigned long int)POINTER_OFFSET(pResponse) + 8ul",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 115
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.12": {
+        "class": "pointer dereference",
+        "description": "dereference failure: invalid integer address in pResponse->pBuffer",
+        "expression": "!(POINTER_OBJECT(((uint8_t **)NULL)) == POINTER_OBJECT(pResponse)) || pResponse == ((HTTPResponse_t *)NULL)",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 115
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.13": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer NULL in pResponse->pBuffer",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(((uint8_t **)NULL)))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 119
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.14": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer invalid in pResponse->pBuffer",
+        "expression": "!IS_INVALID_POINTER(pResponse)",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 119
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.15": {
+        "class": "pointer dereference",
+        "description": "dereference failure: deallocated dynamic object in pResponse->pBuffer",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 119
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.16": {
+        "class": "pointer dereference",
+        "description": "dereference failure: dead object in pResponse->pBuffer",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 119
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.17": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer outside object bounds in pResponse->pBuffer",
+        "expression": "POINTER_OFFSET(pResponse) >= 0l && OBJECT_SIZE(pResponse) >= (unsigned long int)POINTER_OFFSET(pResponse) + 8ul",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 119
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.18": {
+        "class": "pointer dereference",
+        "description": "dereference failure: invalid integer address in pResponse->pBuffer",
+        "expression": "!(POINTER_OBJECT(((uint8_t **)NULL)) == POINTER_OBJECT(pResponse)) || pResponse == ((HTTPResponse_t *)NULL)",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 119
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.19": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer NULL in pResponse->pBuffer",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(((uint8_t **)NULL)))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 124
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.2": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer invalid in pResponse->bufferLen",
+        "expression": "!IS_INVALID_POINTER(pResponse)",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 115
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.20": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer invalid in pResponse->pBuffer",
+        "expression": "!IS_INVALID_POINTER(pResponse)",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 124
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.21": {
+        "class": "pointer dereference",
+        "description": "dereference failure: deallocated dynamic object in pResponse->pBuffer",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 124
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.22": {
+        "class": "pointer dereference",
+        "description": "dereference failure: dead object in pResponse->pBuffer",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 124
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.23": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer outside object bounds in pResponse->pBuffer",
+        "expression": "POINTER_OFFSET(pResponse) >= 0l && OBJECT_SIZE(pResponse) >= (unsigned long int)POINTER_OFFSET(pResponse) + 8ul",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 124
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.24": {
+        "class": "pointer dereference",
+        "description": "dereference failure: invalid integer address in pResponse->pBuffer",
+        "expression": "!(POINTER_OBJECT(((uint8_t **)NULL)) == POINTER_OBJECT(pResponse)) || pResponse == ((HTTPResponse_t *)NULL)",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 124
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.25": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer NULL in pResponse->pHeaders",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(((const uint8_t **)NULL)))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 123
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.26": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer invalid in pResponse->pHeaders",
+        "expression": "!IS_INVALID_POINTER(pResponse)",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 123
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.27": {
+        "class": "pointer dereference",
+        "description": "dereference failure: deallocated dynamic object in pResponse->pHeaders",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 123
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.28": {
+        "class": "pointer dereference",
+        "description": "dereference failure: dead object in pResponse->pHeaders",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 123
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.29": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer outside object bounds in pResponse->pHeaders",
+        "expression": "POINTER_OFFSET(pResponse) + 32l >= 0l && OBJECT_SIZE(pResponse) >= (unsigned long int)POINTER_OFFSET(pResponse) + 40ul",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 123
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.3": {
+        "class": "pointer dereference",
+        "description": "dereference failure: deallocated dynamic object in pResponse->bufferLen",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 115
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.30": {
+        "class": "pointer dereference",
+        "description": "dereference failure: invalid integer address in pResponse->pHeaders",
+        "expression": "!(POINTER_OBJECT(((const uint8_t **)NULL)) == POINTER_OBJECT(pResponse)) || (char *)pResponse + 32l == ((char *)NULL)",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 123
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.31": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer NULL in pResponse->pHeaders",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(((const uint8_t **)NULL)))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 127
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.32": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer invalid in pResponse->pHeaders",
+        "expression": "!IS_INVALID_POINTER(pResponse)",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 127
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.33": {
+        "class": "pointer dereference",
+        "description": "dereference failure: deallocated dynamic object in pResponse->pHeaders",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 127
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.34": {
+        "class": "pointer dereference",
+        "description": "dereference failure: dead object in pResponse->pHeaders",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 127
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.35": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer outside object bounds in pResponse->pHeaders",
+        "expression": "POINTER_OFFSET(pResponse) + 32l >= 0l && OBJECT_SIZE(pResponse) >= (unsigned long int)POINTER_OFFSET(pResponse) + 40ul",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 127
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.36": {
+        "class": "pointer dereference",
+        "description": "dereference failure: invalid integer address in pResponse->pHeaders",
+        "expression": "!(POINTER_OBJECT(((const uint8_t **)NULL)) == POINTER_OBJECT(pResponse)) || (char *)pResponse + 32l == ((char *)NULL)",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 127
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.37": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer NULL in pResponse->bufferLen",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(((size_t *)NULL)))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 134
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.38": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer invalid in pResponse->bufferLen",
+        "expression": "!IS_INVALID_POINTER(pResponse)",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 134
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.39": {
+        "class": "pointer dereference",
+        "description": "dereference failure: deallocated dynamic object in pResponse->bufferLen",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 134
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.4": {
+        "class": "pointer dereference",
+        "description": "dereference failure: dead object in pResponse->bufferLen",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 115
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.40": {
+        "class": "pointer dereference",
+        "description": "dereference failure: dead object in pResponse->bufferLen",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 134
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.41": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer outside object bounds in pResponse->bufferLen",
+        "expression": "POINTER_OFFSET(pResponse) + 8l >= 0l && OBJECT_SIZE(pResponse) >= (unsigned long int)POINTER_OFFSET(pResponse) + 16ul",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 134
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.42": {
+        "class": "pointer dereference",
+        "description": "dereference failure: invalid integer address in pResponse->bufferLen",
+        "expression": "!(POINTER_OBJECT(((size_t *)NULL)) == POINTER_OBJECT(pResponse)) || (char *)pResponse + 8l == ((char *)NULL)",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 134
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.43": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer NULL in pResponse->pBuffer",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(((uint8_t **)NULL)))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 143
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.44": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer invalid in pResponse->pBuffer",
+        "expression": "!IS_INVALID_POINTER(pResponse)",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 143
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.45": {
+        "class": "pointer dereference",
+        "description": "dereference failure: deallocated dynamic object in pResponse->pBuffer",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 143
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.46": {
+        "class": "pointer dereference",
+        "description": "dereference failure: dead object in pResponse->pBuffer",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 143
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.47": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer outside object bounds in pResponse->pBuffer",
+        "expression": "POINTER_OFFSET(pResponse) >= 0l && OBJECT_SIZE(pResponse) >= (unsigned long int)POINTER_OFFSET(pResponse) + 8ul",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 143
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.48": {
+        "class": "pointer dereference",
+        "description": "dereference failure: invalid integer address in pResponse->pBuffer",
+        "expression": "!(POINTER_OBJECT(((uint8_t **)NULL)) == POINTER_OBJECT(pResponse)) || pResponse == ((HTTPResponse_t *)NULL)",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 143
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.49": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer NULL in pResponse->pBuffer",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(((uint8_t **)NULL)))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 146
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.5": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer outside object bounds in pResponse->bufferLen",
+        "expression": "POINTER_OFFSET(pResponse) + 8l >= 0l && OBJECT_SIZE(pResponse) >= (unsigned long int)POINTER_OFFSET(pResponse) + 16ul",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 115
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.50": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer invalid in pResponse->pBuffer",
+        "expression": "!IS_INVALID_POINTER(pResponse)",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 146
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.51": {
+        "class": "pointer dereference",
+        "description": "dereference failure: deallocated dynamic object in pResponse->pBuffer",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 146
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.52": {
+        "class": "pointer dereference",
+        "description": "dereference failure: dead object in pResponse->pBuffer",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 146
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.53": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer outside object bounds in pResponse->pBuffer",
+        "expression": "POINTER_OFFSET(pResponse) >= 0l && OBJECT_SIZE(pResponse) >= (unsigned long int)POINTER_OFFSET(pResponse) + 8ul",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 146
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.54": {
+        "class": "pointer dereference",
+        "description": "dereference failure: invalid integer address in pResponse->pBuffer",
+        "expression": "!(POINTER_OBJECT(((uint8_t **)NULL)) == POINTER_OBJECT(pResponse)) || pResponse == ((HTTPResponse_t *)NULL)",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 146
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.55": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer NULL in pResponse->pBody",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(((const uint8_t **)NULL)))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 145
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.56": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer invalid in pResponse->pBody",
+        "expression": "!IS_INVALID_POINTER(pResponse)",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 145
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.57": {
+        "class": "pointer dereference",
+        "description": "dereference failure: deallocated dynamic object in pResponse->pBody",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 145
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.58": {
+        "class": "pointer dereference",
+        "description": "dereference failure: dead object in pResponse->pBody",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 145
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.59": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer outside object bounds in pResponse->pBody",
+        "expression": "POINTER_OFFSET(pResponse) + 48l >= 0l && OBJECT_SIZE(pResponse) >= (unsigned long int)POINTER_OFFSET(pResponse) + 56ul",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 145
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.6": {
+        "class": "pointer dereference",
+        "description": "dereference failure: invalid integer address in pResponse->bufferLen",
+        "expression": "!(POINTER_OBJECT(((size_t *)NULL)) == POINTER_OBJECT(pResponse)) || (char *)pResponse + 8l == ((char *)NULL)",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 115
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.60": {
+        "class": "pointer dereference",
+        "description": "dereference failure: invalid integer address in pResponse->pBody",
+        "expression": "!(POINTER_OBJECT(((const uint8_t **)NULL)) == POINTER_OBJECT(pResponse)) || (char *)pResponse + 48l == ((char *)NULL)",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 145
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.61": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer NULL in pResponse->pBody",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(((const uint8_t **)NULL)))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 151
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.62": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer invalid in pResponse->pBody",
+        "expression": "!IS_INVALID_POINTER(pResponse)",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 151
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.63": {
+        "class": "pointer dereference",
+        "description": "dereference failure: deallocated dynamic object in pResponse->pBody",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 151
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.64": {
+        "class": "pointer dereference",
+        "description": "dereference failure: dead object in pResponse->pBody",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 151
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.65": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer outside object bounds in pResponse->pBody",
+        "expression": "POINTER_OFFSET(pResponse) + 48l >= 0l && OBJECT_SIZE(pResponse) >= (unsigned long int)POINTER_OFFSET(pResponse) + 56ul",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 151
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.66": {
+        "class": "pointer dereference",
+        "description": "dereference failure: invalid integer address in pResponse->pBody",
+        "expression": "!(POINTER_OBJECT(((const uint8_t **)NULL)) == POINTER_OBJECT(pResponse)) || (char *)pResponse + 48l == ((char *)NULL)",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 151
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.7": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer NULL in pResponse->pBuffer",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(((uint8_t **)NULL)))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 115
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.8": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer invalid in pResponse->pBuffer",
+        "expression": "!IS_INVALID_POINTER(pResponse)",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 115
+        }
+      },
+      "allocateHttpResponse.pointer_dereference.9": {
+        "class": "pointer dereference",
+        "description": "dereference failure: deallocated dynamic object in pResponse->pBuffer",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpResponse",
+          "line": 115
+        }
+      },
+      "findHeaderValueParserCallback.assertion.1": {
+        "class": "assertion",
+        "description": "assertion pHttpParser != NULL",
+        "expression": "pHttpParser != ((http_parser *)NULL)",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2302
+        }
+      },
+      "findHeaderValueParserCallback.assertion.2": {
+        "class": "assertion",
+        "description": "assertion pHttpParser->data != NULL",
+        "expression": "pHttpParser->data != (void *)0",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2303
+        }
+      },
+      "findHeaderValueParserCallback.assertion.3": {
+        "class": "assertion",
+        "description": "assertion pValueLoc != NULL",
+        "expression": "pValueLoc != ((const char *)NULL)",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2304
+        }
+      },
+      "findHeaderValueParserCallback.assertion.4": {
+        "class": "assertion",
+        "description": "assertion pContext->pField != NULL",
+        "expression": "pContext->pField != ((const char *)NULL)",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2308
+        }
+      },
+      "findHeaderValueParserCallback.assertion.5": {
+        "class": "assertion",
+        "description": "assertion pContext->fieldLen > 0U",
+        "expression": "pContext->fieldLen > (unsigned long int)0u",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2309
+        }
+      },
+      "findHeaderValueParserCallback.assertion.6": {
+        "class": "assertion",
+        "description": "assertion pContext->pValueLoc != NULL",
+        "expression": "pContext->pValueLoc != ((const char **)NULL)",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2310
+        }
+      },
+      "findHeaderValueParserCallback.assertion.7": {
+        "class": "assertion",
+        "description": "assertion pContext->pValueLen != NULL",
+        "expression": "pContext->pValueLen != ((size_t *)NULL)",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2311
+        }
+      },
+      "findHeaderValueParserCallback.assertion.8": {
+        "class": "assertion",
+        "description": "assertion pContext->valueFound == 0U",
+        "expression": "(unsigned int)pContext->valueFound == 0u",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2314
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.1": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer NULL in pHttpParser->data",
+        "expression": "!(POINTER_OBJECT(pHttpParser) == POINTER_OBJECT(((void **)NULL)))",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2303
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.10": {
+        "class": "pointer dereference",
+        "description": "dereference failure: dead object in pContext->pField",
+        "expression": "!(POINTER_OBJECT(pContext) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2308
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.11": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer outside object bounds in pContext->pField",
+        "expression": "POINTER_OFFSET(pContext) >= 0l && OBJECT_SIZE(pContext) >= (unsigned long int)POINTER_OFFSET(pContext) + 8ul",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2308
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.12": {
+        "class": "pointer dereference",
+        "description": "dereference failure: invalid integer address in pContext->pField",
+        "expression": "!(POINTER_OBJECT(((const char **)NULL)) == POINTER_OBJECT(pContext)) || pContext == ((findHeaderContext_t *)NULL)",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2308
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.13": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer NULL in pContext->fieldLen",
+        "expression": "!(POINTER_OBJECT(pContext) == POINTER_OBJECT(((size_t *)NULL)))",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2309
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.14": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer invalid in pContext->fieldLen",
+        "expression": "!IS_INVALID_POINTER(pContext)",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2309
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.15": {
+        "class": "pointer dereference",
+        "description": "dereference failure: deallocated dynamic object in pContext->fieldLen",
+        "expression": "!(POINTER_OBJECT(pContext) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2309
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.16": {
+        "class": "pointer dereference",
+        "description": "dereference failure: dead object in pContext->fieldLen",
+        "expression": "!(POINTER_OBJECT(pContext) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2309
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.17": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer outside object bounds in pContext->fieldLen",
+        "expression": "POINTER_OFFSET(pContext) + 8l >= 0l && OBJECT_SIZE(pContext) >= (unsigned long int)POINTER_OFFSET(pContext) + 16ul",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2309
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.18": {
+        "class": "pointer dereference",
+        "description": "dereference failure: invalid integer address in pContext->fieldLen",
+        "expression": "!(POINTER_OBJECT(((size_t *)NULL)) == POINTER_OBJECT(pContext)) || (char *)pContext + 8l == ((char *)NULL)",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2309
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.19": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer NULL in pContext->pValueLoc",
+        "expression": "!(POINTER_OBJECT(pContext) == POINTER_OBJECT(((const char ***)NULL)))",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2310
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.2": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer invalid in pHttpParser->data",
+        "expression": "!IS_INVALID_POINTER(pHttpParser)",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2303
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.20": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer invalid in pContext->pValueLoc",
+        "expression": "!IS_INVALID_POINTER(pContext)",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2310
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.21": {
+        "class": "pointer dereference",
+        "description": "dereference failure: deallocated dynamic object in pContext->pValueLoc",
+        "expression": "!(POINTER_OBJECT(pContext) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2310
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.22": {
+        "class": "pointer dereference",
+        "description": "dereference failure: dead object in pContext->pValueLoc",
+        "expression": "!(POINTER_OBJECT(pContext) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2310
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.23": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer outside object bounds in pContext->pValueLoc",
+        "expression": "POINTER_OFFSET(pContext) + 16l >= 0l && OBJECT_SIZE(pContext) >= (unsigned long int)POINTER_OFFSET(pContext) + 24ul",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2310
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.24": {
+        "class": "pointer dereference",
+        "description": "dereference failure: invalid integer address in pContext->pValueLoc",
+        "expression": "!(POINTER_OBJECT(((const char ***)NULL)) == POINTER_OBJECT(pContext)) || (char *)pContext + 16l == ((char *)NULL)",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2310
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.25": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer NULL in pContext->pValueLen",
+        "expression": "!(POINTER_OBJECT(pContext) == POINTER_OBJECT(((size_t **)NULL)))",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2311
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.26": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer invalid in pContext->pValueLen",
+        "expression": "!IS_INVALID_POINTER(pContext)",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2311
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.27": {
+        "class": "pointer dereference",
+        "description": "dereference failure: deallocated dynamic object in pContext->pValueLen",
+        "expression": "!(POINTER_OBJECT(pContext) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2311
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.28": {
+        "class": "pointer dereference",
+        "description": "dereference failure: dead object in pContext->pValueLen",
+        "expression": "!(POINTER_OBJECT(pContext) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2311
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.29": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer outside object bounds in pContext->pValueLen",
+        "expression": "POINTER_OFFSET(pContext) + 24l >= 0l && OBJECT_SIZE(pContext) >= (unsigned long int)POINTER_OFFSET(pContext) + 32ul",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2311
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.3": {
+        "class": "pointer dereference",
+        "description": "dereference failure: deallocated dynamic object in pHttpParser->data",
+        "expression": "!(POINTER_OBJECT(pHttpParser) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2303
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.30": {
+        "class": "pointer dereference",
+        "description": "dereference failure: invalid integer address in pContext->pValueLen",
+        "expression": "!(POINTER_OBJECT(((size_t **)NULL)) == POINTER_OBJECT(pContext)) || (char *)pContext + 24l == ((char *)NULL)",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2311
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.31": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer NULL in pContext->valueFound",
+        "expression": "!(POINTER_OBJECT(pContext) == POINTER_OBJECT(((uint8_t *)NULL)))",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2314
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.32": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer invalid in pContext->valueFound",
+        "expression": "!IS_INVALID_POINTER(pContext)",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2314
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.33": {
+        "class": "pointer dereference",
+        "description": "dereference failure: deallocated dynamic object in pContext->valueFound",
+        "expression": "!(POINTER_OBJECT(pContext) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2314
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.34": {
+        "class": "pointer dereference",
+        "description": "dereference failure: dead object in pContext->valueFound",
+        "expression": "!(POINTER_OBJECT(pContext) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2314
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.35": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer outside object bounds in pContext->valueFound",
+        "expression": "POINTER_OFFSET(pContext) + 33l >= 0l && OBJECT_SIZE(pContext) >= (unsigned long int)POINTER_OFFSET(pContext) + 34ul",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2314
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.36": {
+        "class": "pointer dereference",
+        "description": "dereference failure: invalid integer address in pContext->valueFound",
+        "expression": "!(POINTER_OBJECT(((uint8_t *)NULL)) == POINTER_OBJECT(pContext)) || (char *)pContext + 33l == ((char *)NULL)",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2314
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.37": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer NULL in pContext->fieldFound",
+        "expression": "!(POINTER_OBJECT(pContext) == POINTER_OBJECT(((uint8_t *)NULL)))",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2316
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.38": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer invalid in pContext->fieldFound",
+        "expression": "!IS_INVALID_POINTER(pContext)",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2316
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.39": {
+        "class": "pointer dereference",
+        "description": "dereference failure: deallocated dynamic object in pContext->fieldFound",
+        "expression": "!(POINTER_OBJECT(pContext) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2316
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.4": {
+        "class": "pointer dereference",
+        "description": "dereference failure: dead object in pHttpParser->data",
+        "expression": "!(POINTER_OBJECT(pHttpParser) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2303
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.40": {
+        "class": "pointer dereference",
+        "description": "dereference failure: dead object in pContext->fieldFound",
+        "expression": "!(POINTER_OBJECT(pContext) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2316
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.41": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer outside object bounds in pContext->fieldFound",
+        "expression": "POINTER_OFFSET(pContext) + 32l >= 0l && OBJECT_SIZE(pContext) >= (unsigned long int)POINTER_OFFSET(pContext) + 33ul",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2316
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.42": {
+        "class": "pointer dereference",
+        "description": "dereference failure: invalid integer address in pContext->fieldFound",
+        "expression": "!(POINTER_OBJECT(((uint8_t *)NULL)) == POINTER_OBJECT(pContext)) || (char *)pContext + 32l == ((char *)NULL)",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2316
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.43": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer NULL in *pContext->pValueLoc",
+        "expression": "!(POINTER_OBJECT(pContext->pValueLoc) == POINTER_OBJECT(((const char **)NULL)))",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2326
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.44": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer invalid in *pContext->pValueLoc",
+        "expression": "!IS_INVALID_POINTER(pContext->pValueLoc)",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2326
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.45": {
+        "class": "pointer dereference",
+        "description": "dereference failure: deallocated dynamic object in *pContext->pValueLoc",
+        "expression": "!(POINTER_OBJECT(pContext->pValueLoc) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2326
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.46": {
+        "class": "pointer dereference",
+        "description": "dereference failure: dead object in *pContext->pValueLoc",
+        "expression": "!(POINTER_OBJECT(pContext->pValueLoc) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2326
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.47": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer outside object bounds in *pContext->pValueLoc",
+        "expression": "POINTER_OFFSET(pContext->pValueLoc) >= 0l && OBJECT_SIZE(pContext->pValueLoc) >= (unsigned long int)POINTER_OFFSET(pContext->pValueLoc) + 8ul",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2326
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.48": {
+        "class": "pointer dereference",
+        "description": "dereference failure: invalid integer address in *pContext->pValueLoc",
+        "expression": "!(POINTER_OBJECT(((const char **)NULL)) == POINTER_OBJECT(pContext->pValueLoc)) || pContext->pValueLoc == ((const char **)NULL)",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2326
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.49": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer NULL in pContext->pValueLen",
+        "expression": "!(POINTER_OBJECT(pContext) == POINTER_OBJECT(((size_t **)NULL)))",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2327
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.5": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer outside object bounds in pHttpParser->data",
+        "expression": "POINTER_OFFSET(pHttpParser) + 24l >= 0l && OBJECT_SIZE(pHttpParser) >= (unsigned long int)POINTER_OFFSET(pHttpParser) + 32ul",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2303
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.50": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer invalid in pContext->pValueLen",
+        "expression": "!IS_INVALID_POINTER(pContext)",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2327
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.51": {
+        "class": "pointer dereference",
+        "description": "dereference failure: deallocated dynamic object in pContext->pValueLen",
+        "expression": "!(POINTER_OBJECT(pContext) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2327
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.52": {
+        "class": "pointer dereference",
+        "description": "dereference failure: dead object in pContext->pValueLen",
+        "expression": "!(POINTER_OBJECT(pContext) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2327
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.53": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer outside object bounds in pContext->pValueLen",
+        "expression": "POINTER_OFFSET(pContext) + 24l >= 0l && OBJECT_SIZE(pContext) >= (unsigned long int)POINTER_OFFSET(pContext) + 32ul",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2327
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.54": {
+        "class": "pointer dereference",
+        "description": "dereference failure: invalid integer address in pContext->pValueLen",
+        "expression": "!(POINTER_OBJECT(((size_t **)NULL)) == POINTER_OBJECT(pContext)) || (char *)pContext + 24l == ((char *)NULL)",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2327
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.55": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer NULL in *pContext->pValueLen",
+        "expression": "!(POINTER_OBJECT(pContext->pValueLen) == POINTER_OBJECT(((size_t *)NULL)))",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2327
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.56": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer invalid in *pContext->pValueLen",
+        "expression": "!IS_INVALID_POINTER(pContext->pValueLen)",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2327
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.57": {
+        "class": "pointer dereference",
+        "description": "dereference failure: deallocated dynamic object in *pContext->pValueLen",
+        "expression": "!(POINTER_OBJECT(pContext->pValueLen) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2327
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.58": {
+        "class": "pointer dereference",
+        "description": "dereference failure: dead object in *pContext->pValueLen",
+        "expression": "!(POINTER_OBJECT(pContext->pValueLen) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2327
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.59": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer outside object bounds in *pContext->pValueLen",
+        "expression": "POINTER_OFFSET(pContext->pValueLen) >= 0l && OBJECT_SIZE(pContext->pValueLen) >= (unsigned long int)POINTER_OFFSET(pContext->pValueLen) + 8ul",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2327
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.6": {
+        "class": "pointer dereference",
+        "description": "dereference failure: invalid integer address in pHttpParser->data",
+        "expression": "!(POINTER_OBJECT(((void **)NULL)) == POINTER_OBJECT(pHttpParser)) || (char *)pHttpParser + 24l == ((char *)NULL)",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2303
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.60": {
+        "class": "pointer dereference",
+        "description": "dereference failure: invalid integer address in *pContext->pValueLen",
+        "expression": "!(POINTER_OBJECT(((size_t *)NULL)) == POINTER_OBJECT(pContext->pValueLen)) || pContext->pValueLen == ((size_t *)NULL)",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2327
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.61": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer NULL in pContext->pValueLoc",
+        "expression": "!(POINTER_OBJECT(pContext) == POINTER_OBJECT(((const char ***)NULL)))",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2333
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.62": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer invalid in pContext->pValueLoc",
+        "expression": "!IS_INVALID_POINTER(pContext)",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2333
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.63": {
+        "class": "pointer dereference",
+        "description": "dereference failure: deallocated dynamic object in pContext->pValueLoc",
+        "expression": "!(POINTER_OBJECT(pContext) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2333
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.64": {
+        "class": "pointer dereference",
+        "description": "dereference failure: dead object in pContext->pValueLoc",
+        "expression": "!(POINTER_OBJECT(pContext) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2333
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.65": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer outside object bounds in pContext->pValueLoc",
+        "expression": "POINTER_OFFSET(pContext) + 16l >= 0l && OBJECT_SIZE(pContext) >= (unsigned long int)POINTER_OFFSET(pContext) + 24ul",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2333
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.66": {
+        "class": "pointer dereference",
+        "description": "dereference failure: invalid integer address in pContext->pValueLoc",
+        "expression": "!(POINTER_OBJECT(((const char ***)NULL)) == POINTER_OBJECT(pContext)) || (char *)pContext + 16l == ((char *)NULL)",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2333
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.67": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer NULL in *pContext->pValueLoc",
+        "expression": "!(POINTER_OBJECT(pContext->pValueLoc) == POINTER_OBJECT(((const char **)NULL)))",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2333
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.68": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer invalid in *pContext->pValueLoc",
+        "expression": "!IS_INVALID_POINTER(pContext->pValueLoc)",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2333
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.69": {
+        "class": "pointer dereference",
+        "description": "dereference failure: deallocated dynamic object in *pContext->pValueLoc",
+        "expression": "!(POINTER_OBJECT(pContext->pValueLoc) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2333
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.7": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer NULL in pContext->pField",
+        "expression": "!(POINTER_OBJECT(pContext) == POINTER_OBJECT(((const char **)NULL)))",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2308
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.70": {
+        "class": "pointer dereference",
+        "description": "dereference failure: dead object in *pContext->pValueLoc",
+        "expression": "!(POINTER_OBJECT(pContext->pValueLoc) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2333
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.71": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer outside object bounds in *pContext->pValueLoc",
+        "expression": "POINTER_OFFSET(pContext->pValueLoc) >= 0l && OBJECT_SIZE(pContext->pValueLoc) >= (unsigned long int)POINTER_OFFSET(pContext->pValueLoc) + 8ul",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2333
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.72": {
+        "class": "pointer dereference",
+        "description": "dereference failure: invalid integer address in *pContext->pValueLoc",
+        "expression": "!(POINTER_OBJECT(((const char **)NULL)) == POINTER_OBJECT(pContext->pValueLoc)) || pContext->pValueLoc == ((const char **)NULL)",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2333
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.73": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer NULL in pContext->pValueLen",
+        "expression": "!(POINTER_OBJECT(pContext) == POINTER_OBJECT(((size_t **)NULL)))",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2334
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.74": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer invalid in pContext->pValueLen",
+        "expression": "!IS_INVALID_POINTER(pContext)",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2334
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.75": {
+        "class": "pointer dereference",
+        "description": "dereference failure: deallocated dynamic object in pContext->pValueLen",
+        "expression": "!(POINTER_OBJECT(pContext) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2334
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.76": {
+        "class": "pointer dereference",
+        "description": "dereference failure: dead object in pContext->pValueLen",
+        "expression": "!(POINTER_OBJECT(pContext) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2334
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.77": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer outside object bounds in pContext->pValueLen",
+        "expression": "POINTER_OFFSET(pContext) + 24l >= 0l && OBJECT_SIZE(pContext) >= (unsigned long int)POINTER_OFFSET(pContext) + 32ul",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2334
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.78": {
+        "class": "pointer dereference",
+        "description": "dereference failure: invalid integer address in pContext->pValueLen",
+        "expression": "!(POINTER_OBJECT(((size_t **)NULL)) == POINTER_OBJECT(pContext)) || (char *)pContext + 24l == ((char *)NULL)",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2334
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.79": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer NULL in *pContext->pValueLen",
+        "expression": "!(POINTER_OBJECT(pContext->pValueLen) == POINTER_OBJECT(((size_t *)NULL)))",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2334
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.8": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer invalid in pContext->pField",
+        "expression": "!IS_INVALID_POINTER(pContext)",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2308
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.80": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer invalid in *pContext->pValueLen",
+        "expression": "!IS_INVALID_POINTER(pContext->pValueLen)",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2334
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.81": {
+        "class": "pointer dereference",
+        "description": "dereference failure: deallocated dynamic object in *pContext->pValueLen",
+        "expression": "!(POINTER_OBJECT(pContext->pValueLen) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2334
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.82": {
+        "class": "pointer dereference",
+        "description": "dereference failure: dead object in *pContext->pValueLen",
+        "expression": "!(POINTER_OBJECT(pContext->pValueLen) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2334
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.83": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer outside object bounds in *pContext->pValueLen",
+        "expression": "POINTER_OFFSET(pContext->pValueLen) >= 0l && OBJECT_SIZE(pContext->pValueLen) >= (unsigned long int)POINTER_OFFSET(pContext->pValueLen) + 8ul",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2334
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.84": {
+        "class": "pointer dereference",
+        "description": "dereference failure: invalid integer address in *pContext->pValueLen",
+        "expression": "!(POINTER_OBJECT(((size_t *)NULL)) == POINTER_OBJECT(pContext->pValueLen)) || pContext->pValueLen == ((size_t *)NULL)",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2334
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.85": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer NULL in pContext->valueFound",
+        "expression": "!(POINTER_OBJECT(pContext) == POINTER_OBJECT(((uint8_t *)NULL)))",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2338
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.86": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer invalid in pContext->valueFound",
+        "expression": "!IS_INVALID_POINTER(pContext)",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2338
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.87": {
+        "class": "pointer dereference",
+        "description": "dereference failure: deallocated dynamic object in pContext->valueFound",
+        "expression": "!(POINTER_OBJECT(pContext) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2338
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.88": {
+        "class": "pointer dereference",
+        "description": "dereference failure: dead object in pContext->valueFound",
+        "expression": "!(POINTER_OBJECT(pContext) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2338
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.89": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer outside object bounds in pContext->valueFound",
+        "expression": "POINTER_OFFSET(pContext) + 33l >= 0l && OBJECT_SIZE(pContext) >= (unsigned long int)POINTER_OFFSET(pContext) + 34ul",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2338
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.9": {
+        "class": "pointer dereference",
+        "description": "dereference failure: deallocated dynamic object in pContext->pField",
+        "expression": "!(POINTER_OBJECT(pContext) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2308
+        }
+      },
+      "findHeaderValueParserCallback.pointer_dereference.90": {
+        "class": "pointer dereference",
+        "description": "dereference failure: invalid integer address in pContext->valueFound",
+        "expression": "!(POINTER_OBJECT(((uint8_t *)NULL)) == POINTER_OBJECT(pContext)) || (char *)pContext + 33l == ((char *)NULL)",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderValueParserCallback",
+          "line": 2338
+        }
+      },
+      "findHeaderValueParserCallback_harness.overflow.1": {
+        "class": "overflow",
+        "description": "arithmetic overflow on unsigned - in pResponse->bufferLen - valueOffset",
+        "expression": "!overflow(\"-\", size_t, pResponse->bufferLen, valueOffset)",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 50
+        }
+      },
+      "findHeaderValueParserCallback_harness.overflow.2": {
+        "class": "overflow",
+        "description": "arithmetic overflow on unsigned to signed type conversion in (signed long int)valueOffset",
+        "expression": "!(valueOffset >= 9223372036854775808ul)",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 51
+        }
+      },
+      "findHeaderValueParserCallback_harness.overflow.3": {
+        "class": "overflow",
+        "description": "arithmetic overflow on unsigned - in pResponse->bufferLen - fieldOffset",
+        "expression": "!overflow(\"-\", size_t, pResponse->bufferLen, fieldOffset)",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 55
+        }
+      },
+      "findHeaderValueParserCallback_harness.overflow.4": {
+        "class": "overflow",
+        "description": "arithmetic overflow on unsigned to signed type conversion in (signed long int)fieldOffset",
+        "expression": "!(fieldOffset >= 9223372036854775808ul)",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 56
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_arithmetic.1": {
+        "class": "pointer arithmetic",
+        "description": "pointer arithmetic: pointer NULL in pResponse->pBuffer + (signed long int)valueOffset",
+        "expression": "!(POINTER_OBJECT(pResponse->pBuffer) == POINTER_OBJECT(((uint8_t *)NULL)))",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 51
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_arithmetic.10": {
+        "class": "pointer arithmetic",
+        "description": "pointer arithmetic: dead object in pResponse->pBuffer + (signed long int)fieldOffset",
+        "expression": "!(POINTER_OBJECT(pResponse->pBuffer) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 56
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_arithmetic.11": {
+        "class": "pointer arithmetic",
+        "description": "pointer arithmetic: pointer outside object bounds in pResponse->pBuffer + (signed long int)fieldOffset",
+        "expression": "POINTER_OFFSET(pResponse->pBuffer) + (signed long int)fieldOffset >= 0l && OBJECT_SIZE(pResponse->pBuffer) >= (unsigned long int)POINTER_OFFSET(pResponse->pBuffer) + (unsigned long int)(signed long int)fieldOffset",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 56
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_arithmetic.12": {
+        "class": "pointer arithmetic",
+        "description": "pointer arithmetic: invalid integer address in pResponse->pBuffer + (signed long int)fieldOffset",
+        "expression": "!(POINTER_OBJECT(((uint8_t *)NULL)) == POINTER_OBJECT(pResponse->pBuffer)) || pResponse->pBuffer + (signed long int)fieldOffset == ((uint8_t *)NULL)",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 56
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_arithmetic.2": {
+        "class": "pointer arithmetic",
+        "description": "pointer arithmetic: pointer invalid in pResponse->pBuffer + (signed long int)valueOffset",
+        "expression": "!IS_INVALID_POINTER(pResponse->pBuffer)",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 51
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_arithmetic.3": {
+        "class": "pointer arithmetic",
+        "description": "pointer arithmetic: deallocated dynamic object in pResponse->pBuffer + (signed long int)valueOffset",
+        "expression": "!(POINTER_OBJECT(pResponse->pBuffer) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 51
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_arithmetic.4": {
+        "class": "pointer arithmetic",
+        "description": "pointer arithmetic: dead object in pResponse->pBuffer + (signed long int)valueOffset",
+        "expression": "!(POINTER_OBJECT(pResponse->pBuffer) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 51
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_arithmetic.5": {
+        "class": "pointer arithmetic",
+        "description": "pointer arithmetic: pointer outside object bounds in pResponse->pBuffer + (signed long int)valueOffset",
+        "expression": "POINTER_OFFSET(pResponse->pBuffer) + (signed long int)valueOffset >= 0l && OBJECT_SIZE(pResponse->pBuffer) >= (unsigned long int)POINTER_OFFSET(pResponse->pBuffer) + (unsigned long int)(signed long int)valueOffset",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 51
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_arithmetic.6": {
+        "class": "pointer arithmetic",
+        "description": "pointer arithmetic: invalid integer address in pResponse->pBuffer + (signed long int)valueOffset",
+        "expression": "!(POINTER_OBJECT(((uint8_t *)NULL)) == POINTER_OBJECT(pResponse->pBuffer)) || pResponse->pBuffer + (signed long int)valueOffset == ((uint8_t *)NULL)",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 51
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_arithmetic.7": {
+        "class": "pointer arithmetic",
+        "description": "pointer arithmetic: pointer NULL in pResponse->pBuffer + (signed long int)fieldOffset",
+        "expression": "!(POINTER_OBJECT(pResponse->pBuffer) == POINTER_OBJECT(((uint8_t *)NULL)))",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 56
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_arithmetic.8": {
+        "class": "pointer arithmetic",
+        "description": "pointer arithmetic: pointer invalid in pResponse->pBuffer + (signed long int)fieldOffset",
+        "expression": "!IS_INVALID_POINTER(pResponse->pBuffer)",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 56
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_arithmetic.9": {
+        "class": "pointer arithmetic",
+        "description": "pointer arithmetic: deallocated dynamic object in pResponse->pBuffer + (signed long int)fieldOffset",
+        "expression": "!(POINTER_OBJECT(pResponse->pBuffer) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 56
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.1": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer NULL in pResponse->pBuffer",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(((uint8_t **)NULL)))",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 46
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.10": {
+        "class": "pointer dereference",
+        "description": "dereference failure: dead object in pResponse->bufferLen",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 47
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.11": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer outside object bounds in pResponse->bufferLen",
+        "expression": "POINTER_OFFSET(pResponse) + 8l >= 0l && OBJECT_SIZE(pResponse) >= (unsigned long int)POINTER_OFFSET(pResponse) + 16ul",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 47
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.12": {
+        "class": "pointer dereference",
+        "description": "dereference failure: invalid integer address in pResponse->bufferLen",
+        "expression": "!(POINTER_OBJECT(((size_t *)NULL)) == POINTER_OBJECT(pResponse)) || (char *)pResponse + 8l == ((char *)NULL)",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 47
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.13": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer NULL in pResponse->bufferLen",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(((size_t *)NULL)))",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 49
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.14": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer invalid in pResponse->bufferLen",
+        "expression": "!IS_INVALID_POINTER(pResponse)",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 49
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.15": {
+        "class": "pointer dereference",
+        "description": "dereference failure: deallocated dynamic object in pResponse->bufferLen",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 49
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.16": {
+        "class": "pointer dereference",
+        "description": "dereference failure: dead object in pResponse->bufferLen",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 49
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.17": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer outside object bounds in pResponse->bufferLen",
+        "expression": "POINTER_OFFSET(pResponse) + 8l >= 0l && OBJECT_SIZE(pResponse) >= (unsigned long int)POINTER_OFFSET(pResponse) + 16ul",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 49
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.18": {
+        "class": "pointer dereference",
+        "description": "dereference failure: invalid integer address in pResponse->bufferLen",
+        "expression": "!(POINTER_OBJECT(((size_t *)NULL)) == POINTER_OBJECT(pResponse)) || (char *)pResponse + 8l == ((char *)NULL)",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 49
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.19": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer NULL in pResponse->pBuffer",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(((uint8_t **)NULL)))",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 51
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.2": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer invalid in pResponse->pBuffer",
+        "expression": "!IS_INVALID_POINTER(pResponse)",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 46
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.20": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer invalid in pResponse->pBuffer",
+        "expression": "!IS_INVALID_POINTER(pResponse)",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 51
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.21": {
+        "class": "pointer dereference",
+        "description": "dereference failure: deallocated dynamic object in pResponse->pBuffer",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 51
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.22": {
+        "class": "pointer dereference",
+        "description": "dereference failure: dead object in pResponse->pBuffer",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 51
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.23": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer outside object bounds in pResponse->pBuffer",
+        "expression": "POINTER_OFFSET(pResponse) >= 0l && OBJECT_SIZE(pResponse) >= (unsigned long int)POINTER_OFFSET(pResponse) + 8ul",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 51
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.24": {
+        "class": "pointer dereference",
+        "description": "dereference failure: invalid integer address in pResponse->pBuffer",
+        "expression": "!(POINTER_OBJECT(((uint8_t **)NULL)) == POINTER_OBJECT(pResponse)) || pResponse == ((HTTPResponse_t *)NULL)",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 51
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.25": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer NULL in pFindHeaderContext->pField",
+        "expression": "!(POINTER_OBJECT(pFindHeaderContext) == POINTER_OBJECT(((const char **)NULL)))",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 56
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.26": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer invalid in pFindHeaderContext->pField",
+        "expression": "!IS_INVALID_POINTER(pFindHeaderContext)",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 56
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.27": {
+        "class": "pointer dereference",
+        "description": "dereference failure: deallocated dynamic object in pFindHeaderContext->pField",
+        "expression": "!(POINTER_OBJECT(pFindHeaderContext) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 56
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.28": {
+        "class": "pointer dereference",
+        "description": "dereference failure: dead object in pFindHeaderContext->pField",
+        "expression": "!(POINTER_OBJECT(pFindHeaderContext) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 56
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.29": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer outside object bounds in pFindHeaderContext->pField",
+        "expression": "POINTER_OFFSET(pFindHeaderContext) >= 0l && OBJECT_SIZE(pFindHeaderContext) >= (unsigned long int)POINTER_OFFSET(pFindHeaderContext) + 8ul",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 56
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.3": {
+        "class": "pointer dereference",
+        "description": "dereference failure: deallocated dynamic object in pResponse->pBuffer",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 46
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.30": {
+        "class": "pointer dereference",
+        "description": "dereference failure: invalid integer address in pFindHeaderContext->pField",
+        "expression": "!(POINTER_OBJECT(((const char **)NULL)) == POINTER_OBJECT(pFindHeaderContext)) || pFindHeaderContext == ((findHeaderContext_t *)NULL)",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 56
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.31": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer NULL in pFindHeaderContext->fieldLen",
+        "expression": "!(POINTER_OBJECT(pFindHeaderContext) == POINTER_OBJECT(((size_t *)NULL)))",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 57
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.32": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer invalid in pFindHeaderContext->fieldLen",
+        "expression": "!IS_INVALID_POINTER(pFindHeaderContext)",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 57
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.33": {
+        "class": "pointer dereference",
+        "description": "dereference failure: deallocated dynamic object in pFindHeaderContext->fieldLen",
+        "expression": "!(POINTER_OBJECT(pFindHeaderContext) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 57
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.34": {
+        "class": "pointer dereference",
+        "description": "dereference failure: dead object in pFindHeaderContext->fieldLen",
+        "expression": "!(POINTER_OBJECT(pFindHeaderContext) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 57
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.35": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer outside object bounds in pFindHeaderContext->fieldLen",
+        "expression": "POINTER_OFFSET(pFindHeaderContext) + 8l >= 0l && OBJECT_SIZE(pFindHeaderContext) >= (unsigned long int)POINTER_OFFSET(pFindHeaderContext) + 16ul",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 57
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.36": {
+        "class": "pointer dereference",
+        "description": "dereference failure: invalid integer address in pFindHeaderContext->fieldLen",
+        "expression": "!(POINTER_OBJECT(((size_t *)NULL)) == POINTER_OBJECT(pFindHeaderContext)) || (char *)pFindHeaderContext + 8l == ((char *)NULL)",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 57
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.37": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer NULL in pFindHeaderContext->pValueLen",
+        "expression": "!(POINTER_OBJECT(pFindHeaderContext) == POINTER_OBJECT(((size_t **)NULL)))",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 58
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.38": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer invalid in pFindHeaderContext->pValueLen",
+        "expression": "!IS_INVALID_POINTER(pFindHeaderContext)",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 58
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.39": {
+        "class": "pointer dereference",
+        "description": "dereference failure: deallocated dynamic object in pFindHeaderContext->pValueLen",
+        "expression": "!(POINTER_OBJECT(pFindHeaderContext) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 58
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.4": {
+        "class": "pointer dereference",
+        "description": "dereference failure: dead object in pResponse->pBuffer",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 46
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.40": {
+        "class": "pointer dereference",
+        "description": "dereference failure: dead object in pFindHeaderContext->pValueLen",
+        "expression": "!(POINTER_OBJECT(pFindHeaderContext) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 58
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.41": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer outside object bounds in pFindHeaderContext->pValueLen",
+        "expression": "POINTER_OFFSET(pFindHeaderContext) + 24l >= 0l && OBJECT_SIZE(pFindHeaderContext) >= (unsigned long int)POINTER_OFFSET(pFindHeaderContext) + 32ul",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 58
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.42": {
+        "class": "pointer dereference",
+        "description": "dereference failure: invalid integer address in pFindHeaderContext->pValueLen",
+        "expression": "!(POINTER_OBJECT(((size_t **)NULL)) == POINTER_OBJECT(pFindHeaderContext)) || (char *)pFindHeaderContext + 24l == ((char *)NULL)",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 58
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.43": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer NULL in pFindHeaderContext->pValueLoc",
+        "expression": "!(POINTER_OBJECT(pFindHeaderContext) == POINTER_OBJECT(((const char ***)NULL)))",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 59
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.44": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer invalid in pFindHeaderContext->pValueLoc",
+        "expression": "!IS_INVALID_POINTER(pFindHeaderContext)",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 59
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.45": {
+        "class": "pointer dereference",
+        "description": "dereference failure: deallocated dynamic object in pFindHeaderContext->pValueLoc",
+        "expression": "!(POINTER_OBJECT(pFindHeaderContext) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 59
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.46": {
+        "class": "pointer dereference",
+        "description": "dereference failure: dead object in pFindHeaderContext->pValueLoc",
+        "expression": "!(POINTER_OBJECT(pFindHeaderContext) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 59
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.47": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer outside object bounds in pFindHeaderContext->pValueLoc",
+        "expression": "POINTER_OFFSET(pFindHeaderContext) + 16l >= 0l && OBJECT_SIZE(pFindHeaderContext) >= (unsigned long int)POINTER_OFFSET(pFindHeaderContext) + 24ul",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 59
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.48": {
+        "class": "pointer dereference",
+        "description": "dereference failure: invalid integer address in pFindHeaderContext->pValueLoc",
+        "expression": "!(POINTER_OBJECT(((const char ***)NULL)) == POINTER_OBJECT(pFindHeaderContext)) || (char *)pFindHeaderContext + 16l == ((char *)NULL)",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 59
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.49": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer NULL in pFindHeaderContext->fieldFound",
+        "expression": "!(POINTER_OBJECT(pFindHeaderContext) == POINTER_OBJECT(((uint8_t *)NULL)))",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 60
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.5": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer outside object bounds in pResponse->pBuffer",
+        "expression": "POINTER_OFFSET(pResponse) >= 0l && OBJECT_SIZE(pResponse) >= (unsigned long int)POINTER_OFFSET(pResponse) + 8ul",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 46
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.50": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer invalid in pFindHeaderContext->fieldFound",
+        "expression": "!IS_INVALID_POINTER(pFindHeaderContext)",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 60
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.51": {
+        "class": "pointer dereference",
+        "description": "dereference failure: deallocated dynamic object in pFindHeaderContext->fieldFound",
+        "expression": "!(POINTER_OBJECT(pFindHeaderContext) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 60
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.52": {
+        "class": "pointer dereference",
+        "description": "dereference failure: dead object in pFindHeaderContext->fieldFound",
+        "expression": "!(POINTER_OBJECT(pFindHeaderContext) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 60
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.53": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer outside object bounds in pFindHeaderContext->fieldFound",
+        "expression": "POINTER_OFFSET(pFindHeaderContext) + 32l >= 0l && OBJECT_SIZE(pFindHeaderContext) >= (unsigned long int)POINTER_OFFSET(pFindHeaderContext) + 33ul",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 60
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.54": {
+        "class": "pointer dereference",
+        "description": "dereference failure: invalid integer address in pFindHeaderContext->fieldFound",
+        "expression": "!(POINTER_OBJECT(((uint8_t *)NULL)) == POINTER_OBJECT(pFindHeaderContext)) || (char *)pFindHeaderContext + 32l == ((char *)NULL)",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 60
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.55": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer NULL in pFindHeaderContext->valueFound",
+        "expression": "!(POINTER_OBJECT(pFindHeaderContext) == POINTER_OBJECT(((uint8_t *)NULL)))",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 61
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.56": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer invalid in pFindHeaderContext->valueFound",
+        "expression": "!IS_INVALID_POINTER(pFindHeaderContext)",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 61
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.57": {
+        "class": "pointer dereference",
+        "description": "dereference failure: deallocated dynamic object in pFindHeaderContext->valueFound",
+        "expression": "!(POINTER_OBJECT(pFindHeaderContext) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 61
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.58": {
+        "class": "pointer dereference",
+        "description": "dereference failure: dead object in pFindHeaderContext->valueFound",
+        "expression": "!(POINTER_OBJECT(pFindHeaderContext) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 61
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.59": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer outside object bounds in pFindHeaderContext->valueFound",
+        "expression": "POINTER_OFFSET(pFindHeaderContext) + 33l >= 0l && OBJECT_SIZE(pFindHeaderContext) >= (unsigned long int)POINTER_OFFSET(pFindHeaderContext) + 34ul",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 61
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.6": {
+        "class": "pointer dereference",
+        "description": "dereference failure: invalid integer address in pResponse->pBuffer",
+        "expression": "!(POINTER_OBJECT(((uint8_t **)NULL)) == POINTER_OBJECT(pResponse)) || pResponse == ((HTTPResponse_t *)NULL)",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 46
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.60": {
+        "class": "pointer dereference",
+        "description": "dereference failure: invalid integer address in pFindHeaderContext->valueFound",
+        "expression": "!(POINTER_OBJECT(((uint8_t *)NULL)) == POINTER_OBJECT(pFindHeaderContext)) || (char *)pFindHeaderContext + 33l == ((char *)NULL)",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 61
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.61": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer NULL in pHttpParser->data",
+        "expression": "!(POINTER_OBJECT(pHttpParser) == POINTER_OBJECT(((void **)NULL)))",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 62
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.62": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer invalid in pHttpParser->data",
+        "expression": "!IS_INVALID_POINTER(pHttpParser)",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 62
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.63": {
+        "class": "pointer dereference",
+        "description": "dereference failure: deallocated dynamic object in pHttpParser->data",
+        "expression": "!(POINTER_OBJECT(pHttpParser) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 62
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.64": {
+        "class": "pointer dereference",
+        "description": "dereference failure: dead object in pHttpParser->data",
+        "expression": "!(POINTER_OBJECT(pHttpParser) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 62
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.65": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer outside object bounds in pHttpParser->data",
+        "expression": "POINTER_OFFSET(pHttpParser) + 24l >= 0l && OBJECT_SIZE(pHttpParser) >= (unsigned long int)POINTER_OFFSET(pHttpParser) + 32ul",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 62
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.66": {
+        "class": "pointer dereference",
+        "description": "dereference failure: invalid integer address in pHttpParser->data",
+        "expression": "!(POINTER_OBJECT(((void **)NULL)) == POINTER_OBJECT(pHttpParser)) || (char *)pHttpParser + 24l == ((char *)NULL)",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 62
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.7": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer NULL in pResponse->bufferLen",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(((size_t *)NULL)))",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 47
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.8": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer invalid in pResponse->bufferLen",
+        "expression": "!IS_INVALID_POINTER(pResponse)",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 47
+        }
+      },
+      "findHeaderValueParserCallback_harness.pointer_dereference.9": {
+        "class": "pointer dereference",
+        "description": "dereference failure: deallocated dynamic object in pResponse->bufferLen",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+          "function": "findHeaderValueParserCallback_harness",
+          "line": 47
+        }
+      },
+      "isValidHttpResponse.pointer_dereference.1": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer NULL in pResponse->bufferLen",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(((const size_t *)NULL)))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "isValidHttpResponse",
+          "line": 166
+        }
+      },
+      "isValidHttpResponse.pointer_dereference.10": {
+        "class": "pointer dereference",
+        "description": "dereference failure: dead object in pResponse->bodyLen",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "isValidHttpResponse",
+          "line": 167
+        }
+      },
+      "isValidHttpResponse.pointer_dereference.11": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer outside object bounds in pResponse->bodyLen",
+        "expression": "POINTER_OFFSET(pResponse) + 56l >= 0l && OBJECT_SIZE(pResponse) >= (unsigned long int)POINTER_OFFSET(pResponse) + 64ul",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "isValidHttpResponse",
+          "line": 167
+        }
+      },
+      "isValidHttpResponse.pointer_dereference.12": {
+        "class": "pointer dereference",
+        "description": "dereference failure: invalid integer address in pResponse->bodyLen",
+        "expression": "!(POINTER_OBJECT(((const size_t *)NULL)) == POINTER_OBJECT(pResponse)) || (char *)pResponse + 56l == ((char *)NULL)",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "isValidHttpResponse",
+          "line": 167
+        }
+      },
+      "isValidHttpResponse.pointer_dereference.13": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer NULL in pResponse->headersLen",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(((const size_t *)NULL)))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "isValidHttpResponse",
+          "line": 168
+        }
+      },
+      "isValidHttpResponse.pointer_dereference.14": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer invalid in pResponse->headersLen",
+        "expression": "!IS_INVALID_POINTER(pResponse)",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "isValidHttpResponse",
+          "line": 168
+        }
+      },
+      "isValidHttpResponse.pointer_dereference.15": {
+        "class": "pointer dereference",
+        "description": "dereference failure: deallocated dynamic object in pResponse->headersLen",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "isValidHttpResponse",
+          "line": 168
+        }
+      },
+      "isValidHttpResponse.pointer_dereference.16": {
+        "class": "pointer dereference",
+        "description": "dereference failure: dead object in pResponse->headersLen",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "isValidHttpResponse",
+          "line": 168
+        }
+      },
+      "isValidHttpResponse.pointer_dereference.17": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer outside object bounds in pResponse->headersLen",
+        "expression": "POINTER_OFFSET(pResponse) + 40l >= 0l && OBJECT_SIZE(pResponse) >= (unsigned long int)POINTER_OFFSET(pResponse) + 48ul",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "isValidHttpResponse",
+          "line": 168
+        }
+      },
+      "isValidHttpResponse.pointer_dereference.18": {
+        "class": "pointer dereference",
+        "description": "dereference failure: invalid integer address in pResponse->headersLen",
+        "expression": "!(POINTER_OBJECT(((const size_t *)NULL)) == POINTER_OBJECT(pResponse)) || (char *)pResponse + 40l == ((char *)NULL)",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "isValidHttpResponse",
+          "line": 168
+        }
+      },
+      "isValidHttpResponse.pointer_dereference.19": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer NULL in pResponse->bufferLen",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(((const size_t *)NULL)))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "isValidHttpResponse",
+          "line": 168
+        }
+      },
+      "isValidHttpResponse.pointer_dereference.2": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer invalid in pResponse->bufferLen",
+        "expression": "!IS_INVALID_POINTER(pResponse)",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "isValidHttpResponse",
+          "line": 166
+        }
+      },
+      "isValidHttpResponse.pointer_dereference.20": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer invalid in pResponse->bufferLen",
+        "expression": "!IS_INVALID_POINTER(pResponse)",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "isValidHttpResponse",
+          "line": 168
+        }
+      },
+      "isValidHttpResponse.pointer_dereference.21": {
+        "class": "pointer dereference",
+        "description": "dereference failure: deallocated dynamic object in pResponse->bufferLen",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "isValidHttpResponse",
+          "line": 168
+        }
+      },
+      "isValidHttpResponse.pointer_dereference.22": {
+        "class": "pointer dereference",
+        "description": "dereference failure: dead object in pResponse->bufferLen",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "isValidHttpResponse",
+          "line": 168
+        }
+      },
+      "isValidHttpResponse.pointer_dereference.23": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer outside object bounds in pResponse->bufferLen",
+        "expression": "POINTER_OFFSET(pResponse) + 8l >= 0l && OBJECT_SIZE(pResponse) >= (unsigned long int)POINTER_OFFSET(pResponse) + 16ul",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "isValidHttpResponse",
+          "line": 168
+        }
+      },
+      "isValidHttpResponse.pointer_dereference.24": {
+        "class": "pointer dereference",
+        "description": "dereference failure: invalid integer address in pResponse->bufferLen",
+        "expression": "!(POINTER_OBJECT(((const size_t *)NULL)) == POINTER_OBJECT(pResponse)) || (char *)pResponse + 8l == ((char *)NULL)",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "isValidHttpResponse",
+          "line": 168
+        }
+      },
+      "isValidHttpResponse.pointer_dereference.25": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer NULL in pResponse->pBody",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(((const uint8_t * const *)NULL)))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "isValidHttpResponse",
+          "line": 169
+        }
+      },
+      "isValidHttpResponse.pointer_dereference.26": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer invalid in pResponse->pBody",
+        "expression": "!IS_INVALID_POINTER(pResponse)",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "isValidHttpResponse",
+          "line": 169
+        }
+      },
+      "isValidHttpResponse.pointer_dereference.27": {
+        "class": "pointer dereference",
+        "description": "dereference failure: deallocated dynamic object in pResponse->pBody",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "isValidHttpResponse",
+          "line": 169
+        }
+      },
+      "isValidHttpResponse.pointer_dereference.28": {
+        "class": "pointer dereference",
+        "description": "dereference failure: dead object in pResponse->pBody",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "isValidHttpResponse",
+          "line": 169
+        }
+      },
+      "isValidHttpResponse.pointer_dereference.29": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer outside object bounds in pResponse->pBody",
+        "expression": "POINTER_OFFSET(pResponse) + 48l >= 0l && OBJECT_SIZE(pResponse) >= (unsigned long int)POINTER_OFFSET(pResponse) + 56ul",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "isValidHttpResponse",
+          "line": 169
+        }
+      },
+      "isValidHttpResponse.pointer_dereference.3": {
+        "class": "pointer dereference",
+        "description": "dereference failure: deallocated dynamic object in pResponse->bufferLen",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "isValidHttpResponse",
+          "line": 166
+        }
+      },
+      "isValidHttpResponse.pointer_dereference.30": {
+        "class": "pointer dereference",
+        "description": "dereference failure: invalid integer address in pResponse->pBody",
+        "expression": "!(POINTER_OBJECT(((const uint8_t * const *)NULL)) == POINTER_OBJECT(pResponse)) || (char *)pResponse + 48l == ((char *)NULL)",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "isValidHttpResponse",
+          "line": 169
+        }
+      },
+      "isValidHttpResponse.pointer_dereference.4": {
+        "class": "pointer dereference",
+        "description": "dereference failure: dead object in pResponse->bufferLen",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "isValidHttpResponse",
+          "line": 166
+        }
+      },
+      "isValidHttpResponse.pointer_dereference.5": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer outside object bounds in pResponse->bufferLen",
+        "expression": "POINTER_OFFSET(pResponse) + 8l >= 0l && OBJECT_SIZE(pResponse) >= (unsigned long int)POINTER_OFFSET(pResponse) + 16ul",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "isValidHttpResponse",
+          "line": 166
+        }
+      },
+      "isValidHttpResponse.pointer_dereference.6": {
+        "class": "pointer dereference",
+        "description": "dereference failure: invalid integer address in pResponse->bufferLen",
+        "expression": "!(POINTER_OBJECT(((const size_t *)NULL)) == POINTER_OBJECT(pResponse)) || (char *)pResponse + 8l == ((char *)NULL)",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "isValidHttpResponse",
+          "line": 166
+        }
+      },
+      "isValidHttpResponse.pointer_dereference.7": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer NULL in pResponse->bodyLen",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(((const size_t *)NULL)))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "isValidHttpResponse",
+          "line": 167
+        }
+      },
+      "isValidHttpResponse.pointer_dereference.8": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer invalid in pResponse->bodyLen",
+        "expression": "!IS_INVALID_POINTER(pResponse)",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "isValidHttpResponse",
+          "line": 167
+        }
+      },
+      "isValidHttpResponse.pointer_dereference.9": {
+        "class": "pointer dereference",
+        "description": "dereference failure: deallocated dynamic object in pResponse->bodyLen",
+        "expression": "!(POINTER_OBJECT(pResponse) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "isValidHttpResponse",
+          "line": 167
+        }
+      },
+      "malloc.assertion.1": {
+        "class": "assertion",
+        "description": "max allocation size exceeded",
+        "expression": "malloc_size <= __CPROVER_max_malloc_size",
+        "location": {
+          "file": "<builtin-library-malloc>",
+          "function": "malloc",
+          "line": 26
+        }
+      },
+      "malloc.assertion.2": {
+        "class": "assertion",
+        "description": "max allocation may fail",
+        "expression": "!__CPROVER_malloc_may_fail || !should_malloc_fail",
+        "location": {
+          "file": "<builtin-library-malloc>",
+          "function": "malloc",
+          "line": 31
+        }
+      },
+      "mallocCanFail.assertion.1": {
+        "class": "assertion",
+        "description": "mallocCanFail size is too big",
+        "expression": "size < 18446744073709551615ul >> 8 + 1",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "mallocCanFail",
+          "line": 34
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,61 @@
+#! /usr/bin/env python3
+
+# Set emacs mode to Python
+# -*- mode: Python;-*-
+
+import argparse
+import json
+
+def parse_arguments():
+    parser = argparse.ArgumentParser(description='Compare JSON output of make-result.')
+    parser.add_argument(
+        'JSON1',
+        help='JSON output of make-result'
+    )
+    parser.add_argument(
+        'JSON2',
+        help='JSON output of make-result'
+    )
+    return parser.parse_args()
+
+def clean_program(result):
+    # Ignore reported version number for CBMC
+    del result['viewer-result']['program']
+    return result
+
+def clean_status(result):
+    result['viewer-result']['status'] = [
+        line for line in result['viewer-result']['status']
+        if
+          # Ignore reported version number for CBMC
+          not line.startswith('CBMC version') and
+          # Ignore reported runtimes
+          not line.startswith('Runtime') and
+          # Ignore path to goto binary
+          not line.startswith('Reading') and
+          # Ignore status lines with embedded path names
+          not line.startswith('Unwinding loop') and
+          not line.startswith('aborting path') and
+          not line.startswith('Not unwinding loop')
+    ]
+    return result
+
+def clean(result):
+    return clean_status(clean_program(result))
+
+def main():
+    args = parse_arguments()
+    with open(args.JSON1) as fp:
+        json1 = clean(json.load(fp))
+    with open(args.JSON2) as fp:
+        json2 = clean(json.load(fp))
+
+    with open('/tmp/json1.json', "w") as fp:
+        json.dump(json1, fp, indent=2)
+    with open('/tmp/json2.json', "w") as fp:
+        json.dump(json2, fp, indent=2)
+
+    if json1 != json2:
+        raise UserWarning(f"make-result output differs: {args.JSON1} {args.JSON2}")
+
+main()

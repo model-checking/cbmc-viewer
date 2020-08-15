@@ -1,0 +1,11 @@
+{
+  "viewer-loop": {
+    "loops": {
+      "strncmp.0": {
+        "file": "<builtin-library-strncmp>",
+        "function": "strncmp",
+        "line": 42
+      }
+    }
+  }
+}

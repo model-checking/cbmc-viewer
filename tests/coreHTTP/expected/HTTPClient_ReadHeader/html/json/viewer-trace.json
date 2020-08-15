@@ -1,0 +1,4596 @@
+{
+  "viewer-trace": {
+    "traces": {
+      "allocateHttpResponse.overflow.1": [
+        {
+          "detail": {
+            "lhs": "pResponse",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "INVALID-255"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 34
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pField",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "INVALID-255"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 35
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pValue",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "INVALID-255"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 36
+          }
+        },
+        {
+          "detail": {
+            "lhs": "fieldLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 01111111 11111111 11111111 11111111 11111111 11111111 11111011",
+            "rhs-value": "36028797018963963ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 37
+          }
+        },
+        {
+          "detail": {
+            "lhs": "valueLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "0ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "predicate": "fieldLen < 18446744073709551615ul >> 8 + 1"
+          },
+          "hidden": false,
+          "kind": "assumption",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 41
+          }
+        },
+        {
+          "detail": {
+            "lhs": "size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 01111111 11111111 11111111 11111111 11111111 11111111 11111011",
+            "rhs-value": "36028797018963963ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 42
+          }
+        },
+        {
+          "detail": {
+            "lhs": "malloc_size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 01111111 11111111 11111111 11111111 11111111 11111111 11111011",
+            "rhs-value": "36028797018963963ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "mallocCanFail",
+            "line": 35
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pField",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000010 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "(char *)dynamic_object1"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 42
+          }
+        },
+        {
+          "detail": {
+            "predicate": "valueLen < 18446744073709551615ul >> 8 + 1"
+          },
+          "hidden": false,
+          "kind": "assumption",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 45
+          }
+        },
+        {
+          "detail": {
+            "lhs": "size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001000",
+            "rhs-value": "sizeof(char *) /*8ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 46
+          }
+        },
+        {
+          "detail": {
+            "lhs": "malloc_size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001000",
+            "rhs-value": "sizeof(char *) /*8ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "mallocCanFail",
+            "line": 35
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pValue",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000011 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "&dynamic_object2"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 46
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pResponse",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((HTTPResponse_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 49
+          }
+        },
+        {
+          "detail": {
+            "lhs": "headerOffset",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "10000000 00000000 00000000 00000000 00000000 00000000 00000000 00001000",
+            "rhs-value": "9223372036854775816ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpResponse",
+            "line": 105
+          }
+        },
+        {
+          "detail": {
+            "lhs": "bodyOffset",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "0ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpResponse",
+            "line": 105
+          }
+        },
+        {
+          "detail": {
+            "lhs": "size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 01100000",
+            "rhs-value": "sizeof(HTTPResponse_t) /*96ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpResponse",
+            "line": 109
+          }
+        },
+        {
+          "detail": {
+            "lhs": "malloc_size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 01100000",
+            "rhs-value": "sizeof(HTTPResponse_t) /*96ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "mallocCanFail",
+            "line": 35
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.pBuffer",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "INVALID-255"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.bufferLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001000",
+            "rhs-value": "sizeof(char *) /*8ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.pHeaderParsingCallback",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "INVALID-255"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.getTime",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "INVALID-255"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.pHeaders",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "INVALID-255"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.headersLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000111",
+            "rhs-value": "7ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.pBody",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "INVALID-255"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.bodyLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000111",
+            "rhs-value": "7ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.statusCode",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111",
+            "rhs-value": "65535"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.$pad9",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "281474976710655"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.contentLength",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "18446744073709551615ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.headerCount",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "18446744073709551615ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.respFlags",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111",
+            "rhs-value": "4294967295u"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.$pad13",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111",
+            "rhs-value": "4294967295u"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pResponse",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000100 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "&dynamic_object3"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpResponse",
+            "line": 109
+          }
+        },
+        {
+          "detail": {
+            "lhs": "size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001000",
+            "rhs-value": "sizeof(char *) /*8ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpResponse",
+            "line": 115
+          }
+        },
+        {
+          "detail": {
+            "lhs": "malloc_size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001000",
+            "rhs-value": "sizeof(char *) /*8ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "mallocCanFail",
+            "line": 35
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.pBuffer",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000101 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "dynamic_object4"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpResponse",
+            "line": 115
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "arithmetic overflow on unsigned to signed type conversion in (signed long int)headerOffset"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpResponse",
+            "line": 124
+          }
+        }
+      ],
+      "allocateHttpResponse.overflow.2": [
+        {
+          "detail": {
+            "lhs": "pResponse",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "INVALID-255"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 34
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pField",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "INVALID-255"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 35
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pValue",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "INVALID-255"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 36
+          }
+        },
+        {
+          "detail": {
+            "lhs": "fieldLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 01111111 11111111 11111111 11111111 11111111 11111111 11111011",
+            "rhs-value": "36028797018963963ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 37
+          }
+        },
+        {
+          "detail": {
+            "lhs": "valueLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "0ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "predicate": "fieldLen < 18446744073709551615ul >> 8 + 1"
+          },
+          "hidden": false,
+          "kind": "assumption",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 41
+          }
+        },
+        {
+          "detail": {
+            "lhs": "size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 01111111 11111111 11111111 11111111 11111111 11111111 11111011",
+            "rhs-value": "36028797018963963ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 42
+          }
+        },
+        {
+          "detail": {
+            "lhs": "malloc_size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 01111111 11111111 11111111 11111111 11111111 11111111 11111011",
+            "rhs-value": "36028797018963963ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "mallocCanFail",
+            "line": 35
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pField",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000010 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "(char *)dynamic_object1"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 42
+          }
+        },
+        {
+          "detail": {
+            "predicate": "valueLen < 18446744073709551615ul >> 8 + 1"
+          },
+          "hidden": false,
+          "kind": "assumption",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 45
+          }
+        },
+        {
+          "detail": {
+            "lhs": "size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001000",
+            "rhs-value": "sizeof(char *) /*8ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 46
+          }
+        },
+        {
+          "detail": {
+            "lhs": "malloc_size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001000",
+            "rhs-value": "sizeof(char *) /*8ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "mallocCanFail",
+            "line": 35
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pValue",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000011 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "&dynamic_object2"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 46
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pResponse",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((HTTPResponse_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 49
+          }
+        },
+        {
+          "detail": {
+            "lhs": "headerOffset",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001000",
+            "rhs-value": "sizeof(char *) /*8ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpResponse",
+            "line": 105
+          }
+        },
+        {
+          "detail": {
+            "lhs": "bodyOffset",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "10000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001",
+            "rhs-value": "9223372036854775809ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpResponse",
+            "line": 105
+          }
+        },
+        {
+          "detail": {
+            "lhs": "size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 01100000",
+            "rhs-value": "sizeof(HTTPResponse_t) /*96ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpResponse",
+            "line": 109
+          }
+        },
+        {
+          "detail": {
+            "lhs": "malloc_size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 01100000",
+            "rhs-value": "sizeof(HTTPResponse_t) /*96ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "mallocCanFail",
+            "line": 35
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.pBuffer",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "INVALID-255"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.bufferLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001000",
+            "rhs-value": "sizeof(char *) /*8ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.pHeaderParsingCallback",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "INVALID-255"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.getTime",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "INVALID-255"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.pHeaders",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "INVALID-255"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.headersLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000111",
+            "rhs-value": "7ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.pBody",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "INVALID-255"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.bodyLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000111",
+            "rhs-value": "7ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.statusCode",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111",
+            "rhs-value": "65535"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.$pad9",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "281474976710655"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.contentLength",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "18446744073709551615ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.headerCount",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "18446744073709551615ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.respFlags",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111",
+            "rhs-value": "4294967295u"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.$pad13",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111",
+            "rhs-value": "4294967295u"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pResponse",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000100 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "&dynamic_object3"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpResponse",
+            "line": 109
+          }
+        },
+        {
+          "detail": {
+            "lhs": "size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001000",
+            "rhs-value": "sizeof(char *) /*8ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpResponse",
+            "line": 115
+          }
+        },
+        {
+          "detail": {
+            "lhs": "malloc_size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001000",
+            "rhs-value": "sizeof(char *) /*8ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "mallocCanFail",
+            "line": 35
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.pBuffer",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000101 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "dynamic_object4"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpResponse",
+            "line": 115
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.pHeaders",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((unsigned char *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpResponse",
+            "line": 123
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "arithmetic overflow on unsigned to signed type conversion in (signed long int)bodyOffset"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpResponse",
+            "line": 146
+          }
+        }
+      ],
+      "allocateHttpResponse.pointer_arithmetic.11": [
+        {
+          "detail": {
+            "lhs": "pResponse",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "INVALID-255"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 34
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pField",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "INVALID-255"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 35
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pValue",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "INVALID-255"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 36
+          }
+        },
+        {
+          "detail": {
+            "lhs": "fieldLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 01111111 11111111 11111111 11111111 11111111 11111111 11111011",
+            "rhs-value": "36028797018963963ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 37
+          }
+        },
+        {
+          "detail": {
+            "lhs": "valueLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "0ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "predicate": "fieldLen < 18446744073709551615ul >> 8 + 1"
+          },
+          "hidden": false,
+          "kind": "assumption",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 41
+          }
+        },
+        {
+          "detail": {
+            "lhs": "size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 01111111 11111111 11111111 11111111 11111111 11111111 11111011",
+            "rhs-value": "36028797018963963ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 42
+          }
+        },
+        {
+          "detail": {
+            "lhs": "malloc_size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 01111111 11111111 11111111 11111111 11111111 11111111 11111011",
+            "rhs-value": "36028797018963963ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "mallocCanFail",
+            "line": 35
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pField",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000010 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "(char *)dynamic_object1"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 42
+          }
+        },
+        {
+          "detail": {
+            "predicate": "valueLen < 18446744073709551615ul >> 8 + 1"
+          },
+          "hidden": false,
+          "kind": "assumption",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 45
+          }
+        },
+        {
+          "detail": {
+            "lhs": "size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001000",
+            "rhs-value": "sizeof(char *) /*8ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 46
+          }
+        },
+        {
+          "detail": {
+            "lhs": "malloc_size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001000",
+            "rhs-value": "sizeof(char *) /*8ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "mallocCanFail",
+            "line": 35
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pValue",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000011 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "&dynamic_object2"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 46
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pResponse",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((HTTPResponse_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 49
+          }
+        },
+        {
+          "detail": {
+            "lhs": "headerOffset",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001000",
+            "rhs-value": "sizeof(char *) /*8ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpResponse",
+            "line": 105
+          }
+        },
+        {
+          "detail": {
+            "lhs": "bodyOffset",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "10000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001",
+            "rhs-value": "9223372036854775809ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpResponse",
+            "line": 105
+          }
+        },
+        {
+          "detail": {
+            "lhs": "size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 01100000",
+            "rhs-value": "sizeof(HTTPResponse_t) /*96ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpResponse",
+            "line": 109
+          }
+        },
+        {
+          "detail": {
+            "lhs": "malloc_size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 01100000",
+            "rhs-value": "sizeof(HTTPResponse_t) /*96ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "mallocCanFail",
+            "line": 35
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.pBuffer",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "INVALID-255"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.bufferLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001000",
+            "rhs-value": "sizeof(char *) /*8ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.pHeaderParsingCallback",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "INVALID-255"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.getTime",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "INVALID-255"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.pHeaders",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "INVALID-255"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.headersLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000111",
+            "rhs-value": "7ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.pBody",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "INVALID-255"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.bodyLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000111",
+            "rhs-value": "7ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.statusCode",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111",
+            "rhs-value": "65535"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.$pad9",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "281474976710655"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.contentLength",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "18446744073709551615ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.headerCount",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "18446744073709551615ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.respFlags",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111",
+            "rhs-value": "4294967295u"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.$pad13",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111",
+            "rhs-value": "4294967295u"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pResponse",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000100 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "&dynamic_object3"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpResponse",
+            "line": 109
+          }
+        },
+        {
+          "detail": {
+            "lhs": "size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001000",
+            "rhs-value": "sizeof(char *) /*8ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpResponse",
+            "line": 115
+          }
+        },
+        {
+          "detail": {
+            "lhs": "malloc_size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001000",
+            "rhs-value": "sizeof(char *) /*8ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "mallocCanFail",
+            "line": 35
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.pBuffer",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000101 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "dynamic_object4"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpResponse",
+            "line": 115
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.pHeaders",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((unsigned char *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpResponse",
+            "line": 123
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "arithmetic overflow on unsigned to signed type conversion in (signed long int)bodyOffset"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpResponse",
+            "line": 146
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "pointer arithmetic: pointer outside object bounds in pResponse->pBuffer + (signed long int)bodyOffset"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpResponse",
+            "line": 146
+          }
+        }
+      ],
+      "allocateHttpResponse.pointer_arithmetic.5": [
+        {
+          "detail": {
+            "lhs": "pResponse",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "INVALID-255"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 34
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pField",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "INVALID-255"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 35
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pValue",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "INVALID-255"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 36
+          }
+        },
+        {
+          "detail": {
+            "lhs": "fieldLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 01111111 11111111 11111111 11111111 11111111 11111111 11111011",
+            "rhs-value": "36028797018963963ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 37
+          }
+        },
+        {
+          "detail": {
+            "lhs": "valueLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "0ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "predicate": "fieldLen < 18446744073709551615ul >> 8 + 1"
+          },
+          "hidden": false,
+          "kind": "assumption",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 41
+          }
+        },
+        {
+          "detail": {
+            "lhs": "size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 01111111 11111111 11111111 11111111 11111111 11111111 11111011",
+            "rhs-value": "36028797018963963ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 42
+          }
+        },
+        {
+          "detail": {
+            "lhs": "malloc_size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 01111111 11111111 11111111 11111111 11111111 11111111 11111011",
+            "rhs-value": "36028797018963963ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "mallocCanFail",
+            "line": 35
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pField",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000010 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "(char *)dynamic_object1"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 42
+          }
+        },
+        {
+          "detail": {
+            "predicate": "valueLen < 18446744073709551615ul >> 8 + 1"
+          },
+          "hidden": false,
+          "kind": "assumption",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 45
+          }
+        },
+        {
+          "detail": {
+            "lhs": "size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001000",
+            "rhs-value": "sizeof(char *) /*8ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 46
+          }
+        },
+        {
+          "detail": {
+            "lhs": "malloc_size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001000",
+            "rhs-value": "sizeof(char *) /*8ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "mallocCanFail",
+            "line": 35
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pValue",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000011 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "&dynamic_object2"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 46
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pResponse",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((HTTPResponse_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 49
+          }
+        },
+        {
+          "detail": {
+            "lhs": "headerOffset",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "10000000 00000000 00000000 00000000 00000000 00000000 00000000 00001000",
+            "rhs-value": "9223372036854775816ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpResponse",
+            "line": 105
+          }
+        },
+        {
+          "detail": {
+            "lhs": "bodyOffset",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "0ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpResponse",
+            "line": 105
+          }
+        },
+        {
+          "detail": {
+            "lhs": "size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 01100000",
+            "rhs-value": "sizeof(HTTPResponse_t) /*96ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpResponse",
+            "line": 109
+          }
+        },
+        {
+          "detail": {
+            "lhs": "malloc_size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 01100000",
+            "rhs-value": "sizeof(HTTPResponse_t) /*96ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "mallocCanFail",
+            "line": 35
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.pBuffer",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "INVALID-255"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.bufferLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001000",
+            "rhs-value": "sizeof(char *) /*8ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.pHeaderParsingCallback",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "INVALID-255"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.getTime",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "INVALID-255"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.pHeaders",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "INVALID-255"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.headersLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000111",
+            "rhs-value": "7ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.pBody",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "INVALID-255"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.bodyLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000111",
+            "rhs-value": "7ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.statusCode",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111",
+            "rhs-value": "65535"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.$pad9",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "281474976710655"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.contentLength",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "18446744073709551615ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.headerCount",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "18446744073709551615ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.respFlags",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111",
+            "rhs-value": "4294967295u"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.$pad13",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111",
+            "rhs-value": "4294967295u"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pResponse",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000100 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "&dynamic_object3"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpResponse",
+            "line": 109
+          }
+        },
+        {
+          "detail": {
+            "lhs": "size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001000",
+            "rhs-value": "sizeof(char *) /*8ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpResponse",
+            "line": 115
+          }
+        },
+        {
+          "detail": {
+            "lhs": "malloc_size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001000",
+            "rhs-value": "sizeof(char *) /*8ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "mallocCanFail",
+            "line": 35
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.pBuffer",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000101 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "dynamic_object4"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpResponse",
+            "line": 115
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "arithmetic overflow on unsigned to signed type conversion in (signed long int)headerOffset"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpResponse",
+            "line": 124
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "pointer arithmetic: pointer outside object bounds in pResponse->pBuffer + (signed long int)headerOffset"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpResponse",
+            "line": 124
+          }
+        }
+      ],
+      "http_parser_execute.assertion.4": [
+        {
+          "detail": {
+            "lhs": "pResponse",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "INVALID-255"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 34
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pField",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "INVALID-255"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 35
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pValue",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "INVALID-255"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 36
+          }
+        },
+        {
+          "detail": {
+            "lhs": "fieldLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 01111111 11111111 11111111 11111111 11111111 11111111 11111011",
+            "rhs-value": "36028797018963963ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 37
+          }
+        },
+        {
+          "detail": {
+            "lhs": "valueLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 01111111 11111111 11111111 11111111 11111111 11111111 11111110",
+            "rhs-value": "36028797018963966ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "predicate": "fieldLen < 18446744073709551615ul >> 8 + 1"
+          },
+          "hidden": false,
+          "kind": "assumption",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 41
+          }
+        },
+        {
+          "detail": {
+            "lhs": "size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 01111111 11111111 11111111 11111111 11111111 11111111 11111011",
+            "rhs-value": "36028797018963963ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 42
+          }
+        },
+        {
+          "detail": {
+            "lhs": "malloc_size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 01111111 11111111 11111111 11111111 11111111 11111111 11111011",
+            "rhs-value": "36028797018963963ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "mallocCanFail",
+            "line": 35
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pField",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000010 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "(char *)dynamic_object1"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 42
+          }
+        },
+        {
+          "detail": {
+            "predicate": "valueLen < 18446744073709551615ul >> 8 + 1"
+          },
+          "hidden": false,
+          "kind": "assumption",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 45
+          }
+        },
+        {
+          "detail": {
+            "lhs": "size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001000",
+            "rhs-value": "sizeof(char *) /*8ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 46
+          }
+        },
+        {
+          "detail": {
+            "lhs": "malloc_size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001000",
+            "rhs-value": "sizeof(char *) /*8ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "mallocCanFail",
+            "line": 35
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pValue",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000011 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "&dynamic_object2"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 46
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pResponse",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((HTTPResponse_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 49
+          }
+        },
+        {
+          "detail": {
+            "lhs": "headerOffset",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 01111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "36028797018963967ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpResponse",
+            "line": 105
+          }
+        },
+        {
+          "detail": {
+            "lhs": "bodyOffset",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 01111111 11111111 11111111 11111111 11111111 11111111 11110111",
+            "rhs-value": "36028797018963959ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpResponse",
+            "line": 105
+          }
+        },
+        {
+          "detail": {
+            "lhs": "size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 01100000",
+            "rhs-value": "sizeof(HTTPResponse_t) /*96ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpResponse",
+            "line": 109
+          }
+        },
+        {
+          "detail": {
+            "lhs": "malloc_size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 01100000",
+            "rhs-value": "sizeof(HTTPResponse_t) /*96ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "mallocCanFail",
+            "line": 35
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.pBuffer",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "INVALID-255"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.bufferLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 01111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "36028797018963967ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.pHeaderParsingCallback",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "INVALID-255"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.getTime",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "INVALID-255"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.pHeaders",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "INVALID-255"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.headersLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "0ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.pBody",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "INVALID-255"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.bodyLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "0ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.statusCode",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111",
+            "rhs-value": "65535"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.$pad9",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "281474976710655"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.contentLength",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "18446744073709551615ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.headerCount",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "18446744073709551615ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.respFlags",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111",
+            "rhs-value": "4294967295u"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.$pad13",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111",
+            "rhs-value": "4294967295u"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pResponse",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000100 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "&dynamic_object3"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpResponse",
+            "line": 109
+          }
+        },
+        {
+          "detail": {
+            "lhs": "size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 01111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "36028797018963967ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpResponse",
+            "line": 115
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "mallocCanFail size is too big"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "mallocCanFail",
+            "line": 34
+          }
+        },
+        {
+          "detail": {
+            "lhs": "malloc_size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 01111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "36028797018963967ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "mallocCanFail",
+            "line": 35
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.pBuffer",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000101 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "dynamic_object4"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpResponse",
+            "line": 115
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.pHeaders",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((unsigned char *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpResponse",
+            "line": 123
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.pBody",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((unsigned char *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpResponse",
+            "line": 145
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pResponse",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000100 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "&dynamic_object3"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 49
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pResponse",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000100 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "&dynamic_object3"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 50
+          }
+        },
+        {
+          "detail": {
+            "lhs": "isValid",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111",
+            "rhs-value": "TRUE"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "isValidHttpResponse",
+            "line": 162
+          }
+        },
+        {
+          "detail": {
+            "lhs": "isValid",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000001",
+            "rhs-value": "TRUE"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "isValidHttpResponse",
+            "line": 162
+          }
+        },
+        {
+          "detail": {
+            "lhs": "isValid",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000",
+            "rhs-value": "FALSE"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "isValidHttpResponse",
+            "line": 166
+          }
+        },
+        {
+          "detail": {
+            "lhs": "isValid",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000001",
+            "rhs-value": "TRUE"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "isValidHttpResponse",
+            "line": 169
+          }
+        },
+        {
+          "detail": {
+            "predicate": "return_value_isValidHttpResponse != FALSE"
+          },
+          "hidden": false,
+          "kind": "assumption",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 50
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pResponse",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000100 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "&dynamic_object3"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 52
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pField",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000010 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "(char *)dynamic_object1"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 52
+          }
+        },
+        {
+          "detail": {
+            "lhs": "fieldLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 01111111 11111111 11111111 11111111 11111111 11111111 11111011",
+            "rhs-value": "36028797018963963ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 52
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pValueLoc",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000011 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "&dynamic_object2"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 52
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pValueLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 01111111 11111111 11111111 11111111 11111111 11111111 11111110",
+            "rhs-value": "((__CPROVER_size_t *)NULL) + 36028797018963966l"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 52
+          }
+        },
+        {
+          "detail": {
+            "lhs": "returnStatus",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111",
+            "rhs-value": "/*enum*/4294967295"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "HTTPClient_ReadHeader",
+            "line": 2502
+          }
+        },
+        {
+          "detail": {
+            "lhs": "returnStatus",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000",
+            "rhs-value": "/*enum*/HTTPSuccess"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "HTTPClient_ReadHeader",
+            "line": 2502
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pBuffer",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000101 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "dynamic_object4"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "HTTPClient_ReadHeader",
+            "line": 2548
+          }
+        },
+        {
+          "detail": {
+            "lhs": "bufferLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 01111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "36028797018963967ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "HTTPClient_ReadHeader",
+            "line": 2548
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pField",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000010 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "(char *)dynamic_object1"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "HTTPClient_ReadHeader",
+            "line": 2548
+          }
+        },
+        {
+          "detail": {
+            "lhs": "fieldLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 01111111 11111111 11111111 11111111 11111111 11111111 11111011",
+            "rhs-value": "36028797018963963ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "HTTPClient_ReadHeader",
+            "line": 2548
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pValueLoc",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000011 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "&dynamic_object2"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "HTTPClient_ReadHeader",
+            "line": 2548
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pValueLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 01111111 11111111 11111111 11111111 11111111 11111111 11111110",
+            "rhs-value": "((__CPROVER_size_t *)NULL) + 36028797018963966l"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "HTTPClient_ReadHeader",
+            "line": 2548
+          }
+        },
+        {
+          "detail": {
+            "lhs": "returnStatus",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111",
+            "rhs-value": "/*enum*/4294967295"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2387
+          }
+        },
+        {
+          "detail": {
+            "lhs": "returnStatus",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000",
+            "rhs-value": "/*enum*/HTTPSuccess"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2387
+          }
+        },
+        {
+          "detail": {
+            "lhs": "parser",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "{ ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? }",
+            "rhs-value": "{ .type=parser!0@1#1..type, .flags=parser!0@1#1..flags, .state=parser!0@1#1..state,     .header_state=parser!0@1#1..header_state, .index=parser!0@1#1..index,     .uses_transfer_encoding=parser!0@1#1..uses_transfer_encoding, .allow_chunked_length=parser!0@1#1..allow_chunked_length,     .lenient_http_headers=parser!0@1#1..lenient_http_headers,     .nread=parser!0@1#1..nread,     .content_length=parser!0@1#1..content_length, .http_major=parser!0@1#1..http_major,     .http_minor=parser!0@1#1..http_minor,     .status_code=parser!0@1#1..status_code,     .method=parser!0@1#1..method,     .http_errno=parser!0@1#1..http_errno, .upgrade=parser!0@1#1..upgrade,     .data=parser!0@1#1..data }"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2388
+          }
+        },
+        {
+          "detail": {
+            "lhs": "parser.type",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00",
+            "rhs-value": "0u"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2388
+          }
+        },
+        {
+          "detail": {
+            "lhs": "parser.flags",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000",
+            "rhs-value": "0u"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2388
+          }
+        },
+        {
+          "detail": {
+            "lhs": "parser.state",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "0000000",
+            "rhs-value": "0u"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2388
+          }
+        },
+        {
+          "detail": {
+            "lhs": "parser.header_state",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "0000000",
+            "rhs-value": "0u"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2388
+          }
+        },
+        {
+          "detail": {
+            "lhs": "parser.index",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000",
+            "rhs-value": "0u"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2388
+          }
+        },
+        {
+          "detail": {
+            "lhs": "parser.uses_transfer_encoding",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "0",
+            "rhs-value": "0u"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2388
+          }
+        },
+        {
+          "detail": {
+            "lhs": "parser.allow_chunked_length",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "0",
+            "rhs-value": "0u"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2388
+          }
+        },
+        {
+          "detail": {
+            "lhs": "parser.lenient_http_headers",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "0",
+            "rhs-value": "0u"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2388
+          }
+        },
+        {
+          "detail": {
+            "lhs": "parser.nread",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000",
+            "rhs-value": "0u"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2388
+          }
+        },
+        {
+          "detail": {
+            "lhs": "parser.content_length",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "0ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2388
+          }
+        },
+        {
+          "detail": {
+            "lhs": "parser.http_major",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000",
+            "rhs-value": "0"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2388
+          }
+        },
+        {
+          "detail": {
+            "lhs": "parser.http_minor",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000",
+            "rhs-value": "0"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2388
+          }
+        },
+        {
+          "detail": {
+            "lhs": "parser.status_code",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000",
+            "rhs-value": "0u"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2388
+          }
+        },
+        {
+          "detail": {
+            "lhs": "parser.method",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000",
+            "rhs-value": "0u"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2388
+          }
+        },
+        {
+          "detail": {
+            "lhs": "parser.http_errno",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "0000000",
+            "rhs-value": "0u"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2388
+          }
+        },
+        {
+          "detail": {
+            "lhs": "parser.upgrade",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "0",
+            "rhs-value": "0u"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2388
+          }
+        },
+        {
+          "detail": {
+            "lhs": "parser.data",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "NULL"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2388
+          }
+        },
+        {
+          "detail": {
+            "lhs": "parserSettings",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "{ ?, ?, ?, ?, ?, ?, ?, ?, ?, ? }",
+            "rhs-value": "{ .on_message_begin=parserSettings!0@1#1..on_message_begin, .on_url=parserSettings!0@1#1..on_url,     .on_status=parserSettings!0@1#1..on_status,     .on_header_field=parserSettings!0@1#1..on_header_field,     .on_header_value=parserSettings!0@1#1..on_header_value,     .on_headers_complete=parserSettings!0@1#1..on_headers_complete,     .on_body=parserSettings!0@1#1..on_body,     .on_message_complete=parserSettings!0@1#1..on_message_complete,     .on_chunk_header=parserSettings!0@1#1..on_chunk_header,     .on_chunk_complete=parserSettings!0@1#1..on_chunk_complete }"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2389
+          }
+        },
+        {
+          "detail": {
+            "lhs": "parserSettings.on_message_begin",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_cb)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2389
+          }
+        },
+        {
+          "detail": {
+            "lhs": "parserSettings.on_url",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_data_cb)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2389
+          }
+        },
+        {
+          "detail": {
+            "lhs": "parserSettings.on_status",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_data_cb)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2389
+          }
+        },
+        {
+          "detail": {
+            "lhs": "parserSettings.on_header_field",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_data_cb)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2389
+          }
+        },
+        {
+          "detail": {
+            "lhs": "parserSettings.on_header_value",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_data_cb)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2389
+          }
+        },
+        {
+          "detail": {
+            "lhs": "parserSettings.on_headers_complete",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_cb)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2389
+          }
+        },
+        {
+          "detail": {
+            "lhs": "parserSettings.on_body",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_data_cb)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2389
+          }
+        },
+        {
+          "detail": {
+            "lhs": "parserSettings.on_message_complete",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_cb)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2389
+          }
+        },
+        {
+          "detail": {
+            "lhs": "parserSettings.on_chunk_header",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_cb)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2389
+          }
+        },
+        {
+          "detail": {
+            "lhs": "parserSettings.on_chunk_complete",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_cb)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2389
+          }
+        },
+        {
+          "detail": {
+            "lhs": "context",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "{ ?, ?, ?, ?, ?, ?, ? }",
+            "rhs-value": "{ .pField=context!0@1#1..pField, .fieldLen=context!0@1#1..fieldLen, .pValueLoc=context!0@1#1..pValueLoc,     .pValueLen=context!0@1#1..pValueLen,     .fieldFound=context!0@1#1..fieldFound,     .valueFound=context!0@1#1..valueFound,     .$pad6=context!0@1#1..$pad6 }"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2390
+          }
+        },
+        {
+          "detail": {
+            "lhs": "context.pField",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((char *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2390
+          }
+        },
+        {
+          "detail": {
+            "lhs": "context.fieldLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "0ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2390
+          }
+        },
+        {
+          "detail": {
+            "lhs": "context.pValueLoc",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((char **)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2390
+          }
+        },
+        {
+          "detail": {
+            "lhs": "context.pValueLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((__CPROVER_size_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2390
+          }
+        },
+        {
+          "detail": {
+            "lhs": "context.fieldFound",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000",
+            "rhs-value": "0"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2390
+          }
+        },
+        {
+          "detail": {
+            "lhs": "context.valueFound",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000",
+            "rhs-value": "0"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2390
+          }
+        },
+        {
+          "detail": {
+            "lhs": "context.$pad6",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "0"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2390
+          }
+        },
+        {
+          "detail": {
+            "lhs": "numOfBytesParsed",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "18446744073709551615ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2391
+          }
+        },
+        {
+          "detail": {
+            "lhs": "numOfBytesParsed",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "0ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2391
+          }
+        },
+        {
+          "detail": {
+            "lhs": "context.pField",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000010 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "(char *)dynamic_object1"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2393
+          }
+        },
+        {
+          "detail": {
+            "lhs": "context.fieldLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 01111111 11111111 11111111 11111111 11111111 11111111 11111011",
+            "rhs-value": "36028797018963963ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2394
+          }
+        },
+        {
+          "detail": {
+            "lhs": "context.pValueLoc",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000011 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "&dynamic_object2"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2395
+          }
+        },
+        {
+          "detail": {
+            "lhs": "context.pValueLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 01111111 11111111 11111111 11111111 11111111 11111111 11111110",
+            "rhs-value": "((__CPROVER_size_t *)NULL) + 36028797018963966l"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2396
+          }
+        },
+        {
+          "detail": {
+            "lhs": "context.fieldFound",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000",
+            "rhs-value": "0"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2397
+          }
+        },
+        {
+          "detail": {
+            "lhs": "context.valueFound",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000",
+            "rhs-value": "0"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2398
+          }
+        },
+        {
+          "detail": {
+            "lhs": "parser.data",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000110 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "(const void *)&context!0@1.pField"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2406
+          }
+        },
+        {
+          "detail": {
+            "lhs": "parserSettings.on_header_field",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000111 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "findHeaderFieldParserCallback"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2412
+          }
+        },
+        {
+          "detail": {
+            "lhs": "parserSettings.on_header_value",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00001000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "findHeaderValueParserCallback"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2413
+          }
+        },
+        {
+          "detail": {
+            "lhs": "parserSettings.on_headers_complete",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00001001 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "findHeaderOnHeaderCompleteCallback"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2414
+          }
+        },
+        {
+          "detail": {
+            "lhs": "parser",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00001010 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "&parser!0@1"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2417
+          }
+        },
+        {
+          "detail": {
+            "lhs": "settings",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00001011 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "&parserSettings!0@1"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2417
+          }
+        },
+        {
+          "detail": {
+            "lhs": "data",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000101 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "(char *)dynamic_object4"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2417
+          }
+        },
+        {
+          "detail": {
+            "lhs": "len",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 01111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "36028797018963967ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "findHeaderInResponse",
+            "line": 2417
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pValue",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "INVALID-255"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/stubs/HTTPClient_ReadHeader_http_parser_execute.c",
+            "function": "http_parser_execute",
+            "line": 46
+          }
+        },
+        {
+          "detail": {
+            "lhs": "fieldLength",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 10000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "18410715276690587648ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/stubs/HTTPClient_ReadHeader_http_parser_execute.c",
+            "function": "http_parser_execute",
+            "line": 47
+          }
+        },
+        {
+          "detail": {
+            "lhs": "fieldOffset",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 01111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "36028797018963967ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/stubs/HTTPClient_ReadHeader_http_parser_execute.c",
+            "function": "http_parser_execute",
+            "line": 47
+          }
+        },
+        {
+          "detail": {
+            "lhs": "valueLength",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "72057594037927935ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/stubs/HTTPClient_ReadHeader_http_parser_execute.c",
+            "function": "http_parser_execute",
+            "line": 47
+          }
+        },
+        {
+          "detail": {
+            "lhs": "valueOffset",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 01111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "36028797018963967ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/stubs/HTTPClient_ReadHeader_http_parser_execute.c",
+            "function": "http_parser_execute",
+            "line": 47
+          }
+        },
+        {
+          "detail": {
+            "lhs": "http_errno",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111",
+            "rhs-value": "4294967295u"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/stubs/HTTPClient_ReadHeader_http_parser_execute.c",
+            "function": "http_parser_execute",
+            "line": 48
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pParsingContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "INVALID-255"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/stubs/HTTPClient_ReadHeader_http_parser_execute.c",
+            "function": "http_parser_execute",
+            "line": 49
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "http_parser_execute len >= CBMC_MAX_OBJECT_SIZE"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/stubs/HTTPClient_ReadHeader_http_parser_execute.c",
+            "function": "http_parser_execute",
+            "line": 57
+          }
+        }
+      ],
+      "mallocCanFail.assertion.1": [
+        {
+          "detail": {
+            "lhs": "pResponse",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "INVALID-255"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 34
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pField",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "INVALID-255"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 35
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pValue",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "INVALID-255"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 36
+          }
+        },
+        {
+          "detail": {
+            "lhs": "fieldLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 01111111 11111111 11111111 11111111 11111111 11111111 11111011",
+            "rhs-value": "36028797018963963ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 37
+          }
+        },
+        {
+          "detail": {
+            "lhs": "valueLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 01111111 11111111 11111111 11111111 11111111 11111111 11111110",
+            "rhs-value": "36028797018963966ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "predicate": "fieldLen < 18446744073709551615ul >> 8 + 1"
+          },
+          "hidden": false,
+          "kind": "assumption",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 41
+          }
+        },
+        {
+          "detail": {
+            "lhs": "size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 01111111 11111111 11111111 11111111 11111111 11111111 11111011",
+            "rhs-value": "36028797018963963ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 42
+          }
+        },
+        {
+          "detail": {
+            "lhs": "malloc_size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 01111111 11111111 11111111 11111111 11111111 11111111 11111011",
+            "rhs-value": "36028797018963963ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "mallocCanFail",
+            "line": 35
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pField",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000010 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "(char *)dynamic_object1"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 42
+          }
+        },
+        {
+          "detail": {
+            "predicate": "valueLen < 18446744073709551615ul >> 8 + 1"
+          },
+          "hidden": false,
+          "kind": "assumption",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 45
+          }
+        },
+        {
+          "detail": {
+            "lhs": "size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001000",
+            "rhs-value": "sizeof(char *) /*8ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 46
+          }
+        },
+        {
+          "detail": {
+            "lhs": "malloc_size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001000",
+            "rhs-value": "sizeof(char *) /*8ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "mallocCanFail",
+            "line": 35
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pValue",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000011 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "&dynamic_object2"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 46
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pResponse",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((HTTPResponse_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c",
+            "function": "HTTPClient_ReadHeader_harness",
+            "line": 49
+          }
+        },
+        {
+          "detail": {
+            "lhs": "headerOffset",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "0ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpResponse",
+            "line": 105
+          }
+        },
+        {
+          "detail": {
+            "lhs": "bodyOffset",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "0ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpResponse",
+            "line": 105
+          }
+        },
+        {
+          "detail": {
+            "lhs": "size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 01100000",
+            "rhs-value": "sizeof(HTTPResponse_t) /*96ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpResponse",
+            "line": 109
+          }
+        },
+        {
+          "detail": {
+            "lhs": "malloc_size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 01100000",
+            "rhs-value": "sizeof(HTTPResponse_t) /*96ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "mallocCanFail",
+            "line": 35
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.pBuffer",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "INVALID-255"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.bufferLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 10000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "36028797018963968ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.pHeaderParsingCallback",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "INVALID-255"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.getTime",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "INVALID-255"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.pHeaders",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((unsigned char *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.headersLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001",
+            "rhs-value": "1ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.pBody",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((unsigned char *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.bodyLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001",
+            "rhs-value": "1ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.statusCode",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111",
+            "rhs-value": "65535"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.$pad9",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "281474976710655"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.contentLength",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "18446744073709551615ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.headerCount",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111",
+            "rhs-value": "18446744073709551615ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.respFlags",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111",
+            "rhs-value": "4294967295u"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object3.$pad13",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11111111 11111111 11111111 11111111",
+            "rhs-value": "4294967295u"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pResponse",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000100 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "&dynamic_object3"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpResponse",
+            "line": 109
+          }
+        },
+        {
+          "detail": {
+            "lhs": "size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 10000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "36028797018963968ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpResponse",
+            "line": 115
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "mallocCanFail size is too big"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "mallocCanFail",
+            "line": 34
+          }
+        }
+      ]
+    }
+  }
+}

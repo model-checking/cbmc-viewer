@@ -1,0 +1,37 @@
+From 95432aea946cca9ecafc7af765a1cb13656e6c33 Mon Sep 17 00:00:00 2001
+From: "Mark R. Tuttle" <mrtuttle@amazon.com>
+Date: Thu, 5 Aug 2021 19:03:41 +0000
+Subject: [PATCH] Run proofs
+
+---
+ test/cbmc/proofs/run-cbmc-proofs.py | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+diff --git a/test/cbmc/proofs/run-cbmc-proofs.py b/test/cbmc/proofs/run-cbmc-proofs.py
+index 84f9227..6fdceb3 100755
+--- a/test/cbmc/proofs/run-cbmc-proofs.py
++++ b/test/cbmc/proofs/run-cbmc-proofs.py
+@@ -171,6 +171,11 @@ def run_build(litani, jobs):
+         sys.exit(1)
+ 
+ 
++def strip_make_output(stdout):
++    lines = [ line for line in stdout.splitlines() if not line.startswith('make') ]
++    assert(len(lines) == 1)
++    return lines[0].strip()
++
+ def get_litani_path(proof_root):
+     cmd = [
+         "make",
+@@ -183,7 +188,7 @@ def get_litani_path(proof_root):
+     if proc.returncode:
+         logging.error("Could not determine path to litani")
+         sys.exit(1)
+-    return proc.stdout.strip()
++    return strip_make_output(proc.stdout)
+ 
+ 
+ async def configure_proof_dirs(queue, counter):
+-- 
+2.25.1
+

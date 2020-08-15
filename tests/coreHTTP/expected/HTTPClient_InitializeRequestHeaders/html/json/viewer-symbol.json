@@ -1,0 +1,1381 @@
+{
+  "viewer-symbol": {
+    "symbols": {
+      "CARRIAGE_RETURN_CHARACTER": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 65
+      },
+      "COLON_CHARACTER": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 67
+      },
+      "CORE_HTTP_CLIENT_H_": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 29
+      },
+      "CORE_HTTP_CLIENT_PRIVATE_H_": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 29
+      },
+      "DASH_CHARACTER": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 61
+      },
+      "DASH_CHARACTER_LEN": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 62
+      },
+      "F_CHUNKED": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 222
+      },
+      "F_CONNECTION_CLOSE": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 224
+      },
+      "F_CONNECTION_KEEP_ALIVE": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 223
+      },
+      "F_CONNECTION_UPGRADE": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 225
+      },
+      "F_CONTENTLENGTH": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 229
+      },
+      "F_SKIPBODY": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 228
+      },
+      "F_TRAILING": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 226
+      },
+      "F_UPGRADE": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 227
+      },
+      "HTTPClient_AddHeader": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1654
+      },
+      "HTTPClient_AddRangeHeader": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1714
+      },
+      "HTTPClient_GetCurrentTimeFunc_t": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 427
+      },
+      "HTTPClient_InitializeRequestHeaders": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1557
+      },
+      "HTTPClient_InitializeRequestHeaders_harness": {
+        "file": "test/cbmc/proofs/HTTPClient_InitializeRequestHeaders/HTTPClient_InitializeRequestHeaders_harness.c",
+        "function": null,
+        "line": 32
+      },
+      "HTTPClient_ReadHeader": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2496
+      },
+      "HTTPClient_ResponseHeaderParsingCallback": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 396
+      },
+      "HTTPClient_ResponseHeaderParsingCallback_t": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 418
+      },
+      "HTTPClient_Send": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2154
+      },
+      "HTTPClient_strerror": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2561
+      },
+      "HTTPHeaderNotFound": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 305
+      },
+      "HTTPInsufficientMemory": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 224
+      },
+      "HTTPInvalidParameter": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 185
+      },
+      "HTTPInvalidResponse": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 314
+      },
+      "HTTPNetworkError": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 193
+      },
+      "HTTPNoResponse": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 212
+      },
+      "HTTPParserInternalError": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 297
+      },
+      "HTTPParsingContext": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 262
+      },
+      "HTTPParsingContext_t": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 274
+      },
+      "HTTPParsingState_t": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 189
+      },
+      "HTTPPartialResponse": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 201
+      },
+      "HTTPRequestHeaders": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 328
+      },
+      "HTTPRequestHeaders_t": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 353
+      },
+      "HTTPRequestInfo": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 359
+      },
+      "HTTPRequestInfo_t": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 387
+      },
+      "HTTPResponse": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 433
+      },
+      "HTTPResponse_t": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 534
+      },
+      "HTTPSecurityAlertExtraneousResponseData": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 242
+      },
+      "HTTPSecurityAlertInvalidCharacter": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 278
+      },
+      "HTTPSecurityAlertInvalidChunkHeader": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 250
+      },
+      "HTTPSecurityAlertInvalidContentLength": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 288
+      },
+      "HTTPSecurityAlertInvalidProtocolVersion": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 259
+      },
+      "HTTPSecurityAlertInvalidStatusCode": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 268
+      },
+      "HTTPSecurityAlertResponseHeadersSizeLimitExceeded": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 233
+      },
+      "HTTPStatus": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 161
+      },
+      "HTTPStatus_t": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 315
+      },
+      "HTTPSuccess": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 173
+      },
+      "HTTP_BOTH": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 217
+      },
+      "HTTP_CBMC_STATE_H_": {
+        "file": "test/cbmc/include/http_cbmc_state.h",
+        "function": null,
+        "line": 29
+      },
+      "HTTP_CONNECTION_FIELD": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 90
+      },
+      "HTTP_CONNECTION_FIELD_LEN": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 91
+      },
+      "HTTP_CONNECTION_KEEP_ALIVE_VALUE": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 101
+      },
+      "HTTP_CONNECTION_KEEP_ALIVE_VALUE_LEN": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 107
+      },
+      "HTTP_CONTENT_LENGTH_FIELD": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 92
+      },
+      "HTTP_CONTENT_LENGTH_FIELD_LEN": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 93
+      },
+      "HTTP_EMPTY_PATH": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 49
+      },
+      "HTTP_EMPTY_PATH_LEN": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 50
+      },
+      "HTTP_ERRNO_GEN": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 286
+      },
+      "HTTP_ERRNO_MAP": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 288
+      },
+      "HTTP_HEADER_END_INDICATOR": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 55
+      },
+      "HTTP_HEADER_END_INDICATOR_LEN": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 56
+      },
+      "HTTP_HEADER_FIELD_SEPARATOR": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 57
+      },
+      "HTTP_HEADER_FIELD_SEPARATOR_LEN": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 58
+      },
+      "HTTP_HEADER_LINE_SEPARATOR": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 53
+      },
+      "HTTP_HEADER_LINE_SEPARATOR_LEN": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 54
+      },
+      "HTTP_HEADER_STRNCPY_IS_FIELD": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 79
+      },
+      "HTTP_HEADER_STRNCPY_IS_VALUE": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 73
+      },
+      "HTTP_HOST_FIELD": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 85
+      },
+      "HTTP_HOST_FIELD_LEN": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 86
+      },
+      "HTTP_MAX_CONTENT_LENGTH_HEADER_LENGTH": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 71
+      },
+      "HTTP_MAX_HEADER_SIZE": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 65
+      },
+      "HTTP_MAX_RANGE_REQUEST_VALUE_LEN": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 148
+      },
+      "HTTP_METHOD_GET": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 60
+      },
+      "HTTP_METHOD_HEAD": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 63
+      },
+      "HTTP_METHOD_MAP": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 212
+      },
+      "HTTP_METHOD_POST": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 62
+      },
+      "HTTP_METHOD_PUT": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 61
+      },
+      "HTTP_MINIMUM_REQUEST_LINE_LENGTH": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 178
+      },
+      "HTTP_PARSER_CONTINUE_PARSING": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 162
+      },
+      "HTTP_PARSER_ERRNO": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 294
+      },
+      "HTTP_PARSER_STOP_PARSING": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 156
+      },
+      "HTTP_PARSER_STRICT": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 54
+      },
+      "HTTP_PARSER_VERSION_MAJOR": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 28
+      },
+      "HTTP_PARSER_VERSION_MINOR": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 29
+      },
+      "HTTP_PARSER_VERSION_PATCH": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 30
+      },
+      "HTTP_PARSING_COMPLETE": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 188
+      },
+      "HTTP_PARSING_INCOMPLETE": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 187
+      },
+      "HTTP_PARSING_NONE": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 186
+      },
+      "HTTP_PROTOCOL_VERSION": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 43
+      },
+      "HTTP_PROTOCOL_VERSION_LEN": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 44
+      },
+      "HTTP_RANGE_REQUEST_END_OF_FILE": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 155
+      },
+      "HTTP_RANGE_REQUEST_HEADER_FIELD": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 115
+      },
+      "HTTP_RANGE_REQUEST_HEADER_FIELD_LEN": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 121
+      },
+      "HTTP_RANGE_REQUEST_HEADER_VALUE_PREFIX": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 127
+      },
+      "HTTP_RANGE_REQUEST_HEADER_VALUE_PREFIX_LEN": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 133
+      },
+      "HTTP_REQUEST": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 217
+      },
+      "HTTP_REQUEST_KEEP_ALIVE_FLAG": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 112
+      },
+      "HTTP_RESPONSE": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 217
+      },
+      "HTTP_RESPONSE_CONNECTION_CLOSE_FLAG": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 133
+      },
+      "HTTP_RESPONSE_CONNECTION_KEEP_ALIVE_FLAG": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 141
+      },
+      "HTTP_SEND_DISABLE_CONTENT_LENGTH_FLAG": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 90
+      },
+      "HTTP_STATUS_MAP": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 159
+      },
+      "HTTP_USER_AGENT_FIELD": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 83
+      },
+      "HTTP_USER_AGENT_FIELD_LEN": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 84
+      },
+      "HTTP_USER_AGENT_VALUE_LEN": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 87
+      },
+      "LINEFEED_CHARACTER": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 66
+      },
+      "MAX_INT32_NO_OF_DECIMAL_DIGITS": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 140
+      },
+      "MAX_TRIES": {
+        "file": "test/cbmc/include/transport_interface_stubs.h",
+        "function": null,
+        "line": 37
+      },
+      "NetworkContext": {
+        "file": "source/interface/transport_interface.h",
+        "function": null,
+        "line": 188
+      },
+      "NetworkContext_t": {
+        "file": "source/interface/transport_interface.h",
+        "function": null,
+        "line": 189
+      },
+      "SPACE_CHARACTER": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 59
+      },
+      "SPACE_CHARACTER_LEN": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 60
+      },
+      "TRANSPORT_INTERFACE_H_": {
+        "file": "source/interface/transport_interface.h",
+        "function": null,
+        "line": 29
+      },
+      "TRANSPORT_INTERFACE_STUBS_H_": {
+        "file": "test/cbmc/include/transport_interface_stubs.h",
+        "function": null,
+        "line": 30
+      },
+      "TransportInterface": {
+        "file": "source/interface/transport_interface.h",
+        "function": null,
+        "line": 251
+      },
+      "TransportInterfaceReceiveStub": {
+        "file": "test/cbmc/include/transport_interface_stubs.h",
+        "function": null,
+        "line": 62
+      },
+      "TransportInterfaceSendStub": {
+        "file": "test/cbmc/include/transport_interface_stubs.h",
+        "function": null,
+        "line": 49
+      },
+      "TransportInterface_t": {
+        "file": "source/interface/transport_interface.h",
+        "function": null,
+        "line": 256
+      },
+      "TransportRecv_t": {
+        "file": "source/interface/transport_interface.h",
+        "function": null,
+        "line": 219
+      },
+      "TransportSend_t": {
+        "file": "source/interface/transport_interface.h",
+        "function": null,
+        "line": 241
+      },
+      "UF_FRAGMENT": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 357
+      },
+      "UF_HOST": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 353
+      },
+      "UF_MAX": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 359
+      },
+      "UF_PATH": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 355
+      },
+      "UF_PORT": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 354
+      },
+      "UF_QUERY": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 356
+      },
+      "UF_SCHEMA": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 352
+      },
+      "UF_USERINFO": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 358
+      },
+      "XX": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 158
+      },
+      "__builtin___strncpy_chk": {
+        "file": "test/cbmc/stubs/strncpy.c",
+        "function": null,
+        "line": 39
+      },
+      "__has_builtin": {
+        "file": "test/cbmc/stubs/strncpy.c",
+        "function": null,
+        "line": 35
+      },
+      "addContentLengthHeader": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1859
+      },
+      "addHeader": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1325
+      },
+      "addRangeHeader": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1420
+      },
+      "allocateFindHeaderContext": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 272
+      },
+      "allocateHttpReadHeaderParser": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 256
+      },
+      "allocateHttpRequestHeaders": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 38
+      },
+      "allocateHttpRequestInfo": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 67
+      },
+      "allocateHttpResponse": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 103
+      },
+      "allocateHttpSendParser": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 203
+      },
+      "allocateHttpSendParsingContext": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 220
+      },
+      "allocateTransportInterface": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 175
+      },
+      "allow_chunked_length": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 305
+      },
+      "bodyLen": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 502
+      },
+      "bufferLen": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 345
+      },
+      "caseInsensitiveStringCmp": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 573
+      },
+      "contentLength": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 518
+      },
+      "content_length": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 311
+      },
+      "convertInt32ToAscii": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1223
+      },
+      "data": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 330
+      },
+      "fieldFound": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 202
+      },
+      "fieldLen": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 199
+      },
+      "field_data": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 377
+      },
+      "field_set": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 371
+      },
+      "filler": {
+        "file": "test/cbmc/include/http_cbmc_state.h",
+        "function": null,
+        "line": 41
+      },
+      "findHeaderContext": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 196
+      },
+      "findHeaderContext_t": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 204
+      },
+      "findHeaderFieldParserCallback": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2253
+      },
+      "findHeaderInResponse": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2380
+      },
+      "findHeaderOnHeaderCompleteCallback": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2354
+      },
+      "findHeaderValueParserCallback": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2295
+      },
+      "flags": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 221
+      },
+      "getFinalResponseStatus": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1950
+      },
+      "getTime": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 474
+      },
+      "getZeroTimestampMs": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 566
+      },
+      "headerCount": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 525
+      },
+      "header_state": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 302
+      },
+      "headersLen": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 352
+      },
+      "hostLen": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 379
+      },
+      "httpHeaderStrncpy": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1276
+      },
+      "httpParser": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 264
+      },
+      "httpParserOnBodyCallback": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 893
+      },
+      "httpParserOnHeaderFieldCallback": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 701
+      },
+      "httpParserOnHeaderValueCallback": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 758
+      },
+      "httpParserOnHeadersCompleteCallback": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 803
+      },
+      "httpParserOnMessageBeginCallback": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 641
+      },
+      "httpParserOnMessageCompleteCallback": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 970
+      },
+      "httpParserOnStatusCallback": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 660
+      },
+      "http_cb": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 91
+      },
+      "http_data_cb": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 90
+      },
+      "http_errno": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 287
+      },
+      "http_major": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 316
+      },
+      "http_method": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 209
+      },
+      "http_minor": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 317
+      },
+      "http_parser": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 68
+      },
+      "http_parser_execute": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 403
+      },
+      "http_parser_h": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 22
+      },
+      "http_parser_init": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 393
+      },
+      "http_parser_set_max_header_size": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 444
+      },
+      "http_parser_settings": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 69
+      },
+      "http_parser_settings_init": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 398
+      },
+      "http_parser_type": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 217
+      },
+      "http_parser_url": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 370
+      },
+      "http_parser_url_fields": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 351
+      },
+      "http_status": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 156
+      },
+      "index": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 303
+      },
+      "initializeParsingContextForFirstResponse": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 989
+      },
+      "int16_t": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 38
+      },
+      "int32_t": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 40
+      },
+      "int64_t": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 42
+      },
+      "int8_t": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 36
+      },
+      "isHeadResponse": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 267
+      },
+      "isValidHttpRequestHeaders": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 54
+      },
+      "isValidHttpRequestInfo": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 89
+      },
+      "isValidHttpResponse": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 160
+      },
+      "isValidHttpSendParsingContext": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 246
+      },
+      "isValidTransportInterface": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 190
+      },
+      "lastHeaderFieldLen": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 271
+      },
+      "lastHeaderValueLen": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 273
+      },
+      "len": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 376
+      },
+      "lenient_http_headers": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 308
+      },
+      "mallocCanFail": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 32
+      },
+      "method": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 319
+      },
+      "methodLen": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 365
+      },
+      "nondet_bool": {
+        "file": "test/cbmc/include/http_cbmc_state.h",
+        "function": null,
+        "line": 47
+      },
+      "nread": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 310
+      },
+      "off": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 375
+      },
+      "onHeaderCallback": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 407
+      },
+      "on_body": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 341
+      },
+      "on_chunk_complete": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 347
+      },
+      "on_chunk_header": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 346
+      },
+      "on_header_field": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 338
+      },
+      "on_header_value": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 339
+      },
+      "on_headers_complete": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 340
+      },
+      "on_message_begin": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 335
+      },
+      "on_message_complete": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 342
+      },
+      "on_status": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 337
+      },
+      "on_url": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 336
+      },
+      "pBody": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 495
+      },
+      "pBuffer": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 344
+      },
+      "pBufferCur": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 269
+      },
+      "pContext": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 417
+      },
+      "pField": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 198
+      },
+      "pHeaderParsingCallback": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 458
+      },
+      "pHeaders": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 481
+      },
+      "pHost": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 378
+      },
+      "pLastHeaderField": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 270
+      },
+      "pLastHeaderValue": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 272
+      },
+      "pMethod": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 364
+      },
+      "pNetworkContext": {
+        "file": "source/interface/transport_interface.h",
+        "function": null,
+        "line": 255
+      },
+      "pPath": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 370
+      },
+      "pResponse": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 266
+      },
+      "pValueLen": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 201
+      },
+      "pValueLoc": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 200
+      },
+      "parseHttpResponse": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1136
+      },
+      "pathLen": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 371
+      },
+      "port": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 372
+      },
+      "processCompleteHeader": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 592
+      },
+      "processHttpParserError": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1022
+      },
+      "receiveAndParseHttpResponse": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1997
+      },
+      "recv": {
+        "file": "source/interface/transport_interface.h",
+        "function": null,
+        "line": 253
+      },
+      "reqFlags": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 386
+      },
+      "respFlags": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 533
+      },
+      "send": {
+        "file": "source/interface/transport_interface.h",
+        "function": null,
+        "line": 254
+      },
+      "sendHttpBody": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1929
+      },
+      "sendHttpData": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1779
+      },
+      "sendHttpHeaders": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1891
+      },
+      "sendHttpRequest": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2111
+      },
+      "state": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 265
+      },
+      "statusCode": {
+        "file": "source/include/core_http_client.h",
+        "function": null,
+        "line": 511
+      },
+      "status_code": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 318
+      },
+      "strncpy": {
+        "file": "test/cbmc/stubs/strncpy.c",
+        "function": null,
+        "line": 49
+      },
+      "type": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 299
+      },
+      "uint16_t": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 39
+      },
+      "uint32_t": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 41
+      },
+      "uint64_t": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 43
+      },
+      "uint8_t": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 37
+      },
+      "upgrade": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 327
+      },
+      "uses_transfer_encoding": {
+        "file": "source/dependency/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 304
+      },
+      "valueFound": {
+        "file": "source/include/core_http_client_private.h",
+        "function": null,
+        "line": 203
+      },
+      "writeRequestLine": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1486
+      }
+    }
+  }
+}

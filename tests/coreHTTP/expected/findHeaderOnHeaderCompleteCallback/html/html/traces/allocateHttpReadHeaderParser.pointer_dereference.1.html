@@ -1,0 +1,346 @@
+
+<html>
+  <head>
+    <title>allocateHttpReadHeaderParser.pointer_dereference.1</title>
+    <link rel="stylesheet" type="text/css" href="../viewer.css">
+  </head>
+
+  <body>
+    <h2>Error trace for property allocateHttpReadHeaderParser.pointer_dereference.1</h2>
+
+    <div id="trace-header">
+    <div id="trace-description">
+    <p>
+      Property that failed:
+      <ul>
+        <li> Name: allocateHttpReadHeaderParser.pointer_dereference.1
+        <li> Description: dereference failure: pointer NULL in pHttpParser->data
+        <li> Location: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#256">allocateHttpReadHeaderParser</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#267">267</a>
+      </ul>
+    </p>
+    </div>
+
+    <div id="trace-navigation">
+    <p>
+      Trace navigation tips:
+      <ul>
+        <li>
+          <strong>Shift-Click: Hide function steps:</strong>
+          Shift-click on any step of a function to toggle the display
+          of function steps (hide or display steps).
+          This corresponds to stepping over a function in a debugger.
+          <em>Example:</em> Shift-click on any step of malloc to hide
+          the initialization of the struct members being malloc'd.
+        </li>
+        <li>
+          <strong>Shift-Alt-Click: Focus on function steps:</strong>
+          Shift-Alt-click on any step of a function to hide all steps
+          of all functions not currently on the call stack.
+          This corresponds to viewing the call stack in a debugger.
+          <em>Example:</em> Shift-Alt-click on a failure step to the display the
+          most direct path from the initial state to the failure.
+        </li>
+      </ul>
+    </p>
+    </div>
+    </div>
+
+    <div class="trace">
+
+      
+
+        
+
+        
+
+        <div id="step1" class="step">
+        <div class="header">Step 1: Function <a href="../test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/findHeaderOnHeaderCompleteCallback_harness.c.html#33">findHeaderOnHeaderCompleteCallback_harness</a>, File <a href="../test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/findHeaderOnHeaderCompleteCallback_harness.c.html">test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/findHeaderOnHeaderCompleteCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/findHeaderOnHeaderCompleteCallback_harness.c.html#35">35</a></div>
+        
+        <div class="code">http_parser * pHttpParser;</div>
+        
+        <div class="cbmc">pHttpParser = INVALID-255 (11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step2" class="step">
+        <div class="header">Step 2: Function <a href="../test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/findHeaderOnHeaderCompleteCallback_harness.c.html#33">findHeaderOnHeaderCompleteCallback_harness</a>, File <a href="../test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/findHeaderOnHeaderCompleteCallback_harness.c.html">test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/findHeaderOnHeaderCompleteCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/findHeaderOnHeaderCompleteCallback_harness.c.html#37">37</a></div>
+        
+        <div class="code">pHttpParser = allocateHttpReadHeaderParser( NULL );</div>
+        
+        <div class="cbmc">pHttpParser = ((http_parser *)NULL) (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step3" class="step">
+        <div class="header">Step 3: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#256">allocateHttpReadHeaderParser</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#258">258</a></div>
+        
+        <div class="code">HTTPParsingContext_t * pFindHeaderContext;</div>
+        
+        <div class="cbmc">pFindHeaderContext = INVALID-255 (11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step4" class="step">
+        <div class="header">Step 4: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#256">allocateHttpReadHeaderParser</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#262">262</a></div>
+        
+        <div class="code">pHttpParser = malloc( sizeof( http_parser ) );</div>
+        
+        <div class="cbmc">malloc_size = sizeof(http_parser) /*32ul*/  (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00100000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step5" class="step">
+        <div class="header">Step 5: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#256">allocateHttpReadHeaderParser</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#262">262</a></div>
+        
+        <div class="code">pHttpParser = malloc( sizeof( http_parser ) );</div>
+        
+        <div class="cbmc">pHttpParser = ((http_parser *)NULL) (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step6" class="step">
+        <div class="header">Step 6: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#256">allocateHttpReadHeaderParser</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#266">266</a></div>
+        
+        <div class="code">pFindHeaderContext = allocateFindHeaderContext( NULL );</div>
+        
+        <div class="cbmc">pFindHeaderContext = ((findHeaderContext_t *)NULL) (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step7" class="step">
+        <div class="header">Step 7: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#272">allocateFindHeaderContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#276">276</a></div>
+        
+        <div class="code">pFindHeaderContext = malloc( sizeof( findHeaderContext_t ) );</div>
+        
+        <div class="cbmc">malloc_size = sizeof(findHeaderContext_t) /*40ul*/  (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00101000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step8" class="step">
+        <div class="header">Step 8: Function malloc, File &lt;builtin-library-malloc&gt;, Line 38</div>
+        
+        <div class="cbmc">dynamic_object2.pField = INVALID-255 (11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step9" class="step">
+        <div class="header">Step 9: Function malloc, File &lt;builtin-library-malloc&gt;, Line 38</div>
+        
+        <div class="cbmc">dynamic_object2.fieldLen = 18446744073709551615ul (11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step10" class="step">
+        <div class="header">Step 10: Function malloc, File &lt;builtin-library-malloc&gt;, Line 38</div>
+        
+        <div class="cbmc">dynamic_object2.pValueLoc = INVALID-255 (11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step11" class="step">
+        <div class="header">Step 11: Function malloc, File &lt;builtin-library-malloc&gt;, Line 38</div>
+        
+        <div class="cbmc">dynamic_object2.pValueLen = INVALID-255 (11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step12" class="step">
+        <div class="header">Step 12: Function malloc, File &lt;builtin-library-malloc&gt;, Line 38</div>
+        
+        <div class="cbmc">dynamic_object2.fieldFound = 255 (11111111)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step13" class="step">
+        <div class="header">Step 13: Function malloc, File &lt;builtin-library-malloc&gt;, Line 38</div>
+        
+        <div class="cbmc">dynamic_object2.valueFound = 255 (11111111)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step14" class="step">
+        <div class="header">Step 14: Function malloc, File &lt;builtin-library-malloc&gt;, Line 38</div>
+        
+        <div class="cbmc">dynamic_object2.$pad6 = 281474976710655 (11111111 11111111 11111111 11111111 11111111 11111111)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step15" class="step">
+        <div class="header">Step 15: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#272">allocateFindHeaderContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#276">276</a></div>
+        
+        <div class="code">pFindHeaderContext = malloc( sizeof( findHeaderContext_t ) );</div>
+        
+        <div class="cbmc">pFindHeaderContext = &dynamic_object2 (00000011 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step16" class="step">
+        <div class="header">Step 16: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#256">allocateHttpReadHeaderParser</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#266">266</a></div>
+        
+        <div class="code">pFindHeaderContext = allocateFindHeaderContext( NULL );</div>
+        
+        <div class="cbmc">pFindHeaderContext = (HTTPParsingContext_t *)&dynamic_object2 (00000011 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step17" class="step">
+        <div class="header">Step 17: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#256">allocateHttpReadHeaderParser</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#267">267</a></div>
+        
+        <div class="code">pHttpParser-&gt;data = ( void * ) pFindHeaderContext;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: pointer NULL in pHttpParser->data</div>
+        </div>
+
+        
+
+        
+
+      
+    </div>
+  </body>
+  <script type="text/javascript" src="../viewer.js"></script>
+</html>

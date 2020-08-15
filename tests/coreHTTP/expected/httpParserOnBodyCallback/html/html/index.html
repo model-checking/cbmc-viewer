@@ -1,0 +1,1516 @@
+
+
+<html>
+  <head>
+    <title>CBMC</title>
+    <link rel="stylesheet" type="text/css" href="/viewer.css">
+  </head>
+
+  <body>
+    <h1>CBMC report</h1>
+
+    <div class="coverage">
+      <h2>Coverage</h2>
+
+      
+      <p>
+        Coverage: 1.00 (reached 82 of 82 reachable lines)
+      </p>
+
+      
+      <table class="coverage">
+        <tr>
+          <th class="coverage">Coverage</th>
+          <th class="function">Function</th>
+          <th class="file">File</th>
+        </tr>
+        
+        <tr>
+          <td class="coverage">1.00 (23/23)</td>
+          <td class="function"><a href="./source/core_http_client.c.html#893">httpParserOnBodyCallback</a></td>
+          <td class="file"><a href="./source/core_http_client.c.html">source/core_http_client.c</a></td>
+        </tr>
+        
+        <tr>
+          <td class="coverage">1.00 (13/13)</td>
+          <td class="function"><a href="./test/cbmc/proofs/httpParserOnBodyCallback/httpParserOnBodyCallback_harness.c.html#32">httpParserOnBodyCallback_harness</a></td>
+          <td class="file"><a href="./test/cbmc/proofs/httpParserOnBodyCallback/httpParserOnBodyCallback_harness.c.html">test/cbmc/proofs/httpParserOnBodyCallback/httpParserOnBodyCallback_harness.c</a></td>
+        </tr>
+        
+        <tr>
+          <td class="coverage">1.00 (21/21)</td>
+          <td class="function"><a href="./test/cbmc/sources/http_cbmc_state.c.html#103">allocateHttpResponse</a></td>
+          <td class="file"><a href="./test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a></td>
+        </tr>
+        
+        <tr>
+          <td class="coverage">1.00 (8/8)</td>
+          <td class="function"><a href="./test/cbmc/sources/http_cbmc_state.c.html#203">allocateHttpSendParser</a></td>
+          <td class="file"><a href="./test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a></td>
+        </tr>
+        
+        <tr>
+          <td class="coverage">1.00 (10/10)</td>
+          <td class="function"><a href="./test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a></td>
+          <td class="file"><a href="./test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a></td>
+        </tr>
+        
+        <tr>
+          <td class="coverage">1.00 (3/3)</td>
+          <td class="function"><a href="./test/cbmc/sources/http_cbmc_state.c.html#32">mallocCanFail</a></td>
+          <td class="file"><a href="./test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a></td>
+        </tr>
+        
+        <tr>
+          <td class="coverage">1.00 (4/4)</td>
+          <td class="function"><a href="./test/cbmc/stubs/memmove.c.html#47">memmove</a></td>
+          <td class="file"><a href="./test/cbmc/stubs/memmove.c.html">test/cbmc/stubs/memmove.c</a></td>
+        </tr>
+        
+      </table>
+    </div>
+
+    <div class="warnings">
+      <h2> Warnings</h2>
+      
+
+      
+
+      
+
+      
+
+      
+      None
+      
+
+    <div class="errors">
+      <h2>Errors</h2>
+      
+
+      
+
+      
+
+      
+      <ul>
+        
+        <li> File <a href="./source/core_http_client.c.html">source/core_http_client.c</a>
+          <ul>
+            
+            
+            <li>
+              Function <a href="./source/core_http_client.c.html#893">httpParserOnBodyCallback</a>
+              <ul>
+                
+                <li>
+                  Line <a href="./source/core_http_client.c.html#902">902</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.assertion.1.html">trace</a>]
+                      assertion pHttpParser != NULL
+                    </li>
+                     
+                  </ul>
+                </li>
+                
+                <li>
+                  Line <a href="./source/core_http_client.c.html#903">903</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.assertion.2.html">trace</a>]
+                      assertion pHttpParser->data != NULL
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.1.html">trace</a>]
+                      dereference failure: pointer NULL in pHttpParser->data
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.3.html">trace</a>]
+                      dereference failure: deallocated dynamic object in pHttpParser->data
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.4.html">trace</a>]
+                      dereference failure: dead object in pHttpParser->data
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.5.html">trace</a>]
+                      dereference failure: pointer outside object bounds in pHttpParser->data
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.6.html">trace</a>]
+                      dereference failure: invalid integer address in pHttpParser->data
+                    </li>
+                     
+                  </ul>
+                </li>
+                
+                <li>
+                  Line <a href="./source/core_http_client.c.html#904">904</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.assertion.3.html">trace</a>]
+                      assertion pLoc != NULL
+                    </li>
+                     
+                  </ul>
+                </li>
+                
+                <li>
+                  Line <a href="./source/core_http_client.c.html#907">907</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.10.html">trace</a>]
+                      dereference failure: dead object in pParsingContext->pResponse
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.11.html">trace</a>]
+                      dereference failure: pointer outside object bounds in pParsingContext->pResponse
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.12.html">trace</a>]
+                      dereference failure: invalid integer address in pParsingContext->pResponse
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.7.html">trace</a>]
+                      dereference failure: pointer NULL in pParsingContext->pResponse
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.8.html">trace</a>]
+                      dereference failure: pointer invalid in pParsingContext->pResponse
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.9.html">trace</a>]
+                      dereference failure: deallocated dynamic object in pParsingContext->pResponse
+                    </li>
+                     
+                  </ul>
+                </li>
+                
+                <li>
+                  Line <a href="./source/core_http_client.c.html#909">909</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.assertion.4.html">trace</a>]
+                      assertion pResponse != NULL
+                    </li>
+                     
+                  </ul>
+                </li>
+                
+                <li>
+                  Line <a href="./source/core_http_client.c.html#910">910</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.assertion.5.html">trace</a>]
+                      assertion pResponse->pBuffer != NULL
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.13.html">trace</a>]
+                      dereference failure: pointer NULL in pResponse->pBuffer
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.14.html">trace</a>]
+                      dereference failure: pointer invalid in pResponse->pBuffer
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.15.html">trace</a>]
+                      dereference failure: deallocated dynamic object in pResponse->pBuffer
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.16.html">trace</a>]
+                      dereference failure: dead object in pResponse->pBuffer
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.17.html">trace</a>]
+                      dereference failure: pointer outside object bounds in pResponse->pBuffer
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.18.html">trace</a>]
+                      dereference failure: invalid integer address in pResponse->pBuffer
+                    </li>
+                     
+                  </ul>
+                </li>
+                
+                <li>
+                  Line <a href="./source/core_http_client.c.html#911">911</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.assertion.6.html">trace</a>]
+                      assertion pLoc >= ( const char * ) ( pResponse->pBuffer )
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer.1.html">trace</a>]
+                      same object violation in pLoc >= (const char *)pResponse->pBuffer
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_arithmetic.1.html">trace</a>]
+                      pointer relation: pointer NULL in pLoc
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_arithmetic.10.html">trace</a>]
+                      pointer relation: dead object in (const char *)pResponse->pBuffer
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_arithmetic.11.html">trace</a>]
+                      pointer relation: pointer outside object bounds in (const char *)pResponse->pBuffer
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_arithmetic.12.html">trace</a>]
+                      pointer relation: invalid integer address in (const char *)pResponse->pBuffer
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_arithmetic.2.html">trace</a>]
+                      pointer relation: pointer invalid in pLoc
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_arithmetic.3.html">trace</a>]
+                      pointer relation: deallocated dynamic object in pLoc
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_arithmetic.4.html">trace</a>]
+                      pointer relation: dead object in pLoc
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_arithmetic.5.html">trace</a>]
+                      pointer relation: pointer outside object bounds in pLoc
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_arithmetic.6.html">trace</a>]
+                      pointer relation: invalid integer address in pLoc
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_arithmetic.7.html">trace</a>]
+                      pointer relation: pointer NULL in (const char *)pResponse->pBuffer
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_arithmetic.8.html">trace</a>]
+                      pointer relation: pointer invalid in (const char *)pResponse->pBuffer
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_arithmetic.9.html">trace</a>]
+                      pointer relation: deallocated dynamic object in (const char *)pResponse->pBuffer
+                    </li>
+                     
+                  </ul>
+                </li>
+                
+                <li>
+                  Line <a href="./source/core_http_client.c.html#912">912</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.assertion.7.html">trace</a>]
+                      assertion pLoc < ( const char * ) ( pResponse->pBuffer + pResponse->bufferLen )
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.overflow.1.html">trace</a>]
+                      arithmetic overflow on unsigned to signed type conversion in (signed long int)pResponse->bufferLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer.2.html">trace</a>]
+                      same object violation in pLoc < (const char *)(pResponse->pBuffer + (signed long int)pResponse->bufferLen)
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_arithmetic.13.html">trace</a>]
+                      pointer arithmetic: pointer NULL in pResponse->pBuffer + (signed long int)pResponse->bufferLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_arithmetic.14.html">trace</a>]
+                      pointer arithmetic: pointer invalid in pResponse->pBuffer + (signed long int)pResponse->bufferLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_arithmetic.15.html">trace</a>]
+                      pointer arithmetic: deallocated dynamic object in pResponse->pBuffer + (signed long int)pResponse->bufferLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_arithmetic.16.html">trace</a>]
+                      pointer arithmetic: dead object in pResponse->pBuffer + (signed long int)pResponse->bufferLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_arithmetic.17.html">trace</a>]
+                      pointer arithmetic: pointer outside object bounds in pResponse->pBuffer + (signed long int)pResponse->bufferLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_arithmetic.18.html">trace</a>]
+                      pointer arithmetic: invalid integer address in pResponse->pBuffer + (signed long int)pResponse->bufferLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_arithmetic.19.html">trace</a>]
+                      pointer relation: pointer NULL in (const char *)(pResponse->pBuffer + (signed long int)pResponse->bufferLen)
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_arithmetic.20.html">trace</a>]
+                      pointer relation: pointer invalid in (const char *)(pResponse->pBuffer + (signed long int)pResponse->bufferLen)
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_arithmetic.21.html">trace</a>]
+                      pointer relation: deallocated dynamic object in (const char *)(pResponse->pBuffer + (signed long int)pResponse->bufferLen)
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_arithmetic.22.html">trace</a>]
+                      pointer relation: dead object in (const char *)(pResponse->pBuffer + (signed long int)pResponse->bufferLen)
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_arithmetic.23.html">trace</a>]
+                      pointer relation: pointer outside object bounds in (const char *)(pResponse->pBuffer + (signed long int)pResponse->bufferLen)
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_arithmetic.24.html">trace</a>]
+                      pointer relation: invalid integer address in (const char *)(pResponse->pBuffer + (signed long int)pResponse->bufferLen)
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.19.html">trace</a>]
+                      dereference failure: pointer NULL in pResponse->bufferLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.20.html">trace</a>]
+                      dereference failure: pointer invalid in pResponse->bufferLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.21.html">trace</a>]
+                      dereference failure: deallocated dynamic object in pResponse->bufferLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.22.html">trace</a>]
+                      dereference failure: dead object in pResponse->bufferLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.23.html">trace</a>]
+                      dereference failure: pointer outside object bounds in pResponse->bufferLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.24.html">trace</a>]
+                      dereference failure: invalid integer address in pResponse->bufferLen
+                    </li>
+                     
+                  </ul>
+                </li>
+                
+                <li>
+                  Line <a href="./source/core_http_client.c.html#916">916</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.25.html">trace</a>]
+                      dereference failure: pointer NULL in pResponse->pBody
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.26.html">trace</a>]
+                      dereference failure: pointer invalid in pResponse->pBody
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.27.html">trace</a>]
+                      dereference failure: deallocated dynamic object in pResponse->pBody
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.28.html">trace</a>]
+                      dereference failure: dead object in pResponse->pBody
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.29.html">trace</a>]
+                      dereference failure: pointer outside object bounds in pResponse->pBody
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.30.html">trace</a>]
+                      dereference failure: invalid integer address in pResponse->pBody
+                    </li>
+                     
+                  </ul>
+                </li>
+                
+                <li>
+                  Line <a href="./source/core_http_client.c.html#924">924</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.31.html">trace</a>]
+                      dereference failure: pointer NULL in pResponse->bodyLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.32.html">trace</a>]
+                      dereference failure: pointer invalid in pResponse->bodyLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.33.html">trace</a>]
+                      dereference failure: deallocated dynamic object in pResponse->bodyLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.34.html">trace</a>]
+                      dereference failure: dead object in pResponse->bodyLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.35.html">trace</a>]
+                      dereference failure: pointer outside object bounds in pResponse->bodyLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.36.html">trace</a>]
+                      dereference failure: invalid integer address in pResponse->bodyLen
+                    </li>
+                     
+                  </ul>
+                </li>
+                
+                <li>
+                  Line <a href="./source/core_http_client.c.html#936">936</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.overflow.2.html">trace</a>]
+                      arithmetic overflow on unsigned to signed type conversion in (signed long int)pResponse->bodyLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_arithmetic.25.html">trace</a>]
+                      pointer arithmetic: pointer NULL in pResponse->pBody + (signed long int)pResponse->bodyLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_arithmetic.26.html">trace</a>]
+                      pointer arithmetic: pointer invalid in pResponse->pBody + (signed long int)pResponse->bodyLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_arithmetic.27.html">trace</a>]
+                      pointer arithmetic: deallocated dynamic object in pResponse->pBody + (signed long int)pResponse->bodyLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_arithmetic.28.html">trace</a>]
+                      pointer arithmetic: dead object in pResponse->pBody + (signed long int)pResponse->bodyLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_arithmetic.29.html">trace</a>]
+                      pointer arithmetic: pointer outside object bounds in pResponse->pBody + (signed long int)pResponse->bodyLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_arithmetic.30.html">trace</a>]
+                      pointer arithmetic: invalid integer address in pResponse->pBody + (signed long int)pResponse->bodyLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.37.html">trace</a>]
+                      dereference failure: pointer NULL in pResponse->pBody
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.38.html">trace</a>]
+                      dereference failure: pointer invalid in pResponse->pBody
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.39.html">trace</a>]
+                      dereference failure: deallocated dynamic object in pResponse->pBody
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.40.html">trace</a>]
+                      dereference failure: dead object in pResponse->pBody
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.41.html">trace</a>]
+                      dereference failure: pointer outside object bounds in pResponse->pBody
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.42.html">trace</a>]
+                      dereference failure: invalid integer address in pResponse->pBody
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.43.html">trace</a>]
+                      dereference failure: pointer NULL in pResponse->bodyLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.44.html">trace</a>]
+                      dereference failure: pointer invalid in pResponse->bodyLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.45.html">trace</a>]
+                      dereference failure: deallocated dynamic object in pResponse->bodyLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.46.html">trace</a>]
+                      dereference failure: dead object in pResponse->bodyLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.47.html">trace</a>]
+                      dereference failure: pointer outside object bounds in pResponse->bodyLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.48.html">trace</a>]
+                      dereference failure: invalid integer address in pResponse->bodyLen
+                    </li>
+                     
+                  </ul>
+                </li>
+                
+                <li>
+                  Line <a href="./source/core_http_client.c.html#948">948</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer.3.html">trace</a>]
+                      same object violation in pLoc > pNextWriteLoc
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_arithmetic.31.html">trace</a>]
+                      pointer relation: pointer NULL in pLoc
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_arithmetic.32.html">trace</a>]
+                      pointer relation: pointer invalid in pLoc
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_arithmetic.33.html">trace</a>]
+                      pointer relation: deallocated dynamic object in pLoc
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_arithmetic.34.html">trace</a>]
+                      pointer relation: dead object in pLoc
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_arithmetic.35.html">trace</a>]
+                      pointer relation: pointer outside object bounds in pLoc
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_arithmetic.36.html">trace</a>]
+                      pointer relation: invalid integer address in pLoc
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_arithmetic.37.html">trace</a>]
+                      pointer relation: pointer NULL in pNextWriteLoc
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_arithmetic.38.html">trace</a>]
+                      pointer relation: pointer invalid in pNextWriteLoc
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_arithmetic.39.html">trace</a>]
+                      pointer relation: deallocated dynamic object in pNextWriteLoc
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_arithmetic.40.html">trace</a>]
+                      pointer relation: dead object in pNextWriteLoc
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_arithmetic.41.html">trace</a>]
+                      pointer relation: pointer outside object bounds in pNextWriteLoc
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_arithmetic.42.html">trace</a>]
+                      pointer relation: invalid integer address in pNextWriteLoc
+                    </li>
+                     
+                  </ul>
+                </li>
+                
+                <li>
+                  Line <a href="./source/core_http_client.c.html#956">956</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.overflow.3.html">trace</a>]
+                      arithmetic overflow on unsigned + in pResponse->bodyLen + length
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.49.html">trace</a>]
+                      dereference failure: pointer NULL in pResponse->bodyLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.50.html">trace</a>]
+                      dereference failure: pointer invalid in pResponse->bodyLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.51.html">trace</a>]
+                      dereference failure: deallocated dynamic object in pResponse->bodyLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.52.html">trace</a>]
+                      dereference failure: dead object in pResponse->bodyLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.53.html">trace</a>]
+                      dereference failure: pointer outside object bounds in pResponse->bodyLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.54.html">trace</a>]
+                      dereference failure: invalid integer address in pResponse->bodyLen
+                    </li>
+                     
+                  </ul>
+                </li>
+                
+                <li>
+                  Line <a href="./source/core_http_client.c.html#959">959</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.overflow.4.html">trace</a>]
+                      arithmetic overflow on unsigned to signed type conversion in (signed long int)length
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_arithmetic.43.html">trace</a>]
+                      pointer arithmetic: pointer NULL in pLoc + (signed long int)length
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_arithmetic.44.html">trace</a>]
+                      pointer arithmetic: pointer invalid in pLoc + (signed long int)length
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_arithmetic.45.html">trace</a>]
+                      pointer arithmetic: deallocated dynamic object in pLoc + (signed long int)length
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_arithmetic.46.html">trace</a>]
+                      pointer arithmetic: dead object in pLoc + (signed long int)length
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_arithmetic.47.html">trace</a>]
+                      pointer arithmetic: pointer outside object bounds in pLoc + (signed long int)length
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_arithmetic.48.html">trace</a>]
+                      pointer arithmetic: invalid integer address in pLoc + (signed long int)length
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.55.html">trace</a>]
+                      dereference failure: pointer NULL in pParsingContext->pBufferCur
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.56.html">trace</a>]
+                      dereference failure: pointer invalid in pParsingContext->pBufferCur
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.57.html">trace</a>]
+                      dereference failure: deallocated dynamic object in pParsingContext->pBufferCur
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.58.html">trace</a>]
+                      dereference failure: dead object in pParsingContext->pBufferCur
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.59.html">trace</a>]
+                      dereference failure: pointer outside object bounds in pParsingContext->pBufferCur
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback.pointer_dereference.60.html">trace</a>]
+                      dereference failure: invalid integer address in pParsingContext->pBufferCur
+                    </li>
+                     
+                  </ul>
+                </li>
+                 
+              </ul>
+            </li>
+             
+          </ul>
+        </li>
+        
+        <li> File <a href="./test/cbmc/proofs/httpParserOnBodyCallback/httpParserOnBodyCallback_harness.c.html">test/cbmc/proofs/httpParserOnBodyCallback/httpParserOnBodyCallback_harness.c</a>
+          <ul>
+            
+            
+            <li>
+              Function <a href="./test/cbmc/proofs/httpParserOnBodyCallback/httpParserOnBodyCallback_harness.c.html#32">httpParserOnBodyCallback_harness</a>
+              <ul>
+                
+                <li>
+                  Line <a href="./test/cbmc/proofs/httpParserOnBodyCallback/httpParserOnBodyCallback_harness.c.html#42">42</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_dereference.1.html">trace</a>]
+                      dereference failure: pointer NULL in pHttpParser->data
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_dereference.3.html">trace</a>]
+                      dereference failure: deallocated dynamic object in pHttpParser->data
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_dereference.4.html">trace</a>]
+                      dereference failure: dead object in pHttpParser->data
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_dereference.5.html">trace</a>]
+                      dereference failure: pointer outside object bounds in pHttpParser->data
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_dereference.6.html">trace</a>]
+                      dereference failure: invalid integer address in pHttpParser->data
+                    </li>
+                     
+                  </ul>
+                </li>
+                
+                <li>
+                  Line <a href="./test/cbmc/proofs/httpParserOnBodyCallback/httpParserOnBodyCallback_harness.c.html#44">44</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_dereference.10.html">trace</a>]
+                      dereference failure: dead object in pParsingContext->pResponse
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_dereference.11.html">trace</a>]
+                      dereference failure: pointer outside object bounds in pParsingContext->pResponse
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_dereference.12.html">trace</a>]
+                      dereference failure: invalid integer address in pParsingContext->pResponse
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_dereference.7.html">trace</a>]
+                      dereference failure: pointer NULL in pParsingContext->pResponse
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_dereference.8.html">trace</a>]
+                      dereference failure: pointer invalid in pParsingContext->pResponse
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_dereference.9.html">trace</a>]
+                      dereference failure: deallocated dynamic object in pParsingContext->pResponse
+                    </li>
+                     
+                  </ul>
+                </li>
+                
+                <li>
+                  Line <a href="./test/cbmc/proofs/httpParserOnBodyCallback/httpParserOnBodyCallback_harness.c.html#45">45</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_dereference.13.html">trace</a>]
+                      dereference failure: pointer NULL in pResponse->bufferLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_dereference.14.html">trace</a>]
+                      dereference failure: pointer invalid in pResponse->bufferLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_dereference.15.html">trace</a>]
+                      dereference failure: deallocated dynamic object in pResponse->bufferLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_dereference.16.html">trace</a>]
+                      dereference failure: dead object in pResponse->bufferLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_dereference.17.html">trace</a>]
+                      dereference failure: pointer outside object bounds in pResponse->bufferLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_dereference.18.html">trace</a>]
+                      dereference failure: invalid integer address in pResponse->bufferLen
+                    </li>
+                     
+                  </ul>
+                </li>
+                
+                <li>
+                  Line <a href="./test/cbmc/proofs/httpParserOnBodyCallback/httpParserOnBodyCallback_harness.c.html#46">46</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.overflow.1.html">trace</a>]
+                      arithmetic overflow on unsigned to signed type conversion in (signed long int)length
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_arithmetic.1.html">trace</a>]
+                      pointer arithmetic: pointer NULL in pResponse->pBuffer + (signed long int)length
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_arithmetic.2.html">trace</a>]
+                      pointer arithmetic: pointer invalid in pResponse->pBuffer + (signed long int)length
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_arithmetic.3.html">trace</a>]
+                      pointer arithmetic: deallocated dynamic object in pResponse->pBuffer + (signed long int)length
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_arithmetic.4.html">trace</a>]
+                      pointer arithmetic: dead object in pResponse->pBuffer + (signed long int)length
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_arithmetic.5.html">trace</a>]
+                      pointer arithmetic: pointer outside object bounds in pResponse->pBuffer + (signed long int)length
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_arithmetic.6.html">trace</a>]
+                      pointer arithmetic: invalid integer address in pResponse->pBuffer + (signed long int)length
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_dereference.19.html">trace</a>]
+                      dereference failure: pointer NULL in pResponse->pBuffer
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_dereference.20.html">trace</a>]
+                      dereference failure: pointer invalid in pResponse->pBuffer
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_dereference.21.html">trace</a>]
+                      dereference failure: deallocated dynamic object in pResponse->pBuffer
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_dereference.22.html">trace</a>]
+                      dereference failure: dead object in pResponse->pBuffer
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_dereference.23.html">trace</a>]
+                      dereference failure: pointer outside object bounds in pResponse->pBuffer
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_dereference.24.html">trace</a>]
+                      dereference failure: invalid integer address in pResponse->pBuffer
+                    </li>
+                     
+                  </ul>
+                </li>
+                
+                <li>
+                  Line <a href="./test/cbmc/proofs/httpParserOnBodyCallback/httpParserOnBodyCallback_harness.c.html#48">48</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_arithmetic.19.html">trace</a>]
+                      pointer relation: pointer NULL in pLoc
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_arithmetic.20.html">trace</a>]
+                      pointer relation: pointer invalid in pLoc
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_arithmetic.21.html">trace</a>]
+                      pointer relation: deallocated dynamic object in pLoc
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_arithmetic.22.html">trace</a>]
+                      pointer relation: dead object in pLoc
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_arithmetic.23.html">trace</a>]
+                      pointer relation: pointer outside object bounds in pLoc
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_arithmetic.24.html">trace</a>]
+                      pointer relation: invalid integer address in pLoc
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_arithmetic.25.html">trace</a>]
+                      pointer relation: pointer NULL in (char *)((pResponse->pBuffer + (signed long int)pResponse->bufferLen) - (signed long int)length)
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_arithmetic.26.html">trace</a>]
+                      pointer relation: pointer invalid in (char *)((pResponse->pBuffer + (signed long int)pResponse->bufferLen) - (signed long int)length)
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_arithmetic.27.html">trace</a>]
+                      pointer relation: deallocated dynamic object in (char *)((pResponse->pBuffer + (signed long int)pResponse->bufferLen) - (signed long int)length)
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_arithmetic.28.html">trace</a>]
+                      pointer relation: dead object in (char *)((pResponse->pBuffer + (signed long int)pResponse->bufferLen) - (signed long int)length)
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_arithmetic.29.html">trace</a>]
+                      pointer relation: pointer outside object bounds in (char *)((pResponse->pBuffer + (signed long int)pResponse->bufferLen) - (signed long int)length)
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_arithmetic.30.html">trace</a>]
+                      pointer relation: invalid integer address in (char *)((pResponse->pBuffer + (signed long int)pResponse->bufferLen) - (signed long int)length)
+                    </li>
+                     
+                  </ul>
+                </li>
+                
+                <li>
+                  Line <a href="./test/cbmc/proofs/httpParserOnBodyCallback/httpParserOnBodyCallback_harness.c.html#49">49</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.overflow.2.html">trace</a>]
+                      arithmetic overflow on unsigned to signed type conversion in (signed long int)pResponse->bufferLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_arithmetic.10.html">trace</a>]
+                      pointer arithmetic: dead object in pResponse->pBuffer + (signed long int)pResponse->bufferLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_arithmetic.11.html">trace</a>]
+                      pointer arithmetic: pointer outside object bounds in pResponse->pBuffer + (signed long int)pResponse->bufferLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_arithmetic.12.html">trace</a>]
+                      pointer arithmetic: invalid integer address in pResponse->pBuffer + (signed long int)pResponse->bufferLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_arithmetic.13.html">trace</a>]
+                      pointer arithmetic: pointer NULL in (pResponse->pBuffer + (signed long int)pResponse->bufferLen) - (signed long int)length
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_arithmetic.14.html">trace</a>]
+                      pointer arithmetic: pointer invalid in (pResponse->pBuffer + (signed long int)pResponse->bufferLen) - (signed long int)length
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_arithmetic.15.html">trace</a>]
+                      pointer arithmetic: deallocated dynamic object in (pResponse->pBuffer + (signed long int)pResponse->bufferLen) - (signed long int)length
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_arithmetic.16.html">trace</a>]
+                      pointer arithmetic: dead object in (pResponse->pBuffer + (signed long int)pResponse->bufferLen) - (signed long int)length
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_arithmetic.17.html">trace</a>]
+                      pointer arithmetic: pointer outside object bounds in (pResponse->pBuffer + (signed long int)pResponse->bufferLen) - (signed long int)length
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_arithmetic.18.html">trace</a>]
+                      pointer arithmetic: invalid integer address in (pResponse->pBuffer + (signed long int)pResponse->bufferLen) - (signed long int)length
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_arithmetic.7.html">trace</a>]
+                      pointer arithmetic: pointer NULL in pResponse->pBuffer + (signed long int)pResponse->bufferLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_arithmetic.8.html">trace</a>]
+                      pointer arithmetic: pointer invalid in pResponse->pBuffer + (signed long int)pResponse->bufferLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnBodyCallback_harness.pointer_arithmetic.9.html">trace</a>]
+                      pointer arithmetic: deallocated dynamic object in pResponse->pBuffer + (signed long int)pResponse->bufferLen
+                    </li>
+                     
+                  </ul>
+                </li>
+                 
+              </ul>
+            </li>
+             
+          </ul>
+        </li>
+        
+        <li> File <a href="./test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>
+          <ul>
+            
+            
+            <li>
+              Function <a href="./test/cbmc/sources/http_cbmc_state.c.html#103">allocateHttpResponse</a>
+              <ul>
+                
+                <li>
+                  Line <a href="./test/cbmc/sources/http_cbmc_state.c.html#124">124</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpResponse.overflow.1.html">trace</a>]
+                      arithmetic overflow on unsigned to signed type conversion in (signed long int)headerOffset
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpResponse.pointer_arithmetic.5.html">trace</a>]
+                      pointer arithmetic: pointer outside object bounds in pResponse->pBuffer + (signed long int)headerOffset
+                    </li>
+                     
+                  </ul>
+                </li>
+                
+                <li>
+                  Line <a href="./test/cbmc/sources/http_cbmc_state.c.html#146">146</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpResponse.overflow.2.html">trace</a>]
+                      arithmetic overflow on unsigned to signed type conversion in (signed long int)bodyOffset
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpResponse.pointer_arithmetic.11.html">trace</a>]
+                      pointer arithmetic: pointer outside object bounds in pResponse->pBuffer + (signed long int)bodyOffset
+                    </li>
+                     
+                  </ul>
+                </li>
+                 
+              </ul>
+            </li>
+            
+            
+            <li>
+              Function <a href="./test/cbmc/sources/http_cbmc_state.c.html#203">allocateHttpSendParser</a>
+              <ul>
+                
+                <li>
+                  Line <a href="./test/cbmc/sources/http_cbmc_state.c.html#215">215</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParser.pointer_dereference.1.html">trace</a>]
+                      dereference failure: pointer NULL in pHttpParser->data
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParser.pointer_dereference.3.html">trace</a>]
+                      dereference failure: deallocated dynamic object in pHttpParser->data
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParser.pointer_dereference.4.html">trace</a>]
+                      dereference failure: dead object in pHttpParser->data
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParser.pointer_dereference.5.html">trace</a>]
+                      dereference failure: pointer outside object bounds in pHttpParser->data
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParser.pointer_dereference.6.html">trace</a>]
+                      dereference failure: invalid integer address in pHttpParser->data
+                    </li>
+                     
+                  </ul>
+                </li>
+                 
+              </ul>
+            </li>
+            
+            
+            <li>
+              Function <a href="./test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>
+              <ul>
+                
+                <li>
+                  Line <a href="./test/cbmc/sources/http_cbmc_state.c.html#237">237</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParsingContext.pointer_dereference.1.html">trace</a>]
+                      dereference failure: pointer NULL in pHttpParsingContext->pResponse
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParsingContext.pointer_dereference.3.html">trace</a>]
+                      dereference failure: deallocated dynamic object in pHttpParsingContext->pResponse
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParsingContext.pointer_dereference.4.html">trace</a>]
+                      dereference failure: dead object in pHttpParsingContext->pResponse
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParsingContext.pointer_dereference.5.html">trace</a>]
+                      dereference failure: pointer outside object bounds in pHttpParsingContext->pResponse
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParsingContext.pointer_dereference.6.html">trace</a>]
+                      dereference failure: invalid integer address in pHttpParsingContext->pResponse
+                    </li>
+                     
+                  </ul>
+                </li>
+                
+                <li>
+                  Line <a href="./test/cbmc/sources/http_cbmc_state.c.html#240">240</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParsingContext.overflow.1.html">trace</a>]
+                      arithmetic overflow on unsigned to signed type conversion in (signed long int)bufferOffset
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParsingContext.pointer_arithmetic.1.html">trace</a>]
+                      pointer arithmetic: pointer NULL in pResponse->pBuffer + (signed long int)bufferOffset
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParsingContext.pointer_arithmetic.2.html">trace</a>]
+                      pointer arithmetic: pointer invalid in pResponse->pBuffer + (signed long int)bufferOffset
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParsingContext.pointer_arithmetic.3.html">trace</a>]
+                      pointer arithmetic: deallocated dynamic object in pResponse->pBuffer + (signed long int)bufferOffset
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParsingContext.pointer_arithmetic.4.html">trace</a>]
+                      pointer arithmetic: dead object in pResponse->pBuffer + (signed long int)bufferOffset
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParsingContext.pointer_arithmetic.5.html">trace</a>]
+                      pointer arithmetic: pointer outside object bounds in pResponse->pBuffer + (signed long int)bufferOffset
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParsingContext.pointer_arithmetic.6.html">trace</a>]
+                      pointer arithmetic: invalid integer address in pResponse->pBuffer + (signed long int)bufferOffset
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParsingContext.pointer_dereference.10.html">trace</a>]
+                      dereference failure: dead object in pHttpParsingContext->pBufferCur
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParsingContext.pointer_dereference.11.html">trace</a>]
+                      dereference failure: pointer outside object bounds in pHttpParsingContext->pBufferCur
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParsingContext.pointer_dereference.12.html">trace</a>]
+                      dereference failure: invalid integer address in pHttpParsingContext->pBufferCur
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParsingContext.pointer_dereference.13.html">trace</a>]
+                      dereference failure: pointer NULL in pResponse->pBuffer
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParsingContext.pointer_dereference.15.html">trace</a>]
+                      dereference failure: deallocated dynamic object in pResponse->pBuffer
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParsingContext.pointer_dereference.16.html">trace</a>]
+                      dereference failure: dead object in pResponse->pBuffer
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParsingContext.pointer_dereference.17.html">trace</a>]
+                      dereference failure: pointer outside object bounds in pResponse->pBuffer
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParsingContext.pointer_dereference.7.html">trace</a>]
+                      dereference failure: pointer NULL in pHttpParsingContext->pBufferCur
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParsingContext.pointer_dereference.9.html">trace</a>]
+                      dereference failure: deallocated dynamic object in pHttpParsingContext->pBufferCur
+                    </li>
+                     
+                  </ul>
+                </li>
+                 
+              </ul>
+            </li>
+            
+            
+            <li>
+              Function <a href="./test/cbmc/sources/http_cbmc_state.c.html#32">mallocCanFail</a>
+              <ul>
+                
+                <li>
+                  Line <a href="./test/cbmc/sources/http_cbmc_state.c.html#34">34</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/mallocCanFail.assertion.1.html">trace</a>]
+                      mallocCanFail size is too big
+                    </li>
+                     
+                  </ul>
+                </li>
+                 
+              </ul>
+            </li>
+             
+          </ul>
+        </li>
+        
+        <li> File <a href="./test/cbmc/stubs/memmove.c.html">test/cbmc/stubs/memmove.c</a>
+          <ul>
+            
+            
+            <li>
+              Function <a href="./test/cbmc/stubs/memmove.c.html#47">memmove</a>
+              <ul>
+                
+                <li>
+                  Line <a href="./test/cbmc/stubs/memmove.c.html#51">51</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/memmove.assertion.1.html">trace</a>]
+                      write
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/memmove.overflow.2.html">trace</a>]
+                      arithmetic overflow on unsigned + in (size_t)POINTER_OFFSET(dest) + n
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/memmove.pointer_primitives.1.html">trace</a>]
+                      pointer invalid in POINTER_OBJECT(dest)
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/memmove.pointer_primitives.12.html">trace</a>]
+                      pointer outside object bounds in POINTER_OBJECT(dest)
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/memmove.pointer_primitives.16.html">trace</a>]
+                      pointer outside object bounds in POINTER_OFFSET(dest)
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/memmove.pointer_primitives.20.html">trace</a>]
+                      pointer outside object bounds in POINTER_OFFSET(dest)
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/memmove.pointer_primitives.24.html">trace</a>]
+                      pointer outside object bounds in OBJECT_SIZE(dest)
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/memmove.pointer_primitives.28.html">trace</a>]
+                      pointer outside object bounds in POINTER_OBJECT(dest)
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/memmove.pointer_primitives.4.html">trace</a>]
+                      pointer outside object bounds in POINTER_OBJECT(dest)
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/memmove.pointer_primitives.8.html">trace</a>]
+                      pointer outside object bounds in POINTER_OBJECT(dest)
+                    </li>
+                     
+                  </ul>
+                </li>
+                
+                <li>
+                  Line <a href="./test/cbmc/stubs/memmove.c.html#52">52</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/memmove.assertion.2.html">trace</a>]
+                      read
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/memmove.overflow.4.html">trace</a>]
+                      arithmetic overflow on unsigned + in (size_t)POINTER_OFFSET(src) + n
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/memmove.pointer_primitives.29.html">trace</a>]
+                      pointer invalid in POINTER_OBJECT(src)
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/memmove.pointer_primitives.32.html">trace</a>]
+                      pointer outside object bounds in POINTER_OBJECT(src)
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/memmove.pointer_primitives.36.html">trace</a>]
+                      pointer outside object bounds in POINTER_OBJECT(src)
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/memmove.pointer_primitives.40.html">trace</a>]
+                      pointer outside object bounds in POINTER_OBJECT(src)
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/memmove.pointer_primitives.44.html">trace</a>]
+                      pointer outside object bounds in POINTER_OFFSET(src)
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/memmove.pointer_primitives.48.html">trace</a>]
+                      pointer outside object bounds in POINTER_OFFSET(src)
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/memmove.pointer_primitives.52.html">trace</a>]
+                      pointer outside object bounds in OBJECT_SIZE(src)
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/memmove.pointer_primitives.56.html">trace</a>]
+                      pointer outside object bounds in POINTER_OBJECT(src)
+                    </li>
+                     
+                  </ul>
+                </li>
+                 
+              </ul>
+            </li>
+             
+          </ul>
+        </li>
+         
+      </ul>
+      
+
+      
+
+    </div>
+  </body>
+</html>

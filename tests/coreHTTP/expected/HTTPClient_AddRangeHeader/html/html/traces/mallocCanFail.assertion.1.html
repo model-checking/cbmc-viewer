@@ -1,0 +1,264 @@
+
+<html>
+  <head>
+    <title>mallocCanFail.assertion.1</title>
+    <link rel="stylesheet" type="text/css" href="../viewer.css">
+  </head>
+
+  <body>
+    <h2>Error trace for property mallocCanFail.assertion.1</h2>
+
+    <div id="trace-header">
+    <div id="trace-description">
+    <p>
+      Property that failed:
+      <ul>
+        <li> Name: mallocCanFail.assertion.1
+        <li> Description: mallocCanFail size is too big
+        <li> Location: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#32">mallocCanFail</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#34">34</a>
+      </ul>
+    </p>
+    </div>
+
+    <div id="trace-navigation">
+    <p>
+      Trace navigation tips:
+      <ul>
+        <li>
+          <strong>Shift-Click: Hide function steps:</strong>
+          Shift-click on any step of a function to toggle the display
+          of function steps (hide or display steps).
+          This corresponds to stepping over a function in a debugger.
+          <em>Example:</em> Shift-click on any step of malloc to hide
+          the initialization of the struct members being malloc'd.
+        </li>
+        <li>
+          <strong>Shift-Alt-Click: Focus on function steps:</strong>
+          Shift-Alt-click on any step of a function to hide all steps
+          of all functions not currently on the call stack.
+          This corresponds to viewing the call stack in a debugger.
+          <em>Example:</em> Shift-Alt-click on a failure step to the display the
+          most direct path from the initial state to the failure.
+        </li>
+      </ul>
+    </p>
+    </div>
+    </div>
+
+    <div class="trace">
+
+      
+
+        
+
+        
+
+        <div id="step1" class="step">
+        <div class="header">Step 1: Function <a href="../test/cbmc/proofs/HTTPClient_AddRangeHeader/HTTPClient_AddRangeHeader_harness.c.html#32">HTTPClient_AddRangeHeader_harness</a>, File <a href="../test/cbmc/proofs/HTTPClient_AddRangeHeader/HTTPClient_AddRangeHeader_harness.c.html">test/cbmc/proofs/HTTPClient_AddRangeHeader/HTTPClient_AddRangeHeader_harness.c</a>, Line <a href="../test/cbmc/proofs/HTTPClient_AddRangeHeader/HTTPClient_AddRangeHeader_harness.c.html#34">34</a></div>
+        
+        <div class="code">HTTPRequestHeaders_t * pRequestHeaders;</div>
+        
+        <div class="cbmc">pRequestHeaders = INVALID-255 (11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step2" class="step">
+        <div class="header">Step 2: Function <a href="../test/cbmc/proofs/HTTPClient_AddRangeHeader/HTTPClient_AddRangeHeader_harness.c.html#32">HTTPClient_AddRangeHeader_harness</a>, File <a href="../test/cbmc/proofs/HTTPClient_AddRangeHeader/HTTPClient_AddRangeHeader_harness.c.html">test/cbmc/proofs/HTTPClient_AddRangeHeader/HTTPClient_AddRangeHeader_harness.c</a>, Line <a href="../test/cbmc/proofs/HTTPClient_AddRangeHeader/HTTPClient_AddRangeHeader_harness.c.html#35">35</a></div>
+        
+        <div class="code">int32_t rangeStartOrlastNbytes;</div>
+        
+        <div class="cbmc">rangeStartOrlastNbytes = -2012808960 (10001000 00000110 11111001 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step3" class="step">
+        <div class="header">Step 3: Function <a href="../test/cbmc/proofs/HTTPClient_AddRangeHeader/HTTPClient_AddRangeHeader_harness.c.html#32">HTTPClient_AddRangeHeader_harness</a>, File <a href="../test/cbmc/proofs/HTTPClient_AddRangeHeader/HTTPClient_AddRangeHeader_harness.c.html">test/cbmc/proofs/HTTPClient_AddRangeHeader/HTTPClient_AddRangeHeader_harness.c</a>, Line <a href="../test/cbmc/proofs/HTTPClient_AddRangeHeader/HTTPClient_AddRangeHeader_harness.c.html#36">36</a></div>
+        
+        <div class="code">int32_t rangeEnd;</div>
+        
+        <div class="cbmc">rangeEnd = -1 (11111111 11111111 11111111 11111111)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step4" class="step">
+        <div class="header">Step 4: Function <a href="../test/cbmc/proofs/HTTPClient_AddRangeHeader/HTTPClient_AddRangeHeader_harness.c.html#32">HTTPClient_AddRangeHeader_harness</a>, File <a href="../test/cbmc/proofs/HTTPClient_AddRangeHeader/HTTPClient_AddRangeHeader_harness.c.html">test/cbmc/proofs/HTTPClient_AddRangeHeader/HTTPClient_AddRangeHeader_harness.c</a>, Line <a href="../test/cbmc/proofs/HTTPClient_AddRangeHeader/HTTPClient_AddRangeHeader_harness.c.html#39">39</a></div>
+        
+        <div class="code">pRequestHeaders = allocateHttpRequestHeaders( NULL );</div>
+        
+        <div class="cbmc">pRequestHeaders = ((HTTPRequestHeaders_t *)NULL) (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step5" class="step">
+        <div class="header">Step 5: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#38">allocateHttpRequestHeaders</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#42">42</a></div>
+        
+        <div class="code">pRequestHeaders = mallocCanFail( sizeof( HTTPRequestHeaders_t ) );</div>
+        
+        <div class="cbmc">size = sizeof(HTTPRequestHeaders_t) /*24ul*/  (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00011000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step6" class="step">
+        <div class="header">Step 6: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#32">mallocCanFail</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#35">35</a></div>
+        
+        <div class="code">return malloc( size );</div>
+        
+        <div class="cbmc">malloc_size = sizeof(HTTPRequestHeaders_t) /*24ul*/  (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00011000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step7" class="step">
+        <div class="header">Step 7: Function malloc, File &lt;builtin-library-malloc&gt;, Line 38</div>
+        
+        <div class="cbmc">dynamic_object1.pBuffer = INVALID-255 (11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step8" class="step">
+        <div class="header">Step 8: Function malloc, File &lt;builtin-library-malloc&gt;, Line 38</div>
+        
+        <div class="cbmc">dynamic_object1.bufferLen = 9259400833873739759ul (10000000 01111111 11111111 11111111 11111111 11111111 11111111 11101111)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step9" class="step">
+        <div class="header">Step 9: Function malloc, File &lt;builtin-library-malloc&gt;, Line 38</div>
+        
+        <div class="cbmc">dynamic_object1.headersLen = 54043195528445955ul (00000000 11000000 00000000 00000000 00000000 00000000 00000000 00000011)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step10" class="step">
+        <div class="header">Step 10: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#38">allocateHttpRequestHeaders</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#42">42</a></div>
+        
+        <div class="code">pRequestHeaders = mallocCanFail( sizeof( HTTPRequestHeaders_t ) );</div>
+        
+        <div class="cbmc">pRequestHeaders = &dynamic_object1 (00000010 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step11" class="step">
+        <div class="header">Step 11: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#38">allocateHttpRequestHeaders</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#48">48</a></div>
+        
+        <div class="code">pRequestHeaders-&gt;pBuffer = mallocCanFail( pRequestHeaders-&gt;bufferLen );</div>
+        
+        <div class="cbmc">size = 9259400833873739759ul (10000000 01111111 11111111 11111111 11111111 11111111 11111111 11101111)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step12" class="step">
+        <div class="header">Step 12: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#32">mallocCanFail</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#34">34</a></div>
+        
+        <div class="code">__CPROVER_assert( size &lt; CBMC_MAX_OBJECT_SIZE, &quot;mallocCanFail size is too big&quot; );</div>
+        
+        <div class="cbmc">failure: Unnamed: mallocCanFail size is too big</div>
+        </div>
+
+        
+
+        
+
+      
+    </div>
+  </body>
+  <script type="text/javascript" src="../viewer.js"></script>
+</html>

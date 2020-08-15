@@ -1,0 +1,11 @@
+{
+  "viewer-loop": {
+    "loops": {
+      "__CPROVER_file_local_core_http_client_c_caseInsensitiveStringCmp.0": {
+        "file": "source/core_http_client.c",
+        "function": "caseInsensitiveStringCmp",
+        "line": 579
+      }
+    }
+  }
+}
