@@ -1,0 +1,375 @@
+{
+  "viewer-coverage": {
+    "coverage": {
+      "tools/cbmc/proofs/HTTP/global_state_HTTP.c": {
+        "allocate_IotClientCallbacks": {
+          "91": "hit",
+          "92": "hit",
+          "93": "hit",
+          "94": "hit"
+        },
+        "allocate_IotConnectionHandle": {
+          "294": "hit",
+          "295": "hit",
+          "292": "hit",
+          "291": "hit",
+          "287": "hit",
+          "288": "hit",
+          "289": "hit"
+        },
+        "allocate_NetworkInterface": {
+          "220": "hit",
+          "221": "hit"
+        },
+        "allocate_IotResponseHandle": {
+          "356": "hit",
+          "357": "hit",
+          "354": "hit",
+          "355": "hit",
+          "344": "hit",
+          "345": "hit",
+          "346": "hit",
+          "341": "hit",
+          "342": "hit",
+          "343": "hit",
+          "353": "hit",
+          "351": "hit",
+          "352": "hit",
+          "349": "hit",
+          "350": "hit",
+          "348": "hit",
+          "347": "hit"
+        },
+        "allocate_IotRequestHandle": {
+          "443": "hit",
+          "444": "hit",
+          "441": "hit",
+          "442": "hit",
+          "440": "hit",
+          "439": "hit",
+          "438": "hit",
+          "437": "hit",
+          "436": "hit",
+          "433": "hit",
+          "434": "hit",
+          "435": "hit"
+        },
+        "allocate_IotConnectionInfo": {
+          "268": "hit",
+          "269": "hit",
+          "266": "hit",
+          "267": "hit",
+          "265": "hit",
+          "264": "hit",
+          "263": "hit",
+          "262": "hit",
+          "261": "hit",
+          "260": "hit",
+          "257": "hit",
+          "258": "hit",
+          "259": "hit"
+        },
+        "safeMalloc": {
+          "11": "hit",
+          "12": "hit"
+        },
+        "is_valid_IotRequestHandle": {
+          "487": "hit",
+          "476": "hit",
+          "485": "hit",
+          "486": "hit",
+          "480": "hit",
+          "483": "hit",
+          "484": "hit",
+          "467": "hit",
+          "470": "hit",
+          "471": "hit",
+          "472": "hit",
+          "473": "hit",
+          "474": "hit",
+          "468": "both",
+          "469": "hit",
+          "465": "hit",
+          "466": "hit",
+          "463": "hit",
+          "458": "hit",
+          "459": "hit",
+          "462": "hit",
+          "460": "hit"
+        }
+      },
+      "tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader/IotHttpsClient_AddHeader_harness.c": {
+        "__builtin___memcpy_chk": {
+          "32": "hit",
+          "33": "hit",
+          "34": "hit",
+          "35": "hit"
+        },
+        "harness": {
+          "59": "hit",
+          "58": "hit",
+          "57": "hit",
+          "56": "hit",
+          "55": "hit",
+          "53": "hit",
+          "54": "hit",
+          "52": "hit",
+          "48": "hit",
+          "49": "hit",
+          "47": "hit",
+          "45": "hit",
+          "46": "hit"
+        }
+      },
+      "libraries/c_sdk/standard/https/src/iot_https_client.c": {
+        "_addHeader": {
+          "1608": "hit",
+          "1609": "hit",
+          "1601": "hit",
+          "1602": "hit",
+          "1599": "hit",
+          "1600": "hit",
+          "1597": "hit",
+          "1598": "hit",
+          "1595": "hit",
+          "1596": "hit",
+          "1594": "hit",
+          "1591": "hit",
+          "1588": "hit",
+          "1576": "hit",
+          "1578": "hit",
+          "1579": "hit",
+          "1580": "hit",
+          "1586": "hit"
+        },
+        "IotHttpsClient_AddHeader": {
+          "2937": "hit",
+          "2938": "hit",
+          "2933": "hit",
+          "2929": "hit",
+          "2931": "hit",
+          "2923": "hit",
+          "2916": "hit",
+          "2909": "hit",
+          "2902": "hit",
+          "2895": "hit",
+          "2889": "hit",
+          "2886": "hit",
+          "2885": "hit",
+          "2884": "hit",
+          "2881": "hit"
+        }
+      }
+    },
+    "line_coverage": {
+      "tools/cbmc/proofs/HTTP/global_state_HTTP.c": {
+        "91": "hit",
+        "92": "hit",
+        "93": "hit",
+        "94": "hit",
+        "294": "hit",
+        "295": "hit",
+        "292": "hit",
+        "291": "hit",
+        "287": "hit",
+        "288": "hit",
+        "289": "hit",
+        "220": "hit",
+        "221": "hit",
+        "356": "hit",
+        "357": "hit",
+        "354": "hit",
+        "355": "hit",
+        "344": "hit",
+        "345": "hit",
+        "346": "hit",
+        "341": "hit",
+        "342": "hit",
+        "343": "hit",
+        "353": "hit",
+        "351": "hit",
+        "352": "hit",
+        "349": "hit",
+        "350": "hit",
+        "348": "hit",
+        "347": "hit",
+        "443": "hit",
+        "444": "hit",
+        "441": "hit",
+        "442": "hit",
+        "440": "hit",
+        "439": "hit",
+        "438": "hit",
+        "437": "hit",
+        "436": "hit",
+        "433": "hit",
+        "434": "hit",
+        "435": "hit",
+        "268": "hit",
+        "269": "hit",
+        "266": "hit",
+        "267": "hit",
+        "265": "hit",
+        "264": "hit",
+        "263": "hit",
+        "262": "hit",
+        "261": "hit",
+        "260": "hit",
+        "257": "hit",
+        "258": "hit",
+        "259": "hit",
+        "11": "hit",
+        "12": "hit",
+        "487": "hit",
+        "476": "hit",
+        "485": "hit",
+        "486": "hit",
+        "480": "hit",
+        "483": "hit",
+        "484": "hit",
+        "467": "hit",
+        "470": "hit",
+        "471": "hit",
+        "472": "hit",
+        "473": "hit",
+        "474": "hit",
+        "468": "both",
+        "469": "hit",
+        "465": "hit",
+        "466": "hit",
+        "463": "hit",
+        "458": "hit",
+        "459": "hit",
+        "462": "hit",
+        "460": "hit"
+      },
+      "tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader/IotHttpsClient_AddHeader_harness.c": {
+        "32": "hit",
+        "33": "hit",
+        "34": "hit",
+        "35": "hit",
+        "59": "hit",
+        "58": "hit",
+        "57": "hit",
+        "56": "hit",
+        "55": "hit",
+        "53": "hit",
+        "54": "hit",
+        "52": "hit",
+        "48": "hit",
+        "49": "hit",
+        "47": "hit",
+        "45": "hit",
+        "46": "hit"
+      },
+      "libraries/c_sdk/standard/https/src/iot_https_client.c": {
+        "1608": "hit",
+        "1609": "hit",
+        "1601": "hit",
+        "1602": "hit",
+        "1599": "hit",
+        "1600": "hit",
+        "1597": "hit",
+        "1598": "hit",
+        "1595": "hit",
+        "1596": "hit",
+        "1594": "hit",
+        "1591": "hit",
+        "1588": "hit",
+        "1576": "hit",
+        "1578": "hit",
+        "1579": "hit",
+        "1580": "hit",
+        "1586": "hit",
+        "2937": "hit",
+        "2938": "hit",
+        "2933": "hit",
+        "2929": "hit",
+        "2931": "hit",
+        "2923": "hit",
+        "2916": "hit",
+        "2909": "hit",
+        "2902": "hit",
+        "2895": "hit",
+        "2889": "hit",
+        "2886": "hit",
+        "2885": "hit",
+        "2884": "hit",
+        "2881": "hit"
+      }
+    },
+    "function_coverage": {
+      "tools/cbmc/proofs/HTTP/global_state_HTTP.c": {
+        "allocate_IotClientCallbacks": {
+          "percentage": 1.0,
+          "hit": 4,
+          "total": 4
+        },
+        "allocate_IotConnectionHandle": {
+          "percentage": 1.0,
+          "hit": 7,
+          "total": 7
+        },
+        "allocate_NetworkInterface": {
+          "percentage": 1.0,
+          "hit": 2,
+          "total": 2
+        },
+        "allocate_IotResponseHandle": {
+          "percentage": 1.0,
+          "hit": 17,
+          "total": 17
+        },
+        "allocate_IotRequestHandle": {
+          "percentage": 1.0,
+          "hit": 12,
+          "total": 12
+        },
+        "allocate_IotConnectionInfo": {
+          "percentage": 1.0,
+          "hit": 13,
+          "total": 13
+        },
+        "safeMalloc": {
+          "percentage": 1.0,
+          "hit": 2,
+          "total": 2
+        },
+        "is_valid_IotRequestHandle": {
+          "percentage": 1.0,
+          "hit": 22,
+          "total": 22
+        }
+      },
+      "tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader/IotHttpsClient_AddHeader_harness.c": {
+        "__builtin___memcpy_chk": {
+          "percentage": 1.0,
+          "hit": 4,
+          "total": 4
+        },
+        "harness": {
+          "percentage": 1.0,
+          "hit": 13,
+          "total": 13
+        }
+      },
+      "libraries/c_sdk/standard/https/src/iot_https_client.c": {
+        "_addHeader": {
+          "percentage": 1.0,
+          "hit": 18,
+          "total": 18
+        },
+        "IotHttpsClient_AddHeader": {
+          "percentage": 1.0,
+          "hit": 15,
+          "total": 15
+        }
+      }
+    },
+    "overall_coverage": {
+      "percentage": 1.0,
+      "hit": 129,
+      "total": 129
+    }
+  }
+}

@@ -1,0 +1,60 @@
+#!/usr/bin/env python3
+
+# -*- mode: python-mode -*-
+
+import json
+import sys
+
+def list_contains(sublist, superlist):
+    return all([item in superlist for item in sublist])
+
+def compare_program(first, second):
+    return first.startswith('CBMC') and second.startswith('CBMC')
+
+
+def compare_status(first, second):
+    def strip_status_item(item):
+        if item.startswith('Runtime decision procedure:'):
+            return 'Runtime decision procedure:'
+        return item
+    def strip_status(status):
+        return [strip_status_item(item) for item in status]
+    return strip_status(first) == strip_status(second)
+
+def compare_results(first, second):
+    if not sorted(first.keys()) == sorted(second.keys()):
+        return 1
+    for key in first.keys():
+        if key == 'program':
+            if compare_program(first[key], second[key]):
+                continue
+            return 2
+        elif key == 'status':
+            if compare_status(first[key], second[key]):
+                continue
+            return 3
+        else:
+            if first[key] == second[key]:
+                continue
+            return 4
+    return 0
+
+def parse_json(name):
+    with open(name) as data:
+        return json.load(data)['viewer-result']
+
+def main():
+    rtxt = parse_json(sys.argv[1])
+    rjson = parse_json(sys.argv[2])
+    rxml= parse_json(sys.argv[3])
+
+    if compare_results(rtxt, rjson) != 0:
+        exit(1)
+    if compare_results(rtxt, rxml) != 0:
+        exit(2)
+    if compare_results(rjson, rxml) != 0:
+        exit(3)
+    exit(0)
+
+if __name__ == '__main__':
+    main()

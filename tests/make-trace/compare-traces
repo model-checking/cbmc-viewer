@@ -1,0 +1,188 @@
+#!/usr/bin/env python3
+
+# -*- mode: python-mode -*-
+
+import json
+import sys
+
+
+def parse_json(name):
+    with open(name) as data:
+        return json.load(data)['viewer-trace']['traces']
+
+################################################################
+
+def compare_assign_txt_json(stxt, sjson):
+    if not stxt['kind'].endswith('-assignment'):
+        return False
+    if not sjson['kind'].endswith('-assignment'):
+        return False
+    if stxt['location'] != sjson['location']:
+        return False
+    if stxt['detail']['lhs'] != sjson['detail']['lhs']:
+        return False
+    if not (sjson['detail']['rhs-binary'] is None or
+            stxt['detail']['rhs-binary'] == sjson['detail']['rhs-binary']):
+        return False
+    # rhs-value frequently differ
+
+    return True
+
+def compare_failure_txt_json(stxt, sjson):
+    if stxt['kind'] != 'failure' or sjson['kind'] != 'failure':
+        return False
+    if stxt['location'] != sjson['location']:
+        return False
+    if not (stxt['detail']['property'] is None or
+            stxt['detail']['property'] == sjson['detail']['property']):
+        return False
+    if stxt['detail']['reason'] != sjson['detail']['reason']:
+        return False
+
+    return True
+
+def compare_trace_txt_json(ttxt, tjson):
+    stxt = None
+    sjson = None
+    while ttxt and tjson:
+        if stxt is None:
+            stxt, ttxt = ttxt[0], ttxt[1:]
+        if sjson is None:
+            sjson, tjson = tjson[0], tjson[1:]
+        if sjson['kind'] in ['function-call', 'function-return']:
+            sjson = None
+            continue
+        if stxt['kind'] in ['assumption']:
+            stxt = None
+            continue
+        if (compare_assign_txt_json(stxt, sjson) or
+            compare_failure_txt_json(stxt, sjson)):
+            stxt = None
+            sjson = None
+            continue
+        print(stxt)
+        print(sjson)
+        return False
+    if ttxt or tjson:
+        if (not ttxt and
+            all([sjson['kind'] in ['function-call', 'function-return']
+                 for sjson in tjson])):
+            # json ends with closing function returns
+            return True
+        return False
+    return True
+
+
+################################################################
+
+def compare_assign_txt_xml(stxt, sxml):
+    if not stxt['kind'].endswith('-assignment'):
+        return False
+    if not sxml['kind'].endswith('-assignment'):
+        return False
+    if stxt['location'] != sxml['location']:
+        return False
+    if stxt['detail']['lhs'] != sxml['detail']['lhs']:
+        return False
+    if not (sxml['detail']['rhs-binary'] is None or
+            stxt['detail']['rhs-binary'] == sxml['detail']['rhs-binary']):
+        return False
+    # rhs-value frequently differ
+
+    return True
+
+def compare_failure_txt_xml(stxt, sxml):
+    if stxt['kind'] != 'failure' or sxml['kind'] != 'failure':
+        return False
+    if stxt['location'] != sxml['location']:
+        return False
+    if not (stxt['detail']['property'] is None or
+            stxt['detail']['property'] == sxml['detail']['property']):
+        return False
+    if stxt['detail']['reason'] != sxml['detail']['reason']:
+        return False
+
+    return True
+
+def compare_trace_txt_xml(ttxt, txml):
+    stxt = None
+    sxml = None
+    while ttxt and txml:
+        if stxt is None:
+            stxt, ttxt = ttxt[0], ttxt[1:]
+        if sxml is None:
+            sxml, txml = txml[0], txml[1:]
+        if sxml['kind'] in ['function-call', 'function-return']:
+            sxml = None
+            continue
+        if stxt['kind'] in ['assumption']:
+            stxt = None
+            continue
+        if (compare_assign_txt_xml(stxt, sxml) or
+            compare_failure_txt_xml(stxt, sxml)):
+            stxt = None
+            sxml = None
+            continue
+        print(stxt)
+        print(sxml)
+        return False
+    if ttxt or txml:
+        return False
+    return True
+
+################################################################
+
+
+def compare_assign_json_xml(sjson, sxml):
+    if not sjson['kind'].endswith('-assignment'):
+        return False
+    if not sxml['kind'].endswith('-assignment'):
+        return False
+    if sjson['kind'] != sxml['kind']:
+        return False
+    if sjson['location'] != sxml['location']:
+        return False
+    if sjson['detail']['lhs'] != sxml['detail']['lhs']:
+        return False
+    if not (sxml['detail']['rhs-binary'] is None or
+            sjson['detail']['rhs-binary'] == sxml['detail']['rhs-binary']):
+        return False
+    # rhs-value frequently differ
+
+    return True
+
+def compare_trace_json_xml(tjson, txml):
+    sjson = None
+    sxml = None
+    while tjson and txml:
+        if sjson is None:
+            sjson, tjson = tjson[0], tjson[1:]
+        if sxml is None:
+            sxml, txml = txml[0], txml[1:]
+        if (compare_assign_json_xml(sjson, sxml) or
+            sjson == sxml):
+            sjson = None
+            sxml = None
+            continue
+        print(sjson)
+        print(sxml)
+        return False
+    if tjson or txml:
+        return False
+    return True
+
+################################################################
+
+def main():
+    ttxt = parse_json(sys.argv[1])
+    tjson = parse_json(sys.argv[2])
+    txml= parse_json(sys.argv[3])
+
+    for key in ttxt.keys():
+        if not compare_trace_txt_json(ttxt[key], tjson[key]):
+            exit(1)
+
+    exit(0)
+
+if __name__ == '__main__':
+    main()

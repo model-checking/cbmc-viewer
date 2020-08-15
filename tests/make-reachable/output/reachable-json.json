@@ -1,0 +1,23 @@
+{
+  "viewer-reachable": {
+    "reachable": {
+      "tools/cbmc/proofs/HTTP/global_state_HTTP.c": [
+        "allocate_IotConnectionHandle",
+        "allocate_IotConnectionInfo",
+        "allocate_IotRequestHandle",
+        "allocate_IotResponseHandle",
+        "allocate_NetworkInterface",
+        "is_valid_IotRequestHandle",
+        "safeMalloc"
+      ],
+      "tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader/IotHttpsClient_AddHeader_harness.c": [
+        "__builtin___memcpy_chk",
+        "harness"
+      ],
+      "libraries/c_sdk/standard/https/src/iot_https_client.c": [
+        "IotHttpsClient_AddHeader",
+        "_addHeader"
+      ]
+    }
+  }
+}

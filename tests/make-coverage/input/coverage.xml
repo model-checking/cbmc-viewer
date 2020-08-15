@@ -1,0 +1,2197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cprover>
+<program>CBMC 5.12 (cbmc-5.12-d8598f8-1270-g1ea1ede98)</program>
+<message type="STATUS-MESSAGE">
+  <text>CBMC version 5.12 (cbmc-5.12-d8598f8-1270-g1ea1ede98) 64-bit x86_64 macos</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Reading GOTO program from file</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Reading: IotHttpsClient_AddHeader.goto</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Generating GOTO Program</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Adding CPROVER library (i386)</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Removal of function pointers and virtual functions</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Generic Property Instrumentation</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Adding nondeterministic initialization of static/global variables</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Rewriting existing assertions as assumptions</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Running with 7 object bits, 25 offset bits (user-specified)</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Starting Bounded Model Checking</text>
+</message>
+
+<message type="WARNING">
+  <text>**** WARNING: no body for function IotLog_Generic</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop strncmp.0 iteration 1 file &lt;builtin-library-strncmp&gt; line 38 function strncmp thread 0</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop strncmp.0 iteration 2 file &lt;builtin-library-strncmp&gt; line 38 function strncmp thread 0</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop strncmp.0 iteration 3 file &lt;builtin-library-strncmp&gt; line 38 function strncmp thread 0</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop strncmp.0 iteration 4 file &lt;builtin-library-strncmp&gt; line 38 function strncmp thread 0</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop strncmp.0 iteration 5 file &lt;builtin-library-strncmp&gt; line 38 function strncmp thread 0</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop strncmp.0 iteration 6 file &lt;builtin-library-strncmp&gt; line 38 function strncmp thread 0</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop strncmp.0 iteration 7 file &lt;builtin-library-strncmp&gt; line 38 function strncmp thread 0</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop strncmp.0 iteration 8 file &lt;builtin-library-strncmp&gt; line 38 function strncmp thread 0</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop strncmp.0 iteration 9 file &lt;builtin-library-strncmp&gt; line 38 function strncmp thread 0</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop strncmp.0 iteration 10 file &lt;builtin-library-strncmp&gt; line 38 function strncmp thread 0</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop strncmp.0 iteration 11 file &lt;builtin-library-strncmp&gt; line 38 function strncmp thread 0</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop strncmp.0 iteration 12 file &lt;builtin-library-strncmp&gt; line 38 function strncmp thread 0</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop strncmp.0 iteration 13 file &lt;builtin-library-strncmp&gt; line 38 function strncmp thread 0</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop strncmp.0 iteration 1 file &lt;builtin-library-strncmp&gt; line 38 function strncmp thread 0</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop strncmp.0 iteration 2 file &lt;builtin-library-strncmp&gt; line 38 function strncmp thread 0</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop strncmp.0 iteration 3 file &lt;builtin-library-strncmp&gt; line 38 function strncmp thread 0</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop strncmp.0 iteration 4 file &lt;builtin-library-strncmp&gt; line 38 function strncmp thread 0</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop strncmp.0 iteration 5 file &lt;builtin-library-strncmp&gt; line 38 function strncmp thread 0</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop strncmp.0 iteration 6 file &lt;builtin-library-strncmp&gt; line 38 function strncmp thread 0</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop strncmp.0 iteration 7 file &lt;builtin-library-strncmp&gt; line 38 function strncmp thread 0</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop strncmp.0 iteration 8 file &lt;builtin-library-strncmp&gt; line 38 function strncmp thread 0</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop strncmp.0 iteration 9 file &lt;builtin-library-strncmp&gt; line 38 function strncmp thread 0</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop strncmp.0 iteration 1 file &lt;builtin-library-strncmp&gt; line 38 function strncmp thread 0</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop strncmp.0 iteration 2 file &lt;builtin-library-strncmp&gt; line 38 function strncmp thread 0</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop strncmp.0 iteration 3 file &lt;builtin-library-strncmp&gt; line 38 function strncmp thread 0</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop strncmp.0 iteration 1 file &lt;builtin-library-strncmp&gt; line 38 function strncmp thread 0</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop strncmp.0 iteration 2 file &lt;builtin-library-strncmp&gt; line 38 function strncmp thread 0</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop strncmp.0 iteration 3 file &lt;builtin-library-strncmp&gt; line 38 function strncmp thread 0</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop strncmp.0 iteration 4 file &lt;builtin-library-strncmp&gt; line 38 function strncmp thread 0</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop strncmp.0 iteration 5 file &lt;builtin-library-strncmp&gt; line 38 function strncmp thread 0</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop strncmp.0 iteration 6 file &lt;builtin-library-strncmp&gt; line 38 function strncmp thread 0</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop strncmp.0 iteration 7 file &lt;builtin-library-strncmp&gt; line 38 function strncmp thread 0</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop strncmp.0 iteration 8 file &lt;builtin-library-strncmp&gt; line 38 function strncmp thread 0</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop strncmp.0 iteration 9 file &lt;builtin-library-strncmp&gt; line 38 function strncmp thread 0</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>size of program expression: 4857 steps</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Generated 257 VCC(s), 257 remaining after simplification</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Passing problem to propositional reduction</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>converting SSA</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Running propositional reduction</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Post-processing</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Solving with MiniSAT 2.2.1 with simplifier</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>48233 variables, 156936 clauses</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>SAT checker: instance is SATISFIABLE</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Runtime decision procedure: 0.678233s</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Building error trace</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Running propositional reduction</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Solving with MiniSAT 2.2.1 with simplifier</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>48233 variables, 62490 clauses</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>SAT checker: instance is SATISFIABLE</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Runtime decision procedure: 0.0167187s</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Building error trace</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Running propositional reduction</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Solving with MiniSAT 2.2.1 with simplifier</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>48233 variables, 62453 clauses</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>SAT checker: instance is SATISFIABLE</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Runtime decision procedure: 0.0234114s</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Building error trace</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Running propositional reduction</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Solving with MiniSAT 2.2.1 with simplifier</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>48233 variables, 62453 clauses</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>SAT checker: instance is SATISFIABLE</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Runtime decision procedure: 0.0248812s</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Building error trace</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Running propositional reduction</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Solving with MiniSAT 2.2.1 with simplifier</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>48233 variables, 61987 clauses</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>SAT checker: instance is SATISFIABLE</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Runtime decision procedure: 0.0173945s</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Building error trace</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Running propositional reduction</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Solving with MiniSAT 2.2.1 with simplifier</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>48233 variables, 61987 clauses</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>SAT checker: instance is SATISFIABLE</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Runtime decision procedure: 0.00276108s</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Building error trace</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Running propositional reduction</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Solving with MiniSAT 2.2.1 with simplifier</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>48233 variables, 61988 clauses</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>SAT checker: instance is SATISFIABLE</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Runtime decision procedure: 0.00297205s</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Building error trace</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Running propositional reduction</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Solving with MiniSAT 2.2.1 with simplifier</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>48233 variables, 61988 clauses</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>SAT checker: instance is SATISFIABLE</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Runtime decision procedure: 0.00741098s</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Building error trace</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Running propositional reduction</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Solving with MiniSAT 2.2.1 with simplifier</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>48233 variables, 61988 clauses</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>SAT checker: instance is SATISFIABLE</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Runtime decision procedure: 0.00343059s</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Building error trace</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Running propositional reduction</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Solving with MiniSAT 2.2.1 with simplifier</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>48233 variables, 61988 clauses</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>SAT checker: instance is SATISFIABLE</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Runtime decision procedure: 0.00259119s</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Building error trace</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Running propositional reduction</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Solving with MiniSAT 2.2.1 with simplifier</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>48233 variables, 61988 clauses</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>SAT checker: instance is SATISFIABLE</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Runtime decision procedure: 0.00262592s</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Building error trace</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Running propositional reduction</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Solving with MiniSAT 2.2.1 with simplifier</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>48233 variables, 61988 clauses</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>SAT checker: instance is SATISFIABLE</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Runtime decision procedure: 0.00317372s</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Building error trace</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Running propositional reduction</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Solving with MiniSAT 2.2.1 with simplifier</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>48233 variables, 61987 clauses</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>SAT checker: instance is SATISFIABLE</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Runtime decision procedure: 0.0151599s</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Building error trace</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Running propositional reduction</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Solving with MiniSAT 2.2.1 with simplifier</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>48233 variables, 61987 clauses</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>SAT checker: instance is SATISFIABLE</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Runtime decision procedure: 0.0142969s</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Building error trace</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Running propositional reduction</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Solving with MiniSAT 2.2.1 with simplifier</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>48233 variables, 61987 clauses</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>SAT checker: instance is SATISFIABLE</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Runtime decision procedure: 0.00237413s</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Building error trace</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Running propositional reduction</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Solving with MiniSAT 2.2.1 with simplifier</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>48233 variables, 61986 clauses</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>SAT checker inconsistent: instance is UNSATISFIABLE</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Runtime decision procedure: 0.000212454s</text>
+</message>
+
+<goal description="block 2 (lines ./../global_state_HTTP.c:allocate_IotClientCallbacks:91-94)" id="allocate_IotClientCallbacks.coverage.2" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="allocate_IotClientCallbacks" line="92" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 1 (lines ./../global_state_HTTP.c:allocate_IotClientCallbacks:91,92)" id="allocate_IotClientCallbacks.coverage.1" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="allocate_IotClientCallbacks" line="91" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 6 (lines ./../global_state_HTTP.c:allocate_IotConnectionHandle:294,295)" id="allocate_IotConnectionHandle.coverage.6" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="allocate_IotConnectionHandle" line="294" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 5 (lines ./../global_state_HTTP.c:allocate_IotConnectionHandle:292)" id="allocate_IotConnectionHandle.coverage.5" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="allocate_IotConnectionHandle" line="292" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 4 (lines ./../global_state_HTTP.c:allocate_IotConnectionHandle:291,292)" id="allocate_IotConnectionHandle.coverage.4" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="allocate_IotConnectionHandle" line="291" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 3 (lines ./../global_state_HTTP.c:allocate_IotConnectionHandle:291)" id="allocate_IotConnectionHandle.coverage.3" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="allocate_IotConnectionHandle" line="291" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 2 (lines ./../global_state_HTTP.c:allocate_IotConnectionHandle:287-289)" id="allocate_IotConnectionHandle.coverage.2" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="allocate_IotConnectionHandle" line="288" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 1 (lines ./../global_state_HTTP.c:allocate_IotConnectionHandle:287,288)" id="allocate_IotConnectionHandle.coverage.1" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="allocate_IotConnectionHandle" line="287" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 2 (lines ./../global_state_HTTP.c:allocate_NetworkInterface:220,221)" id="allocate_NetworkInterface.coverage.2" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="allocate_NetworkInterface" line="220" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 1 (lines ./../global_state_HTTP.c:allocate_NetworkInterface:220)" id="allocate_NetworkInterface.coverage.1" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="allocate_NetworkInterface" line="220" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 1 (lines IotHttpsClient_AddHeader_harness.c:__builtin___memcpy_chk:32-35)" id="__builtin___memcpy_chk.coverage.1" status="SATISFIED">
+  <location file="IotHttpsClient_AddHeader_harness.c" function="__builtin___memcpy_chk" line="32" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 9 (lines /Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c:_addHeader:1608,1609)" id="_addHeader.coverage.9" status="SATISFIED">
+  <location file="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c" function="_addHeader" line="1608" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 8 (lines /Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c:_addHeader:1601,1602)" id="_addHeader.coverage.8" status="SATISFIED">
+  <location file="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c" function="_addHeader" line="1601" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 7 (lines /Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c:_addHeader:1599,1600)" id="_addHeader.coverage.7" status="SATISFIED">
+  <location file="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c" function="_addHeader" line="1599" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 6 (lines /Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c:_addHeader:1597,1598)" id="_addHeader.coverage.6" status="SATISFIED">
+  <location file="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c" function="_addHeader" line="1597" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 5 (lines /Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c:_addHeader:1595,1596)" id="_addHeader.coverage.5" status="SATISFIED">
+  <location file="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c" function="_addHeader" line="1595" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 4 (lines /Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c:_addHeader:1594)" id="_addHeader.coverage.4" status="SATISFIED">
+  <location file="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c" function="_addHeader" line="1594" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 3 (lines /Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c:_addHeader:1591)" id="_addHeader.coverage.3" status="SATISFIED">
+  <location file="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c" function="_addHeader" line="1591" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 2 (lines /Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c:_addHeader:1588)" id="_addHeader.coverage.2" status="SATISFIED">
+  <location file="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c" function="_addHeader" line="1588" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 1 (lines /Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c:_addHeader:1576,1578-1580,1586)" id="_addHeader.coverage.1" status="SATISFIED">
+  <location file="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c" function="_addHeader" line="1576" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 11 (lines ./../global_state_HTTP.c:allocate_IotResponseHandle:356,357)" id="allocate_IotResponseHandle.coverage.11" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="allocate_IotResponseHandle" line="356" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 10 (lines ./../global_state_HTTP.c:allocate_IotResponseHandle:354,355)" id="allocate_IotResponseHandle.coverage.10" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="allocate_IotResponseHandle" line="354" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 3 (lines ./../global_state_HTTP.c:allocate_IotResponseHandle:344-346)" id="allocate_IotResponseHandle.coverage.3" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="allocate_IotResponseHandle" line="344" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 2 (lines ./../global_state_HTTP.c:allocate_IotResponseHandle:341-343)" id="allocate_IotResponseHandle.coverage.2" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="allocate_IotResponseHandle" line="342" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 1 (lines ./../global_state_HTTP.c:allocate_IotResponseHandle:341,342)" id="allocate_IotResponseHandle.coverage.1" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="allocate_IotResponseHandle" line="341" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 9 (lines ./../global_state_HTTP.c:allocate_IotRequestHandle:443,444)" id="allocate_IotRequestHandle.coverage.9" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="allocate_IotRequestHandle" line="443" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 8 (lines ./../global_state_HTTP.c:allocate_IotRequestHandle:441,442)" id="allocate_IotRequestHandle.coverage.8" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="allocate_IotRequestHandle" line="441" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 7 (lines ./../global_state_HTTP.c:allocate_IotRequestHandle:440,441)" id="allocate_IotRequestHandle.coverage.7" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="allocate_IotRequestHandle" line="440" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 6 (lines ./../global_state_HTTP.c:allocate_IotRequestHandle:439,440)" id="allocate_IotRequestHandle.coverage.6" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="allocate_IotRequestHandle" line="439" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 5 (lines ./../global_state_HTTP.c:allocate_IotRequestHandle:438,439)" id="allocate_IotRequestHandle.coverage.5" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="allocate_IotRequestHandle" line="438" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 4 (lines ./../global_state_HTTP.c:allocate_IotRequestHandle:437,438)" id="allocate_IotRequestHandle.coverage.4" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="allocate_IotRequestHandle" line="437" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 3 (lines ./../global_state_HTTP.c:allocate_IotRequestHandle:436,437)" id="allocate_IotRequestHandle.coverage.3" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="allocate_IotRequestHandle" line="436" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 2 (lines ./../global_state_HTTP.c:allocate_IotRequestHandle:433-435)" id="allocate_IotRequestHandle.coverage.2" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="allocate_IotRequestHandle" line="434" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 1 (lines ./../global_state_HTTP.c:allocate_IotRequestHandle:433,434)" id="allocate_IotRequestHandle.coverage.1" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="allocate_IotRequestHandle" line="433" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 11 (lines ./../global_state_HTTP.c:allocate_IotConnectionInfo:268,269)" id="allocate_IotConnectionInfo.coverage.11" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="allocate_IotConnectionInfo" line="268" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 10 (lines ./../global_state_HTTP.c:allocate_IotConnectionInfo:266,267)" id="allocate_IotConnectionInfo.coverage.10" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="allocate_IotConnectionInfo" line="266" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 9 (lines ./../global_state_HTTP.c:allocate_IotConnectionInfo:265,266)" id="allocate_IotConnectionInfo.coverage.9" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="allocate_IotConnectionInfo" line="265" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 8 (lines ./../global_state_HTTP.c:allocate_IotConnectionInfo:264,265)" id="allocate_IotConnectionInfo.coverage.8" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="allocate_IotConnectionInfo" line="264" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 7 (lines ./../global_state_HTTP.c:allocate_IotConnectionInfo:263,264)" id="allocate_IotConnectionInfo.coverage.7" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="allocate_IotConnectionInfo" line="263" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 6 (lines ./../global_state_HTTP.c:allocate_IotConnectionInfo:262,263)" id="allocate_IotConnectionInfo.coverage.6" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="allocate_IotConnectionInfo" line="262" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 5 (lines ./../global_state_HTTP.c:allocate_IotConnectionInfo:261,262)" id="allocate_IotConnectionInfo.coverage.5" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="allocate_IotConnectionInfo" line="261" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 4 (lines ./../global_state_HTTP.c:allocate_IotConnectionInfo:260,261)" id="allocate_IotConnectionInfo.coverage.4" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="allocate_IotConnectionInfo" line="260" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 3 (lines ./../global_state_HTTP.c:allocate_IotConnectionInfo:260)" id="allocate_IotConnectionInfo.coverage.3" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="allocate_IotConnectionInfo" line="260" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 2 (lines ./../global_state_HTTP.c:allocate_IotConnectionInfo:257-259)" id="allocate_IotConnectionInfo.coverage.2" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="allocate_IotConnectionInfo" line="258" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 1 (lines ./../global_state_HTTP.c:allocate_IotConnectionInfo:257,258)" id="allocate_IotConnectionInfo.coverage.1" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="allocate_IotConnectionInfo" line="257" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 12 (lines IotHttpsClient_AddHeader_harness.c:harness:59)" id="harness.coverage.12" status="SATISFIED">
+  <location file="IotHttpsClient_AddHeader_harness.c" function="harness" line="59" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 11 (lines IotHttpsClient_AddHeader_harness.c:harness:58)" id="harness.coverage.11" status="SATISFIED">
+  <location file="IotHttpsClient_AddHeader_harness.c" function="harness" line="58" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 10 (lines IotHttpsClient_AddHeader_harness.c:harness:57)" id="harness.coverage.10" status="SATISFIED">
+  <location file="IotHttpsClient_AddHeader_harness.c" function="harness" line="57" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 9 (lines IotHttpsClient_AddHeader_harness.c:harness:56)" id="harness.coverage.9" status="SATISFIED">
+  <location file="IotHttpsClient_AddHeader_harness.c" function="harness" line="56" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 8 (lines IotHttpsClient_AddHeader_harness.c:harness:55)" id="harness.coverage.8" status="SATISFIED">
+  <location file="IotHttpsClient_AddHeader_harness.c" function="harness" line="55" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 7 (lines IotHttpsClient_AddHeader_harness.c:harness:53,54)" id="harness.coverage.7" status="SATISFIED">
+  <location file="IotHttpsClient_AddHeader_harness.c" function="harness" line="53" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 6 (lines IotHttpsClient_AddHeader_harness.c:harness:52,53)" id="harness.coverage.6" status="SATISFIED">
+  <location file="IotHttpsClient_AddHeader_harness.c" function="harness" line="52" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 5 (lines IotHttpsClient_AddHeader_harness.c:harness:48,49,52)" id="harness.coverage.5" status="SATISFIED">
+  <location file="IotHttpsClient_AddHeader_harness.c" function="harness" line="48" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 4 (lines IotHttpsClient_AddHeader_harness.c:harness:47)" id="harness.coverage.4" status="SATISFIED">
+  <location file="IotHttpsClient_AddHeader_harness.c" function="harness" line="47" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 3 (lines IotHttpsClient_AddHeader_harness.c:harness:47)" id="harness.coverage.3" status="SATISFIED">
+  <location file="IotHttpsClient_AddHeader_harness.c" function="harness" line="47" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 2 (lines IotHttpsClient_AddHeader_harness.c:harness:45,46)" id="harness.coverage.2" status="SATISFIED">
+  <location file="IotHttpsClient_AddHeader_harness.c" function="harness" line="45" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 1 (lines IotHttpsClient_AddHeader_harness.c:harness:45)" id="harness.coverage.1" status="SATISFIED">
+  <location file="IotHttpsClient_AddHeader_harness.c" function="harness" line="45" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 5 (lines ./../global_state_HTTP.c:safeMalloc:11,12)" id="safeMalloc.coverage.5" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="safeMalloc" line="11" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 4 (lines ./../global_state_HTTP.c:safeMalloc:11)" id="safeMalloc.coverage.4" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="safeMalloc" line="11" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 3 (lines ./../global_state_HTTP.c:safeMalloc:11)" id="safeMalloc.coverage.3" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="safeMalloc" line="11" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 2 (lines ./../global_state_HTTP.c:safeMalloc:11)" id="safeMalloc.coverage.2" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="safeMalloc" line="11" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 1 (lines ./../global_state_HTTP.c:safeMalloc:11)" id="safeMalloc.coverage.1" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="safeMalloc" line="11" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 35 (lines /Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c:IotHttpsClient_AddHeader:2937,2938)" id="IotHttpsClient_AddHeader.coverage.35" status="SATISFIED">
+  <location file="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c" function="IotHttpsClient_AddHeader" line="2937" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 34 (lines /Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c:IotHttpsClient_AddHeader:2933)" id="IotHttpsClient_AddHeader.coverage.34" status="SATISFIED">
+  <location file="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c" function="IotHttpsClient_AddHeader" line="2933" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 33 (lines /Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c:IotHttpsClient_AddHeader:2929,2931)" id="IotHttpsClient_AddHeader.coverage.33" status="SATISFIED">
+  <location file="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c" function="IotHttpsClient_AddHeader" line="2929" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 32 (lines /Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c:IotHttpsClient_AddHeader:2929)" id="IotHttpsClient_AddHeader.coverage.32" status="SATISFIED">
+  <location file="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c" function="IotHttpsClient_AddHeader" line="2929" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 30 (lines /Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c:IotHttpsClient_AddHeader:2923)" id="IotHttpsClient_AddHeader.coverage.30" status="SATISFIED">
+  <location file="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c" function="IotHttpsClient_AddHeader" line="2923" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 29 (lines /Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c:IotHttpsClient_AddHeader:2923)" id="IotHttpsClient_AddHeader.coverage.29" status="SATISFIED">
+  <location file="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c" function="IotHttpsClient_AddHeader" line="2923" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 28 (lines /Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c:IotHttpsClient_AddHeader:2923)" id="IotHttpsClient_AddHeader.coverage.28" status="SATISFIED">
+  <location file="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c" function="IotHttpsClient_AddHeader" line="2923" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 27 (lines /Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c:IotHttpsClient_AddHeader:2916)" id="IotHttpsClient_AddHeader.coverage.27" status="SATISFIED">
+  <location file="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c" function="IotHttpsClient_AddHeader" line="2916" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 26 (lines /Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c:IotHttpsClient_AddHeader:2916)" id="IotHttpsClient_AddHeader.coverage.26" status="SATISFIED">
+  <location file="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c" function="IotHttpsClient_AddHeader" line="2916" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 25 (lines /Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c:IotHttpsClient_AddHeader:2916)" id="IotHttpsClient_AddHeader.coverage.25" status="SATISFIED">
+  <location file="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c" function="IotHttpsClient_AddHeader" line="2916" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 24 (lines /Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c:IotHttpsClient_AddHeader:2916)" id="IotHttpsClient_AddHeader.coverage.24" status="SATISFIED">
+  <location file="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c" function="IotHttpsClient_AddHeader" line="2916" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 23 (lines /Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c:IotHttpsClient_AddHeader:2909)" id="IotHttpsClient_AddHeader.coverage.23" status="SATISFIED">
+  <location file="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c" function="IotHttpsClient_AddHeader" line="2909" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 22 (lines /Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c:IotHttpsClient_AddHeader:2909)" id="IotHttpsClient_AddHeader.coverage.22" status="SATISFIED">
+  <location file="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c" function="IotHttpsClient_AddHeader" line="2909" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 21 (lines /Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c:IotHttpsClient_AddHeader:2909)" id="IotHttpsClient_AddHeader.coverage.21" status="SATISFIED">
+  <location file="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c" function="IotHttpsClient_AddHeader" line="2909" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 20 (lines /Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c:IotHttpsClient_AddHeader:2909)" id="IotHttpsClient_AddHeader.coverage.20" status="SATISFIED">
+  <location file="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c" function="IotHttpsClient_AddHeader" line="2909" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 19 (lines /Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c:IotHttpsClient_AddHeader:2902)" id="IotHttpsClient_AddHeader.coverage.19" status="SATISFIED">
+  <location file="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c" function="IotHttpsClient_AddHeader" line="2902" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 18 (lines /Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c:IotHttpsClient_AddHeader:2902)" id="IotHttpsClient_AddHeader.coverage.18" status="SATISFIED">
+  <location file="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c" function="IotHttpsClient_AddHeader" line="2902" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 17 (lines /Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c:IotHttpsClient_AddHeader:2902)" id="IotHttpsClient_AddHeader.coverage.17" status="SATISFIED">
+  <location file="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c" function="IotHttpsClient_AddHeader" line="2902" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 16 (lines /Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c:IotHttpsClient_AddHeader:2902)" id="IotHttpsClient_AddHeader.coverage.16" status="SATISFIED">
+  <location file="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c" function="IotHttpsClient_AddHeader" line="2902" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 15 (lines /Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c:IotHttpsClient_AddHeader:2895)" id="IotHttpsClient_AddHeader.coverage.15" status="SATISFIED">
+  <location file="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c" function="IotHttpsClient_AddHeader" line="2895" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 14 (lines /Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c:IotHttpsClient_AddHeader:2895)" id="IotHttpsClient_AddHeader.coverage.14" status="SATISFIED">
+  <location file="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c" function="IotHttpsClient_AddHeader" line="2895" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 13 (lines /Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c:IotHttpsClient_AddHeader:2895)" id="IotHttpsClient_AddHeader.coverage.13" status="SATISFIED">
+  <location file="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c" function="IotHttpsClient_AddHeader" line="2895" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 12 (lines /Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c:IotHttpsClient_AddHeader:2889)" id="IotHttpsClient_AddHeader.coverage.12" status="SATISFIED">
+  <location file="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c" function="IotHttpsClient_AddHeader" line="2889" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 11 (lines /Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c:IotHttpsClient_AddHeader:2889)" id="IotHttpsClient_AddHeader.coverage.11" status="SATISFIED">
+  <location file="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c" function="IotHttpsClient_AddHeader" line="2889" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 10 (lines /Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c:IotHttpsClient_AddHeader:2889)" id="IotHttpsClient_AddHeader.coverage.10" status="SATISFIED">
+  <location file="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c" function="IotHttpsClient_AddHeader" line="2889" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 9 (lines /Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c:IotHttpsClient_AddHeader:2886)" id="IotHttpsClient_AddHeader.coverage.9" status="SATISFIED">
+  <location file="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c" function="IotHttpsClient_AddHeader" line="2886" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 8 (lines /Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c:IotHttpsClient_AddHeader:2886)" id="IotHttpsClient_AddHeader.coverage.8" status="SATISFIED">
+  <location file="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c" function="IotHttpsClient_AddHeader" line="2886" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 6 (lines /Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c:IotHttpsClient_AddHeader:2885)" id="IotHttpsClient_AddHeader.coverage.6" status="SATISFIED">
+  <location file="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c" function="IotHttpsClient_AddHeader" line="2885" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 5 (lines /Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c:IotHttpsClient_AddHeader:2885)" id="IotHttpsClient_AddHeader.coverage.5" status="SATISFIED">
+  <location file="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c" function="IotHttpsClient_AddHeader" line="2885" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 4 (lines /Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c:IotHttpsClient_AddHeader:2885)" id="IotHttpsClient_AddHeader.coverage.4" status="SATISFIED">
+  <location file="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c" function="IotHttpsClient_AddHeader" line="2885" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 3 (lines /Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c:IotHttpsClient_AddHeader:2884)" id="IotHttpsClient_AddHeader.coverage.3" status="SATISFIED">
+  <location file="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c" function="IotHttpsClient_AddHeader" line="2884" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 2 (lines /Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c:IotHttpsClient_AddHeader:2884)" id="IotHttpsClient_AddHeader.coverage.2" status="SATISFIED">
+  <location file="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c" function="IotHttpsClient_AddHeader" line="2884" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 1 (lines /Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c:IotHttpsClient_AddHeader:2881,2884)" id="IotHttpsClient_AddHeader.coverage.1" status="SATISFIED">
+  <location file="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c" function="IotHttpsClient_AddHeader" line="2881" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 16 (lines ./../global_state_HTTP.c:is_valid_IotRequestHandle:487)" id="is_valid_IotRequestHandle.coverage.16" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="is_valid_IotRequestHandle" line="487" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 15 (lines ./../global_state_HTTP.c:is_valid_IotRequestHandle:476)" id="is_valid_IotRequestHandle.coverage.15" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="is_valid_IotRequestHandle" line="476" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 14 (lines ./../global_state_HTTP.c:is_valid_IotRequestHandle:485)" id="is_valid_IotRequestHandle.coverage.14" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="is_valid_IotRequestHandle" line="485" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 13 (lines ./../global_state_HTTP.c:is_valid_IotRequestHandle:485,486)" id="is_valid_IotRequestHandle.coverage.13" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="is_valid_IotRequestHandle" line="485" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 12 (lines ./../global_state_HTTP.c:is_valid_IotRequestHandle:485)" id="is_valid_IotRequestHandle.coverage.12" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="is_valid_IotRequestHandle" line="485" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 11 (lines ./../global_state_HTTP.c:is_valid_IotRequestHandle:480)" id="is_valid_IotRequestHandle.coverage.11" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="is_valid_IotRequestHandle" line="480" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 10 (lines ./../global_state_HTTP.c:is_valid_IotRequestHandle:480,483,484)" id="is_valid_IotRequestHandle.coverage.10" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="is_valid_IotRequestHandle" line="483" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 9 (lines ./../global_state_HTTP.c:is_valid_IotRequestHandle:467,470-474,480)" id="is_valid_IotRequestHandle.coverage.9" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="is_valid_IotRequestHandle" line="467" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 8 (lines ./../global_state_HTTP.c:is_valid_IotRequestHandle:468)" id="is_valid_IotRequestHandle.coverage.8" status="FAILED">
+  <location file="./../global_state_HTTP.c" function="is_valid_IotRequestHandle" line="468" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 7 (lines ./../global_state_HTTP.c:is_valid_IotRequestHandle:468,469)" id="is_valid_IotRequestHandle.coverage.7" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="is_valid_IotRequestHandle" line="469" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 9 (lines ./../global_state_HTTP.c:allocate_IotResponseHandle:353,354)" id="allocate_IotResponseHandle.coverage.9" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="allocate_IotResponseHandle" line="353" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 6 (lines ./../global_state_HTTP.c:is_valid_IotRequestHandle:465-468)" id="is_valid_IotRequestHandle.coverage.6" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="is_valid_IotRequestHandle" line="465" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 8 (lines ./../global_state_HTTP.c:allocate_IotResponseHandle:351-353)" id="allocate_IotResponseHandle.coverage.8" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="allocate_IotResponseHandle" line="352" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 5 (lines ./../global_state_HTTP.c:is_valid_IotRequestHandle:463)" id="is_valid_IotRequestHandle.coverage.5" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="is_valid_IotRequestHandle" line="463" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 7 (lines ./../global_state_HTTP.c:allocate_IotResponseHandle:349,350,352)" id="allocate_IotResponseHandle.coverage.7" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="allocate_IotResponseHandle" line="350" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 4 (lines ./../global_state_HTTP.c:is_valid_IotRequestHandle:458,463)" id="is_valid_IotRequestHandle.coverage.4" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="is_valid_IotRequestHandle" line="458" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 6 (lines ./../global_state_HTTP.c:allocate_IotResponseHandle:348,350)" id="allocate_IotResponseHandle.coverage.6" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="allocate_IotResponseHandle" line="348" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 3 (lines ./../global_state_HTTP.c:is_valid_IotRequestHandle:459)" id="is_valid_IotRequestHandle.coverage.3" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="is_valid_IotRequestHandle" line="459" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 5 (lines ./../global_state_HTTP.c:allocate_IotResponseHandle:347,348)" id="allocate_IotResponseHandle.coverage.5" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="allocate_IotResponseHandle" line="347" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 2 (lines ./../global_state_HTTP.c:is_valid_IotRequestHandle:459,462)" id="is_valid_IotRequestHandle.coverage.2" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="is_valid_IotRequestHandle" line="462" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 7 (lines /Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c:IotHttpsClient_AddHeader:2886)" id="IotHttpsClient_AddHeader.coverage.7" status="SATISFIED">
+  <location file="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c" function="IotHttpsClient_AddHeader" line="2886" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 31 (lines /Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c:IotHttpsClient_AddHeader:2923)" id="IotHttpsClient_AddHeader.coverage.31" status="SATISFIED">
+  <location file="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/libraries/c_sdk/standard/https/src/iot_https_client.c" function="IotHttpsClient_AddHeader" line="2923" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 4 (lines ./../global_state_HTTP.c:allocate_IotResponseHandle:346,347)" id="allocate_IotResponseHandle.coverage.4" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="allocate_IotResponseHandle" line="346" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<goal description="block 1 (lines ./../global_state_HTTP.c:is_valid_IotRequestHandle:458-460)" id="is_valid_IotRequestHandle.coverage.1" status="SATISFIED">
+  <location file="./../global_state_HTTP.c" function="is_valid_IotRequestHandle" line="458" working-directory="/Users/mrtuttle/cbmc/scripts/cbmc-viewer/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"/>
+</goal>
+
+<message type="STATUS-MESSAGE">
+  <text>** 118 of 119 covered (99.2%)</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>** Used 16 iterations</text>
+</message>
+
+<test>
+  <inputs/>
+  <goal id="is_valid_IotRequestHandle.coverage.1"/>
+  <goal id="is_valid_IotRequestHandle.coverage.2"/>
+  <goal id="is_valid_IotRequestHandle.coverage.4"/>
+  <goal id="is_valid_IotRequestHandle.coverage.6"/>
+  <goal id="is_valid_IotRequestHandle.coverage.7"/>
+  <goal id="is_valid_IotRequestHandle.coverage.9"/>
+  <goal id="is_valid_IotRequestHandle.coverage.11"/>
+  <goal id="is_valid_IotRequestHandle.coverage.12"/>
+  <goal id="is_valid_IotRequestHandle.coverage.14"/>
+  <goal id="is_valid_IotRequestHandle.coverage.15"/>
+  <goal id="is_valid_IotRequestHandle.coverage.16"/>
+  <goal id="safeMalloc.coverage.1"/>
+  <goal id="safeMalloc.coverage.2"/>
+  <goal id="safeMalloc.coverage.3"/>
+  <goal id="safeMalloc.coverage.4"/>
+  <goal id="safeMalloc.coverage.5"/>
+  <goal id="harness.coverage.1"/>
+  <goal id="harness.coverage.2"/>
+  <goal id="harness.coverage.3"/>
+  <goal id="harness.coverage.4"/>
+  <goal id="allocate_IotConnectionInfo.coverage.1"/>
+  <goal id="allocate_IotConnectionInfo.coverage.2"/>
+  <goal id="allocate_IotConnectionInfo.coverage.3"/>
+  <goal id="allocate_IotConnectionInfo.coverage.4"/>
+  <goal id="allocate_IotConnectionInfo.coverage.5"/>
+  <goal id="allocate_IotConnectionInfo.coverage.6"/>
+  <goal id="allocate_IotConnectionInfo.coverage.7"/>
+  <goal id="allocate_IotConnectionInfo.coverage.8"/>
+  <goal id="allocate_IotConnectionInfo.coverage.9"/>
+  <goal id="allocate_IotConnectionInfo.coverage.10"/>
+  <goal id="allocate_IotConnectionInfo.coverage.11"/>
+  <goal id="allocate_IotRequestHandle.coverage.1"/>
+  <goal id="allocate_IotRequestHandle.coverage.2"/>
+  <goal id="allocate_IotRequestHandle.coverage.3"/>
+  <goal id="allocate_IotRequestHandle.coverage.4"/>
+  <goal id="allocate_IotRequestHandle.coverage.5"/>
+  <goal id="allocate_IotRequestHandle.coverage.6"/>
+  <goal id="allocate_IotRequestHandle.coverage.7"/>
+  <goal id="allocate_IotRequestHandle.coverage.8"/>
+  <goal id="allocate_IotRequestHandle.coverage.9"/>
+  <goal id="allocate_IotResponseHandle.coverage.1"/>
+  <goal id="allocate_IotResponseHandle.coverage.2"/>
+  <goal id="allocate_IotResponseHandle.coverage.3"/>
+  <goal id="allocate_IotResponseHandle.coverage.4"/>
+  <goal id="allocate_IotResponseHandle.coverage.5"/>
+  <goal id="allocate_IotResponseHandle.coverage.6"/>
+  <goal id="allocate_IotResponseHandle.coverage.7"/>
+  <goal id="allocate_IotResponseHandle.coverage.8"/>
+  <goal id="allocate_IotResponseHandle.coverage.9"/>
+  <goal id="allocate_IotResponseHandle.coverage.10"/>
+  <goal id="allocate_IotResponseHandle.coverage.11"/>
+  <goal id="allocate_NetworkInterface.coverage.1"/>
+  <goal id="allocate_NetworkInterface.coverage.2"/>
+  <goal id="allocate_IotConnectionHandle.coverage.1"/>
+  <goal id="allocate_IotConnectionHandle.coverage.2"/>
+  <goal id="allocate_IotConnectionHandle.coverage.3"/>
+  <goal id="allocate_IotConnectionHandle.coverage.4"/>
+  <goal id="allocate_IotConnectionHandle.coverage.5"/>
+  <goal id="allocate_IotConnectionHandle.coverage.6"/>
+  <goal id="allocate_IotClientCallbacks.coverage.1"/>
+  <goal id="allocate_IotClientCallbacks.coverage.2"/>
+</test>
+
+<test>
+  <inputs/>
+  <goal id="is_valid_IotRequestHandle.coverage.1"/>
+  <goal id="is_valid_IotRequestHandle.coverage.2"/>
+  <goal id="is_valid_IotRequestHandle.coverage.4"/>
+  <goal id="is_valid_IotRequestHandle.coverage.6"/>
+  <goal id="is_valid_IotRequestHandle.coverage.7"/>
+  <goal id="is_valid_IotRequestHandle.coverage.9"/>
+  <goal id="is_valid_IotRequestHandle.coverage.10"/>
+  <goal id="is_valid_IotRequestHandle.coverage.12"/>
+  <goal id="is_valid_IotRequestHandle.coverage.13"/>
+  <goal id="is_valid_IotRequestHandle.coverage.15"/>
+  <goal id="is_valid_IotRequestHandle.coverage.16"/>
+  <goal id="safeMalloc.coverage.1"/>
+  <goal id="safeMalloc.coverage.2"/>
+  <goal id="safeMalloc.coverage.3"/>
+  <goal id="safeMalloc.coverage.4"/>
+  <goal id="safeMalloc.coverage.5"/>
+  <goal id="harness.coverage.1"/>
+  <goal id="harness.coverage.2"/>
+  <goal id="harness.coverage.3"/>
+  <goal id="harness.coverage.4"/>
+  <goal id="harness.coverage.5"/>
+  <goal id="allocate_IotConnectionInfo.coverage.1"/>
+  <goal id="allocate_IotConnectionInfo.coverage.2"/>
+  <goal id="allocate_IotConnectionInfo.coverage.3"/>
+  <goal id="allocate_IotConnectionInfo.coverage.4"/>
+  <goal id="allocate_IotConnectionInfo.coverage.5"/>
+  <goal id="allocate_IotConnectionInfo.coverage.6"/>
+  <goal id="allocate_IotConnectionInfo.coverage.7"/>
+  <goal id="allocate_IotConnectionInfo.coverage.8"/>
+  <goal id="allocate_IotConnectionInfo.coverage.9"/>
+  <goal id="allocate_IotConnectionInfo.coverage.10"/>
+  <goal id="allocate_IotConnectionInfo.coverage.11"/>
+  <goal id="allocate_IotRequestHandle.coverage.1"/>
+  <goal id="allocate_IotRequestHandle.coverage.2"/>
+  <goal id="allocate_IotRequestHandle.coverage.3"/>
+  <goal id="allocate_IotRequestHandle.coverage.4"/>
+  <goal id="allocate_IotRequestHandle.coverage.5"/>
+  <goal id="allocate_IotRequestHandle.coverage.6"/>
+  <goal id="allocate_IotRequestHandle.coverage.7"/>
+  <goal id="allocate_IotRequestHandle.coverage.8"/>
+  <goal id="allocate_IotRequestHandle.coverage.9"/>
+  <goal id="allocate_IotResponseHandle.coverage.1"/>
+  <goal id="allocate_IotResponseHandle.coverage.2"/>
+  <goal id="allocate_IotResponseHandle.coverage.3"/>
+  <goal id="allocate_IotResponseHandle.coverage.4"/>
+  <goal id="allocate_IotResponseHandle.coverage.5"/>
+  <goal id="allocate_IotResponseHandle.coverage.6"/>
+  <goal id="allocate_IotResponseHandle.coverage.7"/>
+  <goal id="allocate_IotResponseHandle.coverage.8"/>
+  <goal id="allocate_IotResponseHandle.coverage.9"/>
+  <goal id="allocate_IotResponseHandle.coverage.10"/>
+  <goal id="allocate_IotResponseHandle.coverage.11"/>
+  <goal id="allocate_NetworkInterface.coverage.1"/>
+  <goal id="allocate_NetworkInterface.coverage.2"/>
+  <goal id="allocate_IotConnectionHandle.coverage.1"/>
+  <goal id="allocate_IotConnectionHandle.coverage.2"/>
+  <goal id="allocate_IotConnectionHandle.coverage.3"/>
+  <goal id="allocate_IotConnectionHandle.coverage.4"/>
+  <goal id="allocate_IotConnectionHandle.coverage.5"/>
+  <goal id="allocate_IotConnectionHandle.coverage.6"/>
+  <goal id="allocate_IotClientCallbacks.coverage.1"/>
+  <goal id="allocate_IotClientCallbacks.coverage.2"/>
+</test>
+
+<test>
+  <inputs/>
+  <goal id="is_valid_IotRequestHandle.coverage.1"/>
+  <goal id="is_valid_IotRequestHandle.coverage.2"/>
+  <goal id="is_valid_IotRequestHandle.coverage.4"/>
+  <goal id="is_valid_IotRequestHandle.coverage.5"/>
+  <goal id="is_valid_IotRequestHandle.coverage.16"/>
+  <goal id="safeMalloc.coverage.1"/>
+  <goal id="safeMalloc.coverage.2"/>
+  <goal id="safeMalloc.coverage.3"/>
+  <goal id="safeMalloc.coverage.4"/>
+  <goal id="safeMalloc.coverage.5"/>
+  <goal id="harness.coverage.1"/>
+  <goal id="harness.coverage.2"/>
+  <goal id="harness.coverage.3"/>
+  <goal id="harness.coverage.4"/>
+  <goal id="allocate_IotConnectionInfo.coverage.1"/>
+  <goal id="allocate_IotConnectionInfo.coverage.2"/>
+  <goal id="allocate_IotConnectionInfo.coverage.3"/>
+  <goal id="allocate_IotConnectionInfo.coverage.4"/>
+  <goal id="allocate_IotConnectionInfo.coverage.5"/>
+  <goal id="allocate_IotConnectionInfo.coverage.6"/>
+  <goal id="allocate_IotConnectionInfo.coverage.7"/>
+  <goal id="allocate_IotConnectionInfo.coverage.8"/>
+  <goal id="allocate_IotConnectionInfo.coverage.9"/>
+  <goal id="allocate_IotConnectionInfo.coverage.10"/>
+  <goal id="allocate_IotConnectionInfo.coverage.11"/>
+  <goal id="allocate_IotRequestHandle.coverage.1"/>
+  <goal id="allocate_IotRequestHandle.coverage.2"/>
+  <goal id="allocate_IotRequestHandle.coverage.3"/>
+  <goal id="allocate_IotRequestHandle.coverage.4"/>
+  <goal id="allocate_IotRequestHandle.coverage.5"/>
+  <goal id="allocate_IotRequestHandle.coverage.6"/>
+  <goal id="allocate_IotRequestHandle.coverage.7"/>
+  <goal id="allocate_IotRequestHandle.coverage.8"/>
+  <goal id="allocate_IotRequestHandle.coverage.9"/>
+  <goal id="allocate_IotResponseHandle.coverage.1"/>
+  <goal id="allocate_IotResponseHandle.coverage.2"/>
+  <goal id="allocate_IotResponseHandle.coverage.3"/>
+  <goal id="allocate_IotResponseHandle.coverage.4"/>
+  <goal id="allocate_IotResponseHandle.coverage.5"/>
+  <goal id="allocate_IotResponseHandle.coverage.6"/>
+  <goal id="allocate_IotResponseHandle.coverage.7"/>
+  <goal id="allocate_IotResponseHandle.coverage.8"/>
+  <goal id="allocate_IotResponseHandle.coverage.9"/>
+  <goal id="allocate_IotResponseHandle.coverage.10"/>
+  <goal id="allocate_IotResponseHandle.coverage.11"/>
+  <goal id="allocate_NetworkInterface.coverage.1"/>
+  <goal id="allocate_NetworkInterface.coverage.2"/>
+  <goal id="allocate_IotConnectionHandle.coverage.1"/>
+  <goal id="allocate_IotConnectionHandle.coverage.2"/>
+  <goal id="allocate_IotConnectionHandle.coverage.3"/>
+  <goal id="allocate_IotConnectionHandle.coverage.4"/>
+  <goal id="allocate_IotConnectionHandle.coverage.5"/>
+  <goal id="allocate_IotConnectionHandle.coverage.6"/>
+  <goal id="allocate_IotClientCallbacks.coverage.1"/>
+  <goal id="allocate_IotClientCallbacks.coverage.2"/>
+</test>
+
+<test>
+  <inputs/>
+  <goal id="is_valid_IotRequestHandle.coverage.1"/>
+  <goal id="is_valid_IotRequestHandle.coverage.3"/>
+  <goal id="is_valid_IotRequestHandle.coverage.4"/>
+  <goal id="is_valid_IotRequestHandle.coverage.5"/>
+  <goal id="is_valid_IotRequestHandle.coverage.16"/>
+  <goal id="safeMalloc.coverage.1"/>
+  <goal id="safeMalloc.coverage.2"/>
+  <goal id="safeMalloc.coverage.3"/>
+  <goal id="safeMalloc.coverage.4"/>
+  <goal id="safeMalloc.coverage.5"/>
+  <goal id="harness.coverage.1"/>
+  <goal id="harness.coverage.2"/>
+  <goal id="harness.coverage.3"/>
+  <goal id="harness.coverage.4"/>
+  <goal id="allocate_IotConnectionInfo.coverage.1"/>
+  <goal id="allocate_IotConnectionInfo.coverage.2"/>
+  <goal id="allocate_IotConnectionInfo.coverage.3"/>
+  <goal id="allocate_IotConnectionInfo.coverage.4"/>
+  <goal id="allocate_IotConnectionInfo.coverage.5"/>
+  <goal id="allocate_IotConnectionInfo.coverage.6"/>
+  <goal id="allocate_IotConnectionInfo.coverage.7"/>
+  <goal id="allocate_IotConnectionInfo.coverage.8"/>
+  <goal id="allocate_IotConnectionInfo.coverage.9"/>
+  <goal id="allocate_IotConnectionInfo.coverage.10"/>
+  <goal id="allocate_IotConnectionInfo.coverage.11"/>
+  <goal id="allocate_IotRequestHandle.coverage.1"/>
+  <goal id="allocate_IotRequestHandle.coverage.2"/>
+  <goal id="allocate_IotRequestHandle.coverage.3"/>
+  <goal id="allocate_IotRequestHandle.coverage.4"/>
+  <goal id="allocate_IotRequestHandle.coverage.5"/>
+  <goal id="allocate_IotRequestHandle.coverage.6"/>
+  <goal id="allocate_IotRequestHandle.coverage.7"/>
+  <goal id="allocate_IotRequestHandle.coverage.8"/>
+  <goal id="allocate_IotRequestHandle.coverage.9"/>
+  <goal id="allocate_IotResponseHandle.coverage.1"/>
+  <goal id="allocate_IotResponseHandle.coverage.2"/>
+  <goal id="allocate_IotResponseHandle.coverage.3"/>
+  <goal id="allocate_IotResponseHandle.coverage.4"/>
+  <goal id="allocate_IotResponseHandle.coverage.5"/>
+  <goal id="allocate_IotResponseHandle.coverage.6"/>
+  <goal id="allocate_IotResponseHandle.coverage.7"/>
+  <goal id="allocate_IotResponseHandle.coverage.8"/>
+  <goal id="allocate_IotResponseHandle.coverage.9"/>
+  <goal id="allocate_IotResponseHandle.coverage.10"/>
+  <goal id="allocate_IotResponseHandle.coverage.11"/>
+  <goal id="allocate_NetworkInterface.coverage.1"/>
+  <goal id="allocate_NetworkInterface.coverage.2"/>
+  <goal id="allocate_IotConnectionHandle.coverage.1"/>
+  <goal id="allocate_IotConnectionHandle.coverage.2"/>
+  <goal id="allocate_IotConnectionHandle.coverage.3"/>
+  <goal id="allocate_IotConnectionHandle.coverage.4"/>
+  <goal id="allocate_IotConnectionHandle.coverage.5"/>
+  <goal id="allocate_IotConnectionHandle.coverage.6"/>
+  <goal id="allocate_IotClientCallbacks.coverage.1"/>
+  <goal id="allocate_IotClientCallbacks.coverage.2"/>
+</test>
+
+<test>
+  <inputs/>
+  <goal id="is_valid_IotRequestHandle.coverage.1"/>
+  <goal id="is_valid_IotRequestHandle.coverage.2"/>
+  <goal id="is_valid_IotRequestHandle.coverage.4"/>
+  <goal id="is_valid_IotRequestHandle.coverage.6"/>
+  <goal id="is_valid_IotRequestHandle.coverage.7"/>
+  <goal id="is_valid_IotRequestHandle.coverage.9"/>
+  <goal id="is_valid_IotRequestHandle.coverage.10"/>
+  <goal id="is_valid_IotRequestHandle.coverage.12"/>
+  <goal id="is_valid_IotRequestHandle.coverage.13"/>
+  <goal id="is_valid_IotRequestHandle.coverage.15"/>
+  <goal id="is_valid_IotRequestHandle.coverage.16"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.1"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.4"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.7"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.10"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.13"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.16"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.17"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.20"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.21"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.24"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.25"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.28"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.29"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.32"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.33"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.35"/>
+  <goal id="safeMalloc.coverage.1"/>
+  <goal id="safeMalloc.coverage.2"/>
+  <goal id="safeMalloc.coverage.3"/>
+  <goal id="safeMalloc.coverage.4"/>
+  <goal id="safeMalloc.coverage.5"/>
+  <goal id="harness.coverage.1"/>
+  <goal id="harness.coverage.2"/>
+  <goal id="harness.coverage.3"/>
+  <goal id="harness.coverage.4"/>
+  <goal id="harness.coverage.5"/>
+  <goal id="harness.coverage.6"/>
+  <goal id="harness.coverage.7"/>
+  <goal id="harness.coverage.8"/>
+  <goal id="harness.coverage.9"/>
+  <goal id="harness.coverage.10"/>
+  <goal id="harness.coverage.11"/>
+  <goal id="harness.coverage.12"/>
+  <goal id="allocate_IotConnectionInfo.coverage.1"/>
+  <goal id="allocate_IotConnectionInfo.coverage.2"/>
+  <goal id="allocate_IotConnectionInfo.coverage.3"/>
+  <goal id="allocate_IotConnectionInfo.coverage.4"/>
+  <goal id="allocate_IotConnectionInfo.coverage.5"/>
+  <goal id="allocate_IotConnectionInfo.coverage.6"/>
+  <goal id="allocate_IotConnectionInfo.coverage.7"/>
+  <goal id="allocate_IotConnectionInfo.coverage.8"/>
+  <goal id="allocate_IotConnectionInfo.coverage.9"/>
+  <goal id="allocate_IotConnectionInfo.coverage.10"/>
+  <goal id="allocate_IotConnectionInfo.coverage.11"/>
+  <goal id="allocate_IotRequestHandle.coverage.1"/>
+  <goal id="allocate_IotRequestHandle.coverage.2"/>
+  <goal id="allocate_IotRequestHandle.coverage.3"/>
+  <goal id="allocate_IotRequestHandle.coverage.4"/>
+  <goal id="allocate_IotRequestHandle.coverage.5"/>
+  <goal id="allocate_IotRequestHandle.coverage.6"/>
+  <goal id="allocate_IotRequestHandle.coverage.7"/>
+  <goal id="allocate_IotRequestHandle.coverage.8"/>
+  <goal id="allocate_IotRequestHandle.coverage.9"/>
+  <goal id="allocate_IotResponseHandle.coverage.1"/>
+  <goal id="allocate_IotResponseHandle.coverage.2"/>
+  <goal id="allocate_IotResponseHandle.coverage.3"/>
+  <goal id="allocate_IotResponseHandle.coverage.4"/>
+  <goal id="allocate_IotResponseHandle.coverage.5"/>
+  <goal id="allocate_IotResponseHandle.coverage.6"/>
+  <goal id="allocate_IotResponseHandle.coverage.7"/>
+  <goal id="allocate_IotResponseHandle.coverage.8"/>
+  <goal id="allocate_IotResponseHandle.coverage.9"/>
+  <goal id="allocate_IotResponseHandle.coverage.10"/>
+  <goal id="allocate_IotResponseHandle.coverage.11"/>
+  <goal id="_addHeader.coverage.1"/>
+  <goal id="_addHeader.coverage.4"/>
+  <goal id="_addHeader.coverage.5"/>
+  <goal id="_addHeader.coverage.6"/>
+  <goal id="_addHeader.coverage.7"/>
+  <goal id="_addHeader.coverage.8"/>
+  <goal id="_addHeader.coverage.9"/>
+  <goal id="__builtin___memcpy_chk.coverage.1"/>
+  <goal id="allocate_NetworkInterface.coverage.1"/>
+  <goal id="allocate_NetworkInterface.coverage.2"/>
+  <goal id="allocate_IotConnectionHandle.coverage.1"/>
+  <goal id="allocate_IotConnectionHandle.coverage.2"/>
+  <goal id="allocate_IotConnectionHandle.coverage.3"/>
+  <goal id="allocate_IotConnectionHandle.coverage.4"/>
+  <goal id="allocate_IotConnectionHandle.coverage.5"/>
+  <goal id="allocate_IotConnectionHandle.coverage.6"/>
+  <goal id="allocate_IotClientCallbacks.coverage.1"/>
+  <goal id="allocate_IotClientCallbacks.coverage.2"/>
+</test>
+
+<test>
+  <inputs/>
+  <goal id="is_valid_IotRequestHandle.coverage.1"/>
+  <goal id="is_valid_IotRequestHandle.coverage.2"/>
+  <goal id="is_valid_IotRequestHandle.coverage.4"/>
+  <goal id="is_valid_IotRequestHandle.coverage.6"/>
+  <goal id="is_valid_IotRequestHandle.coverage.7"/>
+  <goal id="is_valid_IotRequestHandle.coverage.9"/>
+  <goal id="is_valid_IotRequestHandle.coverage.10"/>
+  <goal id="is_valid_IotRequestHandle.coverage.12"/>
+  <goal id="is_valid_IotRequestHandle.coverage.13"/>
+  <goal id="is_valid_IotRequestHandle.coverage.15"/>
+  <goal id="is_valid_IotRequestHandle.coverage.16"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.1"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.4"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.5"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.6"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.35"/>
+  <goal id="safeMalloc.coverage.1"/>
+  <goal id="safeMalloc.coverage.2"/>
+  <goal id="safeMalloc.coverage.3"/>
+  <goal id="safeMalloc.coverage.4"/>
+  <goal id="safeMalloc.coverage.5"/>
+  <goal id="harness.coverage.1"/>
+  <goal id="harness.coverage.2"/>
+  <goal id="harness.coverage.3"/>
+  <goal id="harness.coverage.4"/>
+  <goal id="harness.coverage.5"/>
+  <goal id="harness.coverage.6"/>
+  <goal id="harness.coverage.7"/>
+  <goal id="harness.coverage.8"/>
+  <goal id="harness.coverage.9"/>
+  <goal id="harness.coverage.11"/>
+  <goal id="harness.coverage.12"/>
+  <goal id="allocate_IotConnectionInfo.coverage.1"/>
+  <goal id="allocate_IotConnectionInfo.coverage.2"/>
+  <goal id="allocate_IotConnectionInfo.coverage.3"/>
+  <goal id="allocate_IotConnectionInfo.coverage.4"/>
+  <goal id="allocate_IotConnectionInfo.coverage.5"/>
+  <goal id="allocate_IotConnectionInfo.coverage.6"/>
+  <goal id="allocate_IotConnectionInfo.coverage.7"/>
+  <goal id="allocate_IotConnectionInfo.coverage.8"/>
+  <goal id="allocate_IotConnectionInfo.coverage.9"/>
+  <goal id="allocate_IotConnectionInfo.coverage.10"/>
+  <goal id="allocate_IotConnectionInfo.coverage.11"/>
+  <goal id="allocate_IotRequestHandle.coverage.1"/>
+  <goal id="allocate_IotRequestHandle.coverage.2"/>
+  <goal id="allocate_IotRequestHandle.coverage.3"/>
+  <goal id="allocate_IotRequestHandle.coverage.4"/>
+  <goal id="allocate_IotRequestHandle.coverage.5"/>
+  <goal id="allocate_IotRequestHandle.coverage.6"/>
+  <goal id="allocate_IotRequestHandle.coverage.7"/>
+  <goal id="allocate_IotRequestHandle.coverage.8"/>
+  <goal id="allocate_IotRequestHandle.coverage.9"/>
+  <goal id="allocate_IotResponseHandle.coverage.1"/>
+  <goal id="allocate_IotResponseHandle.coverage.2"/>
+  <goal id="allocate_IotResponseHandle.coverage.3"/>
+  <goal id="allocate_IotResponseHandle.coverage.4"/>
+  <goal id="allocate_IotResponseHandle.coverage.5"/>
+  <goal id="allocate_IotResponseHandle.coverage.6"/>
+  <goal id="allocate_IotResponseHandle.coverage.7"/>
+  <goal id="allocate_IotResponseHandle.coverage.8"/>
+  <goal id="allocate_IotResponseHandle.coverage.9"/>
+  <goal id="allocate_IotResponseHandle.coverage.10"/>
+  <goal id="allocate_IotResponseHandle.coverage.11"/>
+  <goal id="allocate_NetworkInterface.coverage.1"/>
+  <goal id="allocate_NetworkInterface.coverage.2"/>
+  <goal id="allocate_IotConnectionHandle.coverage.1"/>
+  <goal id="allocate_IotConnectionHandle.coverage.2"/>
+  <goal id="allocate_IotConnectionHandle.coverage.3"/>
+  <goal id="allocate_IotConnectionHandle.coverage.4"/>
+  <goal id="allocate_IotConnectionHandle.coverage.5"/>
+  <goal id="allocate_IotConnectionHandle.coverage.6"/>
+  <goal id="allocate_IotClientCallbacks.coverage.1"/>
+  <goal id="allocate_IotClientCallbacks.coverage.2"/>
+</test>
+
+<test>
+  <inputs/>
+  <goal id="is_valid_IotRequestHandle.coverage.1"/>
+  <goal id="is_valid_IotRequestHandle.coverage.2"/>
+  <goal id="is_valid_IotRequestHandle.coverage.4"/>
+  <goal id="is_valid_IotRequestHandle.coverage.6"/>
+  <goal id="is_valid_IotRequestHandle.coverage.7"/>
+  <goal id="is_valid_IotRequestHandle.coverage.9"/>
+  <goal id="is_valid_IotRequestHandle.coverage.10"/>
+  <goal id="is_valid_IotRequestHandle.coverage.12"/>
+  <goal id="is_valid_IotRequestHandle.coverage.13"/>
+  <goal id="is_valid_IotRequestHandle.coverage.15"/>
+  <goal id="is_valid_IotRequestHandle.coverage.16"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.1"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.2"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.3"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.35"/>
+  <goal id="safeMalloc.coverage.1"/>
+  <goal id="safeMalloc.coverage.2"/>
+  <goal id="safeMalloc.coverage.3"/>
+  <goal id="safeMalloc.coverage.4"/>
+  <goal id="safeMalloc.coverage.5"/>
+  <goal id="harness.coverage.1"/>
+  <goal id="harness.coverage.2"/>
+  <goal id="harness.coverage.3"/>
+  <goal id="harness.coverage.4"/>
+  <goal id="harness.coverage.5"/>
+  <goal id="harness.coverage.6"/>
+  <goal id="harness.coverage.7"/>
+  <goal id="harness.coverage.9"/>
+  <goal id="harness.coverage.11"/>
+  <goal id="harness.coverage.12"/>
+  <goal id="allocate_IotConnectionInfo.coverage.1"/>
+  <goal id="allocate_IotConnectionInfo.coverage.2"/>
+  <goal id="allocate_IotConnectionInfo.coverage.3"/>
+  <goal id="allocate_IotConnectionInfo.coverage.4"/>
+  <goal id="allocate_IotConnectionInfo.coverage.5"/>
+  <goal id="allocate_IotConnectionInfo.coverage.6"/>
+  <goal id="allocate_IotConnectionInfo.coverage.7"/>
+  <goal id="allocate_IotConnectionInfo.coverage.8"/>
+  <goal id="allocate_IotConnectionInfo.coverage.9"/>
+  <goal id="allocate_IotConnectionInfo.coverage.10"/>
+  <goal id="allocate_IotConnectionInfo.coverage.11"/>
+  <goal id="allocate_IotRequestHandle.coverage.1"/>
+  <goal id="allocate_IotRequestHandle.coverage.2"/>
+  <goal id="allocate_IotRequestHandle.coverage.3"/>
+  <goal id="allocate_IotRequestHandle.coverage.4"/>
+  <goal id="allocate_IotRequestHandle.coverage.5"/>
+  <goal id="allocate_IotRequestHandle.coverage.6"/>
+  <goal id="allocate_IotRequestHandle.coverage.7"/>
+  <goal id="allocate_IotRequestHandle.coverage.8"/>
+  <goal id="allocate_IotRequestHandle.coverage.9"/>
+  <goal id="allocate_IotResponseHandle.coverage.1"/>
+  <goal id="allocate_IotResponseHandle.coverage.2"/>
+  <goal id="allocate_IotResponseHandle.coverage.3"/>
+  <goal id="allocate_IotResponseHandle.coverage.4"/>
+  <goal id="allocate_IotResponseHandle.coverage.5"/>
+  <goal id="allocate_IotResponseHandle.coverage.6"/>
+  <goal id="allocate_IotResponseHandle.coverage.7"/>
+  <goal id="allocate_IotResponseHandle.coverage.8"/>
+  <goal id="allocate_IotResponseHandle.coverage.9"/>
+  <goal id="allocate_IotResponseHandle.coverage.10"/>
+  <goal id="allocate_IotResponseHandle.coverage.11"/>
+  <goal id="allocate_NetworkInterface.coverage.1"/>
+  <goal id="allocate_NetworkInterface.coverage.2"/>
+  <goal id="allocate_IotConnectionHandle.coverage.1"/>
+  <goal id="allocate_IotConnectionHandle.coverage.2"/>
+  <goal id="allocate_IotConnectionHandle.coverage.3"/>
+  <goal id="allocate_IotConnectionHandle.coverage.4"/>
+  <goal id="allocate_IotConnectionHandle.coverage.5"/>
+  <goal id="allocate_IotConnectionHandle.coverage.6"/>
+  <goal id="allocate_IotClientCallbacks.coverage.1"/>
+  <goal id="allocate_IotClientCallbacks.coverage.2"/>
+</test>
+
+<test>
+  <inputs/>
+  <goal id="IotHttpsClient_AddHeader.coverage.1"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.4"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.7"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.8"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.9"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.35"/>
+  <goal id="safeMalloc.coverage.1"/>
+  <goal id="safeMalloc.coverage.2"/>
+  <goal id="safeMalloc.coverage.3"/>
+  <goal id="safeMalloc.coverage.4"/>
+  <goal id="safeMalloc.coverage.5"/>
+  <goal id="harness.coverage.1"/>
+  <goal id="harness.coverage.2"/>
+  <goal id="harness.coverage.5"/>
+  <goal id="harness.coverage.6"/>
+  <goal id="harness.coverage.7"/>
+  <goal id="harness.coverage.8"/>
+  <goal id="harness.coverage.9"/>
+  <goal id="harness.coverage.10"/>
+  <goal id="harness.coverage.11"/>
+  <goal id="harness.coverage.12"/>
+  <goal id="allocate_IotRequestHandle.coverage.1"/>
+  <goal id="allocate_IotRequestHandle.coverage.2"/>
+  <goal id="allocate_IotRequestHandle.coverage.9"/>
+</test>
+
+<test>
+  <inputs/>
+  <goal id="is_valid_IotRequestHandle.coverage.1"/>
+  <goal id="is_valid_IotRequestHandle.coverage.2"/>
+  <goal id="is_valid_IotRequestHandle.coverage.4"/>
+  <goal id="is_valid_IotRequestHandle.coverage.6"/>
+  <goal id="is_valid_IotRequestHandle.coverage.7"/>
+  <goal id="is_valid_IotRequestHandle.coverage.9"/>
+  <goal id="is_valid_IotRequestHandle.coverage.10"/>
+  <goal id="is_valid_IotRequestHandle.coverage.12"/>
+  <goal id="is_valid_IotRequestHandle.coverage.13"/>
+  <goal id="is_valid_IotRequestHandle.coverage.15"/>
+  <goal id="is_valid_IotRequestHandle.coverage.16"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.1"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.4"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.7"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.10"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.11"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.12"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.35"/>
+  <goal id="safeMalloc.coverage.1"/>
+  <goal id="safeMalloc.coverage.2"/>
+  <goal id="safeMalloc.coverage.3"/>
+  <goal id="safeMalloc.coverage.4"/>
+  <goal id="safeMalloc.coverage.5"/>
+  <goal id="harness.coverage.1"/>
+  <goal id="harness.coverage.2"/>
+  <goal id="harness.coverage.3"/>
+  <goal id="harness.coverage.4"/>
+  <goal id="harness.coverage.5"/>
+  <goal id="harness.coverage.6"/>
+  <goal id="harness.coverage.7"/>
+  <goal id="harness.coverage.8"/>
+  <goal id="harness.coverage.9"/>
+  <goal id="harness.coverage.10"/>
+  <goal id="harness.coverage.11"/>
+  <goal id="harness.coverage.12"/>
+  <goal id="allocate_IotConnectionInfo.coverage.1"/>
+  <goal id="allocate_IotConnectionInfo.coverage.2"/>
+  <goal id="allocate_IotConnectionInfo.coverage.3"/>
+  <goal id="allocate_IotConnectionInfo.coverage.4"/>
+  <goal id="allocate_IotConnectionInfo.coverage.5"/>
+  <goal id="allocate_IotConnectionInfo.coverage.6"/>
+  <goal id="allocate_IotConnectionInfo.coverage.7"/>
+  <goal id="allocate_IotConnectionInfo.coverage.8"/>
+  <goal id="allocate_IotConnectionInfo.coverage.9"/>
+  <goal id="allocate_IotConnectionInfo.coverage.10"/>
+  <goal id="allocate_IotConnectionInfo.coverage.11"/>
+  <goal id="allocate_IotRequestHandle.coverage.1"/>
+  <goal id="allocate_IotRequestHandle.coverage.2"/>
+  <goal id="allocate_IotRequestHandle.coverage.3"/>
+  <goal id="allocate_IotRequestHandle.coverage.4"/>
+  <goal id="allocate_IotRequestHandle.coverage.5"/>
+  <goal id="allocate_IotRequestHandle.coverage.6"/>
+  <goal id="allocate_IotRequestHandle.coverage.7"/>
+  <goal id="allocate_IotRequestHandle.coverage.8"/>
+  <goal id="allocate_IotRequestHandle.coverage.9"/>
+  <goal id="allocate_IotResponseHandle.coverage.1"/>
+  <goal id="allocate_IotResponseHandle.coverage.2"/>
+  <goal id="allocate_IotResponseHandle.coverage.3"/>
+  <goal id="allocate_IotResponseHandle.coverage.4"/>
+  <goal id="allocate_IotResponseHandle.coverage.5"/>
+  <goal id="allocate_IotResponseHandle.coverage.6"/>
+  <goal id="allocate_IotResponseHandle.coverage.7"/>
+  <goal id="allocate_IotResponseHandle.coverage.8"/>
+  <goal id="allocate_IotResponseHandle.coverage.9"/>
+  <goal id="allocate_IotResponseHandle.coverage.10"/>
+  <goal id="allocate_IotResponseHandle.coverage.11"/>
+  <goal id="allocate_NetworkInterface.coverage.1"/>
+  <goal id="allocate_NetworkInterface.coverage.2"/>
+  <goal id="allocate_IotConnectionHandle.coverage.1"/>
+  <goal id="allocate_IotConnectionHandle.coverage.2"/>
+  <goal id="allocate_IotConnectionHandle.coverage.3"/>
+  <goal id="allocate_IotConnectionHandle.coverage.4"/>
+  <goal id="allocate_IotConnectionHandle.coverage.5"/>
+  <goal id="allocate_IotConnectionHandle.coverage.6"/>
+  <goal id="allocate_IotClientCallbacks.coverage.1"/>
+  <goal id="allocate_IotClientCallbacks.coverage.2"/>
+</test>
+
+<test>
+  <inputs/>
+  <goal id="is_valid_IotRequestHandle.coverage.1"/>
+  <goal id="is_valid_IotRequestHandle.coverage.2"/>
+  <goal id="is_valid_IotRequestHandle.coverage.4"/>
+  <goal id="is_valid_IotRequestHandle.coverage.6"/>
+  <goal id="is_valid_IotRequestHandle.coverage.7"/>
+  <goal id="is_valid_IotRequestHandle.coverage.9"/>
+  <goal id="is_valid_IotRequestHandle.coverage.10"/>
+  <goal id="is_valid_IotRequestHandle.coverage.12"/>
+  <goal id="is_valid_IotRequestHandle.coverage.13"/>
+  <goal id="is_valid_IotRequestHandle.coverage.15"/>
+  <goal id="is_valid_IotRequestHandle.coverage.16"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.1"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.4"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.7"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.10"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.13"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.14"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.15"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.35"/>
+  <goal id="safeMalloc.coverage.1"/>
+  <goal id="safeMalloc.coverage.2"/>
+  <goal id="safeMalloc.coverage.3"/>
+  <goal id="safeMalloc.coverage.4"/>
+  <goal id="safeMalloc.coverage.5"/>
+  <goal id="harness.coverage.1"/>
+  <goal id="harness.coverage.2"/>
+  <goal id="harness.coverage.3"/>
+  <goal id="harness.coverage.4"/>
+  <goal id="harness.coverage.5"/>
+  <goal id="harness.coverage.6"/>
+  <goal id="harness.coverage.7"/>
+  <goal id="harness.coverage.8"/>
+  <goal id="harness.coverage.9"/>
+  <goal id="harness.coverage.10"/>
+  <goal id="harness.coverage.11"/>
+  <goal id="harness.coverage.12"/>
+  <goal id="allocate_IotConnectionInfo.coverage.1"/>
+  <goal id="allocate_IotConnectionInfo.coverage.2"/>
+  <goal id="allocate_IotConnectionInfo.coverage.3"/>
+  <goal id="allocate_IotConnectionInfo.coverage.4"/>
+  <goal id="allocate_IotConnectionInfo.coverage.5"/>
+  <goal id="allocate_IotConnectionInfo.coverage.6"/>
+  <goal id="allocate_IotConnectionInfo.coverage.7"/>
+  <goal id="allocate_IotConnectionInfo.coverage.8"/>
+  <goal id="allocate_IotConnectionInfo.coverage.9"/>
+  <goal id="allocate_IotConnectionInfo.coverage.10"/>
+  <goal id="allocate_IotConnectionInfo.coverage.11"/>
+  <goal id="allocate_IotRequestHandle.coverage.1"/>
+  <goal id="allocate_IotRequestHandle.coverage.2"/>
+  <goal id="allocate_IotRequestHandle.coverage.3"/>
+  <goal id="allocate_IotRequestHandle.coverage.4"/>
+  <goal id="allocate_IotRequestHandle.coverage.5"/>
+  <goal id="allocate_IotRequestHandle.coverage.6"/>
+  <goal id="allocate_IotRequestHandle.coverage.7"/>
+  <goal id="allocate_IotRequestHandle.coverage.8"/>
+  <goal id="allocate_IotRequestHandle.coverage.9"/>
+  <goal id="allocate_IotResponseHandle.coverage.1"/>
+  <goal id="allocate_IotResponseHandle.coverage.2"/>
+  <goal id="allocate_IotResponseHandle.coverage.3"/>
+  <goal id="allocate_IotResponseHandle.coverage.4"/>
+  <goal id="allocate_IotResponseHandle.coverage.5"/>
+  <goal id="allocate_IotResponseHandle.coverage.6"/>
+  <goal id="allocate_IotResponseHandle.coverage.7"/>
+  <goal id="allocate_IotResponseHandle.coverage.8"/>
+  <goal id="allocate_IotResponseHandle.coverage.9"/>
+  <goal id="allocate_IotResponseHandle.coverage.10"/>
+  <goal id="allocate_IotResponseHandle.coverage.11"/>
+  <goal id="allocate_NetworkInterface.coverage.1"/>
+  <goal id="allocate_NetworkInterface.coverage.2"/>
+  <goal id="allocate_IotConnectionHandle.coverage.1"/>
+  <goal id="allocate_IotConnectionHandle.coverage.2"/>
+  <goal id="allocate_IotConnectionHandle.coverage.3"/>
+  <goal id="allocate_IotConnectionHandle.coverage.4"/>
+  <goal id="allocate_IotConnectionHandle.coverage.5"/>
+  <goal id="allocate_IotConnectionHandle.coverage.6"/>
+  <goal id="allocate_IotClientCallbacks.coverage.1"/>
+  <goal id="allocate_IotClientCallbacks.coverage.2"/>
+</test>
+
+<test>
+  <inputs/>
+  <goal id="is_valid_IotRequestHandle.coverage.1"/>
+  <goal id="is_valid_IotRequestHandle.coverage.2"/>
+  <goal id="is_valid_IotRequestHandle.coverage.4"/>
+  <goal id="is_valid_IotRequestHandle.coverage.6"/>
+  <goal id="is_valid_IotRequestHandle.coverage.7"/>
+  <goal id="is_valid_IotRequestHandle.coverage.9"/>
+  <goal id="is_valid_IotRequestHandle.coverage.10"/>
+  <goal id="is_valid_IotRequestHandle.coverage.12"/>
+  <goal id="is_valid_IotRequestHandle.coverage.13"/>
+  <goal id="is_valid_IotRequestHandle.coverage.15"/>
+  <goal id="is_valid_IotRequestHandle.coverage.16"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.1"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.4"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.7"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.10"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.13"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.16"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.17"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.20"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.21"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.24"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.25"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.28"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.29"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.32"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.33"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.34"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.35"/>
+  <goal id="safeMalloc.coverage.1"/>
+  <goal id="safeMalloc.coverage.2"/>
+  <goal id="safeMalloc.coverage.3"/>
+  <goal id="safeMalloc.coverage.4"/>
+  <goal id="safeMalloc.coverage.5"/>
+  <goal id="harness.coverage.1"/>
+  <goal id="harness.coverage.2"/>
+  <goal id="harness.coverage.3"/>
+  <goal id="harness.coverage.4"/>
+  <goal id="harness.coverage.5"/>
+  <goal id="harness.coverage.6"/>
+  <goal id="harness.coverage.7"/>
+  <goal id="harness.coverage.8"/>
+  <goal id="harness.coverage.9"/>
+  <goal id="harness.coverage.10"/>
+  <goal id="harness.coverage.11"/>
+  <goal id="harness.coverage.12"/>
+  <goal id="allocate_IotConnectionInfo.coverage.1"/>
+  <goal id="allocate_IotConnectionInfo.coverage.2"/>
+  <goal id="allocate_IotConnectionInfo.coverage.3"/>
+  <goal id="allocate_IotConnectionInfo.coverage.4"/>
+  <goal id="allocate_IotConnectionInfo.coverage.5"/>
+  <goal id="allocate_IotConnectionInfo.coverage.6"/>
+  <goal id="allocate_IotConnectionInfo.coverage.7"/>
+  <goal id="allocate_IotConnectionInfo.coverage.8"/>
+  <goal id="allocate_IotConnectionInfo.coverage.9"/>
+  <goal id="allocate_IotConnectionInfo.coverage.10"/>
+  <goal id="allocate_IotConnectionInfo.coverage.11"/>
+  <goal id="allocate_IotRequestHandle.coverage.1"/>
+  <goal id="allocate_IotRequestHandle.coverage.2"/>
+  <goal id="allocate_IotRequestHandle.coverage.3"/>
+  <goal id="allocate_IotRequestHandle.coverage.4"/>
+  <goal id="allocate_IotRequestHandle.coverage.5"/>
+  <goal id="allocate_IotRequestHandle.coverage.6"/>
+  <goal id="allocate_IotRequestHandle.coverage.7"/>
+  <goal id="allocate_IotRequestHandle.coverage.8"/>
+  <goal id="allocate_IotRequestHandle.coverage.9"/>
+  <goal id="allocate_IotResponseHandle.coverage.1"/>
+  <goal id="allocate_IotResponseHandle.coverage.2"/>
+  <goal id="allocate_IotResponseHandle.coverage.3"/>
+  <goal id="allocate_IotResponseHandle.coverage.4"/>
+  <goal id="allocate_IotResponseHandle.coverage.5"/>
+  <goal id="allocate_IotResponseHandle.coverage.6"/>
+  <goal id="allocate_IotResponseHandle.coverage.7"/>
+  <goal id="allocate_IotResponseHandle.coverage.8"/>
+  <goal id="allocate_IotResponseHandle.coverage.9"/>
+  <goal id="allocate_IotResponseHandle.coverage.10"/>
+  <goal id="allocate_IotResponseHandle.coverage.11"/>
+  <goal id="_addHeader.coverage.1"/>
+  <goal id="_addHeader.coverage.2"/>
+  <goal id="_addHeader.coverage.3"/>
+  <goal id="_addHeader.coverage.9"/>
+  <goal id="allocate_NetworkInterface.coverage.1"/>
+  <goal id="allocate_NetworkInterface.coverage.2"/>
+  <goal id="allocate_IotConnectionHandle.coverage.1"/>
+  <goal id="allocate_IotConnectionHandle.coverage.2"/>
+  <goal id="allocate_IotConnectionHandle.coverage.3"/>
+  <goal id="allocate_IotConnectionHandle.coverage.4"/>
+  <goal id="allocate_IotConnectionHandle.coverage.5"/>
+  <goal id="allocate_IotConnectionHandle.coverage.6"/>
+  <goal id="allocate_IotClientCallbacks.coverage.1"/>
+  <goal id="allocate_IotClientCallbacks.coverage.2"/>
+</test>
+
+<test>
+  <inputs/>
+  <goal id="is_valid_IotRequestHandle.coverage.1"/>
+  <goal id="is_valid_IotRequestHandle.coverage.2"/>
+  <goal id="is_valid_IotRequestHandle.coverage.4"/>
+  <goal id="is_valid_IotRequestHandle.coverage.6"/>
+  <goal id="is_valid_IotRequestHandle.coverage.7"/>
+  <goal id="is_valid_IotRequestHandle.coverage.9"/>
+  <goal id="is_valid_IotRequestHandle.coverage.10"/>
+  <goal id="is_valid_IotRequestHandle.coverage.12"/>
+  <goal id="is_valid_IotRequestHandle.coverage.13"/>
+  <goal id="is_valid_IotRequestHandle.coverage.15"/>
+  <goal id="is_valid_IotRequestHandle.coverage.16"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.1"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.4"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.7"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.10"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.13"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.16"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.17"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.20"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.21"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.22"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.23"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.35"/>
+  <goal id="safeMalloc.coverage.1"/>
+  <goal id="safeMalloc.coverage.2"/>
+  <goal id="safeMalloc.coverage.3"/>
+  <goal id="safeMalloc.coverage.4"/>
+  <goal id="safeMalloc.coverage.5"/>
+  <goal id="harness.coverage.1"/>
+  <goal id="harness.coverage.2"/>
+  <goal id="harness.coverage.3"/>
+  <goal id="harness.coverage.4"/>
+  <goal id="harness.coverage.5"/>
+  <goal id="harness.coverage.6"/>
+  <goal id="harness.coverage.7"/>
+  <goal id="harness.coverage.8"/>
+  <goal id="harness.coverage.9"/>
+  <goal id="harness.coverage.10"/>
+  <goal id="harness.coverage.11"/>
+  <goal id="harness.coverage.12"/>
+  <goal id="allocate_IotConnectionInfo.coverage.1"/>
+  <goal id="allocate_IotConnectionInfo.coverage.2"/>
+  <goal id="allocate_IotConnectionInfo.coverage.3"/>
+  <goal id="allocate_IotConnectionInfo.coverage.4"/>
+  <goal id="allocate_IotConnectionInfo.coverage.5"/>
+  <goal id="allocate_IotConnectionInfo.coverage.6"/>
+  <goal id="allocate_IotConnectionInfo.coverage.7"/>
+  <goal id="allocate_IotConnectionInfo.coverage.8"/>
+  <goal id="allocate_IotConnectionInfo.coverage.9"/>
+  <goal id="allocate_IotConnectionInfo.coverage.10"/>
+  <goal id="allocate_IotConnectionInfo.coverage.11"/>
+  <goal id="allocate_IotRequestHandle.coverage.1"/>
+  <goal id="allocate_IotRequestHandle.coverage.2"/>
+  <goal id="allocate_IotRequestHandle.coverage.3"/>
+  <goal id="allocate_IotRequestHandle.coverage.4"/>
+  <goal id="allocate_IotRequestHandle.coverage.5"/>
+  <goal id="allocate_IotRequestHandle.coverage.6"/>
+  <goal id="allocate_IotRequestHandle.coverage.7"/>
+  <goal id="allocate_IotRequestHandle.coverage.8"/>
+  <goal id="allocate_IotRequestHandle.coverage.9"/>
+  <goal id="allocate_IotResponseHandle.coverage.1"/>
+  <goal id="allocate_IotResponseHandle.coverage.2"/>
+  <goal id="allocate_IotResponseHandle.coverage.3"/>
+  <goal id="allocate_IotResponseHandle.coverage.4"/>
+  <goal id="allocate_IotResponseHandle.coverage.5"/>
+  <goal id="allocate_IotResponseHandle.coverage.6"/>
+  <goal id="allocate_IotResponseHandle.coverage.7"/>
+  <goal id="allocate_IotResponseHandle.coverage.8"/>
+  <goal id="allocate_IotResponseHandle.coverage.9"/>
+  <goal id="allocate_IotResponseHandle.coverage.10"/>
+  <goal id="allocate_IotResponseHandle.coverage.11"/>
+  <goal id="allocate_NetworkInterface.coverage.1"/>
+  <goal id="allocate_NetworkInterface.coverage.2"/>
+  <goal id="allocate_IotConnectionHandle.coverage.1"/>
+  <goal id="allocate_IotConnectionHandle.coverage.2"/>
+  <goal id="allocate_IotConnectionHandle.coverage.3"/>
+  <goal id="allocate_IotConnectionHandle.coverage.4"/>
+  <goal id="allocate_IotConnectionHandle.coverage.5"/>
+  <goal id="allocate_IotConnectionHandle.coverage.6"/>
+  <goal id="allocate_IotClientCallbacks.coverage.1"/>
+  <goal id="allocate_IotClientCallbacks.coverage.2"/>
+</test>
+
+<test>
+  <inputs/>
+  <goal id="is_valid_IotRequestHandle.coverage.1"/>
+  <goal id="is_valid_IotRequestHandle.coverage.2"/>
+  <goal id="is_valid_IotRequestHandle.coverage.4"/>
+  <goal id="is_valid_IotRequestHandle.coverage.6"/>
+  <goal id="is_valid_IotRequestHandle.coverage.7"/>
+  <goal id="is_valid_IotRequestHandle.coverage.9"/>
+  <goal id="is_valid_IotRequestHandle.coverage.10"/>
+  <goal id="is_valid_IotRequestHandle.coverage.12"/>
+  <goal id="is_valid_IotRequestHandle.coverage.13"/>
+  <goal id="is_valid_IotRequestHandle.coverage.15"/>
+  <goal id="is_valid_IotRequestHandle.coverage.16"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.1"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.4"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.7"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.10"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.13"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.16"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.17"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.20"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.21"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.24"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.25"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.28"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.29"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.30"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.31"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.35"/>
+  <goal id="safeMalloc.coverage.1"/>
+  <goal id="safeMalloc.coverage.2"/>
+  <goal id="safeMalloc.coverage.3"/>
+  <goal id="safeMalloc.coverage.4"/>
+  <goal id="safeMalloc.coverage.5"/>
+  <goal id="harness.coverage.1"/>
+  <goal id="harness.coverage.2"/>
+  <goal id="harness.coverage.3"/>
+  <goal id="harness.coverage.4"/>
+  <goal id="harness.coverage.5"/>
+  <goal id="harness.coverage.6"/>
+  <goal id="harness.coverage.7"/>
+  <goal id="harness.coverage.8"/>
+  <goal id="harness.coverage.9"/>
+  <goal id="harness.coverage.10"/>
+  <goal id="harness.coverage.11"/>
+  <goal id="harness.coverage.12"/>
+  <goal id="allocate_IotConnectionInfo.coverage.1"/>
+  <goal id="allocate_IotConnectionInfo.coverage.2"/>
+  <goal id="allocate_IotConnectionInfo.coverage.3"/>
+  <goal id="allocate_IotConnectionInfo.coverage.4"/>
+  <goal id="allocate_IotConnectionInfo.coverage.5"/>
+  <goal id="allocate_IotConnectionInfo.coverage.6"/>
+  <goal id="allocate_IotConnectionInfo.coverage.7"/>
+  <goal id="allocate_IotConnectionInfo.coverage.8"/>
+  <goal id="allocate_IotConnectionInfo.coverage.9"/>
+  <goal id="allocate_IotConnectionInfo.coverage.10"/>
+  <goal id="allocate_IotConnectionInfo.coverage.11"/>
+  <goal id="allocate_IotRequestHandle.coverage.1"/>
+  <goal id="allocate_IotRequestHandle.coverage.2"/>
+  <goal id="allocate_IotRequestHandle.coverage.3"/>
+  <goal id="allocate_IotRequestHandle.coverage.4"/>
+  <goal id="allocate_IotRequestHandle.coverage.5"/>
+  <goal id="allocate_IotRequestHandle.coverage.6"/>
+  <goal id="allocate_IotRequestHandle.coverage.7"/>
+  <goal id="allocate_IotRequestHandle.coverage.8"/>
+  <goal id="allocate_IotRequestHandle.coverage.9"/>
+  <goal id="allocate_IotResponseHandle.coverage.1"/>
+  <goal id="allocate_IotResponseHandle.coverage.2"/>
+  <goal id="allocate_IotResponseHandle.coverage.3"/>
+  <goal id="allocate_IotResponseHandle.coverage.4"/>
+  <goal id="allocate_IotResponseHandle.coverage.5"/>
+  <goal id="allocate_IotResponseHandle.coverage.6"/>
+  <goal id="allocate_IotResponseHandle.coverage.7"/>
+  <goal id="allocate_IotResponseHandle.coverage.8"/>
+  <goal id="allocate_IotResponseHandle.coverage.9"/>
+  <goal id="allocate_IotResponseHandle.coverage.10"/>
+  <goal id="allocate_IotResponseHandle.coverage.11"/>
+  <goal id="allocate_NetworkInterface.coverage.1"/>
+  <goal id="allocate_NetworkInterface.coverage.2"/>
+  <goal id="allocate_IotConnectionHandle.coverage.1"/>
+  <goal id="allocate_IotConnectionHandle.coverage.2"/>
+  <goal id="allocate_IotConnectionHandle.coverage.3"/>
+  <goal id="allocate_IotConnectionHandle.coverage.4"/>
+  <goal id="allocate_IotConnectionHandle.coverage.5"/>
+  <goal id="allocate_IotConnectionHandle.coverage.6"/>
+  <goal id="allocate_IotClientCallbacks.coverage.1"/>
+  <goal id="allocate_IotClientCallbacks.coverage.2"/>
+</test>
+
+<test>
+  <inputs/>
+  <goal id="is_valid_IotRequestHandle.coverage.1"/>
+  <goal id="is_valid_IotRequestHandle.coverage.2"/>
+  <goal id="is_valid_IotRequestHandle.coverage.4"/>
+  <goal id="is_valid_IotRequestHandle.coverage.6"/>
+  <goal id="is_valid_IotRequestHandle.coverage.7"/>
+  <goal id="is_valid_IotRequestHandle.coverage.9"/>
+  <goal id="is_valid_IotRequestHandle.coverage.10"/>
+  <goal id="is_valid_IotRequestHandle.coverage.12"/>
+  <goal id="is_valid_IotRequestHandle.coverage.13"/>
+  <goal id="is_valid_IotRequestHandle.coverage.15"/>
+  <goal id="is_valid_IotRequestHandle.coverage.16"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.1"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.4"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.7"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.10"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.13"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.16"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.17"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.20"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.21"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.24"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.25"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.26"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.27"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.35"/>
+  <goal id="safeMalloc.coverage.1"/>
+  <goal id="safeMalloc.coverage.2"/>
+  <goal id="safeMalloc.coverage.3"/>
+  <goal id="safeMalloc.coverage.4"/>
+  <goal id="safeMalloc.coverage.5"/>
+  <goal id="harness.coverage.1"/>
+  <goal id="harness.coverage.2"/>
+  <goal id="harness.coverage.3"/>
+  <goal id="harness.coverage.4"/>
+  <goal id="harness.coverage.5"/>
+  <goal id="harness.coverage.6"/>
+  <goal id="harness.coverage.7"/>
+  <goal id="harness.coverage.8"/>
+  <goal id="harness.coverage.9"/>
+  <goal id="harness.coverage.10"/>
+  <goal id="harness.coverage.11"/>
+  <goal id="harness.coverage.12"/>
+  <goal id="allocate_IotConnectionInfo.coverage.1"/>
+  <goal id="allocate_IotConnectionInfo.coverage.2"/>
+  <goal id="allocate_IotConnectionInfo.coverage.3"/>
+  <goal id="allocate_IotConnectionInfo.coverage.4"/>
+  <goal id="allocate_IotConnectionInfo.coverage.5"/>
+  <goal id="allocate_IotConnectionInfo.coverage.6"/>
+  <goal id="allocate_IotConnectionInfo.coverage.7"/>
+  <goal id="allocate_IotConnectionInfo.coverage.8"/>
+  <goal id="allocate_IotConnectionInfo.coverage.9"/>
+  <goal id="allocate_IotConnectionInfo.coverage.10"/>
+  <goal id="allocate_IotConnectionInfo.coverage.11"/>
+  <goal id="allocate_IotRequestHandle.coverage.1"/>
+  <goal id="allocate_IotRequestHandle.coverage.2"/>
+  <goal id="allocate_IotRequestHandle.coverage.3"/>
+  <goal id="allocate_IotRequestHandle.coverage.4"/>
+  <goal id="allocate_IotRequestHandle.coverage.5"/>
+  <goal id="allocate_IotRequestHandle.coverage.6"/>
+  <goal id="allocate_IotRequestHandle.coverage.7"/>
+  <goal id="allocate_IotRequestHandle.coverage.8"/>
+  <goal id="allocate_IotRequestHandle.coverage.9"/>
+  <goal id="allocate_IotResponseHandle.coverage.1"/>
+  <goal id="allocate_IotResponseHandle.coverage.2"/>
+  <goal id="allocate_IotResponseHandle.coverage.3"/>
+  <goal id="allocate_IotResponseHandle.coverage.4"/>
+  <goal id="allocate_IotResponseHandle.coverage.5"/>
+  <goal id="allocate_IotResponseHandle.coverage.6"/>
+  <goal id="allocate_IotResponseHandle.coverage.7"/>
+  <goal id="allocate_IotResponseHandle.coverage.8"/>
+  <goal id="allocate_IotResponseHandle.coverage.9"/>
+  <goal id="allocate_IotResponseHandle.coverage.10"/>
+  <goal id="allocate_IotResponseHandle.coverage.11"/>
+  <goal id="allocate_NetworkInterface.coverage.1"/>
+  <goal id="allocate_NetworkInterface.coverage.2"/>
+  <goal id="allocate_IotConnectionHandle.coverage.1"/>
+  <goal id="allocate_IotConnectionHandle.coverage.2"/>
+  <goal id="allocate_IotConnectionHandle.coverage.3"/>
+  <goal id="allocate_IotConnectionHandle.coverage.4"/>
+  <goal id="allocate_IotConnectionHandle.coverage.5"/>
+  <goal id="allocate_IotConnectionHandle.coverage.6"/>
+  <goal id="allocate_IotClientCallbacks.coverage.1"/>
+  <goal id="allocate_IotClientCallbacks.coverage.2"/>
+</test>
+
+<test>
+  <inputs/>
+  <goal id="is_valid_IotRequestHandle.coverage.1"/>
+  <goal id="is_valid_IotRequestHandle.coverage.2"/>
+  <goal id="is_valid_IotRequestHandle.coverage.4"/>
+  <goal id="is_valid_IotRequestHandle.coverage.6"/>
+  <goal id="is_valid_IotRequestHandle.coverage.7"/>
+  <goal id="is_valid_IotRequestHandle.coverage.9"/>
+  <goal id="is_valid_IotRequestHandle.coverage.10"/>
+  <goal id="is_valid_IotRequestHandle.coverage.12"/>
+  <goal id="is_valid_IotRequestHandle.coverage.13"/>
+  <goal id="is_valid_IotRequestHandle.coverage.15"/>
+  <goal id="is_valid_IotRequestHandle.coverage.16"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.1"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.4"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.7"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.10"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.13"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.16"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.17"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.18"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.19"/>
+  <goal id="IotHttpsClient_AddHeader.coverage.35"/>
+  <goal id="safeMalloc.coverage.1"/>
+  <goal id="safeMalloc.coverage.2"/>
+  <goal id="safeMalloc.coverage.3"/>
+  <goal id="safeMalloc.coverage.4"/>
+  <goal id="safeMalloc.coverage.5"/>
+  <goal id="harness.coverage.1"/>
+  <goal id="harness.coverage.2"/>
+  <goal id="harness.coverage.3"/>
+  <goal id="harness.coverage.4"/>
+  <goal id="harness.coverage.5"/>
+  <goal id="harness.coverage.6"/>
+  <goal id="harness.coverage.7"/>
+  <goal id="harness.coverage.8"/>
+  <goal id="harness.coverage.9"/>
+  <goal id="harness.coverage.10"/>
+  <goal id="harness.coverage.11"/>
+  <goal id="harness.coverage.12"/>
+  <goal id="allocate_IotConnectionInfo.coverage.1"/>
+  <goal id="allocate_IotConnectionInfo.coverage.2"/>
+  <goal id="allocate_IotConnectionInfo.coverage.3"/>
+  <goal id="allocate_IotConnectionInfo.coverage.4"/>
+  <goal id="allocate_IotConnectionInfo.coverage.5"/>
+  <goal id="allocate_IotConnectionInfo.coverage.6"/>
+  <goal id="allocate_IotConnectionInfo.coverage.7"/>
+  <goal id="allocate_IotConnectionInfo.coverage.8"/>
+  <goal id="allocate_IotConnectionInfo.coverage.9"/>
+  <goal id="allocate_IotConnectionInfo.coverage.10"/>
+  <goal id="allocate_IotConnectionInfo.coverage.11"/>
+  <goal id="allocate_IotRequestHandle.coverage.1"/>
+  <goal id="allocate_IotRequestHandle.coverage.2"/>
+  <goal id="allocate_IotRequestHandle.coverage.3"/>
+  <goal id="allocate_IotRequestHandle.coverage.4"/>
+  <goal id="allocate_IotRequestHandle.coverage.5"/>
+  <goal id="allocate_IotRequestHandle.coverage.6"/>
+  <goal id="allocate_IotRequestHandle.coverage.7"/>
+  <goal id="allocate_IotRequestHandle.coverage.8"/>
+  <goal id="allocate_IotRequestHandle.coverage.9"/>
+  <goal id="allocate_IotResponseHandle.coverage.1"/>
+  <goal id="allocate_IotResponseHandle.coverage.2"/>
+  <goal id="allocate_IotResponseHandle.coverage.3"/>
+  <goal id="allocate_IotResponseHandle.coverage.4"/>
+  <goal id="allocate_IotResponseHandle.coverage.5"/>
+  <goal id="allocate_IotResponseHandle.coverage.6"/>
+  <goal id="allocate_IotResponseHandle.coverage.7"/>
+  <goal id="allocate_IotResponseHandle.coverage.8"/>
+  <goal id="allocate_IotResponseHandle.coverage.9"/>
+  <goal id="allocate_IotResponseHandle.coverage.10"/>
+  <goal id="allocate_IotResponseHandle.coverage.11"/>
+  <goal id="allocate_NetworkInterface.coverage.1"/>
+  <goal id="allocate_NetworkInterface.coverage.2"/>
+  <goal id="allocate_IotConnectionHandle.coverage.1"/>
+  <goal id="allocate_IotConnectionHandle.coverage.2"/>
+  <goal id="allocate_IotConnectionHandle.coverage.3"/>
+  <goal id="allocate_IotConnectionHandle.coverage.4"/>
+  <goal id="allocate_IotConnectionHandle.coverage.5"/>
+  <goal id="allocate_IotConnectionHandle.coverage.6"/>
+  <goal id="allocate_IotClientCallbacks.coverage.1"/>
+  <goal id="allocate_IotClientCallbacks.coverage.2"/>
+</test>
+
+</cprover>

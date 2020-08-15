@@ -1,0 +1,4486 @@
+{
+  "viewer-symbol": {
+    "symbols": {
+      "AWS_IOT_HTTPS_ENABLE_METRICS": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 163
+      },
+      "BaseType_t": {
+        "file": "freertos_kernel/portable/MSVC-MingW/portmacro.h",
+        "function": null,
+        "line": 48
+      },
+      "CARRIAGE_RETURN_CHARACTER": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 225
+      },
+      "COLON_CHARACTER": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 215
+      },
+      "FAST_MACRO_STRLEN": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 256
+      },
+      "F_CHUNKED": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 220
+      },
+      "F_CONNECTION_CLOSE": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 222
+      },
+      "F_CONNECTION_KEEP_ALIVE": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 221
+      },
+      "F_CONNECTION_UPGRADE": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 223
+      },
+      "F_CONTENTLENGTH": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 227
+      },
+      "F_SKIPBODY": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 226
+      },
+      "F_TRAILING": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 224
+      },
+      "F_UPGRADE": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 225
+      },
+      "HTTPS_CONNECTION_CLOSE_HEADER_LINE": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 75
+      },
+      "HTTPS_CONNECTION_CLOSE_HEADER_VALUE": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 206
+      },
+      "HTTPS_CONNECTION_HEADER": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 238
+      },
+      "HTTPS_CONNECTION_KEEP_ALIVE_HEADER_LINE": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 74
+      },
+      "HTTPS_CONNECTION_KEEP_ALIVE_HEADER_LINE_LENGTH": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 85
+      },
+      "HTTPS_CONNECTION_KEEP_ALIVE_HEADER_VALUE": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 205
+      },
+      "HTTPS_CONNECT_METHOD": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 196
+      },
+      "HTTPS_CONTENT_LENGTH_HEADER": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 237
+      },
+      "HTTPS_EMPTY_PATH": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 191
+      },
+      "HTTPS_END_OF_HEADER_LINES_INDICATOR": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 223
+      },
+      "HTTPS_END_OF_HEADER_LINES_INDICATOR_LENGTH": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 224
+      },
+      "HTTPS_FAILED": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 72
+      },
+      "HTTPS_FUNCTION_CLEANUP_BEGIN": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 92
+      },
+      "HTTPS_FUNCTION_CLEANUP_END": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 97
+      },
+      "HTTPS_FUNCTION_ENTRY": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 77
+      },
+      "HTTPS_FUNCTION_EXIT_NO_CLEANUP": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 102
+      },
+      "HTTPS_GOTO_CLEANUP": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 82
+      },
+      "HTTPS_HEADER_FIELD_SEPARATOR": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 213
+      },
+      "HTTPS_HEADER_FIELD_SEPARATOR_LENGTH": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 214
+      },
+      "HTTPS_HOST_HEADER": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 232
+      },
+      "HTTPS_MAX_CONTENT_LENGTH_LINE_LENGTH": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 248
+      },
+      "HTTPS_ON_ARG_ERROR_GOTO_CLEANUP": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 117
+      },
+      "HTTPS_ON_ARG_ERROR_MSG_GOTO_CLEANUP": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 127
+      },
+      "HTTPS_ON_NULL_ARG_GOTO_CLEANUP": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 107
+      },
+      "HTTPS_PARTIAL_HOST_HEADER_LINE": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 65
+      },
+      "HTTPS_PARTIAL_REQUEST_LINE": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 46
+      },
+      "HTTPS_PROTOCOL_VERSION": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 186
+      },
+      "HTTPS_SET_AND_GOTO_CLEANUP": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 87
+      },
+      "HTTPS_SUCCEEDED": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 67
+      },
+      "HTTPS_USER_AGENT_HEADER": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 231
+      },
+      "HTTPS_USER_AGENT_HEADER_LINE": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 55
+      },
+      "HTTP_BOTH": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 215
+      },
+      "HTTP_ERRNO_GEN": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 282
+      },
+      "HTTP_ERRNO_MAP": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 284
+      },
+      "HTTP_MAX_HEADER_SIZE": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 63
+      },
+      "HTTP_METHOD_MAP": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 210
+      },
+      "HTTP_PARSER_ERRNO": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 290
+      },
+      "HTTP_PARSER_STRICT": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 52
+      },
+      "HTTP_PARSER_VERSION_MAJOR": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 28
+      },
+      "HTTP_PARSER_VERSION_MINOR": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 29
+      },
+      "HTTP_PARSER_VERSION_PATCH": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 30
+      },
+      "HTTP_REQUEST": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 215
+      },
+      "HTTP_RESPONSE": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 215
+      },
+      "HTTP_STATUS_MAP": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 157
+      },
+      "INCLUDE_eTaskGetState": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 164
+      },
+      "INCLUDE_uxTaskGetStackHighWaterMark": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 156
+      },
+      "INCLUDE_uxTaskGetStackHighWaterMark2": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 160
+      },
+      "INCLUDE_uxTaskPriorityGet": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 116
+      },
+      "INCLUDE_vTaskDelay": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 132
+      },
+      "INCLUDE_vTaskDelayUntil": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 128
+      },
+      "INCLUDE_vTaskDelete": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 120
+      },
+      "INCLUDE_vTaskPrioritySet": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 112
+      },
+      "INCLUDE_vTaskSuspend": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 124
+      },
+      "INCLUDE_xQueueGetMutexHolder": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 144
+      },
+      "INCLUDE_xSemaphoreGetMutexHolder": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 148
+      },
+      "INCLUDE_xTaskAbortDelay": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 140
+      },
+      "INCLUDE_xTaskGetCurrentTaskHandle": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 180
+      },
+      "INCLUDE_xTaskGetHandle": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 152
+      },
+      "INCLUDE_xTaskGetIdleTaskHandle": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 136
+      },
+      "INCLUDE_xTaskGetSchedulerState": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 176
+      },
+      "INCLUDE_xTaskResumeFromISR": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 168
+      },
+      "INCLUDE_xTimerPendFunctionCall": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 172
+      },
+      "INC_FREERTOS_H": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 29
+      },
+      "IOTNI": {
+        "file": "tools/cbmc/proofs/HTTP/global_state_HTTP.c",
+        "function": null,
+        "line": 128
+      },
+      "IOT_DEQUEUE_INITIALIZER": {
+        "file": "libraries/c_sdk/standard/common/include/iot_linear_containers.h",
+        "function": null,
+        "line": 93
+      },
+      "IOT_HTTPS_ASYNC_INFO_INITIALIZER": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 200
+      },
+      "IOT_HTTPS_ASYNC_SCHEDULING_ERROR": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 406
+      },
+      "IOT_HTTPS_AUTHENTICATION_ERROR": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 371
+      },
+      "IOT_HTTPS_BUSY": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 424
+      },
+      "IOT_HTTPS_CONNECTION_ERROR": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 361
+      },
+      "IOT_HTTPS_CONNECTION_HANDLE_INITIALIZER": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 190
+      },
+      "IOT_HTTPS_CONNECTION_INFO_INITIALIZER": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 202
+      },
+      "IOT_HTTPS_DATA_EXIST": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 434
+      },
+      "IOT_HTTPS_DISABLE_SNI": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 186
+      },
+      "IOT_HTTPS_FATAL": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 416
+      },
+      "IOT_HTTPS_INSUFFICIENT_MEMORY": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 323
+      },
+      "IOT_HTTPS_INTERNAL_ERROR": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 351
+      },
+      "IOT_HTTPS_INTERNAL_H_": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 27
+      },
+      "IOT_HTTPS_INVALID_PARAMETER": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 303
+      },
+      "IOT_HTTPS_INVALID_PAYLOAD": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 308
+      },
+      "IOT_HTTPS_IS_NON_TLS_FLAG": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 178
+      },
+      "IOT_HTTPS_MAX_ALPN_PROTOCOLS_LENGTH": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 178
+      },
+      "IOT_HTTPS_MAX_FLUSH_BUFFER_SIZE": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 169
+      },
+      "IOT_HTTPS_MAX_HOST_NAME_LENGTH": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 175
+      },
+      "IOT_HTTPS_MESSAGE_FINISHED": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 346
+      },
+      "IOT_HTTPS_MESSAGE_TOO_LARGE": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 313
+      },
+      "IOT_HTTPS_METHOD_GET": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 450
+      },
+      "IOT_HTTPS_METHOD_HEAD": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 451
+      },
+      "IOT_HTTPS_METHOD_POST": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 453
+      },
+      "IOT_HTTPS_METHOD_PUT": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 452
+      },
+      "IOT_HTTPS_NETWORK_ERROR": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 356
+      },
+      "IOT_HTTPS_NETWORK_INTERFACE_TYPE": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 216
+      },
+      "IOT_HTTPS_NOT_FOUND": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 341
+      },
+      "IOT_HTTPS_NOT_SUPPORTED": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 439
+      },
+      "IOT_HTTPS_OK": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 298
+      },
+      "IOT_HTTPS_OVERFLOW": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 318
+      },
+      "IOT_HTTPS_PARSING_ERROR": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 411
+      },
+      "IOT_HTTPS_PROTOCOL_ERROR": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 391
+      },
+      "IOT_HTTPS_QUEUE_FULL": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 328
+      },
+      "IOT_HTTPS_RECEIVE_ABORT": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 401
+      },
+      "IOT_HTTPS_REQUEST_HANDLE_INITIALIZER": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 192
+      },
+      "IOT_HTTPS_REQUEST_INFO_INITIALIZER": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 204
+      },
+      "IOT_HTTPS_RESPONSE_HANDLE_INITIALIZER": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 194
+      },
+      "IOT_HTTPS_RESPONSE_INFO_INITIALIZER": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 206
+      },
+      "IOT_HTTPS_RESPONSE_WAIT_MS": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 172
+      },
+      "IOT_HTTPS_RETRY": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 333
+      },
+      "IOT_HTTPS_SEND_ABORT": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 396
+      },
+      "IOT_HTTPS_STATUS_ACCEPTED": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 468
+      },
+      "IOT_HTTPS_STATUS_BAD_GATEWAY": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 501
+      },
+      "IOT_HTTPS_STATUS_BAD_REQUEST": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 481
+      },
+      "IOT_HTTPS_STATUS_CONFLICT": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 490
+      },
+      "IOT_HTTPS_STATUS_CONTINUE": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 464
+      },
+      "IOT_HTTPS_STATUS_CREATED": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 467
+      },
+      "IOT_HTTPS_STATUS_EXPECTATION_FAILED": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 498
+      },
+      "IOT_HTTPS_STATUS_FORBIDDEN": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 484
+      },
+      "IOT_HTTPS_STATUS_FOUND": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 475
+      },
+      "IOT_HTTPS_STATUS_GATEWAY_TIMEOUT": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 503
+      },
+      "IOT_HTTPS_STATUS_GONE": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 491
+      },
+      "IOT_HTTPS_STATUS_HTTP_VERSION_NOT_SUPPORTED": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 504
+      },
+      "IOT_HTTPS_STATUS_INTERNAL_SERVER_ERROR": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 499
+      },
+      "IOT_HTTPS_STATUS_LENGTH_REQUIRED": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 492
+      },
+      "IOT_HTTPS_STATUS_METHOD_NOT_ALLOWED": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 486
+      },
+      "IOT_HTTPS_STATUS_MOVED_PERMANENTLY": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 474
+      },
+      "IOT_HTTPS_STATUS_MULTIPLE_CHOICES": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 473
+      },
+      "IOT_HTTPS_STATUS_NON_AUTHORITIVE_INFORMATION": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 469
+      },
+      "IOT_HTTPS_STATUS_NOT_ACCEPTABLE": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 487
+      },
+      "IOT_HTTPS_STATUS_NOT_FOUND": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 485
+      },
+      "IOT_HTTPS_STATUS_NOT_IMPLEMENTED": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 500
+      },
+      "IOT_HTTPS_STATUS_NOT_MODIFIED": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 477
+      },
+      "IOT_HTTPS_STATUS_NO_CONTENT": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 470
+      },
+      "IOT_HTTPS_STATUS_OK": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 466
+      },
+      "IOT_HTTPS_STATUS_PARTIAL_CONTENT": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 472
+      },
+      "IOT_HTTPS_STATUS_PAYMENT_REQUIRED": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 483
+      },
+      "IOT_HTTPS_STATUS_PRECONDITION_FAILED": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 493
+      },
+      "IOT_HTTPS_STATUS_PROXY_AUTHENTICATION_REQUIRED": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 488
+      },
+      "IOT_HTTPS_STATUS_REQUEST_ENTITY_TOO_LARGE": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 494
+      },
+      "IOT_HTTPS_STATUS_REQUEST_RANGE_NOT_SATISFIABLE": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 497
+      },
+      "IOT_HTTPS_STATUS_REQUEST_TIMEOUT": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 489
+      },
+      "IOT_HTTPS_STATUS_REQUEST_URI_TOO_LONG": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 495
+      },
+      "IOT_HTTPS_STATUS_RESET_CONTENT": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 471
+      },
+      "IOT_HTTPS_STATUS_SEE_OTHER": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 476
+      },
+      "IOT_HTTPS_STATUS_SERVICE_UNAVAILABLE": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 502
+      },
+      "IOT_HTTPS_STATUS_SWITCHING_PROTOCOLS": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 465
+      },
+      "IOT_HTTPS_STATUS_TEMPORARY_REDIRECT": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 480
+      },
+      "IOT_HTTPS_STATUS_UNAUTHORIZED": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 482
+      },
+      "IOT_HTTPS_STATUS_UNSUPPORTED_MEDIA_TYPE": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 496
+      },
+      "IOT_HTTPS_STATUS_UNUSED": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 479
+      },
+      "IOT_HTTPS_STATUS_USE_PROXY": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 478
+      },
+      "IOT_HTTPS_STREAM_ERROR": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 366
+      },
+      "IOT_HTTPS_SYNC_INFO_INITIALIZER": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 198
+      },
+      "IOT_HTTPS_TIMEOUT_ERROR": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 386
+      },
+      "IOT_HTTPS_TLS_ERROR": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 376
+      },
+      "IOT_HTTPS_TRY_AGAIN": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 429
+      },
+      "IOT_HTTPS_TYPES_H_": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 32
+      },
+      "IOT_HTTPS_USER_AGENT": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 166
+      },
+      "IOT_HTTPS_USER_BUFFER_INITIALIZER": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 196
+      },
+      "IOT_HTTPS_USER_CALLBACK_ERROR": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 381
+      },
+      "IOT_LINEAR_CONTAINERS_H_": {
+        "file": "libraries/c_sdk/standard/common/include/iot_linear_containers.h",
+        "function": null,
+        "line": 32
+      },
+      "IOT_LINK_INITIALIZER": {
+        "file": "libraries/c_sdk/standard/common/include/iot_linear_containers.h",
+        "function": null,
+        "line": 91
+      },
+      "IOT_LIST_DOUBLE_INITIALIZER": {
+        "file": "libraries/c_sdk/standard/common/include/iot_linear_containers.h",
+        "function": null,
+        "line": 92
+      },
+      "IOT_LOGGING_H_": {
+        "file": "libraries/c_sdk/standard/common/include/private/iot_logging.h",
+        "function": null,
+        "line": 38
+      },
+      "IOT_LOG_DEBUG": {
+        "file": "libraries/c_sdk/standard/common/include/private/iot_logging.h",
+        "function": null,
+        "line": 113
+      },
+      "IOT_LOG_ERROR": {
+        "file": "libraries/c_sdk/standard/common/include/private/iot_logging.h",
+        "function": null,
+        "line": 87
+      },
+      "IOT_LOG_INFO": {
+        "file": "libraries/c_sdk/standard/common/include/private/iot_logging.h",
+        "function": null,
+        "line": 104
+      },
+      "IOT_LOG_NONE": {
+        "file": "libraries/c_sdk/standard/common/include/private/iot_logging.h",
+        "function": null,
+        "line": 79
+      },
+      "IOT_LOG_WARN": {
+        "file": "libraries/c_sdk/standard/common/include/private/iot_logging.h",
+        "function": null,
+        "line": 96
+      },
+      "IOT_METRICS_IP_ADDRESS_LENGTH": {
+        "file": "libraries/abstractions/platform/include/types/iot_platform_types.h",
+        "function": null,
+        "line": 136
+      },
+      "IOT_NETWORK_BAD_PARAMETER": {
+        "file": "libraries/abstractions/platform/include/platform/iot_network.h",
+        "function": null,
+        "line": 47
+      },
+      "IOT_NETWORK_FAILURE": {
+        "file": "libraries/abstractions/platform/include/platform/iot_network.h",
+        "function": null,
+        "line": 46
+      },
+      "IOT_NETWORK_H_": {
+        "file": "libraries/abstractions/platform/include/platform/iot_network.h",
+        "function": null,
+        "line": 32
+      },
+      "IOT_NETWORK_NO_MEMORY": {
+        "file": "libraries/abstractions/platform/include/platform/iot_network.h",
+        "function": null,
+        "line": 48
+      },
+      "IOT_NETWORK_SUCCESS": {
+        "file": "libraries/abstractions/platform/include/platform/iot_network.h",
+        "function": null,
+        "line": 45
+      },
+      "IOT_NETWORK_SYSTEM_ERROR": {
+        "file": "libraries/abstractions/platform/include/platform/iot_network.h",
+        "function": null,
+        "line": 49
+      },
+      "IOT_PLATFORM_TYPES_H_": {
+        "file": "libraries/abstractions/platform/include/types/iot_platform_types.h",
+        "function": null,
+        "line": 32
+      },
+      "IOT_SYSTEM_TASKPOOL": {
+        "file": "libraries/c_sdk/standard/common/include/types/iot_taskpool_types.h",
+        "function": null,
+        "line": 362
+      },
+      "IOT_TASKPOOLS": {
+        "file": "libraries/c_sdk/standard/common/include/iot_taskpool.h",
+        "function": null,
+        "line": 585
+      },
+      "IOT_TASKPOOL_BAD_PARAMETER": {
+        "file": "libraries/c_sdk/standard/common/include/types/iot_taskpool_types.h",
+        "function": null,
+        "line": 93
+      },
+      "IOT_TASKPOOL_CANCEL_FAILED": {
+        "file": "libraries/c_sdk/standard/common/include/types/iot_taskpool_types.h",
+        "function": null,
+        "line": 147
+      },
+      "IOT_TASKPOOL_H_": {
+        "file": "libraries/c_sdk/standard/common/include/iot_taskpool.h",
+        "function": null,
+        "line": 32
+      },
+      "IOT_TASKPOOL_ILLEGAL_OPERATION": {
+        "file": "libraries/c_sdk/standard/common/include/types/iot_taskpool_types.h",
+        "function": null,
+        "line": 108
+      },
+      "IOT_TASKPOOL_INFO_INITIALIZER": {
+        "file": "libraries/c_sdk/standard/common/include/types/iot_taskpool_types.h",
+        "function": null,
+        "line": 338
+      },
+      "IOT_TASKPOOL_INFO_INITIALIZER_LARGE": {
+        "file": "libraries/c_sdk/standard/common/include/types/iot_taskpool_types.h",
+        "function": null,
+        "line": 334
+      },
+      "IOT_TASKPOOL_INFO_INITIALIZER_MEDIUM": {
+        "file": "libraries/c_sdk/standard/common/include/types/iot_taskpool_types.h",
+        "function": null,
+        "line": 332
+      },
+      "IOT_TASKPOOL_INFO_INITIALIZER_SMALL": {
+        "file": "libraries/c_sdk/standard/common/include/types/iot_taskpool_types.h",
+        "function": null,
+        "line": 330
+      },
+      "IOT_TASKPOOL_INFO_INITIALIZER_XLARGE": {
+        "file": "libraries/c_sdk/standard/common/include/types/iot_taskpool_types.h",
+        "function": null,
+        "line": 336
+      },
+      "IOT_TASKPOOL_INITIALIZER": {
+        "file": "libraries/c_sdk/standard/common/include/types/iot_taskpool_types.h",
+        "function": null,
+        "line": 340
+      },
+      "IOT_TASKPOOL_JOBS_RECYCLE_LIMIT": {
+        "file": "libraries/c_sdk/standard/common/include/iot_taskpool.h",
+        "function": null,
+        "line": 592
+      },
+      "IOT_TASKPOOL_JOB_HIGH_PRIORITY": {
+        "file": "libraries/c_sdk/standard/common/include/types/iot_taskpool_types.h",
+        "function": null,
+        "line": 354
+      },
+      "IOT_TASKPOOL_JOB_INITIALIZER": {
+        "file": "libraries/c_sdk/standard/common/include/types/iot_taskpool_types.h",
+        "function": null,
+        "line": 344
+      },
+      "IOT_TASKPOOL_JOB_STORAGE_INITIALIZER": {
+        "file": "libraries/c_sdk/standard/common/include/types/iot_taskpool_types.h",
+        "function": null,
+        "line": 342
+      },
+      "IOT_TASKPOOL_JOB_WAIT_TIMEOUT_MS": {
+        "file": "libraries/c_sdk/standard/common/include/iot_taskpool.h",
+        "function": null,
+        "line": 601
+      },
+      "IOT_TASKPOOL_NO_MEMORY": {
+        "file": "libraries/c_sdk/standard/common/include/types/iot_taskpool_types.h",
+        "function": null,
+        "line": 122
+      },
+      "IOT_TASKPOOL_SHUTDOWN_IN_PROGRESS": {
+        "file": "libraries/c_sdk/standard/common/include/types/iot_taskpool_types.h",
+        "function": null,
+        "line": 138
+      },
+      "IOT_TASKPOOL_STATUS_CANCELED": {
+        "file": "libraries/c_sdk/standard/common/include/types/iot_taskpool_types.h",
+        "function": null,
+        "line": 190
+      },
+      "IOT_TASKPOOL_STATUS_COMPLETED": {
+        "file": "libraries/c_sdk/standard/common/include/types/iot_taskpool_types.h",
+        "function": null,
+        "line": 184
+      },
+      "IOT_TASKPOOL_STATUS_DEFERRED": {
+        "file": "libraries/c_sdk/standard/common/include/types/iot_taskpool_types.h",
+        "function": null,
+        "line": 178
+      },
+      "IOT_TASKPOOL_STATUS_READY": {
+        "file": "libraries/c_sdk/standard/common/include/types/iot_taskpool_types.h",
+        "function": null,
+        "line": 166
+      },
+      "IOT_TASKPOOL_STATUS_SCHEDULED": {
+        "file": "libraries/c_sdk/standard/common/include/types/iot_taskpool_types.h",
+        "function": null,
+        "line": 172
+      },
+      "IOT_TASKPOOL_STATUS_UNDEFINED": {
+        "file": "libraries/c_sdk/standard/common/include/types/iot_taskpool_types.h",
+        "function": null,
+        "line": 196
+      },
+      "IOT_TASKPOOL_SUCCESS": {
+        "file": "libraries/c_sdk/standard/common/include/types/iot_taskpool_types.h",
+        "function": null,
+        "line": 73
+      },
+      "IOT_TASKPOOL_TYPES_H_": {
+        "file": "libraries/c_sdk/standard/common/include/types/iot_taskpool_types.h",
+        "function": null,
+        "line": 32
+      },
+      "IOT_THREADS_H_": {
+        "file": "libraries/abstractions/platform/include/platform/iot_threads.h",
+        "function": null,
+        "line": 32
+      },
+      "IOT_THREAD_DEFAULT_PRIORITY": {
+        "file": "libraries/abstractions/platform/include/types/iot_platform_types.h",
+        "function": null,
+        "line": 46
+      },
+      "IOT_THREAD_DEFAULT_STACK_SIZE": {
+        "file": "libraries/abstractions/platform/include/types/iot_platform_types.h",
+        "function": null,
+        "line": 53
+      },
+      "IotContainers_Assert": {
+        "file": "libraries/c_sdk/standard/common/include/iot_linear_containers.h",
+        "function": null,
+        "line": 108
+      },
+      "IotContainers_ForEach": {
+        "file": "libraries/c_sdk/standard/common/include/iot_linear_containers.h",
+        "function": null,
+        "line": 132
+      },
+      "IotDeQueue_Count": {
+        "file": "libraries/c_sdk/standard/common/include/iot_linear_containers.h",
+        "function": null,
+        "line": 874
+      },
+      "IotDeQueue_Create": {
+        "file": "libraries/c_sdk/standard/common/include/iot_linear_containers.h",
+        "function": null,
+        "line": 860
+      },
+      "IotDeQueue_DequeueHead": {
+        "file": "libraries/c_sdk/standard/common/include/iot_linear_containers.h",
+        "function": null,
+        "line": 953
+      },
+      "IotDeQueue_DequeueTail": {
+        "file": "libraries/c_sdk/standard/common/include/iot_linear_containers.h",
+        "function": null,
+        "line": 983
+      },
+      "IotDeQueue_EnqueueHead": {
+        "file": "libraries/c_sdk/standard/common/include/iot_linear_containers.h",
+        "function": null,
+        "line": 936
+      },
+      "IotDeQueue_EnqueueTail": {
+        "file": "libraries/c_sdk/standard/common/include/iot_linear_containers.h",
+        "function": null,
+        "line": 966
+      },
+      "IotDeQueue_IsEmpty": {
+        "file": "libraries/c_sdk/standard/common/include/iot_linear_containers.h",
+        "function": null,
+        "line": 889
+      },
+      "IotDeQueue_PeekHead": {
+        "file": "libraries/c_sdk/standard/common/include/iot_linear_containers.h",
+        "function": null,
+        "line": 906
+      },
+      "IotDeQueue_PeekTail": {
+        "file": "libraries/c_sdk/standard/common/include/iot_linear_containers.h",
+        "function": null,
+        "line": 923
+      },
+      "IotDeQueue_Remove": {
+        "file": "libraries/c_sdk/standard/common/include/iot_linear_containers.h",
+        "function": null,
+        "line": 995
+      },
+      "IotDeQueue_RemoveAll": {
+        "file": "libraries/c_sdk/standard/common/include/iot_linear_containers.h",
+        "function": null,
+        "line": 1013
+      },
+      "IotDeQueue_RemoveAllMatches": {
+        "file": "libraries/c_sdk/standard/common/include/iot_linear_containers.h",
+        "function": null,
+        "line": 1038
+      },
+      "IotDeQueue_t": {
+        "file": "libraries/c_sdk/standard/common/include/iot_linear_containers.h",
+        "function": null,
+        "line": 71
+      },
+      "IotHttpsAsyncInfo": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 698
+      },
+      "IotHttpsAsyncInfo_t": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 706
+      },
+      "IotHttpsClientCallbacks": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 528
+      },
+      "IotHttpsClientCallbacks_t": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 635
+      },
+      "IotHttpsClient_AddHeader": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 2865
+      },
+      "IotHttpsClient_CancelRequestAsync": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 3152
+      },
+      "IotHttpsClient_CancelResponseAsync": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 3165
+      },
+      "IotHttpsClient_Cleanup": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 2563
+      },
+      "IotHttpsClient_Connect": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 2570
+      },
+      "IotHttpsClient_Disconnect": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 2610
+      },
+      "IotHttpsClient_Init": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 2429
+      },
+      "IotHttpsClient_InitializeRequest": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 2712
+      },
+      "IotHttpsClient_ReadContentLength": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 3341
+      },
+      "IotHttpsClient_ReadHeader": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 3245
+      },
+      "IotHttpsClient_ReadResponseBody": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 3090
+      },
+      "IotHttpsClient_ReadResponseStatus": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 3226
+      },
+      "IotHttpsClient_SendAsync": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 3179
+      },
+      "IotHttpsClient_SendSync": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 2932
+      },
+      "IotHttpsClient_WriteRequestBody": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 3038
+      },
+      "IotHttpsConnectionHandle_t": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 248
+      },
+      "IotHttpsConnectionInfo": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 720
+      },
+      "IotHttpsConnectionInfo_t": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 782
+      },
+      "IotHttpsMethod": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 448
+      },
+      "IotHttpsMethod_t": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 454
+      },
+      "IotHttpsRequestHandle_t": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 263
+      },
+      "IotHttpsRequestInfo": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 795
+      },
+      "IotHttpsRequestInfo_t": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 872
+      },
+      "IotHttpsResponseBufferState": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 358
+      },
+      "IotHttpsResponseBufferState_t": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 365
+      },
+      "IotHttpsResponseHandle_t": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 280
+      },
+      "IotHttpsResponseInfo": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 883
+      },
+      "IotHttpsResponseInfo_t": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 903
+      },
+      "IotHttpsResponseParserState": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 303
+      },
+      "IotHttpsResponseParserState_t": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 310
+      },
+      "IotHttpsResponseStatus": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 462
+      },
+      "IotHttpsReturnCode": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 293
+      },
+      "IotHttpsReturnCode_t": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 440
+      },
+      "IotHttpsSyncInfo_t": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 683
+      },
+      "IotHttpsSyncRequestInfo": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 667
+      },
+      "IotHttpsUserBuffer": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 649
+      },
+      "IotHttpsUserBuffer_t": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 653
+      },
+      "IotLink": {
+        "file": "libraries/c_sdk/standard/common/include/iot_linear_containers.h",
+        "function": null,
+        "line": 55
+      },
+      "IotLink_Container": {
+        "file": "libraries/c_sdk/standard/common/include/iot_linear_containers.h",
+        "function": null,
+        "line": 121
+      },
+      "IotLink_IsLinked": {
+        "file": "libraries/c_sdk/standard/common/include/iot_linear_containers.h",
+        "function": null,
+        "line": 303
+      },
+      "IotLink_t": {
+        "file": "libraries/c_sdk/standard/common/include/iot_linear_containers.h",
+        "function": null,
+        "line": 59
+      },
+      "IotListDouble_Count": {
+        "file": "libraries/c_sdk/standard/common/include/iot_linear_containers.h",
+        "function": null,
+        "line": 349
+      },
+      "IotListDouble_Create": {
+        "file": "libraries/c_sdk/standard/common/include/iot_linear_containers.h",
+        "function": null,
+        "line": 330
+      },
+      "IotListDouble_FindFirstMatch": {
+        "file": "libraries/c_sdk/standard/common/include/iot_linear_containers.h",
+        "function": null,
+        "line": 710
+      },
+      "IotListDouble_InsertAfter": {
+        "file": "libraries/c_sdk/standard/common/include/iot_linear_containers.h",
+        "function": null,
+        "line": 512
+      },
+      "IotListDouble_InsertBefore": {
+        "file": "libraries/c_sdk/standard/common/include/iot_linear_containers.h",
+        "function": null,
+        "line": 498
+      },
+      "IotListDouble_InsertHead": {
+        "file": "libraries/c_sdk/standard/common/include/iot_linear_containers.h",
+        "function": null,
+        "line": 446
+      },
+      "IotListDouble_InsertSorted": {
+        "file": "libraries/c_sdk/standard/common/include/iot_linear_containers.h",
+        "function": null,
+        "line": 535
+      },
+      "IotListDouble_InsertTail": {
+        "file": "libraries/c_sdk/standard/common/include/iot_linear_containers.h",
+        "function": null,
+        "line": 473
+      },
+      "IotListDouble_IsEmpty": {
+        "file": "libraries/c_sdk/standard/common/include/iot_linear_containers.h",
+        "function": null,
+        "line": 378
+      },
+      "IotListDouble_PeekHead": {
+        "file": "libraries/c_sdk/standard/common/include/iot_linear_containers.h",
+        "function": null,
+        "line": 396
+      },
+      "IotListDouble_PeekTail": {
+        "file": "libraries/c_sdk/standard/common/include/iot_linear_containers.h",
+        "function": null,
+        "line": 423
+      },
+      "IotListDouble_Remove": {
+        "file": "libraries/c_sdk/standard/common/include/iot_linear_containers.h",
+        "function": null,
+        "line": 584
+      },
+      "IotListDouble_RemoveAll": {
+        "file": "libraries/c_sdk/standard/common/include/iot_linear_containers.h",
+        "function": null,
+        "line": 659
+      },
+      "IotListDouble_RemoveAllMatches": {
+        "file": "libraries/c_sdk/standard/common/include/iot_linear_containers.h",
+        "function": null,
+        "line": 812
+      },
+      "IotListDouble_RemoveFirstMatch": {
+        "file": "libraries/c_sdk/standard/common/include/iot_linear_containers.h",
+        "function": null,
+        "line": 776
+      },
+      "IotListDouble_RemoveHead": {
+        "file": "libraries/c_sdk/standard/common/include/iot_linear_containers.h",
+        "function": null,
+        "line": 609
+      },
+      "IotListDouble_RemoveTail": {
+        "file": "libraries/c_sdk/standard/common/include/iot_linear_containers.h",
+        "function": null,
+        "line": 633
+      },
+      "IotListDouble_t": {
+        "file": "libraries/c_sdk/standard/common/include/iot_linear_containers.h",
+        "function": null,
+        "line": 65
+      },
+      "IotLogConfig": {
+        "file": "libraries/c_sdk/standard/common/include/private/iot_logging.h",
+        "function": null,
+        "line": 150
+      },
+      "IotLogConfig_t": {
+        "file": "libraries/c_sdk/standard/common/include/private/iot_logging.h",
+        "function": null,
+        "line": 155
+      },
+      "IotLog_Generic": {
+        "file": "libraries/c_sdk/standard/common/include/private/iot_logging.h",
+        "function": null,
+        "line": 203
+      },
+      "IotMetricsTcpConnection": {
+        "file": "libraries/abstractions/platform/include/types/iot_platform_types.h",
+        "function": null,
+        "line": 143
+      },
+      "IotMetricsTcpConnection_t": {
+        "file": "libraries/abstractions/platform/include/types/iot_platform_types.h",
+        "function": null,
+        "line": 156
+      },
+      "IotMutex_Create": {
+        "file": "libraries/abstractions/platform/include/platform/iot_threads.h",
+        "function": null,
+        "line": 190
+      },
+      "IotMutex_Destroy": {
+        "file": "libraries/abstractions/platform/include/platform/iot_threads.h",
+        "function": null,
+        "line": 207
+      },
+      "IotMutex_Lock": {
+        "file": "libraries/abstractions/platform/include/platform/iot_threads.h",
+        "function": null,
+        "line": 222
+      },
+      "IotMutex_TryLock": {
+        "file": "libraries/abstractions/platform/include/platform/iot_threads.h",
+        "function": null,
+        "line": 239
+      },
+      "IotMutex_Unlock": {
+        "file": "libraries/abstractions/platform/include/platform/iot_threads.h",
+        "function": null,
+        "line": 254
+      },
+      "IotMutex_t": {
+        "file": "libraries/abstractions/platform/include/types/iot_platform_types.h",
+        "function": null,
+        "line": 75
+      },
+      "IotNetworkCredentials": {
+        "file": "libraries/abstractions/platform/include/platform/iot_network.h",
+        "function": null,
+        "line": 308
+      },
+      "IotNetworkCredentials_t": {
+        "file": "libraries/abstractions/platform/include/platform/iot_network.h",
+        "function": null,
+        "line": 341
+      },
+      "IotNetworkError": {
+        "file": "libraries/abstractions/platform/include/platform/iot_network.h",
+        "function": null,
+        "line": 43
+      },
+      "IotNetworkError_t": {
+        "file": "libraries/abstractions/platform/include/platform/iot_network.h",
+        "function": null,
+        "line": 50
+      },
+      "IotNetworkInterface": {
+        "file": "libraries/abstractions/platform/include/platform/iot_network.h",
+        "function": null,
+        "line": 131
+      },
+      "IotNetworkInterfaceCallback": {
+        "file": "tools/cbmc/proofs/HTTP/global_state_HTTP.c",
+        "function": null,
+        "line": 106
+      },
+      "IotNetworkInterfaceClose": {
+        "file": "tools/cbmc/proofs/HTTP/global_state_HTTP.c",
+        "function": null,
+        "line": 82
+      },
+      "IotNetworkInterfaceCreate": {
+        "file": "tools/cbmc/proofs/HTTP/global_state_HTTP.c",
+        "function": null,
+        "line": 53
+      },
+      "IotNetworkInterfaceDestroy": {
+        "file": "tools/cbmc/proofs/HTTP/global_state_HTTP.c",
+        "function": null,
+        "line": 121
+      },
+      "IotNetworkInterfaceReceive": {
+        "file": "tools/cbmc/proofs/HTTP/global_state_HTTP.c",
+        "function": null,
+        "line": 89
+      },
+      "IotNetworkInterfaceSend": {
+        "file": "tools/cbmc/proofs/HTTP/global_state_HTTP.c",
+        "function": null,
+        "line": 71
+      },
+      "IotNetworkInterface_t": {
+        "file": "libraries/abstractions/platform/include/platform/iot_network.h",
+        "function": null,
+        "line": 284
+      },
+      "IotNetworkReceiveCallback_t": {
+        "file": "libraries/abstractions/platform/include/platform/iot_network.h",
+        "function": null,
+        "line": 120
+      },
+      "IotNetworkServerInfo": {
+        "file": "libraries/abstractions/platform/include/platform/iot_network.h",
+        "function": null,
+        "line": 294
+      },
+      "IotNetworkServerInfo_t": {
+        "file": "libraries/abstractions/platform/include/platform/iot_network.h",
+        "function": null,
+        "line": 298
+      },
+      "IotSemaphore_Create": {
+        "file": "libraries/abstractions/platform/include/platform/iot_threads.h",
+        "function": null,
+        "line": 288
+      },
+      "IotSemaphore_Destroy": {
+        "file": "libraries/abstractions/platform/include/platform/iot_threads.h",
+        "function": null,
+        "line": 306
+      },
+      "IotSemaphore_Post": {
+        "file": "libraries/abstractions/platform/include/platform/iot_threads.h",
+        "function": null,
+        "line": 393
+      },
+      "IotSemaphore_TimedWait": {
+        "file": "libraries/abstractions/platform/include/platform/iot_threads.h",
+        "function": null,
+        "line": 379
+      },
+      "IotSemaphore_Wait": {
+        "file": "libraries/abstractions/platform/include/platform/iot_threads.h",
+        "function": null,
+        "line": 337
+      },
+      "IotSemaphore_t": {
+        "file": "libraries/abstractions/platform/include/types/iot_platform_types.h",
+        "function": null,
+        "line": 97
+      },
+      "IotTaskPoolError": {
+        "file": "libraries/c_sdk/standard/common/include/types/iot_taskpool_types.h",
+        "function": null,
+        "line": 53
+      },
+      "IotTaskPoolError_t": {
+        "file": "libraries/c_sdk/standard/common/include/types/iot_taskpool_types.h",
+        "function": null,
+        "line": 148
+      },
+      "IotTaskPoolInfo": {
+        "file": "libraries/c_sdk/standard/common/include/types/iot_taskpool_types.h",
+        "function": null,
+        "line": 277
+      },
+      "IotTaskPoolInfo_t": {
+        "file": "libraries/c_sdk/standard/common/include/types/iot_taskpool_types.h",
+        "function": null,
+        "line": 292
+      },
+      "IotTaskPoolJobStatus": {
+        "file": "libraries/c_sdk/standard/common/include/types/iot_taskpool_types.h",
+        "function": null,
+        "line": 160
+      },
+      "IotTaskPoolJobStatus_t": {
+        "file": "libraries/c_sdk/standard/common/include/types/iot_taskpool_types.h",
+        "function": null,
+        "line": 197
+      },
+      "IotTaskPoolJobStorage": {
+        "file": "libraries/c_sdk/standard/common/include/types/iot_taskpool_types.h",
+        "function": null,
+        "line": 227
+      },
+      "IotTaskPoolJobStorage_t": {
+        "file": "libraries/c_sdk/standard/common/include/types/iot_taskpool_types.h",
+        "function": null,
+        "line": 234
+      },
+      "IotTaskPoolJob_t": {
+        "file": "libraries/c_sdk/standard/common/include/types/iot_taskpool_types.h",
+        "function": null,
+        "line": 250
+      },
+      "IotTaskPoolRoutine_t": {
+        "file": "libraries/c_sdk/standard/common/include/types/iot_taskpool_types.h",
+        "function": null,
+        "line": 263
+      },
+      "IotTaskPool_CreateJob": {
+        "file": "libraries/c_sdk/standard/common/include/iot_taskpool.h",
+        "function": null,
+        "line": 267
+      },
+      "IotTaskPool_GetSystemTaskPool": {
+        "file": "libraries/c_sdk/standard/common/include/iot_taskpool.h",
+        "function": null,
+        "line": 172
+      },
+      "IotTaskPool_Schedule": {
+        "file": "libraries/c_sdk/standard/common/include/iot_taskpool.h",
+        "function": null,
+        "line": 457
+      },
+      "IotTaskPool_t": {
+        "file": "libraries/c_sdk/standard/common/include/types/iot_taskpool_types.h",
+        "function": null,
+        "line": 217
+      },
+      "IotThreadRoutine_t": {
+        "file": "libraries/abstractions/platform/include/types/iot_platform_types.h",
+        "function": null,
+        "line": 105
+      },
+      "IotTimer_t": {
+        "file": "libraries/abstractions/platform/include/types/iot_platform_types.h",
+        "function": null,
+        "line": 126
+      },
+      "KEEP_PARSING": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 93
+      },
+      "LIBRARY_LOG_LEVEL": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 136
+      },
+      "LIBRARY_LOG_NAME": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 145
+      },
+      "NEWLINE_CHARACTER": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 226
+      },
+      "PARSER_STATE_BODY_COMPLETE": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 309
+      },
+      "PARSER_STATE_HEADERS_COMPLETE": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 307
+      },
+      "PARSER_STATE_IN_BODY": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 308
+      },
+      "PARSER_STATE_IN_HEADERS": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 306
+      },
+      "PARSER_STATE_NONE": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 305
+      },
+      "PORTMACRO_H": {
+        "file": "freertos_kernel/portable/MSVC-MingW/portmacro.h",
+        "function": null,
+        "line": 29
+      },
+      "PROCESSING_STATE_FILLING_BODY_BUFFER": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 362
+      },
+      "PROCESSING_STATE_FILLING_HEADER_BUFFER": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 361
+      },
+      "PROCESSING_STATE_FINISHED": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 363
+      },
+      "PROCESSING_STATE_NONE": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 360
+      },
+      "PROCESSING_STATE_SEARCHING_HEADER_BUFFER": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 364
+      },
+      "SPACE_CHARACTER": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 216
+      },
+      "STOP_PARSING": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 94
+      },
+      "StackType_t": {
+        "file": "freertos_kernel/portable/MSVC-MingW/portmacro.h",
+        "function": null,
+        "line": 47
+      },
+      "StaticEventGroup_t": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1233
+      },
+      "StaticListItem_t": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1072
+      },
+      "StaticList_t": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1097
+      },
+      "StaticMessageBuffer_t": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1288
+      },
+      "StaticMiniListItem_t": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1083
+      },
+      "StaticQueue_t": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1203
+      },
+      "StaticSemaphore_t": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1204
+      },
+      "StaticStreamBuffer_t": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1285
+      },
+      "StaticTask_t": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1160
+      },
+      "StaticTimer_t": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1261
+      },
+      "TickType_t": {
+        "file": "freertos_kernel/portable/MSVC-MingW/portmacro.h",
+        "function": null,
+        "line": 56
+      },
+      "UBaseType_t": {
+        "file": "freertos_kernel/portable/MSVC-MingW/portmacro.h",
+        "function": null,
+        "line": 49
+      },
+      "UF_FRAGMENT": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 347
+      },
+      "UF_HOST": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 343
+      },
+      "UF_MAX": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 349
+      },
+      "UF_PATH": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 345
+      },
+      "UF_PORT": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 344
+      },
+      "UF_QUERY": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 346
+      },
+      "UF_SCHEMA": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 342
+      },
+      "UF_USERINFO": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 348
+      },
+      "XX": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 156
+      },
+      "_IOT_PLATFORM_TYPES_AFR_H_": {
+        "file": "libraries/abstractions/platform/freertos/include/platform/iot_platform_types_freertos.h",
+        "function": null,
+        "line": 32
+      },
+      "_IotSystemMutex_t": {
+        "file": "libraries/abstractions/platform/freertos/include/platform/iot_platform_types_freertos.h",
+        "function": null,
+        "line": 45
+      },
+      "_IotSystemSemaphore_t": {
+        "file": "libraries/abstractions/platform/freertos/include/platform/iot_platform_types_freertos.h",
+        "function": null,
+        "line": 55
+      },
+      "_IotSystemTimer_t": {
+        "file": "libraries/abstractions/platform/freertos/include/platform/iot_platform_types_freertos.h",
+        "function": null,
+        "line": 82
+      },
+      "__builtin___memcpy_chk": {
+        "file": "tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader/IotHttpsClient_AddHeader_harness.c",
+        "function": null,
+        "line": 31
+      },
+      "__has_builtin": {
+        "file": "tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader/IotHttpsClient_AddHeader_harness.c",
+        "function": null,
+        "line": 27
+      },
+      "_addHeader": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 1558
+      },
+      "_addRequestToConnectionReqQ": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 2340
+      },
+      "_cancelRequest": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 2415
+      },
+      "_cancelResponse": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 2422
+      },
+      "_createHttpsConnection": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 1332
+      },
+      "_flushHttpsNetworkData": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 2009
+      },
+      "_httpParserInfo": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 403
+      },
+      "_httpParserInfo_t": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 411
+      },
+      "_httpParserOnBodyCallback": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 808
+      },
+      "_httpParserOnChunkCompleteCallback": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 927
+      },
+      "_httpParserOnChunkHeaderCallback": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 917
+      },
+      "_httpParserOnHeaderFieldCallback": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 684
+      },
+      "_httpParserOnHeaderValueCallback": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 717
+      },
+      "_httpParserOnHeadersCompleteCallback": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 750
+      },
+      "_httpParserOnMessageBeginCallback": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 643
+      },
+      "_httpParserOnMessageCompleteCallback": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 894
+      },
+      "_httpParserOnStatusCallback": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 657
+      },
+      "_httpParserSettings": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 639
+      },
+      "_httpsConnection": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 248
+      },
+      "_httpsConnection_t": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 393
+      },
+      "_httpsRequest": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 263
+      },
+      "_httpsRequest_t": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 481
+      },
+      "_httpsResponse": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 280
+      },
+      "_httpsResponse_t": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 457
+      },
+      "_incrementNextLocationToWriteBeyondParsed": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 1809
+      },
+      "_initializeResponse": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 2457
+      },
+      "_networkDestroy": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 1544
+      },
+      "_networkDisconnect": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 1530
+      },
+      "_networkReceiveCallback": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 1040
+      },
+      "_networkRecv": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 1638
+      },
+      "_networkSend": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 1601
+      },
+      "_pHttpsMethodStrings": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 490
+      },
+      "_parseHttpsMessage": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 1773
+      },
+      "_receiveHttpsBody": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 1975
+      },
+      "_receiveHttpsBodyAsync": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 937
+      },
+      "_receiveHttpsBodySync": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 987
+      },
+      "_receiveHttpsHeaders": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 1945
+      },
+      "_receiveHttpsMessage": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 1882
+      },
+      "_scheduleHttpsRequestSend": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 2305
+      },
+      "_sendHttpsBody": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 1754
+      },
+      "_sendHttpsHeaders": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 1675
+      },
+      "_sendHttpsHeadersAndBody": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 2065
+      },
+      "_sendHttpsRequest": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 2103
+      },
+      "_taskPool": {
+        "file": "libraries/c_sdk/standard/common/include/types/iot_taskpool_types.h",
+        "function": null,
+        "line": 217
+      },
+      "_taskPoolJob": {
+        "file": "libraries/c_sdk/standard/common/include/types/iot_taskpool_types.h",
+        "function": null,
+        "line": 250
+      },
+      "addressLen": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 728
+      },
+      "addressLength": {
+        "file": "libraries/abstractions/platform/include/types/iot_platform_types.h",
+        "function": null,
+        "line": 147
+      },
+      "allocate_IotConnectionHandle": {
+        "file": "tools/cbmc/proofs/HTTP/global_state_HTTP.c",
+        "function": null,
+        "line": 203
+      },
+      "allocate_IotConnectionInfo": {
+        "file": "tools/cbmc/proofs/HTTP/global_state_HTTP.c",
+        "function": null,
+        "line": 173
+      },
+      "allocate_IotRequestHandle": {
+        "file": "tools/cbmc/proofs/HTTP/global_state_HTTP.c",
+        "function": null,
+        "line": 328
+      },
+      "allocate_IotRequestInfo": {
+        "file": "tools/cbmc/proofs/HTTP/global_state_HTTP.c",
+        "function": null,
+        "line": 375
+      },
+      "allocate_IotResponseHandle": {
+        "file": "tools/cbmc/proofs/HTTP/global_state_HTTP.c",
+        "function": null,
+        "line": 248
+      },
+      "allocate_IotResponseInfo": {
+        "file": "tools/cbmc/proofs/HTTP/global_state_HTTP.c",
+        "function": null,
+        "line": 395
+      },
+      "allocate_NetworkInterface": {
+        "file": "tools/cbmc/proofs/HTTP/global_state_HTTP.c",
+        "function": null,
+        "line": 138
+      },
+      "alpnProtocolsLen": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 764
+      },
+      "appendHeaderCallback": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 541
+      },
+      "bodyLen": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 682
+      },
+      "bodyLength": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 469
+      },
+      "bodyRxStatus": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 441
+      },
+      "bodyTxStatus": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 479
+      },
+      "bufferLen": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 652
+      },
+      "bufferProcessingState": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 429
+      },
+      "caCertLen": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 749
+      },
+      "callbacks": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 704
+      },
+      "cancelled": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 442
+      },
+      "clientCertLen": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 752
+      },
+      "clientCertSize": {
+        "file": "libraries/abstractions/platform/include/platform/iot_network.h",
+        "function": null,
+        "line": 338
+      },
+      "close": {
+        "file": "libraries/abstractions/platform/include/platform/iot_network.h",
+        "function": null,
+        "line": 263
+      },
+      "configAPPLICATION_ALLOCATED_HEAP": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 830
+      },
+      "configASSERT": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 238
+      },
+      "configASSERT_DEFINED": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 239
+      },
+      "configCHECK_FOR_STACK_OVERFLOW": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 398
+      },
+      "configENABLE_BACKWARD_COMPATIBILITY": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 907
+      },
+      "configENABLE_FPU": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 991
+      },
+      "configENABLE_MPU": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 985
+      },
+      "configENABLE_TRUSTZONE": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 997
+      },
+      "configEXPECTED_IDLE_TIME_BEFORE_SLEEP": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 754
+      },
+      "configGENERATE_RUN_TIME_STATS": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 716
+      },
+      "configIDLE_SHOULD_YIELD": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 230
+      },
+      "configINCLUDE_APPLICATION_DEFINED_PRIVILEGED_FUNCTIONS": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 798
+      },
+      "configINCLUDE_FREERTOS_TASK_C_ADDITIONS_H": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 406
+      },
+      "configINITIAL_TICK_COUNT": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 884
+      },
+      "configMAX": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 927
+      },
+      "configMAX_TASK_NAME_LEN": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 226
+      },
+      "configMESSAGE_BUFFER_LENGTH_TYPE": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 865
+      },
+      "configMIN": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 933
+      },
+      "configNUM_THREAD_LOCAL_STORAGE_POINTERS": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 198
+      },
+      "configPOST_SLEEP_PROCESSING": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 774
+      },
+      "configPRECONDITION": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 250
+      },
+      "configPRECONDITION_DEFINED": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 251
+      },
+      "configPRE_SLEEP_PROCESSING": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 770
+      },
+      "configPRE_SUPPRESS_TICKS_AND_SLEEP_PROCESSING": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 766
+      },
+      "configPRINTF": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 921
+      },
+      "configQUEUE_REGISTRY_SIZE": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 302
+      },
+      "configRECORD_STACK_HIGH_ADDRESS": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 402
+      },
+      "configRUN_FREERTOS_SECURE_ONLY": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1003
+      },
+      "configSTACK_DEPTH_TYPE": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 858
+      },
+      "configSUPPORT_DYNAMIC_ALLOCATION": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 852
+      },
+      "configSUPPORT_STATIC_ALLOCATION": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 847
+      },
+      "configUSE_ALTERNATIVE_API": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 218
+      },
+      "configUSE_APPLICATION_TASK_TAG": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 194
+      },
+      "configUSE_COUNTING_SEMAPHORES": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 214
+      },
+      "configUSE_CO_ROUTINES": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 108
+      },
+      "configUSE_DAEMON_TASK_STARTUP_HOOK": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 190
+      },
+      "configUSE_MALLOC_FAILED_HOOK": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 738
+      },
+      "configUSE_MUTEXES": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 206
+      },
+      "configUSE_NEWLIB_REENTRANT": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 66
+      },
+      "configUSE_PORT_OPTIMISED_TASK_SELECTION": {
+        "file": "freertos_kernel/portable/MSVC-MingW/portmacro.h",
+        "function": null,
+        "line": 102
+      },
+      "configUSE_POSIX_ERRNO": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 838
+      },
+      "configUSE_QUEUE_SETS": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 778
+      },
+      "configUSE_RECURSIVE_MUTEXES": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 202
+      },
+      "configUSE_STATS_FORMATTING_FUNCTIONS": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 802
+      },
+      "configUSE_TASK_FPU_SUPPORT": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 979
+      },
+      "configUSE_TASK_NOTIFICATIONS": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 834
+      },
+      "configUSE_TICKLESS_IDLE": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 762
+      },
+      "configUSE_TIMERS": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 210
+      },
+      "configUSE_TIME_SLICING": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 794
+      },
+      "configUSE_TRACE_FACILITY": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 810
+      },
+      "connectionClosedCallback": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 615
+      },
+      "connectionMutex": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 388
+      },
+      "connectionUserBufferMinimumSize": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 126
+      },
+      "content_length": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 303
+      },
+      "create": {
+        "file": "libraries/abstractions/platform/include/platform/iot_network.h",
+        "function": null,
+        "line": 147
+      },
+      "data": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 320
+      },
+      "destroy": {
+        "file": "libraries/abstractions/platform/include/platform/iot_network.h",
+        "function": null,
+        "line": 282
+      },
+      "disableSni": {
+        "file": "libraries/abstractions/platform/include/platform/iot_network.h",
+        "function": null,
+        "line": 333
+      },
+      "dummy2": {
+        "file": "libraries/c_sdk/standard/common/include/types/iot_taskpool_types.h",
+        "function": null,
+        "line": 230
+      },
+      "dummy3": {
+        "file": "libraries/c_sdk/standard/common/include/types/iot_taskpool_types.h",
+        "function": null,
+        "line": 231
+      },
+      "dummy4": {
+        "file": "libraries/c_sdk/standard/common/include/types/iot_taskpool_types.h",
+        "function": null,
+        "line": 232
+      },
+      "eTaskStateGet": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 937
+      },
+      "errorCallback": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 631
+      },
+      "field_data": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 367
+      },
+      "field_set": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 361
+      },
+      "flags": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 219
+      },
+      "foundHeaderField": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 434
+      },
+      "harness": {
+        "file": "tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader/IotHttpsClient_AddHeader_harness.c",
+        "function": null,
+        "line": 44
+      },
+      "header_state": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 298
+      },
+      "hideLibraryName": {
+        "file": "libraries/c_sdk/standard/common/include/private/iot_logging.h",
+        "function": null,
+        "line": 153
+      },
+      "hideLogLevel": {
+        "file": "libraries/c_sdk/standard/common/include/private/iot_logging.h",
+        "function": null,
+        "line": 152
+      },
+      "hideTimestring": {
+        "file": "libraries/c_sdk/standard/common/include/private/iot_logging.h",
+        "function": null,
+        "line": 154
+      },
+      "hostLen": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 827
+      },
+      "httpParserInfo": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 425
+      },
+      "http_cb": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 89
+      },
+      "http_data_cb": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 88
+      },
+      "http_errno": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 283
+      },
+      "http_errno_description": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 417
+      },
+      "http_major": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 306
+      },
+      "http_method": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 207
+      },
+      "http_minor": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 307
+      },
+      "http_parser": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 66
+      },
+      "http_parser_execute": {
+        "file": "tools/cbmc/proofs/HTTP/global_state_HTTP.c",
+        "function": null,
+        "line": 23
+      },
+      "http_parser_h": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 22
+      },
+      "http_parser_init": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 383
+      },
+      "http_parser_settings": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 67
+      },
+      "http_parser_settings_init": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 388
+      },
+      "http_parser_type": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 215
+      },
+      "http_parser_url": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 360
+      },
+      "http_parser_url_fields": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 341
+      },
+      "http_status": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 154
+      },
+      "iDummy22": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1158
+      },
+      "index": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 299
+      },
+      "initialize_IotConnectionHandle": {
+        "file": "tools/cbmc/proofs/HTTP/global_state_HTTP.c",
+        "function": null,
+        "line": 215
+      },
+      "initialize_IotResponseHandle": {
+        "file": "tools/cbmc/proofs/HTTP/global_state_HTTP.c",
+        "function": null,
+        "line": 267
+      },
+      "int16_t": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 38
+      },
+      "int32_t": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 40
+      },
+      "int64_t": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 42
+      },
+      "int8_t": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 36
+      },
+      "iot_mutex_internal": {
+        "file": "libraries/abstractions/platform/freertos/include/platform/iot_platform_types_freertos.h",
+        "function": null,
+        "line": 36
+      },
+      "iot_mutex_internal_t": {
+        "file": "libraries/abstractions/platform/freertos/include/platform/iot_platform_types_freertos.h",
+        "function": null,
+        "line": 40
+      },
+      "iot_sem_internal": {
+        "file": "libraries/abstractions/platform/freertos/include/platform/iot_platform_types_freertos.h",
+        "function": null,
+        "line": 47
+      },
+      "iot_sem_internal_t": {
+        "file": "libraries/abstractions/platform/freertos/include/platform/iot_platform_types_freertos.h",
+        "function": null,
+        "line": 50
+      },
+      "isAsync": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 438
+      },
+      "isConnected": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 386
+      },
+      "isDestroyed": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 387
+      },
+      "isNonPersistent": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 456
+      },
+      "is_stubbed_NetworkInterface": {
+        "file": "tools/cbmc/proofs/HTTP/global_state_HTTP.c",
+        "function": null,
+        "line": 158
+      },
+      "is_valid_IotConnectionHandle": {
+        "file": "tools/cbmc/proofs/HTTP/global_state_HTTP.c",
+        "function": null,
+        "line": 236
+      },
+      "is_valid_IotConnectionInfo": {
+        "file": "tools/cbmc/proofs/HTTP/global_state_HTTP.c",
+        "function": null,
+        "line": 188
+      },
+      "is_valid_IotRequestHandle": {
+        "file": "tools/cbmc/proofs/HTTP/global_state_HTTP.c",
+        "function": null,
+        "line": 342
+      },
+      "is_valid_IotRequestInfo": {
+        "file": "tools/cbmc/proofs/HTTP/global_state_HTTP.c",
+        "function": null,
+        "line": 385
+      },
+      "is_valid_IotResponseHandle": {
+        "file": "tools/cbmc/proofs/HTTP/global_state_HTTP.c",
+        "function": null,
+        "line": 274
+      },
+      "is_valid_IotResponseInfo": {
+        "file": "tools/cbmc/proofs/HTTP/global_state_HTTP.c",
+        "function": null,
+        "line": 407
+      },
+      "is_valid_NetworkInterface": {
+        "file": "tools/cbmc/proofs/HTTP/global_state_HTTP.c",
+        "function": null,
+        "line": 142
+      },
+      "len": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 366
+      },
+      "lenient_http_headers": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 300
+      },
+      "link": {
+        "file": "libraries/abstractions/platform/include/types/iot_platform_types.h",
+        "function": null,
+        "line": 145
+      },
+      "maxFragmentLength": {
+        "file": "libraries/abstractions/platform/include/platform/iot_network.h",
+        "function": null,
+        "line": 328
+      },
+      "maxThreads": {
+        "file": "libraries/c_sdk/standard/common/include/types/iot_taskpool_types.h",
+        "function": null,
+        "line": 289
+      },
+      "memcpy": {
+        "file": "tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader/IotHttpsClient_AddHeader_harness.c",
+        "function": null,
+        "line": 37
+      },
+      "method": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 309
+      },
+      "minThreads": {
+        "file": "libraries/c_sdk/standard/common/include/types/iot_taskpool_types.h",
+        "function": null,
+        "line": 288
+      },
+      "mtCOVERAGE_TEST_DELAY": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 818
+      },
+      "mtCOVERAGE_TEST_MARKER": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 814
+      },
+      "nondet_bool": {
+        "file": "tools/cbmc/proofs/HTTP/global_state_HTTP.c",
+        "function": null,
+        "line": 15
+      },
+      "nread": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 302
+      },
+      "off": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 365
+      },
+      "on_body": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 331
+      },
+      "on_chunk_complete": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 337
+      },
+      "on_chunk_header": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 336
+      },
+      "on_header_field": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 328
+      },
+      "on_header_value": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 329
+      },
+      "on_headers_complete": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 330
+      },
+      "on_message_begin": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 325
+      },
+      "on_message_complete": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 332
+      },
+      "on_status": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 327
+      },
+      "on_url": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 326
+      },
+      "pAddress": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 727
+      },
+      "pAlpnProtocols": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 763
+      },
+      "pAlpnProtos": {
+        "file": "libraries/abstractions/platform/include/platform/iot_network.h",
+        "function": null,
+        "line": 319
+      },
+      "pArgument": {
+        "file": "libraries/abstractions/platform/freertos/include/platform/iot_platform_types_freertos.h",
+        "function": null,
+        "line": 63
+      },
+      "pAsyncInfo": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 869
+      },
+      "pBody": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 422
+      },
+      "pBodyCur": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 424
+      },
+      "pBodyCurInHeaderBuf": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 440
+      },
+      "pBodyEnd": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 423
+      },
+      "pBodyInHeaderBuf": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 439
+      },
+      "pBuffer": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 651
+      },
+      "pCaCert": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 748
+      },
+      "pCallbacks": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 454
+      },
+      "pClientCert": {
+        "file": "libraries/abstractions/platform/include/platform/iot_network.h",
+        "function": null,
+        "line": 337
+      },
+      "pConnInfo": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 471
+      },
+      "pHeaders": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 419
+      },
+      "pHeadersCur": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 421
+      },
+      "pHeadersEnd": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 420
+      },
+      "pHost": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 826
+      },
+      "pHostName": {
+        "file": "libraries/abstractions/platform/include/platform/iot_network.h",
+        "function": null,
+        "line": 296
+      },
+      "pHttpsConnection": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 437
+      },
+      "pHttpsResponse": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 472
+      },
+      "pNetworkConnection": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 375
+      },
+      "pNetworkContext": {
+        "file": "libraries/abstractions/platform/include/types/iot_platform_types.h",
+        "function": null,
+        "line": 146
+      },
+      "pNetworkInterface": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 374
+      },
+      "pNext": {
+        "file": "libraries/c_sdk/standard/common/include/iot_linear_containers.h",
+        "function": null,
+        "line": 58
+      },
+      "pPath": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 808
+      },
+      "pPrevious": {
+        "file": "libraries/c_sdk/standard/common/include/iot_linear_containers.h",
+        "function": null,
+        "line": 57
+      },
+      "pPrivData": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 705
+      },
+      "pPrivateKey": {
+        "file": "libraries/abstractions/platform/include/platform/iot_network.h",
+        "function": null,
+        "line": 339
+      },
+      "pReadHeaderField": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 430
+      },
+      "pReadHeaderValue": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 432
+      },
+      "pRemoteAddress": {
+        "file": "libraries/abstractions/platform/include/types/iot_platform_types.h",
+        "function": null,
+        "line": 155
+      },
+      "pRootCa": {
+        "file": "libraries/abstractions/platform/include/platform/iot_network.h",
+        "function": null,
+        "line": 335
+      },
+      "pSyncInfo": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 870
+      },
+      "pUserPrivData": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 455
+      },
+      "parseFunc": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 406
+      },
+      "parserState": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 428
+      },
+      "pathLen": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 809
+      },
+      "pcQueueGetName": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 308
+      },
+      "pcQueueGetQueueName": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 954
+      },
+      "pcTaskGetTaskName": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 952
+      },
+      "pcTimerGetTimerName": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 953
+      },
+      "pdTASK_CODE": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 961
+      },
+      "pdTASK_HOOK_CODE": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 950
+      },
+      "port": {
+        "file": "libraries/abstractions/platform/include/platform/iot_network.h",
+        "function": null,
+        "line": 297
+      },
+      "portALLOCATE_SECURE_CONTEXT": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 786
+      },
+      "portASSERT_IF_INTERRUPT_PRIORITY_INVALID": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 806
+      },
+      "portASSERT_IF_IN_ISR": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 822
+      },
+      "portBASE_TYPE": {
+        "file": "freertos_kernel/portable/MSVC-MingW/portmacro.h",
+        "function": null,
+        "line": 44
+      },
+      "portBYTE_ALIGNMENT": {
+        "file": "freertos_kernel/portable/MSVC-MingW/portmacro.h",
+        "function": null,
+        "line": 70
+      },
+      "portCHAR": {
+        "file": "freertos_kernel/portable/MSVC-MingW/portmacro.h",
+        "function": null,
+        "line": 38
+      },
+      "portCLEAN_UP_TCB": {
+        "file": "freertos_kernel/portable/MSVC-MingW/portmacro.h",
+        "function": null,
+        "line": 89
+      },
+      "portCLEAR_INTERRUPT_MASK_FROM_ISR": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 286
+      },
+      "portCONFIGURE_TIMER_FOR_RUN_TIME_STATS": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 734
+      },
+      "portCRITICAL_NESTING_IN_TCB": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 222
+      },
+      "portDISABLE_INTERRUPTS": {
+        "file": "freertos_kernel/portable/MSVC-MingW/portmacro.h",
+        "function": null,
+        "line": 91
+      },
+      "portDONT_DISCARD": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 790
+      },
+      "portDOUBLE": {
+        "file": "freertos_kernel/portable/MSVC-MingW/portmacro.h",
+        "function": null,
+        "line": 40
+      },
+      "portENABLE_INTERRUPTS": {
+        "file": "freertos_kernel/portable/MSVC-MingW/portmacro.h",
+        "function": null,
+        "line": 92
+      },
+      "portEND_SWITCHING_ISR": {
+        "file": "freertos_kernel/portable/MSVC-MingW/portmacro.h",
+        "function": null,
+        "line": 85
+      },
+      "portENTER_CRITICAL": {
+        "file": "freertos_kernel/portable/MSVC-MingW/portmacro.h",
+        "function": null,
+        "line": 98
+      },
+      "portEXIT_CRITICAL": {
+        "file": "freertos_kernel/portable/MSVC-MingW/portmacro.h",
+        "function": null,
+        "line": 99
+      },
+      "portFLOAT": {
+        "file": "freertos_kernel/portable/MSVC-MingW/portmacro.h",
+        "function": null,
+        "line": 39
+      },
+      "portGET_HIGHEST_PRIORITY": {
+        "file": "freertos_kernel/portable/MSVC-MingW/portmacro.h",
+        "function": null,
+        "line": 121
+      },
+      "portINLINE": {
+        "file": "freertos_kernel/portable/MSVC-MingW/portmacro.h",
+        "function": null,
+        "line": 67
+      },
+      "portINTERRUPT_TICK": {
+        "file": "freertos_kernel/portable/MSVC-MingW/portmacro.h",
+        "function": null,
+        "line": 145
+      },
+      "portINTERRUPT_YIELD": {
+        "file": "freertos_kernel/portable/MSVC-MingW/portmacro.h",
+        "function": null,
+        "line": 144
+      },
+      "portLONG": {
+        "file": "freertos_kernel/portable/MSVC-MingW/portmacro.h",
+        "function": null,
+        "line": 41
+      },
+      "portMAX_DELAY": {
+        "file": "freertos_kernel/portable/MSVC-MingW/portmacro.h",
+        "function": null,
+        "line": 54
+      },
+      "portMEMORY_BARRIER": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 257
+      },
+      "portPOINTER_SIZE_TYPE": {
+        "file": "freertos_kernel/portable/MSVC-MingW/portmacro.h",
+        "function": null,
+        "line": 45
+      },
+      "portPRE_TASK_DELETE_HOOK": {
+        "file": "freertos_kernel/portable/MSVC-MingW/portmacro.h",
+        "function": null,
+        "line": 90
+      },
+      "portPRIVILEGE_BIT": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 742
+      },
+      "portRECORD_READY_PRIORITY": {
+        "file": "freertos_kernel/portable/MSVC-MingW/portmacro.h",
+        "function": null,
+        "line": 113
+      },
+      "portRESET_READY_PRIORITY": {
+        "file": "freertos_kernel/portable/MSVC-MingW/portmacro.h",
+        "function": null,
+        "line": 114
+      },
+      "portSETUP_TCB": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 298
+      },
+      "portSET_INTERRUPT_MASK_FROM_ISR": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 282
+      },
+      "portSHORT": {
+        "file": "freertos_kernel/portable/MSVC-MingW/portmacro.h",
+        "function": null,
+        "line": 42
+      },
+      "portSOFTWARE_BARRIER": {
+        "file": "freertos_kernel/portable/MSVC-MingW/portmacro.h",
+        "function": null,
+        "line": 79
+      },
+      "portSTACK_GROWTH": {
+        "file": "freertos_kernel/portable/MSVC-MingW/portmacro.h",
+        "function": null,
+        "line": 65
+      },
+      "portSTACK_TYPE": {
+        "file": "freertos_kernel/portable/MSVC-MingW/portmacro.h",
+        "function": null,
+        "line": 43
+      },
+      "portSUPPRESS_TICKS_AND_SLEEP": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 750
+      },
+      "portTASK_FUNCTION": {
+        "file": "freertos_kernel/portable/MSVC-MingW/portmacro.h",
+        "function": null,
+        "line": 142
+      },
+      "portTASK_FUNCTION_PROTO": {
+        "file": "freertos_kernel/portable/MSVC-MingW/portmacro.h",
+        "function": null,
+        "line": 141
+      },
+      "portTASK_USES_FLOATING_POINT": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 782
+      },
+      "portTICK_PERIOD_MS": {
+        "file": "freertos_kernel/portable/MSVC-MingW/portmacro.h",
+        "function": null,
+        "line": 66
+      },
+      "portTICK_RATE_MS": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 951
+      },
+      "portTICK_TYPE_CLEAR_INTERRUPT_MASK_FROM_ISR": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 894
+      },
+      "portTICK_TYPE_ENTER_CRITICAL": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 891
+      },
+      "portTICK_TYPE_EXIT_CRITICAL": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 892
+      },
+      "portTICK_TYPE_IS_ATOMIC": {
+        "file": "freertos_kernel/portable/MSVC-MingW/portmacro.h",
+        "function": null,
+        "line": 61
+      },
+      "portTICK_TYPE_SET_INTERRUPT_MASK_FROM_ISR": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 893
+      },
+      "portTickType": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 938
+      },
+      "portYIELD": {
+        "file": "freertos_kernel/portable/MSVC-MingW/portmacro.h",
+        "function": null,
+        "line": 75
+      },
+      "portYIELD_FROM_ISR": {
+        "file": "freertos_kernel/portable/MSVC-MingW/portmacro.h",
+        "function": null,
+        "line": 84
+      },
+      "portYIELD_WITHIN_API": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 746
+      },
+      "priority": {
+        "file": "libraries/c_sdk/standard/common/include/types/iot_taskpool_types.h",
+        "function": null,
+        "line": 291
+      },
+      "privateKeyLen": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 755
+      },
+      "privateKeySize": {
+        "file": "libraries/abstractions/platform/include/platform/iot_network.h",
+        "function": null,
+        "line": 340
+      },
+      "pvDummy1": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1178
+      },
+      "pvDummy15": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1138
+      },
+      "pvDummy2": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1182
+      },
+      "pvDummy3": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1067
+      },
+      "pvDummy5": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1254
+      },
+      "pvDummy6": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1255
+      },
+      "pvDummy7": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1195
+      },
+      "pxContainer": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 967
+      },
+      "pxDummy1": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1114
+      },
+      "pxDummy14": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1135
+      },
+      "pxDummy6": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1120
+      },
+      "pxDummy8": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1123
+      },
+      "readHeaderFieldLength": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 431
+      },
+      "readHeaderParser": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 410
+      },
+      "readHeaderValueLength": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 433
+      },
+      "readReadyCallback": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 571
+      },
+      "receive": {
+        "file": "libraries/abstractions/platform/include/platform/iot_network.h",
+        "function": null,
+        "line": 215
+      },
+      "receiveUpto": {
+        "file": "libraries/abstractions/platform/include/platform/iot_network.h",
+        "function": null,
+        "line": 238
+      },
+      "recursive": {
+        "file": "libraries/abstractions/platform/freertos/include/platform/iot_platform_types_freertos.h",
+        "function": null,
+        "line": 39
+      },
+      "reqFinishedSending": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 453
+      },
+      "reqQ": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 389
+      },
+      "requestUserBufferMinimumSize": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 106
+      },
+      "respFinishedSem": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 443
+      },
+      "respQ": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 390
+      },
+      "responseCompleteCallback": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 596
+      },
+      "responseParser": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 405
+      },
+      "responseUserBufferMinimumSize": {
+        "file": "libraries/c_sdk/standard/https/src/iot_https_client.c",
+        "function": null,
+        "line": 118
+      },
+      "rootCaSize": {
+        "file": "libraries/abstractions/platform/include/platform/iot_network.h",
+        "function": null,
+        "line": 336
+      },
+      "safeMalloc": {
+        "file": "tools/cbmc/proofs/HTTP/global_state_HTTP.c",
+        "function": null,
+        "line": 14
+      },
+      "scheduled": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 480
+      },
+      "send": {
+        "file": "libraries/abstractions/platform/include/platform/iot_network.h",
+        "function": null,
+        "line": 193
+      },
+      "setReceiveCallback": {
+        "file": "libraries/abstractions/platform/include/platform/iot_network.h",
+        "function": null,
+        "line": 173
+      },
+      "stackSize": {
+        "file": "libraries/c_sdk/standard/common/include/types/iot_taskpool_types.h",
+        "function": null,
+        "line": 290
+      },
+      "state": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 297
+      },
+      "status": {
+        "file": "libraries/c_sdk/standard/common/include/types/iot_taskpool_types.h",
+        "function": null,
+        "line": 233
+      },
+      "status_code": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 308
+      },
+      "syncStatus": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 444
+      },
+      "taskPoolJob": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 392
+      },
+      "taskPoolJobStorage": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 391
+      },
+      "threadInfo": {
+        "file": "libraries/abstractions/platform/freertos/include/platform/iot_platform_types_freertos.h",
+        "function": null,
+        "line": 61
+      },
+      "threadInfo_t": {
+        "file": "libraries/abstractions/platform/freertos/include/platform/iot_platform_types_freertos.h",
+        "function": null,
+        "line": 65
+      },
+      "threadRoutine": {
+        "file": "libraries/abstractions/platform/freertos/include/platform/iot_platform_types_freertos.h",
+        "function": null,
+        "line": 64
+      },
+      "timeout": {
+        "file": "libraries/c_sdk/standard/https/src/private/iot_https_internal.h",
+        "function": null,
+        "line": 376
+      },
+      "timer": {
+        "file": "libraries/abstractions/platform/freertos/include/platform/iot_platform_types_freertos.h",
+        "function": null,
+        "line": 72
+      },
+      "timerInfo": {
+        "file": "libraries/abstractions/platform/freertos/include/platform/iot_platform_types_freertos.h",
+        "function": null,
+        "line": 70
+      },
+      "timerInfo_t": {
+        "file": "libraries/abstractions/platform/freertos/include/platform/iot_platform_types_freertos.h",
+        "function": null,
+        "line": 77
+      },
+      "tmrTIMER_CALLBACK": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 960
+      },
+      "traceBLOCKING_ON_QUEUE_PEEK": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 386
+      },
+      "traceBLOCKING_ON_QUEUE_RECEIVE": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 378
+      },
+      "traceBLOCKING_ON_QUEUE_SEND": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 394
+      },
+      "traceBLOCKING_ON_STREAM_BUFFER_RECEIVE": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 700
+      },
+      "traceBLOCKING_ON_STREAM_BUFFER_SEND": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 684
+      },
+      "traceCREATE_COUNTING_SEMAPHORE": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 452
+      },
+      "traceCREATE_COUNTING_SEMAPHORE_FAILED": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 456
+      },
+      "traceCREATE_MUTEX": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 428
+      },
+      "traceCREATE_MUTEX_FAILED": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 432
+      },
+      "traceEND": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 325
+      },
+      "traceEVENT_GROUP_CLEAR_BITS": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 604
+      },
+      "traceEVENT_GROUP_CLEAR_BITS_FROM_ISR": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 608
+      },
+      "traceEVENT_GROUP_CREATE": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 580
+      },
+      "traceEVENT_GROUP_CREATE_FAILED": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 584
+      },
+      "traceEVENT_GROUP_DELETE": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 620
+      },
+      "traceEVENT_GROUP_SET_BITS": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 612
+      },
+      "traceEVENT_GROUP_SET_BITS_FROM_ISR": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 616
+      },
+      "traceEVENT_GROUP_SYNC_BLOCK": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 588
+      },
+      "traceEVENT_GROUP_SYNC_END": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 592
+      },
+      "traceEVENT_GROUP_WAIT_BITS_BLOCK": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 596
+      },
+      "traceEVENT_GROUP_WAIT_BITS_END": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 600
+      },
+      "traceFREE": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 576
+      },
+      "traceGIVE_MUTEX_RECURSIVE": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 436
+      },
+      "traceGIVE_MUTEX_RECURSIVE_FAILED": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 440
+      },
+      "traceINCREASE_TICK_COUNT": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 337
+      },
+      "traceLOW_POWER_IDLE_BEGIN": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 342
+      },
+      "traceLOW_POWER_IDLE_END": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 347
+      },
+      "traceMALLOC": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 572
+      },
+      "traceMOVED_TASK_TO_READY_STATE": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 412
+      },
+      "tracePEND_FUNC_CALL": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 624
+      },
+      "tracePEND_FUNC_CALL_FROM_ISR": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 628
+      },
+      "tracePOST_MOVED_TASK_TO_READY_STATE": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 416
+      },
+      "traceQUEUE_CREATE": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 420
+      },
+      "traceQUEUE_CREATE_FAILED": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 424
+      },
+      "traceQUEUE_DELETE": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 508
+      },
+      "traceQUEUE_PEEK": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 472
+      },
+      "traceQUEUE_PEEK_FAILED": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 476
+      },
+      "traceQUEUE_PEEK_FROM_ISR": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 480
+      },
+      "traceQUEUE_PEEK_FROM_ISR_FAILED": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 504
+      },
+      "traceQUEUE_RECEIVE": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 468
+      },
+      "traceQUEUE_RECEIVE_FAILED": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 484
+      },
+      "traceQUEUE_RECEIVE_FROM_ISR": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 496
+      },
+      "traceQUEUE_RECEIVE_FROM_ISR_FAILED": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 500
+      },
+      "traceQUEUE_REGISTRY_ADD": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 632
+      },
+      "traceQUEUE_SEND": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 460
+      },
+      "traceQUEUE_SEND_FAILED": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 464
+      },
+      "traceQUEUE_SEND_FROM_ISR": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 488
+      },
+      "traceQUEUE_SEND_FROM_ISR_FAILED": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 492
+      },
+      "traceSTART": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 319
+      },
+      "traceSTREAM_BUFFER_CREATE": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 672
+      },
+      "traceSTREAM_BUFFER_CREATE_FAILED": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 664
+      },
+      "traceSTREAM_BUFFER_CREATE_STATIC_FAILED": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 668
+      },
+      "traceSTREAM_BUFFER_DELETE": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 676
+      },
+      "traceSTREAM_BUFFER_RECEIVE": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 704
+      },
+      "traceSTREAM_BUFFER_RECEIVE_FAILED": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 708
+      },
+      "traceSTREAM_BUFFER_RECEIVE_FROM_ISR": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 712
+      },
+      "traceSTREAM_BUFFER_RESET": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 680
+      },
+      "traceSTREAM_BUFFER_SEND": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 688
+      },
+      "traceSTREAM_BUFFER_SEND_FAILED": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 692
+      },
+      "traceSTREAM_BUFFER_SEND_FROM_ISR": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 696
+      },
+      "traceTAKE_MUTEX_RECURSIVE": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 444
+      },
+      "traceTAKE_MUTEX_RECURSIVE_FAILED": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 448
+      },
+      "traceTASK_CREATE": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 512
+      },
+      "traceTASK_CREATE_FAILED": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 516
+      },
+      "traceTASK_DELAY": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 528
+      },
+      "traceTASK_DELAY_UNTIL": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 524
+      },
+      "traceTASK_DELETE": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 520
+      },
+      "traceTASK_INCREMENT_TICK": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 548
+      },
+      "traceTASK_NOTIFY": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 652
+      },
+      "traceTASK_NOTIFY_FROM_ISR": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 656
+      },
+      "traceTASK_NOTIFY_GIVE_FROM_ISR": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 660
+      },
+      "traceTASK_NOTIFY_TAKE": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 640
+      },
+      "traceTASK_NOTIFY_TAKE_BLOCK": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 636
+      },
+      "traceTASK_NOTIFY_WAIT": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 648
+      },
+      "traceTASK_NOTIFY_WAIT_BLOCK": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 644
+      },
+      "traceTASK_PRIORITY_DISINHERIT": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 370
+      },
+      "traceTASK_PRIORITY_INHERIT": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 362
+      },
+      "traceTASK_PRIORITY_SET": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 532
+      },
+      "traceTASK_RESUME": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 540
+      },
+      "traceTASK_RESUME_FROM_ISR": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 544
+      },
+      "traceTASK_SUSPEND": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 536
+      },
+      "traceTASK_SWITCHED_IN": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 331
+      },
+      "traceTASK_SWITCHED_OUT": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 353
+      },
+      "traceTIMER_COMMAND_RECEIVED": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 568
+      },
+      "traceTIMER_COMMAND_SEND": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 560
+      },
+      "traceTIMER_CREATE": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 552
+      },
+      "traceTIMER_CREATE_FAILED": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 556
+      },
+      "traceTIMER_EXPIRED": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 564
+      },
+      "tskSTATIC_AND_DYNAMIC_ALLOCATION_POSSIBLE": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1048
+      },
+      "type": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 295
+      },
+      "u": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 871
+      },
+      "ucDummy19": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1148
+      },
+      "ucDummy21": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1155
+      },
+      "ucDummy3": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1281
+      },
+      "ucDummy4": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1230
+      },
+      "ucDummy5": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1188
+      },
+      "ucDummy6": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1191
+      },
+      "ucDummy7": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1121
+      },
+      "ucDummy8": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1259
+      },
+      "ucDummy9": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1200
+      },
+      "uint16_t": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 39
+      },
+      "uint32_t": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 41
+      },
+      "uint64_t": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 43
+      },
+      "uint8_t": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 37
+      },
+      "ulDummy16": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1141
+      },
+      "ulDummy18": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1147
+      },
+      "upgrade": {
+        "file": "libraries/3rdparty/http_parser/http_parser.h",
+        "function": null,
+        "line": 317
+      },
+      "userBuffer": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 772
+      },
+      "uxDummy1": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1279
+      },
+      "uxDummy10": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1129
+      },
+      "uxDummy12": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1132
+      },
+      "uxDummy2": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1091
+      },
+      "uxDummy20": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1151
+      },
+      "uxDummy3": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1226
+      },
+      "uxDummy4": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1187
+      },
+      "uxDummy5": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1119
+      },
+      "uxDummy7": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1257
+      },
+      "uxDummy8": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1199
+      },
+      "uxDummy9": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1126
+      },
+      "vQueueAddToRegistry": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 306
+      },
+      "vQueueUnregisterQueue": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 307
+      },
+      "vTaskGetTaskInfo": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 955
+      },
+      "writeCallback": {
+        "file": "libraries/c_sdk/standard/https/include/types/iot_https_types.h",
+        "function": null,
+        "line": 554
+      },
+      "xCoRoutineHandle": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 949
+      },
+      "xDummy1": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1064
+      },
+      "xDummy17": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1144
+      },
+      "xDummy2": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1066
+      },
+      "xDummy3": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1118
+      },
+      "xDummy4": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1069
+      },
+      "xDummy5": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1095
+      },
+      "xList": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 963
+      },
+      "xListItem": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 962
+      },
+      "xMemoryRegion": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 945
+      },
+      "xMutex": {
+        "file": "libraries/abstractions/platform/freertos/include/platform/iot_platform_types_freertos.h",
+        "function": null,
+        "line": 38
+      },
+      "xQueueHandle": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 940
+      },
+      "xQueueSetHandle": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 942
+      },
+      "xQueueSetMemberHandle": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 943
+      },
+      "xSTATIC_EVENT_GROUP": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1220
+      },
+      "xSTATIC_LIST": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1086
+      },
+      "xSTATIC_LIST_ITEM": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1061
+      },
+      "xSTATIC_MINI_LIST_ITEM": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1075
+      },
+      "xSTATIC_QUEUE": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1176
+      },
+      "xSTATIC_STREAM_BUFFER": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1277
+      },
+      "xSTATIC_TCB": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1112
+      },
+      "xSTATIC_TIMER": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 1249
+      },
+      "xSemaphore": {
+        "file": "libraries/abstractions/platform/freertos/include/platform/iot_platform_types_freertos.h",
+        "function": null,
+        "line": 49
+      },
+      "xSemaphoreHandle": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 941
+      },
+      "xTaskGetIdleRunTimeCounter": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 956
+      },
+      "xTaskHandle": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 939
+      },
+      "xTaskParameters": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 946
+      },
+      "xTaskStatusType": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 947
+      },
+      "xTimeOutType": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 944
+      },
+      "xTimerBuffer": {
+        "file": "libraries/abstractions/platform/freertos/include/platform/iot_platform_types_freertos.h",
+        "function": null,
+        "line": 75
+      },
+      "xTimerHandle": {
+        "file": "freertos_kernel/include/FreeRTOS.h",
+        "function": null,
+        "line": 948
+      },
+      "xTimerPeriod": {
+        "file": "libraries/abstractions/platform/freertos/include/platform/iot_platform_types_freertos.h",
+        "function": null,
+        "line": 76
+      }
+    }
+  }
+}

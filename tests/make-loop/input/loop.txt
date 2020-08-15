@@ -1,0 +1,10 @@
+CBMC version 5.12 (cbmc-5.12-d8598f8-1270-g1ea1ede98) 64-bit x86_64 macos
+Reading GOTO program from file
+Reading: IotHttpsClient_AddHeader.goto
+Generating GOTO Program
+Adding CPROVER library (i386)
+Removal of function pointers and virtual functions
+Generic Property Instrumentation
+Loop strncmp.0:
+  file <builtin-library-strncmp> line 38 function strncmp
+

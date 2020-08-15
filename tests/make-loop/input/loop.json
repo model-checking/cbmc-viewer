@@ -1,0 +1,46 @@
+[
+  {
+    "program": "CBMC 5.12 (cbmc-5.12-d8598f8-1270-g1ea1ede98)"
+  },
+  {
+    "messageText": "CBMC version 5.12 (cbmc-5.12-d8598f8-1270-g1ea1ede98) 64-bit x86_64 macos",
+    "messageType": "STATUS-MESSAGE"
+  },
+  {
+    "messageText": "Reading GOTO program from file",
+    "messageType": "STATUS-MESSAGE"
+  },
+  {
+    "messageText": "Reading: IotHttpsClient_AddHeader.goto",
+    "messageType": "STATUS-MESSAGE"
+  },
+  {
+    "messageText": "Generating GOTO Program",
+    "messageType": "STATUS-MESSAGE"
+  },
+  {
+    "messageText": "Adding CPROVER library (i386)",
+    "messageType": "STATUS-MESSAGE"
+  },
+  {
+    "messageText": "Removal of function pointers and virtual functions",
+    "messageType": "STATUS-MESSAGE"
+  },
+{
+  "loops": [
+    {
+      "name": "strncmp.0",
+      "sourceLocation": {
+        "file": "<builtin-library-strncmp>",
+        "function": "strncmp",
+        "line": "38",
+        "workingDirectory": "/Users/mrtuttle/cbmc/scripts/cbmc-viewer/make/test/freertos/tools/cbmc/proofs/HTTP/IotHttpsClient_AddHeader"
+      }
+    }
+  ]
+},
+  {
+    "messageText": "Generic Property Instrumentation",
+    "messageType": "STATUS-MESSAGE"
+  }
+]

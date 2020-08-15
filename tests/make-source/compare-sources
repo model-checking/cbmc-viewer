@@ -1,0 +1,49 @@
+#!/usr/bin/env python3
+
+# -*- mode: python-mode -*-
+
+import json
+import sys
+
+JSON_TAG='viewer-source'
+
+def list_contains(sublist, superlist):
+    return all([item in superlist for item in sublist])
+
+def sources_contains(subsource, supersource):
+    return (
+        subsource[JSON_TAG]['root'] == supersource[JSON_TAG]['root']
+        and
+        list_contains(subsource[JSON_TAG]['files'], supersource[JSON_TAG]['files'])
+        and
+        list_contains(
+            [name
+             for name in subsource[JSON_TAG]['all_files']
+             if name.startswith(subsource[JSON_TAG]['root'])],
+            [name
+             for name in supersource[JSON_TAG]['all_files']
+             if name.startswith(supersource[JSON_TAG]['root'])]
+        )
+    )
+
+def parse_json(name):
+    with open(name) as data:
+        return json.load(data)
+
+def main():
+    build = parse_json(sys.argv[1])
+    find = parse_json(sys.argv[2])
+    walk = parse_json(sys.argv[3])
+
+    if not sources_contains(build, find):
+        exit(1)
+    if not sources_contains(build, walk):
+        exit(2)
+    if not sources_contains(find, walk):
+        exit(3)
+    if not sources_contains(walk, find):
+        exit(4)
+    exit(0)
+
+if __name__ == '__main__':
+    main()
