@@ -1,0 +1,56 @@
+name: CBMC viewer release
+
+# A new release is triggered by a new tag of the form viewer-VERSION
+on:
+  push:
+    tags:
+      - viewer-*
+
+jobs:
+  Release:
+    name: CBMC viewer release
+    runs-on: ubuntu-18.04
+
+    steps:
+
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+
+      - name: Set the package version
+        run: |
+          # The environment variable GITHUB_REF is refs/tags/viewer-*
+          echo "::set-env name=TAG::${GITHUB_REF:10}"
+          echo "::set-env name=VERSION::${GITHUB_REF:17}"
+          printenv | sort
+          cat ${GITHUB_EVENT_PATH}
+
+      - name: Create the package
+        run: |
+          # Patch the version number the source to be consistent with the tag
+          sed -i.bak \
+            "s/NUMBER *=.*/NUMBER = \"${VERSION}\"/" \
+            cbmc_viewer/version.py
+
+          # Patch the version number pip setup to be consistent with the tag
+          sed -i.bak \
+            "s/version *=.*/version = \"${VERSION}\",/" \
+            setup.py
+
+          # Create the package
+          python3 -m pip install --upgrade setuptools wheel
+          make pip
+
+          # Record the package name
+          # The source *.zip and binary *.whl packages are in dist
+          echo "::set-env name=PACKAGE::$(ls dist/*.whl)"
+
+      - name: Create the release
+        env:
+          # GitHub creates this secret for authentication in a workflow
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 -m pip install --upgrade pygithub
+          python3 .github/workflows/create_tagged_release.py --verbose \
+            --binary-package ${PACKAGE} \
+            --tag ${TAG} \
+            --version ${VERSION}
