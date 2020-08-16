@@ -30,7 +30,11 @@ def path_to_file(dst, src):
     """
 
     path = os.path.relpath(dst, os.path.dirname(src))
-    assert dst == os.path.normpath(os.path.join(os.path.dirname(src), path))
+    if dst != os.path.normpath(os.path.join(os.path.dirname(src), path)):
+        raise UserWarning(
+            "{} != {}".format(dst,
+                              os.path.normpath(os.path.join(os.path.dirname(src), path)))
+        )
     return path
 
 ################################################################
