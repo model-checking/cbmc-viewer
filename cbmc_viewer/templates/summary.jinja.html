@@ -24,7 +24,7 @@
           <th class="function">Function</th>
           <th class="file">File</th>
         </tr>
-        {% for func in function|sort(attribute="file_name,func_name")|sort(attribute="percentage", reverse=True) %}
+        {% for func in function|sort(attribute="func_name")|sort(attribute="file_name")|sort(attribute="percentage", reverse=True) %}
         <tr>
           <td class="coverage">{{'{:.2f}'.format(func.percentage)}} ({{func.hit}}/{{func.total}})</td>
           <td class="function">{{link.to_line(func.file_name, func.line_num, func.func_name)}}</td>
