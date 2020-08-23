@@ -173,6 +173,11 @@ class SymbolFromCtags(Symbol):
     list of files.
     """
 
+    # Warning: ctags by default accepts only certain file extensions
+    # like .c and .h as source files.  Files with other extensions
+    # like .inl are currently ignored, but consider using the ctags
+    # options −−list−maps and −−langmap.
+
     def __init__(self, root, files):
         super(SymbolFromCtags, self).__init__(
             self.build_symbol_table(
