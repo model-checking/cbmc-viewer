@@ -15,10 +15,10 @@ def symbol_table(goto):
 
     # The --show-symbol-table flag produces a sequence of symbol
     # definitions.  Definitions are separated by blank lines.  Each
-    # definition is a sequence lines including
+    # definition is a sequence of lines including
     #
-    #   Symbol......: symbol
-    #   Pretty name.: symbol
+    #   Symbol......: symbol_name
+    #   Pretty name.: simple_symbol_name
     #   Location....: file file_name line line_number
 
     cmd = ['cbmc', '--show-symbol-table', goto]
@@ -26,17 +26,17 @@ def symbol_table(goto):
     return [definition.strip().splitlines() for definition in definitions]
 
 def is_symbol_line(line):
-    """Line is a symbol table symbol definition line."""
+    """Line from symbol table defines a symbol name."""
 
     return line.startswith('Symbol.') # Match Symbol. not Symbols:
 
 def is_location_line(line):
-    """Line is a symbol table symbol location line."""
+    """Line from symbol table defines a location of a symbol definition."""
 
     return line.startswith('Location')
 
 def is_pretty_name_line(line):
-    """Line is a symbol table symbol pretty name line."""
+    """Line from symbol table defines a simple symbol name (a pretty name)."""
 
     return line.startswith('Pretty name')
 
@@ -66,7 +66,7 @@ def parse_location(loc, wkdir):
     if not is_location_line(loc):
         return None, None
 
-    # Examples lof location lines
+    # Examples of location lines (may be no location for symbol)
     # Location....:
     # Location....: file file_name line line_number
 
@@ -87,7 +87,7 @@ def parse_pretty_name(sym):
     if not is_pretty_name_line(sym):
         return None
 
-    # Examples of pretty name lines
+    # Examples of pretty name lines (may be no pretty name for symbol)
     # Pretty name.:
     # Pretty name.: function_name
     # Pretty name.: function_name::1::1::variable_name
