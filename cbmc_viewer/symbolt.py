@@ -173,7 +173,7 @@ class SymbolFromCtags(Symbol):
     list of files.
     """
 
-    # Warning: ctags by default accepts only certain file extensions
+    # TODO: ctags by default accepts only certain file extensions
     # like .c and .h as source files.  Files with other extensions
     # like .inl are currently ignored, but consider using the ctags
     # options −−list−maps and −−langmap.
