@@ -193,9 +193,6 @@ class Coverage:
 def merge_coverage_data(coverage_list):
     """Merge sets of coverage data"""
 
-    if len(coverage_list) == 1:
-        return coverage_list[0]
-
     coverage = {}
     for coverage_data in coverage_list:
         if not coverage_data:
@@ -204,6 +201,15 @@ def merge_coverage_data(coverage_list):
 
         # file name -> function data
         for filename, function_data in coverage_data.items():
+
+            # The source locations produced by srcloct have paths
+            # relative to the source root for all files under the
+            # root, and have absolute paths for all other files.
+            if filename.startswith('/'):
+                logging.info("Restricting coverage to files under the source "
+                             "root: skipping %s", filename)
+                continue
+
             coverage[filename] = coverage.get(filename, {})
             # function -> line data
             for func, line_data in function_data.items():
