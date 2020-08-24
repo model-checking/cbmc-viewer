@@ -150,8 +150,11 @@ class Trace:
             logging.warning("Found duplicate traces for property %s", key)
 
         traces = util.merge_dicts(trace_lists, handle_duplicate)
-        return {name: close_function_stack_frames(trace)
-                for name, trace in traces.items()}
+        traces = {name: close_function_stack_frames(trace)
+                  for name, trace in traces.items()}
+        traces = {name: strip_external_srclocs(trace)
+                  for name, trace in traces.items()}
+        return traces
 
 ################################################################
 
@@ -619,6 +622,30 @@ def close_function_stack_frames(trace):
         }
         trace.append(function_return)
 
+    return trace
+
+################################################################
+
+def strip_external_srclocs(trace):
+    """Strip source locations pointing to code outside the source tree.
+
+    It is possible for a source location to point to code outside of
+    the source tree (like an inlined function definition in a system
+    header file).  This function replaces all such external source
+    locations in the trace with the special 'missing' source location.
+    """
+
+    for step in trace:
+
+        # The source locations produced by srcloct have paths
+        # relative to the source root for all files under the
+        # root, and have absolute paths for all other files.
+
+        if step['location']['file'].startswith('/'):
+            step['location'] = srcloct.MISSING_SRCLOC
+        if step['detail'].get('location'):
+            if step['detail']['location']['file'].startswith('/'):
+                step['detail']['location'] = srcloct.MISSING_SRCLOC
     return trace
 
 ################################################################

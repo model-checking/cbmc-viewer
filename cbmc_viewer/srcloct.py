@@ -104,12 +104,29 @@ VALID_SRCLOC = voluptuous.schema_builder.Schema(
     required=True
 )
 
+################################################################
+# A "missing source location" for use when the source location really
+# is missing from cbmc output, or when the source location might
+# otherwise point to code outside of the source tree (like an inlined
+# function definition in a system header file).
+
+MISSING = 'MISSING'
+MISSING_SRCLOC = {'file': MISSING, 'function': MISSING, 'line': 0}
+
+def is_missing(name):
+    """The name of a file or function is missing."""
+    return name == MISSING
+
+################################################################
+# Construct a viewer source location from cbmc source locations
+# appearing in cbmc output.
+
 def make_srcloc(path, func, line, wkdir, root):
     """Make a viewer source location from a CBMC source location."""
 
     if path is None or line is None:
         logging.info("Generating a viewer srcloc for a missing CBMC srcloc.")
-        return {'file': 'MISSING', 'function': 'MISSING', 'line': 0}
+        return MISSING_SRCLOC
 
     path = normpath(path)
     if is_builtin(path):
