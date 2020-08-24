@@ -6,40 +6,48 @@ collection of html pages.
 
 For more information, see cbmc-viewer
 
-* [cbmc-viewer](cbmc-viewer.md)
+* [cbmc-viewer](cbmc_viewer/doc/cbmc-viewer.md)
 
 and the supporting tools (command-line front-ends for python modules used
 to implement cbmc-viewer):
 
-* [make-coverage](make-coverage.md)
-* [make-loop](make-loop.md)
-* [make-property](make-property.md)
-* [make-reachable](make-reachable.md)
-* [make-result](make-result.md)
-* [make-source](make-source.md)
-* [make-symbol](make-symbol.md)
-* [make-trace](make-trace.md)
+* [make-coverage](cbmc_viewer/doc/make-coverage.md)
+* [make-loop](cbmc_viewer/doc/make-loop.md)
+* [make-property](cbmc_viewer/doc/make-property.md)
+* [make-reachable](cbmc_viewer/doc/make-reachable.md)
+* [make-result](cbmc_viewer/doc/make-result.md)
+* [make-source](cbmc_viewer/doc/make-source.md)
+* [make-symbol](cbmc_viewer/doc/make-symbol.md)
+* [make-trace](cbmc_viewer/doc/make-trace.md)
 
 For all commands, the --help option prints detailed documentation of the
 command line arguments.
 
 ## Installation
 
-This package requires python3:
+* Install python3:
+    * On MacOS: brew install python3
+    * On Ubuntu: sudo apt-get install python3
+    * On Windows: download an installer from [www.python.org/downloads](https://www.python.org/downloads/)
+* Install Exuberant Ctags:
+    * On MacOS: brew install ctags
+    * On Ubuntu: sudo apt-get install ctags
+    * On Windows: download a zip file from [ctags.sourceforge.net](http://ctags.sourceforge.net/)
+* Install cbmc-viewer as an ordinary Python pip package:
+    * sudo make install
 
-* On MacOS: brew install python3
-* On Ubuntu: sudo apt-get install python3
-* On Windows: download an installer from [www.python.org/downloads](https://www.python.org/downloads/)
+Developers of cbmc-viewer:
+This package can be installed in "development mode."
+In development mode, the scripts deployed by this package are available
+via PATH, but the modules themselves can be edited directly in-place in this
+repository.  Install with
 
-This package requires the jinja and voluptuous python packages:
+* sudo make develop
+* export PATH=$(pwd):$PATH
 
-* python3 -m pip install -r requirements.txt
+and uninstall with
 
-This package works best with Exuberant Ctags installed (which is different from Emacs ctags often installed as both ctags and etags):
-
-* On MacOS: brew install ctags
-* On Ubuntu: sudo apt-get install ctags
-* On Windows: download a zip file from [ctags.sourceforge.net](http://ctags.sourceforge.net/)
+* sudo make undevelop
 
 ## Security
 
