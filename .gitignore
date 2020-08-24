@@ -1,5 +1,8 @@
+__pycache__/
+build/
 cbmc-viewer
 cbmc_viewer.egg-info/
+dist/
 easy_install
 easy_install-*
 make-coverage
@@ -10,5 +13,3 @@ make-result
 make-source
 make-symbol
 make-trace
-build/
-dist/
