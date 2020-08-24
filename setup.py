@@ -15,14 +15,15 @@ setuptools.setup(
     description="A CBMC viewer",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/pypa/sampleproject",
+    url="https://github.com/awslabs/aws-viewer-for-cbmc",
     packages=setuptools.find_packages(),
+    license="Apache License 2.0",
     classifiers=[
         "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: Apache License",
+        "License :: OSI Approved :: Apache Software License",
         "Operating System :: OS Independent",
     ],
-    python_requires='>=3.6',
+    python_requires='>=3.5',
     install_requires=[
         "jinja2",
         "setuptools",
