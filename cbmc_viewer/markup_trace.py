@@ -66,7 +66,7 @@ class CodeSnippet:
         try:
             if path not in self.source:
                 with open(os.path.join(self.root, path)) as code:
-                    self.source[path] = html.escape(code.read()).splitlines()
+                    self.source[path] = code.read().splitlines()
         except FileNotFoundError:
             if srcloct.is_builtin(path): # <builtin-library-malloc>, etc.
                 return None
@@ -77,13 +77,13 @@ class CodeSnippet:
         # return the whole statement which may be broken over several lines
         snippet = ' '.join(self.source[path][line:line+5])
         snippet = re.sub(r'\s+', ' ', snippet).strip()
-        idx = snippet.find(';') # end of statement
+        idx = snippet.find(';')     # end of statement
         if idx >= 0:
-            return snippet[:idx+1]
-        idx = snippet.find('}') # end of block
+            return html.escape(snippet[:idx+1])
+        idx = snippet.find('}')     # end of block
         if idx >= 0:
-            return snippet[:idx+1]
-        return snippet          # statement extends over more that 5 lines
+            return html.escape(snippet[:idx+1])
+        return html.escape(snippet) # statement extends over more that 5 lines
 
 
     def lookup_srcloc(self, srcloc):
