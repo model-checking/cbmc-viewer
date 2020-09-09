@@ -48,7 +48,8 @@ setuptools.setup(
             "make-result = cbmc_viewer.make_result:main",
             "make-source = cbmc_viewer.make_source:main",
             "make-symbol = cbmc_viewer.make_symbol:main",
-            "make-trace = cbmc_viewer.make_trace:main"
+            "make-trace = cbmc_viewer.make_trace:main",
+            "make-array = cbmc_viewer.make_array:main"
         ]
     }
 )
