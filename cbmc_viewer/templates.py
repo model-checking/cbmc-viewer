@@ -14,6 +14,9 @@ SUMMARY_TEMPLATE = 'summary.jinja.html'
 CODE_TEMPLATE = 'code.jinja.html'
 TRACE_TEMPLATE = 'trace.jinja.html'
 
+# runtime analysis metrics
+ALIAS_SUMMARY_TEMPLATE = 'alias.jinja.html'
+
 ENV = None
 
 def env():
@@ -48,4 +51,12 @@ def render_trace(name, desc, srcloc, steps):
 
     return env().get_template(TRACE_TEMPLATE).render(
         prop_name=name, prop_desc=desc, prop_srcloc=srcloc, steps=steps
+    )
+
+def render_alias_summary(alias_summary):
+    """Render points-to set metrics as html."""
+
+    return env().get_template(ALIAS_SUMMARY_TEMPLATE).render(
+        summary=alias_summary.summary, max=alias_summary.max, 
+        total=alias_summary.total
     )
