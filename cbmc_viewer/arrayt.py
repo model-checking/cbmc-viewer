@@ -72,9 +72,15 @@ def get_array_constraint_metrics(json_file):
     json_data = parse.parse_json_file(json_file)
     for item in json_data:
         if JSON_ARRAY_CONSTRAINTS_KEY in item.keys():
-            array_constraints_item = item
-            summary.update(array_constraints_item)
-            break
+            if not summary:
+                summary.update(item)
+                continue
+
+            constraints = item[JSON_ARRAY_CONSTRAINTS_KEY]
+            for key in constraints:
+                summary['arrayConstraints'][key] = \
+                    summary['arrayConstraints'].setdefault(key, 0) + constraints[key]
+            summary['numOfConstraints'] += item['numOfConstraints']
 
     if not summary:
         summary = {
