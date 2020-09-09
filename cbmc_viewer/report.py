@@ -23,7 +23,7 @@ def progress_default(string):
     logging.info(string)
 
 def report(config, sources, symbols, results, coverage, traces, properties,
-           loops, report_dir='.', progress=progress_default):
+           loops, byteops, report_dir='.', progress=progress_default):
     """Assemble the full report for cbmc viewer."""
 
     # The report is assembled from many sources of data
@@ -60,3 +60,8 @@ def report(config, sources, symbols, results, coverage, traces, properties,
         markup_trace.Trace(name, trace, symbols, properties, loops, snippets).dump(
             outdir=trace_dir)
     progress("Annotating traces", True)
+
+    progress("Preparing byte op report")
+    byteops.dump(
+            outdir=report_dir)
+    progress("Preparing byte op report", True)

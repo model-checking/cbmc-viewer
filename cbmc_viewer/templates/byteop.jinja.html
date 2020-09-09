@@ -1,0 +1,109 @@
+{% import 'link.jinja.html' as link %}
+
+<html>
+  <head>
+    <title>CBMC</title>
+    <style type="text/css">
+      .byteop table td
+      {
+        padding-right: 1em; 
+      }
+
+      .byteop table th
+      {
+        padding-right: 1em;
+        text-align: left;
+        padding-bottom: 1em;
+      }
+      .ssaExtract
+      {
+        display: none;
+      }
+      .ssaUpdate
+      {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>CBMC ByteOp Metrics Report</h1>
+
+    <div class="byteop">
+      <h2>Byte Extracts</h2>
+      <p>
+        Number of byte extracts: {{byteops.numOfExtracts}}
+      </p>
+      {% if byteops.numOfExtracts > 0 %}
+      <table class="byteop">
+        <tr>
+          <th class="func">Function</th>
+          <th class="file">File</th>
+          <th class="line">Line</th>
+          <th class="ssa_expr"><button onclick="toggleSSA(0)" id="showExtractSSA">Show SSA Expr</button></th>
+        </tr>
+        {% for byte_extract in byteops.byteExtractList|sort(attribute="sourceLocation.function,sourceLocation.file") %}
+          {% set loc = byte_extract.sourceLocation %}
+          <tr>
+            <td class="func">{{link.to_line(loc.file, loc.line, loc.function)}}</td>
+            <td class="file">{{link.to_file(loc.file, loc.file)}}</td>
+            <td class="line">{{link.to_line(loc.file, loc.line, loc.line)}}</td>
+            <td class="ssaExtract">{{byte_extract.ssaExprString}}</td>
+          </tr>
+        {% endfor %}
+      </table>
+      {% endif %}
+    </div>
+
+    <div class="byteop">
+      <h2>Byte Updates</h2>
+      <p>
+        Number of byte updates: {{byteops.numOfUpdates}}
+      </p>
+      {% if byteops.numOfUpdates > 0 %}
+      <table class="byteop">
+        <tr>
+          <th class="func">Function</th>
+          <th class="file">File</th>
+          <th class="line">Line</th>
+          <th class="ssa_expr"><button onclick="toggleSSA(1)" id="showUpdateSSA">Show SSA Expr</button></th>
+        </tr>
+        {% for byte_update in byteops.byteUpdateList|sort(attribute="sourceLocation.function,sourceLocation.file") %}
+          {% set loc = byte_update.sourceLocation %}
+          <tr>
+            <td class="func">{{link.to_line(loc.file, loc.line, loc.function)}}</td>
+            <td class="file">{{link.to_file(loc.file, loc.file)}}</td>
+            <td class="line">{{link.to_line(loc.file, loc.line, loc.line)}}</td>
+            <td class="ssaUpdate">{{byte_update.ssaExprString}}</td>
+          </tr>
+        {% endfor %}
+      </table>
+      {% endif %}
+    </div>
+  </body>
+  <script type="text/javascript">
+    function toggleSSA(byteop){
+    if(byteop == 0)
+    {
+      var x = document.getElementsByClassName("ssaExtract");
+      var button = document.getElementById("showExtractSSA");
+    }
+    else
+    {
+      var x = document.getElementsByClassName("ssaUpdate");
+      var button = document.getElementById("showUpdateSSA");
+    }
+
+    for (elt of x){
+      if(elt.style.display == "none"){
+        elt.style.display = "block";
+        button.innerHTML = "Hide SSA Expr";
+      }
+      else {
+        elt.style.display = "none";
+        button.innerHTML = "Show SSA Expr";
+      }
+    }
+  }
+  </script>
+</html>

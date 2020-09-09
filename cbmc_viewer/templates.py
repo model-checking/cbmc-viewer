@@ -14,6 +14,9 @@ SUMMARY_TEMPLATE = 'summary.jinja.html'
 CODE_TEMPLATE = 'code.jinja.html'
 TRACE_TEMPLATE = 'trace.jinja.html'
 
+# runtime analysis metrics
+BYTEOP_SUMMARY_TEMPLATE = 'byteop.jinja.html'
+
 ENV = None
 
 def env():
@@ -48,4 +51,11 @@ def render_trace(name, desc, srcloc, steps):
 
     return env().get_template(TRACE_TEMPLATE).render(
         prop_name=name, prop_desc=desc, prop_srcloc=srcloc, steps=steps
+    )
+
+def render_byteop_summary(byteop_summary):
+    """Render byte op metrics as html."""
+
+    return env().get_template(BYTEOP_SUMMARY_TEMPLATE).render(
+        byteops=byteop_summary
     )
