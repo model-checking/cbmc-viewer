@@ -76,12 +76,6 @@ JSON_SOURCE_LOC_KEY = 'sourceLocation'
 ################################################################
 # Utility functions to generate byteop summary
 
-def extract_byte_op_data(json_data):
-    for item in json_data:
-        if JSON_BYTE_OP_KEY in item.keys():
-            return item[JSON_BYTE_OP_KEY]
-    return None
-
 def remove_ssa_expr(json_data):
     JSON_REMOVE_KEY = 'ssaExpr'
 
@@ -113,11 +107,14 @@ def get_byte_op_metrics(json_file, root):
             remove_ssa_expr(byteop)
             get_src_location(byteop, root)
 
-            summary['byteExtractList'] = byteop[JSON_EXTRACT_KEY][JSON_EXTRACT_LIST_KEY]
-            summary['numOfExtracts'] = byteop[JSON_EXTRACT_KEY][JSON_EXTRACT_COUNT_KEY]
-            summary['byteUpdateList'] = byteop[JSON_UPDATE_KEY][JSON_UPDATE_LIST_KEY]
-            summary['numOfUpdates'] = byteop[JSON_UPDATE_KEY][JSON_UPDATE_COUNT_KEY]
-            break
+            summary.setdefault('byteExtractList',[]).extend(
+                byteop[JSON_EXTRACT_KEY][JSON_EXTRACT_LIST_KEY])
+            summary['numOfExtracts'] = summary.setdefault('numOfExtracts',0) + \
+                byteop[JSON_EXTRACT_KEY][JSON_EXTRACT_COUNT_KEY]
+            summary.setdefault('byteUpdateList',[]).extend(
+                byteop[JSON_UPDATE_KEY][JSON_UPDATE_LIST_KEY])
+            summary['numOfUpdates'] = summary.setdefault('numOfUpdates',0) + \
+                byteop[JSON_UPDATE_KEY][JSON_UPDATE_COUNT_KEY]
 
     if not summary:
         summary = {
