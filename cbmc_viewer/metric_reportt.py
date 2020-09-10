@@ -345,7 +345,7 @@ def get_cbmc_runtime_stats(file):
             time, match = cbmc_runtime_pattern_match(key, line)
             if match:
                 runtime[key]['val'] += time
-                continue
+                break
 
     runtime_val = dict({key:runtime[key]['val'] for key in runtime.keys()})
 
