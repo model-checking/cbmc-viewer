@@ -1,0 +1,50 @@
+{% import 'link.jinja.html' as link %}
+
+<html>
+  <head>
+    <title>CBMC</title>
+    <style type="text/css">
+      .memop table td
+      {
+        padding-right: 1em;
+      }
+
+      .memop table th
+      {
+        padding-right: 1em;
+        text-align: left;
+        padding-bottom: 1em;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>CBMC Memory Operation Calls Report</h1>
+    <p>
+      Total number of memop calls: {{summary.count}}
+    </p>
+    {% if summary.count > 0 %}
+    <div class="memop">
+      <table class="memop">
+        <tr>
+          <th class="func">Function</th>
+          <th class="file">File</th>
+          <th class="line">Line</th>
+          <th class="funcCall">Function Call</th>
+        </tr>
+        
+        {% for item in summary.list | sort(attribute="sourceLoc.function") %}
+          {% set loc = item.sourceLoc %}
+          <tr>
+            <td class="func">{{link.to_line(loc.file, loc.line, loc.function)}}</td>
+            <td class="file">{{link.to_file(loc.file, loc.file)}}</td>
+            <td class="line">{{link.to_line(loc.file, loc.line, loc.line)}}</td>
+            <td class="funcCall">{{item.funcCall}}</td>
+          </tr>
+        {% endfor %} 
+        
+      </table>       
+    </div>
+    {% endif %}
+  </body>
+</html>

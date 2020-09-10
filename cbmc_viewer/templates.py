@@ -14,6 +14,9 @@ SUMMARY_TEMPLATE = 'summary.jinja.html'
 CODE_TEMPLATE = 'code.jinja.html'
 TRACE_TEMPLATE = 'trace.jinja.html'
 
+# runtime analysis metrics
+MEMOP_SUMMARY_TEMPLATE = 'memop.jinja.html'
+
 ENV = None
 
 def env():
@@ -48,4 +51,10 @@ def render_trace(name, desc, srcloc, steps):
 
     return env().get_template(TRACE_TEMPLATE).render(
         prop_name=name, prop_desc=desc, prop_srcloc=srcloc, steps=steps
+    )
+
+def render_memop_summary(memop_summary):
+
+    return env().get_template(MEMOP_SUMMARY_TEMPLATE).render(
+        summary=memop_summary
     )
