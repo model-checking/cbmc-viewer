@@ -220,13 +220,13 @@ def get_array_stats(file, outdir):
 def get_pattern(key):
     pattern_hash = {
         'programSteps': 'size of program expression: [0-9]+ steps',
-        'vccCount': 'Generated [0-9]+ VCC(s)',
+        'vccCount': 'VCC\(s\), [0-9]+ remaining',
         'varCount': '[0-9]+ variables',
         'clauseCount': '[0-9]+ clauses',
         'symex': 'Runtime Symex: [0-9.]+',
         'convertSSA': 'Runtime Convert SSA: [0-9.]+',
         'postProc': 'Runtime Post-process: [0-9.]+',
-        'solver': 'Runtime solver: [0-9.]+'
+        'solver': 'Runtime Solver: [0-9.]+'
     }
 
     return pattern_hash[key]
@@ -272,7 +272,7 @@ def get_cbmc_proof_stats(file):
         for key in cbmc.keys():
             count, match = cbmc_proof_stats_pattern_match(key, line)
             if match:
-                cbmc[key] = count
+                cbmc[key] += count
 
                 if key == 'varCount':
                     continue
@@ -344,7 +344,7 @@ def get_cbmc_runtime_stats(file):
         for key in runtime.keys():
             time, match = cbmc_runtime_pattern_match(key, line)
             if match:
-                runtime[key]['val'] = time
+                runtime[key]['val'] += time
                 continue
 
     runtime_val = dict({key:runtime[key]['val'] for key in runtime.keys()})
