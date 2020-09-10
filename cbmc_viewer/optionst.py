@@ -114,6 +114,22 @@ def property(parser):
     )
     return parser
 
+def memop(parser):
+    'Define --memop command line option.'
+
+    parser.add_argument(
+        '--memop',
+        metavar='FILE',
+        default='memop.json',
+        help="""
+        CBMC memory operation calls.
+        A json file containing the output of
+        'cbmc --show-goto-functions --json-ui'.
+        (Default: %(default)s)
+        """
+    )
+    return parser
+
 def exclude(parser):
     'Define --exclude command line option.'
 
