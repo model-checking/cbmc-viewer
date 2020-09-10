@@ -1,0 +1,106 @@
+
+<html>
+  <head>
+    <title>CBMC</title>
+    <style>
+      .metric table td
+      {
+        padding-right: 1em; 
+      }
+
+      .metric table td:not(.job):not(.maxKey)
+      {
+        text-align: right;
+      }
+
+      .metric table th
+      {
+        padding-right: 1em;
+        text-align: left;
+      }
+
+      td: not(.job)
+      {
+        text-align: right;
+      }
+      mark 
+      {
+        background-color: #AFF8DB;
+        color: black;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>CBMC Runtime Analysis Report</h1>
+
+    <div class="metric">
+      <table class="metric">
+        <tr>
+          <th class="job">Job Name</th>
+          <th class="numofExtracts">#Extracts</th>
+          <th class="numOfUpdates">#Updates</th>
+          <th class="aliasMax">Max size<br>(points-to-set)</th>
+          <th class="aliasTotal">Total size<br>(points-to-set)</th>
+          <th class="memOpCount">#MemOp</th>
+          <th class="arrayConstraintCount">#ArrayConstraints</th>
+          <th class="programSteps">Program Steps</th>
+          <th class="vccCount">#VCC</th>
+          <th class="varCount">#Variables</th>
+          <th class="clauseCount">#Clauses</th>
+          <th class="clauseCoreCount">#CoreClauses</th>
+          <th class="clauseCorePercent">%CoreClauses</th>
+          <th class="runtimeKissat">Kissat Runtime</th>
+          {% set metric = summary[0] %}
+            {% for key in metric.runtime.keys() %}
+              <th class={{key}}>{{metric.runtime[key].string}}</th>
+            {% endfor %}
+        </tr>
+
+        {% for metric in summary|sort(attribute="runtime.solver.val", reverse = True) %}
+        <tr>
+          <td class="job">{{metric.link}}{{metric.jobname}}</a></td>
+          {% set byteop = metric.byteop %}
+            <td class="numofExtracts">{{byteop.link}}{{byteop.numOfExtracts}}</td>
+            <td class="numOfUpdates">{{byteop.link}}{{byteop.numOfUpdates}}</td>
+
+          {% set alias = metric.alias %}
+            <td class="aliasMax">{{alias.link}}{{alias.max}}</td>
+            <td class="aliasTotal">{{alias.link}}{{alias.total}}</td>
+
+          {% set memop = metric.memop %}
+            <td class="memOpCount">{{memop.link}}{{memop.count}}</td>
+
+          {% set array = metric.array %}
+            <td class="arrayConstraintCount">{{array.link}}{{array.count}}</td>
+
+          {% set cbmc = metric.cbmc %}
+            <td class="programSteps">{{cbmc.programSteps}}</td>
+            <td class="vccCount">{{cbmc.vccCount}}</td>
+            <td class="varCount">{{cbmc.varCount}}</td>
+            <td class="clauseCount">{{cbmc.clauseCount}}</a></td>
+
+          {% set clause = metric.clause %}
+            <td class="clauseCoreCount">{{clause.link}}{{clause.clauseCoreCount}}</a></td>
+            {% if cbmc.clauseCount != 0 %}
+              <td class="clauseCorePercent">{{'%0.2f' % (clause.clauseCoreCount/cbmc.clauseCount * 100) | float }}%</a></td>
+            {% else %}
+              <td class="clauseCorePercent">-</a></td>
+            {% endif %}
+
+          <td class="runtimeKissat">{{metric.runtimeKissat}}</td>
+            
+          {% set runtime = metric.runtime %}
+            {% for key in runtime.keys() %}
+              {% if key != "maxKey" %}
+                <td class={{key}}>{{'%0.2f' % runtime[key].val | float}}</td>
+              {% else %}
+                <td class={{key}}>{{runtime[key].val}}</td>
+              {% endif %}
+            {% endfor %}
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </body>
+</html>
