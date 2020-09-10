@@ -92,13 +92,13 @@ VALID_SUMMARY = voluptuous.schema_builder.Schema({
 
 class RuntimeAnalysisSummary:
 
-    def __init__(self, proofs, srcdir, outdir=None):
+    def __init__(self, proofs, srcdir):
         self.summary = []
 
         for proof in proofs:
             jobname = proof
             proof_path = os.path.abspath(proof)
-            outdir = outdir or os.path.join(proof_path, 'html', 'html')
+            outdir = os.path.join(proof_path, 'html', 'html')
 
             byteop = os.path.join(proof_path, 'html', 'json', 'viewer-byteop.json')
             alias = os.path.join(proof_path, 'html', 'json', 'viewer-alias.json')
