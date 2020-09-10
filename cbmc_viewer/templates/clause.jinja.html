@@ -1,0 +1,114 @@
+{% import 'link.jinja.html' as link %}
+<html>
+  <head>
+    <title>CBMC</title>
+    <style>
+      .clause table td
+      {
+        padding-right: 1em;
+      }
+
+      .clause table th
+      {
+        padding-right: 1em;
+        text-align: left;
+      }
+
+      .notcoreclause table td
+      {
+        padding-right: 1em;
+      }
+
+      .notcoreclause table th
+      {
+        padding-right: 1em;
+        text-align: left;
+      }
+      
+      .ssaExprVal
+      {
+        padding-bottom: 1em;
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>CBMC Solver Query Complexity Report</h1>
+    <p> Clauses in core: {{core.numOfClauses}}</p>
+    <p> Instructions contributing to core: {{core.numOfInstr}}/{{core.totalInstr}}</p>
+    <h3> Lines of code not contributing to core:</h3>
+    <div class="notcoreclause">
+      <table class="notcoreclause">
+        <tr>
+          <th class="func">Function</th>
+          <th class="file">File</th>
+          <th class="line">Line</th>
+        </tr>
+
+          {% for loc in notcore|
+            sort(attribute="line", reverse=true)%}
+          <tr>
+            <td class="func">{{link.to_line(loc.file, loc.line, loc.function)}}</td>
+            <td class="file">{{link.to_file(loc.file, loc.file)}}</td>
+            <td class="line">{{link.to_line(loc.file, loc.line, loc.line)}}</td>
+          </tr>
+          {% endfor %}
+      </table>
+    </div>
+    <h3> Summary: </h3>
+    <div class="clause">
+      <table class="clause">
+        <tr>
+          <th class="func">Function</th>
+          <th class="file">File</th>
+          <th class="line">Line</th>
+          <th class="clauses">#Clauses</th>
+          <th class="literals">#Literals</th>
+          <th class="variables">#Variables</th>
+          <th class="ssaExpr"><button onclick="toggleSSA()" id="showSSA">Show SSA Expr</button></th>
+        </tr>
+
+          {% for clause in summary|
+            sort(attribute="SAT_hardness.Clauses,SAT_hardness.Literals,SAT_hardness.Variables", reverse = True)%}
+          {% set metric = clause.SAT_hardness %}
+          {% set loc = clause.Source %}
+          <tr>
+            <td class="func">{{link.to_line(loc.file, loc.line, loc.function)}}</td>
+            <td class="file">{{link.to_file(loc.file, loc.file)}}</td>
+            <td class="line">{{link.to_line(loc.file, loc.line, loc.line)}}</td>
+            {% if clause.GOTO_ID in core.instr %}
+              <td class="clauses"><mark>{{metric.Clauses}}</mark></td>
+            {% else %}
+              <td class="clauses">{{metric.Clauses}}</td>
+            {% endif %}
+            <td class="literals">{{metric.Literals}}</td>
+            <td class="variables">{{metric.Variables}}</td>
+            <td class="ssaExprVal">{{clause.SSA_expr}}</td>
+          </tr>
+          {% endfor %}
+      </table>
+    </div>
+  </body>
+  <script type="text/javascript">
+    function toggleSSA()
+    {
+      var x = document.getElementsByClassName("ssaExprVal");
+      var button = document.getElementById("showSSA");
+
+      for (elt of x)
+      {
+        if(elt.style.display == "none")
+        {
+          elt.style.display = "block";
+          button.innerHTML = "Hide SSA Expr";
+        }
+        else 
+        {
+          elt.style.display = "none";
+          button.innerHTML = "Show SSA Expr";
+        }
+      }
+    }
+  </script>
+</html>
