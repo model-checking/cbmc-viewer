@@ -35,7 +35,7 @@ VALID_PROPERTY_DEFINITION = voluptuous.schema_builder.Schema({
 VALID_PROPERTY = voluptuous.schema_builder.Schema({
     'properties': {
         # property name -> property definition
-        str: VALID_PROPERTY_DEFINITION
+        voluptuous.schema_builder.Optional(str): VALID_PROPERTY_DEFINITION
     }
 }, required=True)
 
