@@ -10,6 +10,7 @@
 
 import argparse
 import sys
+import os
 
 from cbmc_viewer import byteopt
 from cbmc_viewer import optionst
@@ -40,7 +41,12 @@ def main():
     try:
         byteop = byteopt.ByteOpSummary(args.byteop,
                                        args.srcdir)
-        byteop.dump(outdir=args.reportdir)
+
+        htmldir = os.path.join(args.reportdir, "html")
+        jsondir = os.path.join(args.reportdir, "json")
+
+        byteop.dump(filename='viewer-byteop', outdir=jsondir)
+        byteop.render_report(outdir=htmldir)
     except UserWarning as error:
         sys.exit(error)
 

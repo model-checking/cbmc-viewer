@@ -10,6 +10,7 @@ Inputs to the module is a json file obtained by running CBMC with the
 --show-byte-ops parse option, the project source and reporting directories.
 """
 import logging
+import json
 
 import voluptuous
 import voluptuous.humanize
@@ -19,6 +20,8 @@ from cbmc_viewer import parse
 from cbmc_viewer import srcloct
 from cbmc_viewer import templates
 from cbmc_viewer import util
+
+JSON_TAG = "viewer-byteop"
 
 ################################################################
 
@@ -42,12 +45,19 @@ class ByteOpSummary:
 
     def __init__(self, json_file, srcdir):
 
-        self.summary = do_make_byteop(json_file, srcdir)
+        self.summary = get_byte_op_metrics(json_file, srcdir)
         self.validate()
 
+    def __repr__(self):
+        """A dict representation of byte op summary."""
+
+        self.validate()
+        return self.__dict__
+
     def __str__(self):
-        """Render the byte op summary as html."""
-        return templates.render_byteop_summary(self.summary)
+        """A string representation of byte op summary."""
+
+        return json.dumps({JSON_TAG: self.__repr__()}, indent=2)
 
     def validate(self):
         """Validate members of a summary object."""
@@ -56,10 +66,16 @@ class ByteOpSummary:
             self.__dict__, VALID_BYTE_OP_SUMMARY
         )
 
-    def dump(self, filename=None, outdir='.'):
+    def dump(self, filename=None, outdir=None):
+        """Write byteop metrics to a file or stdout."""
+
+        util.dump(self, filename, outdir)
+
+    def render_report(self, filename=None, outdir=None):
         """Write the byte op summary to a file rendered as html."""
 
-        util.dump(self, filename or "byteop.html", outdir)
+        byteop_html = templates.render_byteop_summary(self.summary)
+        util.dump(byteop_html, filename or "byteop.html", outdir)
 
 ################################################################
 # Json key tags to access elements in cbmc json output
@@ -87,7 +103,7 @@ def remove_ssa_expr(json_data):
     for item in json_update_list:
         item.pop(JSON_REMOVE_KEY)
 
-def get_src_location(json_data, root):
+def update_src_location_format(json_data, root):
     json_extract_list = json_data.get(JSON_EXTRACT_KEY).get(JSON_EXTRACT_LIST_KEY)
     json_update_list = json_data.get(JSON_UPDATE_KEY).get(JSON_UPDATE_LIST_KEY)
 
@@ -98,31 +114,28 @@ def get_src_location(json_data, root):
         item[JSON_SOURCE_LOC_KEY] = srcloct.json_srcloc(item[JSON_SOURCE_LOC_KEY], root)
 
 def get_byte_op_metrics(json_file, root):
-    summary = {}
+    summary = {
+        'byteExtractList': [],
+        'numOfExtracts': 0,
+        'byteUpdateList': [],
+        'numOfUpdates': 0
+    }
 
     json_data = parse.parse_json_file(json_file)
     for item in json_data:
         if JSON_BYTE_OP_KEY in item.keys():
             byteop = item[JSON_BYTE_OP_KEY]
             remove_ssa_expr(byteop)
-            get_src_location(byteop, root)
+            update_src_location_format(byteop, root)
 
-            summary.setdefault('byteExtractList',[]).extend(
+            summary['byteExtractList'].extend(
                 byteop[JSON_EXTRACT_KEY][JSON_EXTRACT_LIST_KEY])
             summary['numOfExtracts'] = summary.setdefault('numOfExtracts',0) + \
                 byteop[JSON_EXTRACT_KEY][JSON_EXTRACT_COUNT_KEY]
-            summary.setdefault('byteUpdateList',[]).extend(
+            summary['byteUpdateList'].extend(
                 byteop[JSON_UPDATE_KEY][JSON_UPDATE_LIST_KEY])
             summary['numOfUpdates'] = summary.setdefault('numOfUpdates',0) + \
                 byteop[JSON_UPDATE_KEY][JSON_UPDATE_COUNT_KEY]
-
-    if not summary:
-        summary = {
-            'byteExtractList': [],
-            'numOfExtracts': 0,
-            'byteUpdateList': [],
-            'numOfUpdates': 0
-        }
 
     return summary
 
@@ -135,6 +148,6 @@ def fail(msg):
 def do_make_byteop(cbmc_byteop, srcdir):
     if srcdir and cbmc_byteop:
         if filet.is_json_file(cbmc_byteop):
-            return get_byte_op_metrics(cbmc_byteop, srcdir)
+            return ByteOpSummary(cbmc_byteop, srcdir)
         fail("Expected json file: {}"
             .format(cbmc_byteop))

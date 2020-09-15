@@ -120,12 +120,10 @@ def byteop(parser):
     parser.add_argument(
         '--byteop',
         metavar='FILE',
-        default='byteops.json',
         help="""
         CBMC byte extract and update metrics.
         A json file containing the output of
         'cbmc --show-byte-ops --json-ui'.
-        (Default: %(default)s)
         """
     )
     return parser

@@ -217,13 +217,13 @@ def viewer():
     progress("Preparing symbol table", True)
 
     progress("Scanning byteop data")
-    byteops = byteopt.ByteOpSummary(args.byteop,
+    byteop = byteopt.do_make_byteop(args.byteop,
                                      args.srcdir)
-    dump(json.dumps(byteops.summary, indent=2), 'viewer-byteop.json')
+    dump(byteop, 'viewer-byteop.json')
     progress("Scanning byteop data", True)
 
     config = configt.Config(args.config)
     report.report(config, sources, symbols, results, coverage, traces,
-                  properties, loops, byteops, htmldir, progress)
+                  properties, loops, byteop, htmldir, progress)
 
     global_progress("CBMC viewer", True)
