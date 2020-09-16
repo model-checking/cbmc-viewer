@@ -26,16 +26,14 @@ def create_parser():
 
     parser.add_argument(
         '--dimacs',
-        default='dimacs.cnf',
         help="""
         Dimacs CNF file.
         'cbmc --dimacs outfile dimacs.cnf'
-        """,
-        required=True)
+        """
+        )
 
     parser.add_argument(
         '--core',
-        default='core',
         help="""
         UNSAT core.
         Proof of unsatisfiability is got from
@@ -44,8 +42,8 @@ def create_parser():
         Drat-trim then extracts the UNSAT core
         'core' using the proof and cnf formula.
         'drat-trim dimacs.cnf proof -c core'
-        """,
-        required=True)
+        """
+        )
 
     optionst.log(parser)
 
