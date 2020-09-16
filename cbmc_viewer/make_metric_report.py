@@ -5,7 +5,7 @@
 
 # -*- mode: python-mode -*-
 
-"""List CBMC runtime analysis metrics."""
+"""Generate CBMC runtime analysis metrics report."""
 
 
 import argparse
@@ -18,7 +18,7 @@ def create_parser():
     """Command line parser."""
 
     parser = argparse.ArgumentParser(
-        description="List CBMC runtime analysis metrics."
+        description="Generate CBMC runtime analysis metrics report."
     )
 
     optionst.srcdir(parser)
@@ -40,7 +40,7 @@ def create_parser():
 ################################################################
 
 def main():
-    """List CBMC runtime analysis metrics."""
+    """Generate CBMC runtime analysis metrics report."""
 
     args = create_parser().parse_args()
     args = optionst.defaults(args)

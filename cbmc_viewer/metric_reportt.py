@@ -4,7 +4,7 @@
 """CBMC runtime analysis metric report.
 
 This module collects all metric data across multiple proofs and
-generates a single consolidated metric summary report./
+generates a single consolidated metric summary report.
 """
 
 import os
@@ -105,7 +105,7 @@ class RuntimeAnalysisSummary:
             memop = os.path.join(proof_path, 'html', 'json', 'viewer-memop.json')
             array = os.path.join(proof_path, 'html', 'json', 'viewer-array.json')
             result = os.path.join(proof_path, 'html', 'json', 'viewer-result.json')
-            clause = os.path.join(proof_path, 'html', 'json', 'viewer-core.json')
+            clause = os.path.join(proof_path, 'html', 'json', 'viewer-clause.json')
             kissat = os.path.join(proof_path, 'logs', 'kissat.txt')
             
             self.summary.append({
@@ -135,7 +135,7 @@ class RuntimeAnalysisSummary:
             self.__dict__, VALID_SUMMARY
         )
 
-    def dump(self, filename=None, outdir='.'):
+    def dump(self, filename=None, outdir=None):
         """Write the proof summary to a file rendered as html."""
 
         util.dump(self, filename or "runtime_analysis_report.html", outdir)
@@ -155,7 +155,11 @@ def fail(msg):
     logging.info(msg)
     raise UserWarning(msg)
 
+################################################################
+# Byte extract/update metric
+
 def get_byteop_stats(file, outdir):
+    JSON_TAG = 'viewer-byteop'
     byteop_link = get_link(outdir, 'byteop')
 
     if not filet.is_json_file(file):
@@ -163,15 +167,20 @@ def get_byteop_stats(file, outdir):
             .format(file))
 
     json_data = parse.parse_json_file(file)
+    metric = json_data[JSON_TAG]['summary']
     byteop = {
-        'numOfExtracts': json_data['numOfExtracts'],
-        'numOfUpdates': json_data['numOfUpdates'],
+        'numOfExtracts': metric['numOfExtracts'],
+        'numOfUpdates': metric['numOfUpdates'],
         'link': byteop_link
     }
 
     return byteop
 
+################################################################
+# Points-to set metric
+
 def get_alias_stats(file, outdir):
+    JSON_TAG = 'viewer-alias'
     alias_link = get_link(outdir, 'alias')
 
     if not filet.is_json_file(file):
@@ -179,15 +188,20 @@ def get_alias_stats(file, outdir):
             .format(file))
 
     json_data = parse.parse_json_file(file)
+    metric = json_data[JSON_TAG]
     alias = {
-        'max': json_data['max'],
-        'total': json_data['total'],
+        'max': metric['max'],
+        'total': metric['total'],
         'link': alias_link
     }
 
     return alias
 
+################################################################
+# Memory operation calls metric
+
 def get_memop_stats(file, outdir):
+    JSON_TAG = 'viewer-memop'
     memop_link = get_link(outdir, 'memop')
 
     if not filet.is_json_file(file):
@@ -195,14 +209,19 @@ def get_memop_stats(file, outdir):
             .format(file))
 
     json_data = parse.parse_json_file(file)
+    metric = json_data[JSON_TAG]['summary']
     memop = {
-        'count': json_data['count'],
+        'count': metric['count'],
         'link': memop_link
     }
 
     return memop
 
+################################################################
+# Array constraint metric
+
 def get_array_stats(file, outdir):
+    JSON_TAG = 'viewer-array'
     array_link = get_link(outdir, 'array')
 
     if not filet.is_json_file(file):
@@ -210,19 +229,45 @@ def get_array_stats(file, outdir):
             .format(file))
 
     json_data = parse.parse_json_file(file)
+    metric = json_data[JSON_TAG]['summary']
     array = {
-        'count': json_data['numOfConstraints'],
+        'count': metric['numOfConstraints'],
         'link': array_link
     }
 
     return array
 
+################################################################
+# Solver query complexity metric
+
+def get_clause_stats(file, outdir):
+    JSON_TAG = 'viewer-clause'
+    clause_link = get_link(outdir, 'clause')
+
+    if not filet.is_json_file(file):
+        fail("Expected json file: {}"
+            .format(file))
+
+    json_data = parse.parse_json_file(file)
+    metric = json_data[JSON_TAG]['core']
+    clause = {
+        'clauseCoreCount': metric['numOfClauses'],
+        'link': clause_link
+    }
+
+    return clause
+
+################################################################
+# CBMC proof and runtime metric
+
 def get_pattern(key):
     pattern_hash = {
+        # proof metrics
         'programSteps': 'size of program expression: [0-9]+ steps',
         'vccCount': 'VCC\(s\), [0-9]+ remaining',
         'varCount': '[0-9]+ variables',
         'clauseCount': '[0-9]+ clauses',
+        # runtime metrics
         'symex': 'Runtime Symex: [0-9.]+',
         'convertSSA': 'Runtime Convert SSA: [0-9.]+',
         'postProc': 'Runtime Post-process: [0-9.]+',
@@ -254,12 +299,13 @@ def cbmc_runtime_pattern_match(key, string):
     return None, False
 
 def get_cbmc_proof_stats(file):
+    JSON_TAG = 'viewer-result'
     if not filet.is_json_file(file):
         fail("Expected json file: {}"
             .format(file))
 
     json_data = parse.parse_json_file(file)
-    result = json_data['viewer-result']['status']
+    result = json_data[JSON_TAG]['status']
 
     cbmc = {
         'programSteps': 0,
@@ -281,45 +327,14 @@ def get_cbmc_proof_stats(file):
 
     return cbmc
 
-def get_clause_stats(file, outdir):
-    clause_link = get_link(outdir, 'clause')
-
-    if not filet.is_json_file(file):
-        fail("Expected json file: {}"
-            .format(file))
-
-    json_data = parse.parse_json_file(file)
-    clause = {
-        'clauseCoreCount': json_data['numOfClauses'],
-        'link': clause_link
-    }
-
-    return clause
-
-def get_kissat_runtime(file):
-
-    if not filet.is_text_file(file):
-        fail("Expected text file: {}"
-            .format(file))
-        
-    with open(file) as f:
-        for line in f.readlines():
-            pattern = re.search('c process-time:.*[0-9.]+ seconds',line)
-            if pattern:
-                time_pat = re.search('[0-9.]+ seconds', pattern.group(0))
-                time_pat = re.search('[0-9.]+', time_pat.group(0))
-                if time_pat:
-                    time = time_pat.group(0)
-                    return float(time)
-    return None
-
 def get_cbmc_runtime_stats(file):
+    JSON_TAG = 'viewer-result'
     if not filet.is_json_file(file):
         fail("Expected json file: {}"
             .format(file))
 
     json_data = parse.parse_json_file(file)
-    result = json_data['viewer-result']['status']
+    result = json_data[JSON_TAG]['status']
 
     runtime = {
         'symex': {
@@ -356,46 +371,22 @@ def get_cbmc_runtime_stats(file):
 
     return runtime
 
-def create_parser():
+################################################################
+# Kissat runtime
 
-    parser = argparse.ArgumentParser(
-        description='Report CBMC results.'
-    )
+def get_kissat_runtime(file):
 
-    parser.add_argument(
-        '--json_files',
-        default=[],
-        nargs='+',
-        help="""
-        Provide list of json files.
-        """,
-        required=True)
-
-    parser.add_argument(
-        '--srcdir',
-        help="""
-        Project root directory.
-        """,
-        required=True)
-
-    parser.add_argument(
-        '--outdir',
-        help="""
-        Project output directory.
-        """,
-        required=True)
-
-    return parser
-
-def main():
-
-    args = create_parser().parse_args()
-
-    json_files = args.json_files
-    srcdir = args.srcdir
-    outdir = args.outdir
-
-    RuntimeAnalysisSummary(json_files, srcdir).dump(outdir=outdir)
-
-if __name__ == '__main__':
-    main()
+    if not filet.is_text_file(file):
+        fail("Expected text file: {}"
+            .format(file))
+        
+    with open(file) as f:
+        for line in f.readlines():
+            pattern = re.search('c process-time:.*[0-9.]+ seconds',line)
+            if pattern:
+                time_pat = re.search('[0-9.]+ seconds', pattern.group(0))
+                time_pat = re.search('[0-9.]+', time_pat.group(0))
+                if time_pat:
+                    time = time_pat.group(0)
+                    return float(time)
+    return None
