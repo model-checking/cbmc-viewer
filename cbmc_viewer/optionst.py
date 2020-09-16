@@ -120,12 +120,10 @@ def array(parser):
     parser.add_argument(
         '--array',
         metavar='FILE',
-        default='array.json',
         help="""
         CBMC array constraints added during postprocessing.
         A json file containing the output of
         'cbmc --show-array-constraints'.
-        (Default: %(default)s)
         """
     )
     return parser

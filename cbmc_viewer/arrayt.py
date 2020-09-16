@@ -10,6 +10,7 @@ Inputs to the module is a json file obtained by running CBMC with the
 directory.
 """
 import logging
+import json
 
 import voluptuous
 import voluptuous.humanize
@@ -18,6 +19,8 @@ from cbmc_viewer import filet
 from cbmc_viewer import parse
 from cbmc_viewer import templates
 from cbmc_viewer import util
+
+JSON_TAG = "viewer-array"
 
 ################################################################
 
@@ -30,7 +33,7 @@ VALID_ARRAY_CONSTRAINTS = voluptuous.schema_builder.Schema({
     'numOfConstraints': int
     },required=True)
 
-VALID_SUMMARY = voluptuous.schema_builder.Schema({
+VALID_ARRAY_CONSTRAINT_SUMMARY = voluptuous.schema_builder.Schema({
     'summary': VALID_ARRAY_CONSTRAINTS
     },required=True)
 
@@ -39,35 +42,80 @@ VALID_SUMMARY = voluptuous.schema_builder.Schema({
 class ArrayConstraintSummary:
 
     def __init__(self, json_file):
-        self.summary = do_make_array_constraint(json_file)
+        self.summary = get_array_constraint_metrics(json_file)
         self.validate()
 
+    def __repr__(self):
+        """A dict representation of array constraint summary."""
+
+        self.validate()
+        return self.__dict__
+
     def __str__(self):
-        """Render the array constraint summary as html."""
-        return templates.render_array_constraint_summary(self.summary)
+        """A string representation of array constraint summary."""
+
+        return json.dumps({JSON_TAG: self.__repr__()}, indent=2)
 
     def validate(self):
         """Validate members of a summary object."""
 
         return voluptuous.humanize.validate_with_humanized_errors(
-            self.__dict__, VALID_SUMMARY
+            self.__dict__, VALID_ARRAY_CONSTRAINT_SUMMARY
         )
 
-    def dump(self, filename=None, outdir='.'):
+    def dump(self, filename=None, outdir=None):
+        """Write array constraint metrics to a file or stdout."""
+
+        util.dump(self, filename, outdir)
+
+    def render_report(self, filename=None, outdir=None):
         """Write the array constraint summary to a file rendered as html."""
 
-        util.dump(self, filename or "array.html", outdir)
+        array_html = templates.render_array_constraint_summary(self.summary)
+        util.dump(array_html, filename or "array.html", outdir)
 
 ################################################################
 # Json key tags to access elements in cbmc json output
 
 JSON_ARRAY_CONSTRAINTS_KEY = 'arrayConstraints'
 
+# Example cbmc json output
+# [
+#   {
+#     "program": "CBMC 5.13.0 (cbmc-5.13.1-44-g31340ca28-dirty)"
+#   },
+#   ...
+#   {
+#     "arrayConstraints": {
+#       "arrayAckermann": 5,
+#       "arrayEquality": 6,
+#       "arrayWith": 8
+#     },
+#     "numOfConstraints": 19
+#   },
+#   ...
+#   {
+#     "arrayConstraints": {
+#       "arrayAckermann": 5,
+#       "arrayEquality": 6,
+#       "arrayWith": 8
+#     },
+#     "numOfConstraints": 19
+#   },
+#   ...
+#   {
+#     "cProverStatus": "..."
+#   }
+# ]
+
 ################################################################
 # Utility functions to generate array constraint summary
 
 def get_array_constraint_metrics(json_file):
-    summary = {}
+    summary = {
+        'arrayConstraints': {},
+        'numOfConstraints': 0
+    }
 
     json_data = parse.parse_json_file(json_file)
     for item in json_data:
@@ -82,12 +130,6 @@ def get_array_constraint_metrics(json_file):
                     summary['arrayConstraints'].setdefault(key, 0) + constraints[key]
             summary['numOfConstraints'] += item['numOfConstraints']
 
-    if not summary:
-        summary = {
-            'arrayConstraints': {},
-            'numOfConstraints': 0
-        }
-
     return summary
 
 def fail(msg):
@@ -96,9 +138,9 @@ def fail(msg):
     logging.info(msg)
     raise UserWarning(msg)
 
-def do_make_array_constraint(cbmc_array_constraint):
+def do_make_array(cbmc_array_constraint):
     if cbmc_array_constraint:
         if filet.is_json_file(cbmc_array_constraint):
-            return get_array_constraint_metrics(cbmc_array_constraint)
+            return ArrayConstraintSummary(cbmc_array_constraint)
         fail("Expected json file: {}"
              .format(cbmc_array_constraint))

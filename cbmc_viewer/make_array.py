@@ -22,8 +22,6 @@ def create_parser():
     )
 
     optionst.array(parser)
-    optionst.reportdir(parser)
-
     optionst.log(parser)
 
     return parser
@@ -37,8 +35,8 @@ def main():
     args = optionst.defaults(args)
 
     try:
-        array = arrayt.ArrayConstraintSummary(args.array)
-        array.dump(outdir=args.reportdir)
+        array = arrayt.do_make_array(args.array)
+        print(array)
     except UserWarning as error:
         sys.exit(error)
 

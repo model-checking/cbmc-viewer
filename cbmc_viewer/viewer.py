@@ -216,10 +216,13 @@ def viewer():
     dump(symbols, 'viewer-symbol.json')
     progress("Preparing symbol table", True)
 
-    progress("Scanning array constraint data")
-    array = arrayt.ArrayConstraintSummary(args.array)
-    dump(json.dumps(array.summary, indent=2), 'viewer-array.json')
-    progress("Scanning array constraint data", True)
+    if args.array:
+        progress("Scanning array constraint data")
+        array = arrayt.do_make_array(args.array)
+        dump(array, 'viewer-array.json')
+        progress("Scanning array constraint data", True)
+    else:
+        array = None
 
     config = configt.Config(args.config)
     report.report(config, sources, symbols, results, coverage, traces,

@@ -23,7 +23,7 @@ def progress_default(string):
     logging.info(string)
 
 def report(config, sources, symbols, results, coverage, traces, properties,
-           loops, array, report_dir='.', progress=progress_default):
+           loops, array=None, report_dir='.', progress=progress_default):
     """Assemble the full report for cbmc viewer."""
 
     # The report is assembled from many sources of data
@@ -61,6 +61,7 @@ def report(config, sources, symbols, results, coverage, traces, properties,
             outdir=trace_dir)
     progress("Annotating traces", True)
 
-    progress("Preparing array constraint summary report")
-    array.dump(outdir=report_dir)
-    progress("Preparing array constraint summary report", True)
+    if array:
+        progress("Preparing array constraint summary report")
+        array.render_report(outdir=report_dir)
+        progress("Preparing array constraint summary report", True)
