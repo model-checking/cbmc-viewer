@@ -22,8 +22,6 @@ def create_parser():
     )
 
     optionst.alias(parser)
-    optionst.reportdir(parser)
-
     optionst.log(parser)
 
     return parser
@@ -37,8 +35,8 @@ def main():
     args = optionst.defaults(args)
 
     try:
-        alias = aliast.AliasSummary(args.alias)
-        alias.dump(outdir=args.reportdir)
+        alias = aliast.do_make_alias(args.alias)
+        print(alias)
     except UserWarning as error:
         sys.exit(error)
 

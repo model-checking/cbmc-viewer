@@ -216,13 +216,13 @@ def viewer():
     dump(symbols, 'viewer-symbol.json')
     progress("Preparing symbol table", True)
 
-    progress("Scanning points-to set data")
-    alias = aliast.AliasSummary(args.alias)
-    alias_obj = {'summary': alias.summary,
-                 'max': alias.max,
-                 'total': alias.total}
-    dump(json.dumps(alias_obj, indent=2), 'viewer-alias.json')
-    progress("Scanning points-to set data", True)
+    if args.alias:
+        progress("Scanning points-to set data")
+        alias = aliast.do_make_alias(args.alias)
+        dump(alias, 'viewer-alias.json')
+        progress("Scanning points-to set data", True)
+    else:
+        alias = None
 
     config = configt.Config(args.config)
     report.report(config, sources, symbols, results, coverage, traces,

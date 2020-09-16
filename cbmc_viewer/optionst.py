@@ -120,12 +120,10 @@ def alias(parser):
     parser.add_argument(
         '--alias',
         metavar='FILE',
-        default='alias.json',
         help="""
         CBMC points-to set metrics.
         A json file containing the output of
         'cbmc --show-points-to-sets --json-ui'.
-        (Default: %(default)s)
         """
     )
     return parser
