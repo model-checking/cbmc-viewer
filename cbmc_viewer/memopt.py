@@ -12,6 +12,7 @@ directories.
 """
 
 import logging
+import json
 
 import voluptuous
 import voluptuous.humanize
@@ -22,6 +23,8 @@ from cbmc_viewer import srcloct
 from cbmc_viewer import templates
 from cbmc_viewer import util
 
+JSON_TAG = "viewer-memop"
+
 ################################################################
 
 VALID_MEMOP = voluptuous.schema_builder.Schema({
@@ -29,7 +32,7 @@ VALID_MEMOP = voluptuous.schema_builder.Schema({
     'sourceLoc': srcloct.VALID_SRCLOC
     },required=True)
 
-VALID_SUMMARY = voluptuous.schema_builder.Schema({
+VALID_MEMOP_SUMMARY = voluptuous.schema_builder.Schema({
     'summary': {
         'list': [VALID_MEMOP],
         'count': int}
@@ -40,25 +43,37 @@ VALID_SUMMARY = voluptuous.schema_builder.Schema({
 class MemOpSummary:
 
     def __init__(self, json_file, srcdir):
-        self.summary = do_make_memop(json_file, srcdir)
+        self.summary = get_memop_metrics(json_file, srcdir)
         self.validate()
 
+    def __repr__(self):
+        """A dict representation of memop summary."""
+
+        self.validate()
+        return self.__dict__
 
     def __str__(self):
-        """Render the memory op call summary as html."""
-        return templates.render_memop_summary(self.summary)
+        """A string representation of memop summary."""
+
+        return json.dumps({JSON_TAG: self.__repr__()}, indent=2)
 
     def validate(self):
         """Validate members of a summary object."""
 
         return voluptuous.humanize.validate_with_humanized_errors(
-            self.__dict__, VALID_SUMMARY
+            self.__dict__, VALID_MEMOP_SUMMARY
         )
 
-    def dump(self, filename=None, outdir='.'):
-        """Write the memory op call summary to a file rendered as html."""
+    def dump(self, filename=None, outdir=None):
+        """Write memop metrics to a file or stdout."""
 
-        util.dump(self, filename or "memop.html", outdir)
+        util.dump(self, filename, outdir)
+
+    def render_report(self, filename=None, outdir=None):
+        """Write the memop summary to a file rendered as html."""
+
+        memop_html = templates.render_memop_summary(self.summary)
+        util.dump(memop_html, filename or "memop.html", outdir)
 
 ################################################################
 # Json key tags to access elements in cbmc json output
@@ -79,15 +94,53 @@ JSON_IDENTIFIER_KEY = 'identifier'
 # List of memory operations
 list_mem_func = ["memcmp","memcpy","memmove","memset","memccpy","memchr"]
 
+# Example cbmc json output
+# [
+#   {
+#     "program": "CBMC 5.13.0 ..."
+#   },
+#   ...
+#   {
+#     "functions": [
+#       {
+#         "instructions": [
+#           {
+#             "guard": {
+#               "id": "nil"
+#             },
+#             "instruction": "... struct.c line 23...\n...memcmp...\n",
+#             "instructionId": "FUNCTION_CALL",
+#             "operands": [
+#               ...
+#               {
+#                 "id": "symbol",
+#                 "namedSub": {
+#                   "identifier": {
+#                     "id": "memcmp"
+#                   },
+#                   ...
+#                 }
+#               },
+#               ...
+#             ],
+#             "sourceLocation": {
+#               "file": "struct.c",
+#               "function": "main",
+#               "line": "23",
+#               "workingDirectory": "..."
+#             }
+#           },
+#           ...
+#         ],
+#         "isBodyAvailable": true,
+#         ...
+#       }
+#     ]
+#   }
+# ]
+
 ################################################################
 # Utility functions to generate memory op call summary
-
-def get_src_location(json_data, root):
-    root = srcloct.abspath(root)
-    json_data['sourceLoc'] = \
-        srcloct.json_srcloc(json_data['sourceLocation'], root)
-
-    return json_data
 
 def is_memop_call(operands):
     for item in operands:
@@ -99,6 +152,7 @@ def is_memop_call(operands):
     return False
 
 def get_func_call(instr):
+    # instr is of the form "... struct.c line 23...\n...memcmp...\n"
     # str_list[0] is location, str_list[1] is the call
     str_list = instr.split('\n')
     func_call = str_list[1].strip()
@@ -145,6 +199,6 @@ def fail(msg):
 def do_make_memop(cbmc_memop, srcdir):
     if srcdir and cbmc_memop:
         if filet.is_json_file(cbmc_memop):
-            return get_memop_metrics(cbmc_memop, srcdir)
+            return MemOpSummary(cbmc_memop, srcdir)
         fail("Expected json file: {}"
              .format(cbmc_memop))

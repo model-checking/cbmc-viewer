@@ -216,11 +216,14 @@ def viewer():
     dump(symbols, 'viewer-symbol.json')
     progress("Preparing symbol table", True)
 
-    progress("Scanning memory operation call data")
-    memop = memopt.MemOpSummary(args.memop,
+    if args.memop:
+        progress("Scanning memory operation call data")
+        memop = memopt.do_make_memop(args.memop,
                                     args.srcdir)
-    dump(json.dumps(memop.summary, indent=2), 'viewer-memop.json')
-    progress("Scanning memory operation call data", True)
+        dump(memop, 'viewer-memop.json')
+        progress("Scanning memory operation call data", True)
+    else:
+        memop = None
 
     config = configt.Config(args.config)
     report.report(config, sources, symbols, results, coverage, traces,

@@ -120,12 +120,10 @@ def memop(parser):
     parser.add_argument(
         '--memop',
         metavar='FILE',
-        default='memop.json',
         help="""
         CBMC memory operation calls.
         A json file containing the output of
         'cbmc --show-goto-functions --json-ui'.
-        (Default: %(default)s)
         """
     )
     return parser

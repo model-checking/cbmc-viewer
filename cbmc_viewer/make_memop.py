@@ -23,7 +23,6 @@ def create_parser():
 
     optionst.memop(parser)
     optionst.srcdir(parser)
-    optionst.reportdir(parser)
 
     optionst.log(parser)
 
@@ -38,9 +37,9 @@ def main():
     args = optionst.defaults(args)
 
     try:
-        memop = memopt.MemOpSummary(args.memop,
+        memop = memopt.do_make_memop(args.memop,
                                     args.srcdir)
-        memop.dump(outdir=args.reportdir)
+        print(memop)
     except UserWarning as error:
         sys.exit(error)
 
