@@ -23,7 +23,6 @@ def create_parser():
 
     optionst.clause(parser)
     optionst.srcdir(parser)
-    optionst.reportdir(parser)
 
     parser.add_argument(
         '--dimacs',
@@ -61,11 +60,11 @@ def main():
     args = optionst.defaults(args)
 
     try:
-        clause = clauset.ClauseSummary(args.clause,
-                                       args.srcdir,
-                                       args.dimacs,
-                                       args.core)
-        clause.dump(outdir=args.reportdir)
+        clause = clauset.do_make_clause(args.clause,
+                                        args.srcdir,
+                                        args.dimacs,
+                                        args.core)
+        print(clause)
     except UserWarning as error:
         sys.exit(error)
 

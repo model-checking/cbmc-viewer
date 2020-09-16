@@ -16,6 +16,7 @@ directories.
 """
 
 import logging
+import json
 
 import voluptuous
 import voluptuous.humanize
@@ -25,6 +26,8 @@ from cbmc_viewer import parse
 from cbmc_viewer import srcloct
 from cbmc_viewer import templates
 from cbmc_viewer import util
+
+JSON_TAG = "viewer-clause"
 
 ################################################################
 
@@ -41,7 +44,7 @@ VALID_CLAUSE = voluptuous.schema_builder.Schema({
     'Source': srcloct.VALID_SRCLOC
     },required=True)
 
-VALID_SUMMARY = voluptuous.schema_builder.Schema({
+VALID_CLAUSE_SUMMARY = voluptuous.schema_builder.Schema({
     'summary': [VALID_CLAUSE],
     'core': {
         'instr': [int],
@@ -60,27 +63,41 @@ class ClauseSummary:
         core = core or json_file.replace("clause.json", "core")
         dimacs = dimacs or json_file.replace("clause.json", "dimacs.cnf")
 
-        self.summary, clause_hash = do_make_clause(json_file, srcdir, dimacs)
+        self.summary, clause_hash = get_clause_metrics(json_file, srcdir, dimacs)
         self.core = get_instr_in_core(core, clause_hash, len(self.summary))
         self.instrNotInCore = get_loc_not_in_core(self.summary, self.core['instr'])
         self.validate()
 
+    def __repr__(self):
+        """A dict representation of clause summary."""
+
+        self.validate()
+        return self.__dict__
 
     def __str__(self):
-        """Render the clause summary as html."""
-        return templates.render_clause_summary(self.summary, self.core, self.instrNotInCore)
+        """A string representation of clause summary."""
+
+        return json.dumps({JSON_TAG: self.__repr__()}, indent=2)
 
     def validate(self):
         """Validate members of a summary object."""
 
         return voluptuous.humanize.validate_with_humanized_errors(
-            self.__dict__, VALID_SUMMARY
+            self.__dict__, VALID_CLAUSE_SUMMARY
         )
 
-    def dump(self, filename=None, outdir='.'):
+    def dump(self, filename=None, outdir=None):
+        """Write byteop metrics to a file or stdout."""
+
+        util.dump(self, filename, outdir)
+
+    def render_report(self, filename=None, outdir=None):
         """Write the clause summary to a file rendered as html."""
 
-        util.dump(self, filename or "clause.html", outdir)
+        clause_html = templates.render_clause_summary(self.summary,
+                                                      self.core,
+                                                      self.instrNotInCore)
+        util.dump(clause_html, filename or "clause.html", outdir)
 
 ################################################################
 # Json key tags to access elements in cbmc json output
@@ -91,10 +108,45 @@ JSON_SAT_HARDNESS_KEY = 'SAT_hardness'
 JSON_CLAUSES_KEY = 'Clauses'
 JSON_CLAUSE_SET_KEY = 'ClauseSet'
 
+# Example cbmc json output
+# [
+#   {
+#     "GOTO": "// Labels: __CPROVER_HIDE__CPROVER_initialize();",
+#     "GOTO_ID": 0,
+#     "SAT_hardness": {
+#       "ClauseSet": [ ],
+#       "Clauses": 0,
+#       "Literals": 0,
+#       "Variables": 0
+#     },
+#     "SSA_expr": "true",
+#     "Source": {}
+#   },
+#   ...
+#   {
+#     "GOTO": "ASSERT main::1::a[cast(1, signedbv[64])] < 10",
+#     "GOTO_ID": 95,
+#     "SAT_hardness": {
+#       "ClauseSet": [ 6, 7, 8 ... ],
+#       "Clauses": 134,
+#       "Literals": 459,
+#       "Variables": 67
+#     },
+#     "SSA_expr": "¬(main::1::a!0@1#3[1] ≥ 10)",
+#     "Source": {
+#       "file": "simple_main.c",
+#       "function": "main",
+#       "line": "21",
+#       "workingDirectory": "..."
+#     }
+#   }
+# ]
+
 ################################################################
 # Utility functions to generate clause summary
 
 def hash(clause):
+    # returns string format of clause to be used as hash key
     clause_hash_key = ''
     for lit in clause:
         clause_hash_key += str(lit) + ' '
@@ -153,12 +205,10 @@ def get_instr_in_core(core_file, clause_hash, instr_length):
 
     return core_instr
 
-def get_src_location(json_data, root):
+def update_src_location_format(json_data, root):
     root = srcloct.abspath(root)
     json_data[JSON_SOURCE_LOC_KEY] = \
         srcloct.json_srcloc(json_data[JSON_SOURCE_LOC_KEY], root)
-
-    return json_data
 
 def get_clause_set(json_data, clause_hash, dimacs_clause_list):
     clause_count = json_data[JSON_SAT_HARDNESS_KEY][JSON_CLAUSES_KEY]
@@ -195,7 +245,7 @@ def get_clause_metrics(json_file, root, dimacs_file):
 
     clauses = parse.parse_json_file(json_file)
     for clause in clauses:
-        clause = get_src_location(clause, root)
+        update_src_location_format(clause, root)
         clause = get_clause_set(clause, clause_hash, dimacs_clause_list)
 
     return clauses, clause_hash
@@ -206,9 +256,9 @@ def fail(msg):
     logging.info(msg)
     raise UserWarning(msg)
 
-def do_make_clause(cbmc_clause, srcdir, dimacs_file):
+def do_make_clause(cbmc_clause, srcdir, dimacs_file=None, core_file=None):
     if srcdir and cbmc_clause:
         if filet.is_json_file(cbmc_clause):
-            return get_clause_metrics(cbmc_clause, srcdir, dimacs_file)
+            return ClauseSummary(cbmc_clause, srcdir, dimacs_file, core_file)
         fail("Expected json file: {}"
              .format(cbmc_clause))

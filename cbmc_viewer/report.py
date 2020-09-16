@@ -23,7 +23,7 @@ def progress_default(string):
     logging.info(string)
 
 def report(config, sources, symbols, results, coverage, traces, properties,
-           loops, clause, report_dir='.', progress=progress_default):
+           loops, clause=None, report_dir='.', progress=progress_default):
     """Assemble the full report for cbmc viewer."""
 
     # The report is assembled from many sources of data
@@ -61,7 +61,7 @@ def report(config, sources, symbols, results, coverage, traces, properties,
             outdir=trace_dir)
     progress("Annotating traces", True)
 
-    progress("Preparing solver query complexity report")
-    clause.dump(
-            outdir=report_dir)
-    progress("Preparing solver query complexity report", True)
+    if clause:
+        progress("Preparing solver query complexity report")
+        clause.render_report(outdir=report_dir)
+        progress("Preparing solver query complexity report", True)

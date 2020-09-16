@@ -216,12 +216,14 @@ def viewer():
     dump(symbols, 'viewer-symbol.json')
     progress("Preparing symbol table", True)
 
-    progress("Scanning solver query complexity data")
-    clause = clauset.ClauseSummary(args.clause,
-                                   args.srcdir)
-    dump(json.dumps(clause.summary, indent=2), 'viewer-clauses.json')
-    dump(json.dumps(clause.core, indent=2), 'viewer-core.json')
-    progress("Scanning solver query complexity data", True)
+    if args.clause:
+        progress("Scanning solver query complexity data")
+        clause = clauset.do_make_clause(args.clause,
+                                        args.srcdir)
+        dump(clause, 'viewer-clause.json')
+        progress("Scanning solver query complexity data", True)
+    else:
+        clause = None
 
     config = configt.Config(args.config)
     report.report(config, sources, symbols, results, coverage, traces,

@@ -120,12 +120,10 @@ def clause(parser):
     parser.add_argument(
         '--clause',
         metavar='FILE',
-        default='clause.json',
         help="""
         CBMC solver query complexity stats.
         A json file containing the output of
         'cbmc --write-solver-stats-to clause.json'.
-        (Default: %(default)s)
         """
     )
     return parser
