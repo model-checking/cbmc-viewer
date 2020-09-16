@@ -4,13 +4,14 @@
 """CBMC points-to set metric.
 
 This module displays the size and contents of the points-to sets for
-pointer dereferencing in CBMC. The module also calculates and displays
-the number of dereferences of a pointer.
+pointer dereferencing in CBMC (pointer aliasing metric). The module 
+also calculates and displays the number of dereferences of a pointer.
 Inputs to the module is a json file obtained by running CBMC with the
 --show-points-to-sets parse option and the project reporting directory.
 """
 
 import logging
+import json
 
 import voluptuous
 import voluptuous.humanize
@@ -20,6 +21,8 @@ from cbmc_viewer import parse
 from cbmc_viewer import srcloct
 from cbmc_viewer import templates
 from cbmc_viewer import util
+
+JSON_TAG = "viewer-alias"
 
 ################################################################
 
@@ -33,10 +36,10 @@ VALID_ALIAS_ITEM = voluptuous.schema_builder.Schema({
     },required=True)
 
 VALID_ALIAS = voluptuous.schema_builder.Schema({
-    str : VALID_ALIAS_ITEM # str here stores the pointer variable
+    str : VALID_ALIAS_ITEM # str here stores the pointer variable name
     })
 
-VALID_SUMMARY = voluptuous.schema_builder.Schema({
+VALID_ALIAS_SUMMARY = voluptuous.schema_builder.Schema({
     'summary': VALID_ALIAS,
     'max': int,
     'total': int
@@ -47,25 +50,38 @@ VALID_SUMMARY = voluptuous.schema_builder.Schema({
 class AliasSummary:
 
     def __init__(self, json_file):
-        self.summary = do_make_alias(json_file)
+        self.summary = get_alias_metrics(json_file)
         self.max, self.total = get_max_total(self.summary)
         self.validate()
 
+    def __repr__(self):
+        """A dict representation of alias summary."""
+
+        self.validate()
+        return self.__dict__
+
     def __str__(self):
-        """Render the points-to set summary as html."""
-        return templates.render_alias_summary(self)
+        """A string representation of alias summary."""
+
+        return json.dumps({JSON_TAG: self.__repr__()}, indent=2)
 
     def validate(self):
         """Validate members of a summary object."""
 
         return voluptuous.humanize.validate_with_humanized_errors(
-            self.__dict__, VALID_SUMMARY
+            self.__dict__, VALID_ALIAS_SUMMARY
         )
 
-    def dump(self, filename=None, outdir='.'):
-        """Write the points-to set summary to a file rendered as html."""
+    def dump(self, filename=None, outdir=None):
+        """Write the alias summary to a file or stdout."""
 
-        util.dump(self, filename or "alias.html", outdir)
+        util.dump(self, filename, outdir)
+
+    def render_report(self, filename=None, outdir=None):
+        """Write the alias summary to a file rendered as html."""
+
+        alias_html = templates.render_alias_summary(self)
+        util.dump(alias_html, filename or "alias.html", outdir)
 
 ################################################################
 # Json key tags to access elements in cbmc json output
@@ -73,8 +89,36 @@ class AliasSummary:
 JSON_POINTS_TO_SET_SIZE_KEY = 'PointsToSetSize'
 JSON_POINTER_KEY = 'Pointer'
 
+# Example cbmc json output
+# [
+#   {
+#     "program": "CBMC 5.13.0 (cbmc-5.13.1-44-g31340ca28)"
+#   },
+#   ...
+#   {
+#     "Pointer": "main::1::foo_p!0@1",
+#     "PointsToSet": [ ],
+#     "PointsToSetSize": 0,
+#     "RetainedValuesSet": [ ],
+#     "RetainedValuesSetSize": 0,
+#     "Value": "main::1::foo_p$object"
+#   },
+#   {
+#     "Pointer": "main::1::foo_p$object..next",
+#     "PointsToSet": [ "unknown" ],
+#     "PointsToSetSize": 1,
+#     "RetainedValuesSet": [ "unknown" ],
+#     "RetainedValuesSetSize": 1,
+#     "Value": "symex::invalid_object"
+#   },
+#   ...
+#   {
+#     "cProverStatus": "..."
+#   }
+# ]
+
 ################################################################
-# Utility functions to generate byteop summary
+# Utility functions to generate alias summary
 
 def get_max_total(alias_summary):
     max_val = 0
@@ -82,7 +126,8 @@ def get_max_total(alias_summary):
     for alias_item in alias_summary.items():
         if int(alias_item[1][JSON_POINTS_TO_SET_SIZE_KEY]) > max_val:
             max_val = int(alias_item[1][JSON_POINTS_TO_SET_SIZE_KEY])
-        total += int(alias_item[1][JSON_POINTS_TO_SET_SIZE_KEY]) * alias_item[1]['numOfDeref']
+        total += int(alias_item[1][JSON_POINTS_TO_SET_SIZE_KEY]) * \
+            alias_item[1]['numOfDeref']
 
     return max_val, total
 
@@ -99,7 +144,8 @@ def get_alias_item(json_item):
 def is_equal(summary, item):
     for key in item.keys():
         if key in summary.keys():
-            is_equal_return = all([item[key][k] == summary[key][k] for k in item[key].keys() if k not in ['numOfDeref']])
+            is_equal_return = all([item[key][k] == summary[key][k] \
+                for k in item[key].keys() if k not in ['numOfDeref']])
             if(is_equal_return):
                 summary[key]['numOfDeref'] += 1
             return is_equal_return
@@ -131,6 +177,6 @@ def fail(msg):
 def do_make_alias(cbmc_alias):
     if cbmc_alias:
         if filet.is_json_file(cbmc_alias):
-            return get_alias_metrics(cbmc_alias)
+            return AliasSummary(cbmc_alias)
         fail("Expected json file: {}"
              .format(cbmc_alias))
