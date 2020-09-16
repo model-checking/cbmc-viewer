@@ -10,7 +10,6 @@
 
 import argparse
 import sys
-import os
 
 from cbmc_viewer import byteopt
 from cbmc_viewer import optionst
