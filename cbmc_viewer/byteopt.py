@@ -89,6 +89,66 @@ JSON_UPDATE_COUNT_KEY = 'numOfUpdates'
 JSON_BYTE_OP_KEY = 'byteOpsStats'
 JSON_SOURCE_LOC_KEY = 'sourceLocation'
 
+# Example cbmc json output
+# [
+#   {
+#     "program": "CBMC 5.13.0 (cbmc-5.13.1-44-g31340ca28)"
+#   },
+#   ...
+#   {
+#     "byteOpsStats": {
+#       "byteExtractStats": {
+#         "byteExtractList": [ ],
+#         "numOfExtracts": 0
+#       },
+#       "byteUpdateStats": {
+#         "byteUpdateList": [ ],
+#         "numOfUpdates": 0
+#       }
+#     }
+#   },
+#   ...
+#   {
+#     "byteOpsStats": {
+#       "byteExtractStats": {
+#         "byteExtractList": [
+#           {
+#             "sourceLocation": {
+#               "file": "byte_extract_code.c",
+#               "function": "main",
+#               "line": "12",
+#               "workingDirectory": "..."
+#             },
+#             "ssaExpr": {...},
+#             "ssaExprString": "... byte_update_little_endian ..."
+#           }
+#         ],
+#         "numOfExtracts": 1
+#       },
+#       "byteUpdateStats": {
+#         "byteUpdateList": [
+#           {
+#             "sourceLocation": {
+#               "file": "byte_extract_code.c",
+#               "function": "main",
+#               "line": "12",
+#               "workingDirectory": "..."
+#             },
+#             "ssaExpr": {...},
+#             "ssaExprString": "... byte_update_little_endian ..."
+#           }
+#         ],
+#         "numOfUpdates": 1
+#       }
+#     }
+#   },
+#   ...
+#   {
+#     "messageText": "...",
+#     "messageType": "STATUS-MESSAGE"
+#   }
+# ]
+
 ################################################################
 # Utility functions to generate byteop summary
 
@@ -130,11 +190,11 @@ def get_byte_op_metrics(json_file, root):
 
             summary['byteExtractList'].extend(
                 byteop[JSON_EXTRACT_KEY][JSON_EXTRACT_LIST_KEY])
-            summary['numOfExtracts'] = summary.setdefault('numOfExtracts',0) + \
+            summary['numOfExtracts'] += \
                 byteop[JSON_EXTRACT_KEY][JSON_EXTRACT_COUNT_KEY]
             summary['byteUpdateList'].extend(
                 byteop[JSON_UPDATE_KEY][JSON_UPDATE_LIST_KEY])
-            summary['numOfUpdates'] = summary.setdefault('numOfUpdates',0) + \
+            summary['numOfUpdates'] += \
                 byteop[JSON_UPDATE_KEY][JSON_UPDATE_COUNT_KEY]
 
     return summary

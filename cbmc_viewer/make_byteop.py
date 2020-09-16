@@ -24,7 +24,6 @@ def create_parser():
 
     optionst.byteop(parser)
     optionst.srcdir(parser)
-    optionst.reportdir(parser)
 
     optionst.log(parser)
 
@@ -39,14 +38,9 @@ def main():
     args = optionst.defaults(args)
 
     try:
-        byteop = byteopt.ByteOpSummary(args.byteop,
+        byteop = byteopt.do_make_byteop(args.byteop,
                                        args.srcdir)
-
-        htmldir = os.path.join(args.reportdir, "html")
-        jsondir = os.path.join(args.reportdir, "json")
-
-        byteop.dump(filename='viewer-byteop', outdir=jsondir)
-        byteop.render_report(outdir=htmldir)
+        print(byteop)
     except UserWarning as error:
         sys.exit(error)
 

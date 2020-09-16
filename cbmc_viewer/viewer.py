@@ -216,11 +216,14 @@ def viewer():
     dump(symbols, 'viewer-symbol.json')
     progress("Preparing symbol table", True)
 
-    progress("Scanning byteop data")
-    byteop = byteopt.do_make_byteop(args.byteop,
+    if args.byteop:
+        progress("Scanning byteop data")
+        byteop = byteopt.do_make_byteop(args.byteop,
                                      args.srcdir)
-    dump(byteop, 'viewer-byteop.json')
-    progress("Scanning byteop data", True)
+        dump(byteop, 'viewer-byteop.json')
+        progress("Scanning byteop data", True)
+    else:
+        byteop = None
 
     config = configt.Config(args.config)
     report.report(config, sources, symbols, results, coverage, traces,
