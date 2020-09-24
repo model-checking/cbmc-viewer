@@ -127,7 +127,7 @@ def get_array_constraint_metrics(json_file):
             constraints = item[JSON_ARRAY_CONSTRAINTS_KEY]
             for key in constraints:
                 summary['arrayConstraints'][key] = \
-                    summary['arrayConstraints'].setdefault(key, 0) + constraints[key]
+                    summary['arrayConstraints'].get(key, 0) + constraints[key]
             summary['numOfConstraints'] += item['numOfConstraints']
 
     return summary
