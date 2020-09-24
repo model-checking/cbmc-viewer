@@ -41,8 +41,8 @@ VALID_ALIAS = voluptuous.schema_builder.Schema({
 
 VALID_ALIAS_SUMMARY = voluptuous.schema_builder.Schema({
     'summary': VALID_ALIAS,
-    'max': int,
-    'total': int
+    'max': int, # max points-to set size
+    'total': int # total = sum(points_to_set_size * num_of_deref)
     },required=True)
 
 ################################################################
@@ -123,11 +123,11 @@ JSON_POINTER_KEY = 'Pointer'
 def get_max_total(alias_summary):
     max_val = 0
     total = 0
-    for alias_item in alias_summary.items():
-        if int(alias_item[1][JSON_POINTS_TO_SET_SIZE_KEY]) > max_val:
-            max_val = int(alias_item[1][JSON_POINTS_TO_SET_SIZE_KEY])
-        total += int(alias_item[1][JSON_POINTS_TO_SET_SIZE_KEY]) * \
-            alias_item[1]['numOfDeref']
+    for pointer, data in alias_summary.items():
+        if int(data[JSON_POINTS_TO_SET_SIZE_KEY]) > max_val:
+            max_val = int(data[JSON_POINTS_TO_SET_SIZE_KEY])
+        total += int(data[JSON_POINTS_TO_SET_SIZE_KEY]) * \
+            data['numOfDeref']
 
     return max_val, total
 
@@ -136,15 +136,12 @@ def get_alias_item(json_item):
     json_item.pop(JSON_POINTER_KEY)
     json_item.update({"numOfDeref": 1})
 
-    alias_item = {}
-    alias_item[pointer] = json_item
-
-    return alias_item
+    return {pointer: json_item}
 
 def is_equal(summary, item):
     for key in item.keys():
         if key in summary.keys():
-            is_equal_return = all([item[key][k] == summary[key][k] \
+            is_equal_return = all([item[key][k] == summary[key][k]
                 for k in item[key].keys() if k not in ['numOfDeref']])
             if(is_equal_return):
                 summary[key]['numOfDeref'] += 1
