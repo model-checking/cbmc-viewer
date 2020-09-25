@@ -147,7 +147,7 @@ def is_memop_call(operands):
         if item[JSON_ID_KEY] == "symbol":
             func_name = \
                 item[JSON_NAMED_SUB_KEY][JSON_IDENTIFIER_KEY][JSON_ID_KEY]
-            return any([True for func in list_mem_func if func in func_name])
+            return any([func in func_name for func in list_mem_func])
 
     return False
 
@@ -165,6 +165,7 @@ def get_memop_metrics(json_file, srcdir):
     }
 
     json_data = parse.parse_json_file(json_file)
+    functions = []
     for item in json_data:
         if JSON_FUNCTIONS_KEY in item.keys():
             functions = item[JSON_FUNCTIONS_KEY]
