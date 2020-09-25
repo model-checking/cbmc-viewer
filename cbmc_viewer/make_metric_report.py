@@ -21,17 +21,9 @@ def create_parser():
         description="Generate CBMC runtime analysis metrics report."
     )
 
+    optionst.proof(parser)
     optionst.srcdir(parser)
     optionst.reportdir(parser)
-
-    parser.add_argument(
-        '--proof', '-p',
-        default=[],
-        nargs='+',
-        help="""
-        Provide list of proofs.
-        """,
-        required=True)
 
     optionst.log(parser)
 

@@ -114,6 +114,19 @@ def property(parser):
     )
     return parser
 
+def proof(parser):
+    'Define --proof command line option.'
+
+    parser.add_argument(
+        '--proof', '-p',
+        default=[],
+        nargs='+',
+        help="""
+        Provide list of proofs.
+        """
+    )
+    return parser
+
 def exclude(parser):
     'Define --exclude command line option.'
 
