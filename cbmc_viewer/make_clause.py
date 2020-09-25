@@ -22,28 +22,9 @@ def create_parser():
     )
 
     optionst.clause(parser)
+    optionst.dimacs(parser)
+    optionst.core(parser)
     optionst.srcdir(parser)
-
-    parser.add_argument(
-        '--dimacs',
-        help="""
-        Dimacs CNF file.
-        'cbmc --dimacs outfile dimacs.cnf'
-        """
-        )
-
-    parser.add_argument(
-        '--core',
-        help="""
-        UNSAT core.
-        Proof of unsatisfiability is got from
-        kissat and stored into 'proof'.
-        'kissat dimacs.cnf proof'
-        Drat-trim then extracts the UNSAT core
-        'core' using the proof and cnf formula.
-        'drat-trim dimacs.cnf proof -c core'
-        """
-        )
 
     optionst.log(parser)
 

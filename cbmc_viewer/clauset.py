@@ -32,9 +32,9 @@ JSON_TAG = "viewer-clause"
 ################################################################
 
 VALID_CLAUSE = voluptuous.schema_builder.Schema({
-    'GOTO': str,
-    'GOTO_ID': int,
-    'SAT_hardness': {
+    'GOTO': str, # string storing the goto instruction
+    'GOTO_ID': int, # goto instrucion ID as assigned by CBMC for the above instruction
+    'SAT_hardness': { # stores solver complexity stats for this instruction
         'ClauseSet': [[int]],
         'Clauses': int,
         'Literals': int,
@@ -45,14 +45,14 @@ VALID_CLAUSE = voluptuous.schema_builder.Schema({
     },required=True)
 
 VALID_CLAUSE_SUMMARY = voluptuous.schema_builder.Schema({
-    'summary': [VALID_CLAUSE],
+    'summary': [VALID_CLAUSE], # list of instructions with the corresponding solver query stats
     'core': {
-        'instr': [int],
-        'numOfInstr': int,
-        'totalInstr': int,
-        'numOfClauses': int
+        'instr': [int], # list of goto ID of instructions that contribute to core
+        'numOfInstr': int, # num of instr that contribute to core
+        'totalInstr': int, # total num of instructions in summary
+        'numOfClauses': int # num of clauses in core
     },
-    'instrNotInCore':[srcloct.VALID_SRCLOC],
+    'instrNotInCore':[srcloct.VALID_SRCLOC], # lines of code that don't have any instructions contributing to the core
     },required=True)
 
 ################################################################
@@ -147,11 +147,7 @@ JSON_CLAUSE_SET_KEY = 'ClauseSet'
 
 def hash(clause):
     # returns string format of clause to be used as hash key
-    clause_hash_key = ''
-    for lit in clause:
-        clause_hash_key += str(lit) + ' '
-
-    return clause_hash_key
+    return ' '.join([str(lit) for lit in clause])
 
 def get_loc_not_in_core(summary, core_instr):
     instrNotInCore = []
@@ -168,9 +164,12 @@ def get_loc_not_in_core(summary, core_instr):
 
     return instrNotInCore
 
+# core_file: file storing the UNSAT core
+# clause_hash: mapping between clauses and goto intruction ID
+# instr_length: total number of instructions in the CBMC json output
 def get_instr_in_core(core_file, clause_hash, instr_length):
-    core_clauses = []
-    instr_list = []
+    core_clauses = [] # clauses in core; clause is a list of literals
+    instr_list = [] # list of goto ID of instructions in core
     keys = clause_hash.keys()
 
     try:

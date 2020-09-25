@@ -128,6 +128,35 @@ def clause(parser):
     )
     return parser
 
+def dimacs(parser):
+    'Define --dimacs command line option.'
+
+    parser.add_argument(
+        '--dimacs',
+        help="""
+        Dimacs CNF file.
+        'cbmc --dimacs outfile dimacs.cnf'
+        """
+    )
+    return parser
+
+def core(parser):
+    'Define --core command line option.'
+
+    parser.add_argument(
+        '--core',
+        help="""
+        UNSAT core.
+        Proof of unsatisfiability is got from
+        kissat and stored into 'proof'.
+        'kissat dimacs.cnf proof'
+        Drat-trim then extracts the UNSAT core
+        'core' using the proof and cnf formula.
+        'drat-trim dimacs.cnf proof -c core'
+        """
+    )
+    return parser
+
 def exclude(parser):
     'Define --exclude command line option.'
 
