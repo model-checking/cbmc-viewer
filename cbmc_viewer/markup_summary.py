@@ -148,9 +148,17 @@ def function_coverage(coverage, symbols):
 def warnings(results):
     """Proof warnings."""
 
-    prefix = "**** WARNING:"
-    length = len(prefix)
-    return [warning[length:].strip() for warning in results.warning]
+    prefixes = ["**** WARNING:", "warning:"]
+
+    def strip_prefixes(string, prefixes):
+        """Strip warning prefixes from a warning string."""
+
+        for prefix in prefixes:
+            if string.startswith(prefix):
+                return string[len(prefix):].strip()
+        return string
+
+    return [strip_prefixes(warning, prefixes) for warning in results.warning]
 
 def missing_functions(messages):
     """Names of missing functions."""
