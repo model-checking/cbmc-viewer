@@ -345,6 +345,12 @@ def parse_xml_step(step, root=None):
               parse_xml_location_only if kind == 'location-only' else None)
 
     if parser is None:
+        # skip uninteresting kinds of steps
+        if kind in ['loop-head']:
+            logging.debug('Skipping step type: %s', kind)
+            return None
+
+        # warn about skipping a potentially interesting kind of step
         logging.warning('Skipping step type: %s', kind)
         return None
 
