@@ -21,8 +21,15 @@ def symbol_table(goto):
     #   Pretty name.: simple_symbol_name
     #   Location....: file file_name line line_number
 
+    # Code with definitions like
+    #   static const char *UTF_16_BE_BOM = "\xFE\xFF";
+    # will produce values in the symbol table that cannot be read as
+    # strings of UTF-8 characters.  We read the symbol table using the
+    # latin1 encoding in place of the Python default UTF-8 encoding,
+    # since latin1 agrees with UTF-8 on the ASCII characters.
+
     cmd = ['cbmc', '--show-symbol-table', goto]
-    definitions = re.split(r'[\n\r][\n\r]+', runt.run(cmd))
+    definitions = re.split(r'[\n\r][\n\r]+', runt.run(cmd, encoding='latin1'))
     return [definition.strip().splitlines() for definition in definitions]
 
 def is_symbol_line(line):
