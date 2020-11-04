@@ -171,7 +171,8 @@ class Coverage:
                 return {key: serialize(val) for key, val in data.items()}
             return data
 
-        return json.dumps({JSON_TAG: serialize(self.__repr__())}, indent=2)
+        return json.dumps({JSON_TAG: serialize(self.__repr__())}, indent=2,
+                          sort_keys=True)
 
     def validate(self):
         """Validate coverage."""
