@@ -48,8 +48,9 @@ def key(name):
         dot = name.rindex('.')
         return (name[:dot].lower(), int(name[dot+1:]))
     except ValueError:
-        logging.info("Property name missing a separating period: %s", name)
-        return None
+        logging.warning("Property name not of the form STRING.INTEGER: %s",
+                        name)
+        return (name, 0)
 
 ################################################################
 
