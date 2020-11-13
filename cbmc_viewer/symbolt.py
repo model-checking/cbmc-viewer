@@ -34,7 +34,7 @@ class Tags(enum.Enum):
 VALID_SYMBOL = voluptuous.schema_builder.Schema({
     'symbols': {
         # symbol name -> symbol srcloc
-        str : srcloct.VALID_SRCLOC
+        voluptuous.schema_builder.Optional(str) : srcloct.VALID_SRCLOC
     }
 }, required=True)
 
