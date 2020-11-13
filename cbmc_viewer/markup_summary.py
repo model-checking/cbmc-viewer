@@ -134,7 +134,7 @@ def function_coverage(coverage, symbols):
             'total': func_cov['total'],
             'file_name': file_name,
             'func_name': func_name,
-            'line_num': symbols.lookup(func_name)["line"]
+            'line_num': symbols.lookup(func_name).get("line") if symbols.lookup(func_name) else 0
         }
         for file_name, file_data in coverage.function_coverage.items()
         for func_name, func_cov in file_data.items()
@@ -206,7 +206,7 @@ def property_definition(prop_name, properties, symbols):
         'prop_name': prop_name,
         'prop_desc': prop_def['description'],
         'file_name': srcloc['file'],
-        'func_name': srcloc['function'],
+        'func_name': srcloc['function'] or '',
         'line_num': srcloc['line'],
         'func_line':
             # Symbol table won't contain functions modeled by CBMC (eg, strcmp)
