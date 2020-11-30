@@ -19,8 +19,8 @@ jobs:
       - name: Set the package version
         run: |
           # The environment variable GITHUB_REF is refs/tags/viewer-*
-          echo "::set-env name=TAG::${GITHUB_REF:10}"
-          echo "::set-env name=VERSION::${GITHUB_REF:17}"
+          echo "TAG=${GITHUB_REF:10}" >> $GITHUB_ENV
+          echo "VERSION=${GITHUB_REF:17}" >> $GITHUB_ENV
           printenv | sort
           cat ${GITHUB_EVENT_PATH}
 
@@ -42,7 +42,7 @@ jobs:
 
           # Record the package name
           # The source *.zip and binary *.whl packages are in dist
-          echo "::set-env name=PACKAGE::$(ls dist/*.whl)"
+          echo "PACKAGE=$(ls dist/*.whl)" >> $GITHUB_ENV
 
       - name: Create the release
         env:
