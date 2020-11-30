@@ -147,20 +147,22 @@ def text_srcloc(cbmc_srcloc, wkdir=None, root=None):
 
     # Source locations appear in many forms in text output
 
+    # Source location in a step
     match = re.search('file (.+) function (.+) line ([0-9]+)', cbmc_srcloc)
     if match:
         path, func, line = match.groups()[:3]
         return make_srcloc(path, func, line, wkdir, root)
 
+    # Source location in an assumption
     match = re.search('file (.+) line ([0-9]+) function (.+)', cbmc_srcloc)
     if match:
         path, line, func = match.groups()[:3]
         return make_srcloc(path, func, line, wkdir, root)
 
-    # Some models of intrinsic functions omit file and line
-    match = re.search('function (.+)', cbmc_srcloc)
+    # Source location in an intrinsic step may omit file and line
+    match = re.search('function (.+) thread', cbmc_srcloc)
     if match:
-        path, func, line = '<intrinsic>', match.groups(0), 0
+        path, func, line = '<intrinsic>', match.group(1), 0
         return make_srcloc(path, func, line, wkdir, root)
 
     logging.info("Source location missing in text output: %s", cbmc_srcloc)
