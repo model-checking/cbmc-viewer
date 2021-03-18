@@ -26,6 +26,7 @@ VALID_FUNCTION_CALL = voluptuous.schema_builder.Schema({
     'hidden': bool,
     'detail' : {
         'name': str,
+        'name-path': voluptuous.validators.Any(str, None),
         'location': srcloct.VALID_SRCLOC # function being called
     }
 }, required=True)
@@ -36,6 +37,7 @@ VALID_FUNCTION_RETURN = voluptuous.schema_builder.Schema({
     'hidden': bool,
     'detail' : {
         'name': str,
+        'name-path': voluptuous.validators.Any(str, None),
         'location': srcloct.VALID_SRCLOC # function being returned to
     }
 }, required=True)
@@ -46,6 +48,7 @@ VALID_VARIABLE_ASSIGNMENT = voluptuous.schema_builder.Schema({
     'hidden': bool,
     'detail': {
         'lhs': str,
+        'lhs-lexical-scope': voluptuous.validators.Any(str, None),
         'rhs-value': str,
         'rhs-binary': voluptuous.validators.Any(str, None)
     }
@@ -57,6 +60,7 @@ VALID_PARAMETER_ASSIGNMENT = voluptuous.schema_builder.Schema({
     'hidden': bool,
     'detail': {
         'lhs': str,
+        'lhs-lexical-scope': voluptuous.validators.Any(str, None),
         'rhs-value': str,
         'rhs-binary': voluptuous.validators.Any(str, None)
     }
@@ -248,6 +252,7 @@ def parse_text_state(block, root=None, wkdir=None):
         'hidden': False,
         'detail': {
             'lhs': lhs,
+            'lhs-lexical-scope': None,
             'rhs-value': rhs_value,
             'rhs-binary': rhs_binary
         }
@@ -389,6 +394,7 @@ def parse_xml_assignment(step, root=None):
         ),
         'detail': {
             'lhs': step.find('full_lhs').text,
+            'lhs-lexical-scope': step.get('identifier'),
             'rhs-value': step.find('full_lhs_value').text,
             'rhs-binary': None
         }
@@ -404,6 +410,7 @@ def parse_xml_function_call(step, root=None):
         ),
         'detail': {
             'name': step.find('function').get('display_name'),
+            'name-path': step.find('function').get('identifier'),
             'location': srcloct.xml_srcloc(
                 step.find('function').find('location'), root
             )
@@ -420,6 +427,7 @@ def parse_xml_function_return(step, root=None):
         ),
         'detail': {
             'name': step.find('function').get('display_name'),
+            'name-path': step.find('function').get('identifier'),
             'location': srcloct.xml_srcloc(
                 step.find('function').find('location'), root
             )
@@ -519,6 +527,7 @@ def parse_json_assignment(step, root=None):
         ),
         'detail': {
             'lhs': step['lhs'],
+            'lhs-lexical-scope': None,
             'rhs-value': data or json.dumps(step['value']),
             'rhs-binary': binary_as_bytes(step['value'].get('binary'))
         }
@@ -534,6 +543,7 @@ def parse_json_function_call(step, root=None):
         ),
         'detail': {
             'name': step['function']['displayName'],
+            'name-path': None,
             'location': srcloct.json_srcloc(
                 step['function']['sourceLocation'], root
             )
@@ -550,6 +560,7 @@ def parse_json_function_return(step, root=None):
         ),
         'detail': {
             'name': step['function']['displayName'],
+            'name-path': None,
             'location': srcloct.json_srcloc(
                 step['function']['sourceLocation'], root
             )
@@ -601,26 +612,28 @@ def close_function_stack_frames(trace):
         kind = step['kind']
         location = step['location']
         callee_name = step.get('detail', {}).get('name')
+        callee_name_path = step.get('detail', {}).get('name-path')
         callee_location = step.get('detail', {}).get('location')
 
         if kind == 'function-call':
-            stack = push_stack(stack, (callee_name, callee_location))
+            stack = push_stack(stack, (callee_name, callee_name_path, callee_location))
             continue
 
         if kind == 'function-return':
             pair, stack = pop_stack(stack)
-            callee_name_, _ = pair
+            callee_name_, _, _ = pair
             if callee_name != callee_name_:
                 raise UserWarning('Function call-return mismatch: {} {}'
                                   .format(callee_name, callee_name_))
             continue
 
     stack.reverse()
-    for callee_name, callee_location in stack:
+    for callee_name, callee_name_path, callee_location in stack:
         function_return = {
             "detail": {
                 "location": callee_location,
-                "name": callee_name
+                "name": callee_name,
+                "name-path": callee_name_path
             },
             "kind": "function-return",
             "location": location,
