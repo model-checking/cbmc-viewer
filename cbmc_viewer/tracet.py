@@ -337,9 +337,18 @@ def parse_xml_trace(steps, root=None):
 def parse_xml_step(step, root=None):
     """Parse a step in an xml trace."""
 
-    if step.get('hidden') == 'true':
-        # Skip hidden steps, but retain function call/return pairs
-        if step.tag not in ['function_call', 'function_return']:
+    if step.get('hidden') == 'true': # Skip most hidden steps, but...
+
+        # ...don't skip a function call or return
+        function_call_step = step.tag in ['function_call', 'function_return']
+
+        # ...don't skip static initialization (do skip internal assignments)
+        visible_assignment_step = (
+            step.tag == 'assignment' and
+            not step.find('full_lhs').text.startswith('__CPROVER') and
+            not step.find('full_lhs').text.startswith('return_value_')
+        )
+        if not function_call_step and not visible_assignment_step:
             return None
 
     kind = step.tag
