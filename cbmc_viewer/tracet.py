@@ -361,7 +361,7 @@ def parse_xml_step(step, root=None):
 
     parsed_step = parser(step, root)
     if parsed_step:
-        parsed_step['hidden'] = bool(step.get('hidden'))
+        parsed_step['hidden'] = step.get('hidden') == 'true'
     return parsed_step
 
 def parse_xml_failure(step, root=None):
