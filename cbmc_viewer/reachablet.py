@@ -130,10 +130,16 @@ def parse_cbmc_json(json_data, root):
     reachable = {}
     for function in json_data:
         func_name = function['function']
-        file_name = srcloct.abspath(function['file'])
-
         if func_name.startswith('__CPROVER'):
             continue
+
+        file_name = function.get('file')
+        if file_name is None:
+            logging.error('Skipping reachable function with invalid source location: %s',
+                          function)
+            continue
+
+        file_name = srcloct.abspath(file_name)
         if srcloct.is_builtin(file_name):
             continue
         if not file_name.startswith(root):
