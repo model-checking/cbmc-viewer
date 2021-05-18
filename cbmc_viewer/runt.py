@@ -34,7 +34,7 @@ def run(cmd, cwd=None, ignored=None, encoding=None):
     if sys.version_info >= (3, 6):
         kwds['encoding'] = encoding
 
-    logging.debug('run: cmd: %s', cmd)
+    logging.debug('run: cmd: %s', ' '.join(cmd))
     logging.debug('run: kwds: %s', kwds)
 
     result = subprocess.run(cmd, **kwds, check=False)
