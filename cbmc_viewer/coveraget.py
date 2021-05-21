@@ -21,6 +21,7 @@ from cbmc_viewer import filet
 from cbmc_viewer import parse
 from cbmc_viewer import srcloct
 from cbmc_viewer import util
+from cbmc_viewer import reachablet
 
 JSON_TAG = 'viewer-coverage'
 
@@ -142,12 +143,18 @@ VALID_COVERAGE = voluptuous.schema_builder.Schema(
 class Coverage:
     """CBMC coverage checking results"""
 
-    def __init__(self, coverage_list):
+    def __init__(self, coverage_list, viewer_reachable=None):
         """Load CBMC coverage data."""
 
         # TODO: distinguish between coverage of source code and proof code
 
-        self.coverage = merge_coverage_data(coverage_list)
+        coverage = merge_coverage_data(coverage_list)
+
+        reachable = None
+        if viewer_reachable:
+            reachable = reachablet.ReachableFromJson(viewer_reachable).reachable
+
+        self.coverage = filter_reachable_functions(coverage, reachable)
         self.line_coverage = extract_line_coverage(self.coverage)
         self.function_coverage = extract_function_coverage(self.coverage)
         self.overall_coverage = extract_overall_coverage(self.function_coverage)
@@ -227,6 +234,46 @@ def merge_coverage_data(coverage_list):
         raise UserWarning("Error merging coverage data: {}".format(error)) from error
     return coverage
 
+def filter_reachable_functions(coverage, reachable_functions=None):
+    """Restrict coverage data to coverage for reachable functions"""
+
+    if not reachable_functions:
+        return coverage
+
+    def valid_coverage_data(coverage, reachable):
+        valid = True
+        for file_name, file_coverage in coverage.items():
+            for func_name, func_coverage in file_coverage.items():
+                if func_name in reachable.get(file_name, {}):
+                    if not func_coverage:
+                        logging.warning("Reachable function %s has no coverage data", func_name)
+                        valid = False
+                else:
+                    lines = [int(line) for line, status in func_coverage.items()
+                             if status is not Status.MISSED]
+                    if lines:
+                        logging.warning(
+                            "Unreachable function %s has reachable lines %s",
+                            func_name, ', '.join([str(line) for line in sorted(lines)])
+                        )
+                        valid = False
+        return valid
+
+    if not valid_coverage_data(coverage, reachable_functions):
+        logging.warning("Coverage calculations may not be accurate")
+
+    reachable = {
+        file_name: {
+            func_name: func_coverage
+            for func_name, func_coverage in file_coverage.items()
+            if func_name in reachable_functions.get(file_name, []) and func_coverage
+        }
+        for file_name, file_coverage in coverage.items()
+    }
+
+    return {
+        file_name: file_coverage for file_name, file_coverage in reachable.items() if file_coverage
+    }
 
 # line_coverage: file name -> line number -> status
 def extract_line_coverage(coverage):
@@ -293,9 +340,10 @@ class CoverageFromJson(Coverage):
     # pylint: disable=too-few-public-methods
     """CBMC coverage results from make-coverage"""
 
-    def __init__(self, json_files):
+    def __init__(self, json_files, viewer_reachable=None):
         super().__init__(
-            [load_json(json_file) for json_file in json_files]
+            [load_json(json_file) for json_file in json_files],
+            viewer_reachable
         )
 
 def load_json(json_file):
@@ -341,10 +389,11 @@ class CoverageFromCbmcJson(Coverage):
     # pylint: disable=too-few-public-methods
     """CBMC coverage results from cbmc --cover location --json-ui."""
 
-    def __init__(self, json_files, root):
+    def __init__(self, json_files, root, viewer_reachable=None):
         root = srcloct.abspath(root)
         super().__init__(
-            [load_cbmc_json(json_file, root) for json_file in json_files]
+            [load_cbmc_json(json_file, root) for json_file in json_files],
+            viewer_reachable
         )
 
 def load_cbmc_json(json_file, root):
@@ -386,10 +435,11 @@ class CoverageFromCbmcXml(Coverage):
     # pylint: disable=too-few-public-methods
     """CBMC coverage results from cbmc --cover location --xml-ui."""
 
-    def __init__(self, xml_files, root):
+    def __init__(self, xml_files, root, viewer_reachable=None):
         root = srcloct.abspath(root)
         super().__init__(
-            [load_cbmc_xml(xml_file, root) for xml_file in xml_files]
+            [load_cbmc_xml(xml_file, root) for xml_file in xml_files],
+            viewer_reachable
         )
 
 def load_cbmc_xml(xml_file, root):
@@ -536,19 +586,19 @@ def fail(msg):
     logging.info(msg)
     raise UserWarning(msg)
 
-def do_make_coverage(viewer_coverage, srcdir, cbmc_coverage):
+def do_make_coverage(viewer_coverage, srcdir, cbmc_coverage, viewer_reachable=None):
     """The implementation of make-coverage."""
 
     if viewer_coverage:
         if filet.all_json_files(viewer_coverage):
-            return CoverageFromJson(viewer_coverage)
+            return CoverageFromJson(viewer_coverage, viewer_reachable)
         fail("Expected json files: {}".format(viewer_coverage))
 
     if cbmc_coverage and srcdir:
         if filet.all_json_files(cbmc_coverage):
-            return CoverageFromCbmcJson(cbmc_coverage, srcdir)
+            return CoverageFromCbmcJson(cbmc_coverage, srcdir, viewer_reachable)
         if filet.all_xml_files(cbmc_coverage):
-            return CoverageFromCbmcXml(cbmc_coverage, srcdir)
+            return CoverageFromCbmcXml(cbmc_coverage, srcdir, viewer_reachable)
         fail("Expected json files or xml files, not both: {}"
              .format(cbmc_coverage))
 

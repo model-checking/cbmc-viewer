@@ -149,8 +149,18 @@ def viewer():
     os.makedirs(jsondir, exist_ok=True)
 
     def dump(obj, name):
-        with open(os.path.join(jsondir, name), 'w') as output:
+        path = os.path.join(jsondir, name)
+        with open(path, 'w') as output:
             output.write(str(obj))
+        return path
+
+    progress("Computing reachable functions")
+    reachable = reachablet.do_make_reachable(args.viewer_reachable,
+                                             None,
+                                             args.srcdir,
+                                             args.goto)
+    viewer_reachable = dump(reachable, 'viewer-reachable.json')
+    progress("Computing reachable functions", True)
 
     progress("Scanning property checking results")
     results = resultt.do_make_result(args.viewer_result, args.result)
@@ -166,7 +176,8 @@ def viewer():
     progress("Scanning coverage data")
     coverage = coveraget.do_make_coverage(args.viewer_coverage,
                                           args.srcdir,
-                                          args.coverage)
+                                          args.coverage,
+                                          [viewer_reachable])
     dump(coverage, 'viewer-coverage.json')
     progress("Scanning coverage data", True)
 
@@ -182,14 +193,6 @@ def viewer():
                                             args.srcdir)
     dump(properties, 'viewer-property.json')
     progress("Scanning properties", True)
-
-    progress("Computing reachable functions")
-    reachable = reachablet.do_make_reachable(args.viewer_reachable,
-                                             None,
-                                             args.srcdir,
-                                             args.goto)
-    dump(reachable, 'viewer-reachable.json')
-    progress("Computing reachable functions", True)
 
     # Make sources last, it may delete the goto binary
     progress("Scanning source tree")

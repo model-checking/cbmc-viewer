@@ -33,7 +33,7 @@ def create_parser():
         Do not mix xml and json files.
         """
     )
-
+    optionst.viewer_reachable(parser)
     optionst.log(parser)
 
     return parser
@@ -49,7 +49,9 @@ def main():
     try:
         coverage = coveraget.do_make_coverage(args.viewer_coverage,
                                               args.srcdir,
-                                              args.cbmc_coverage)
+                                              args.cbmc_coverage,
+                                              args.viewer_reachable
+                                              )
         print(coverage)
     except UserWarning as error:
         sys.exit(error)

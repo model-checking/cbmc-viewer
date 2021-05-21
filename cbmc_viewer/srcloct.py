@@ -125,7 +125,8 @@ def make_srcloc(path, func, line, wkdir, root):
     """Make a viewer source location from a CBMC source location."""
 
     if path is None or line is None:
-        logging.info("Generating a viewer srcloc for a missing CBMC srcloc.")
+        logging.info("Generating a viewer srcloc for a missing CBMC srcloc: %s %s %s",
+                     path, func, line)
         return MISSING_SRCLOC
 
     path = normpath(path)
