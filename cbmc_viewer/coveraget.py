@@ -224,7 +224,7 @@ def merge_coverage_data(coverage_list):
     try:
         RAW_COVERAGE_DATA(coverage)
     except voluptuous.error.Error as error:
-        raise UserWarning("Error merging coverage data: {}".format(error))
+        raise UserWarning("Error merging coverage data: {}".format(error)) from error
     return coverage
 
 
@@ -294,7 +294,7 @@ class CoverageFromJson(Coverage):
     """CBMC coverage results from make-coverage"""
 
     def __init__(self, json_files):
-        super(CoverageFromJson, self).__init__(
+        super().__init__(
             [load_json(json_file) for json_file in json_files]
         )
 
@@ -310,8 +310,9 @@ def load_json(json_file):
     try:
         RAW_COVERAGE_DATA(coverage)
     except voluptuous.error.Error as error:
-        raise UserWarning("Error loading json coverage data: {}: {}"
-                          .format(json_file, error))
+        raise UserWarning(
+            "Error loading json coverage data: {}: {}".format(json_file, error)
+        ) from error
     return coverage
 
 def repair_json(coverage):
@@ -342,7 +343,7 @@ class CoverageFromCbmcJson(Coverage):
 
     def __init__(self, json_files, root):
         root = srcloct.abspath(root)
-        super(CoverageFromCbmcJson, self).__init__(
+        super().__init__(
             [load_cbmc_json(json_file, root) for json_file in json_files]
         )
 
@@ -373,8 +374,9 @@ def load_cbmc_json(json_file, root):
     try:
         RAW_COVERAGE_DATA(coverage)
     except voluptuous.error.Error as error:
-        raise UserWarning("Error loading cbmc json coverage data: {}: {}"
-                          .format(json_file, error))
+        raise UserWarning(
+            "Error loading cbmc json coverage data: {}: {}".format(json_file, error)
+        ) from error
     return coverage
 
 ################################################################
@@ -386,7 +388,7 @@ class CoverageFromCbmcXml(Coverage):
 
     def __init__(self, xml_files, root):
         root = srcloct.abspath(root)
-        super(CoverageFromCbmcXml, self).__init__(
+        super().__init__(
             [load_cbmc_xml(xml_file, root) for xml_file in xml_files]
         )
 
@@ -410,8 +412,9 @@ def load_cbmc_xml(xml_file, root):
     try:
         RAW_COVERAGE_DATA(coverage)
     except voluptuous.error.Error as error:
-        raise UserWarning("Error loading cbmc xml coverage data: {}: {}"
-                          .format(xml_file, error))
+        raise UserWarning(
+            "Error loading cbmc xml coverage data: {}: {}".format(xml_file, error)
+        ) from error
     return coverage
 
 ################################################################

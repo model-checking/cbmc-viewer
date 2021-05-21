@@ -127,7 +127,7 @@ class PropertyFromJson(Property):
 
     def __init__(self, json_files):
 
-        super(PropertyFromJson, self).__init__(
+        super().__init__(
             [parse.parse_json_file(json_file)[JSON_TAG]["properties"]
              for json_file in json_files]
         )
@@ -139,7 +139,7 @@ class PropertyFromCbmcJson(Property):
 
     def __init__(self, json_files, root):
 
-        super(PropertyFromCbmcJson, self).__init__(
+        super().__init__(
             [load_cbmc_json(json_file, root) for json_file in json_files]
         )
 
@@ -175,7 +175,7 @@ class PropertyFromCbmcXml(Property):
 
     def __init__(self, xml_files, root):
 
-        super(PropertyFromCbmcXml, self).__init__(
+        super().__init__(
             [load_cbmc_xml(xml_file, root) for xml_file in xml_files]
         )
 

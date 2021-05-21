@@ -166,7 +166,7 @@ class TraceFromJson(Trace):
     """Load error traces from output of make-trace."""
 
     def __init__(self, json_files):
-        super(TraceFromJson, self).__init__(
+        super().__init__(
             [load_traces(json_file) for json_file in json_files]
         )
 
@@ -182,7 +182,7 @@ class TraceFromCbmcText(Trace):
 
     def __init__(self, text_files, root, wkdir):
         root = srcloct.abspath(root)
-        super(TraceFromCbmcText, self).__init__(
+        super().__init__(
             [parse_text_traces(text_file, root, wkdir)
              for text_file in text_files]
         )
@@ -294,7 +294,7 @@ class TraceFromCbmcXml(Trace):
 
     def __init__(self, xml_files, root):
         root = srcloct.abspath(root)
-        super(TraceFromCbmcXml, self).__init__(
+        super().__init__(
             [parse_xml_traces(xml_file, root) for xml_file in xml_files]
         )
 
@@ -456,7 +456,7 @@ class TraceFromCbmcJson(Trace):
 
     def __init__(self, json_files, root):
         root = srcloct.abspath(root)
-        super(TraceFromCbmcJson, self).__init__(
+        super().__init__(
             [parse_json_traces(json_file, root) for json_file in json_files]
         )
 
