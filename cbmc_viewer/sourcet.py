@@ -185,9 +185,7 @@ class SourceFromJson(Source):
             return {'root': roots[0], 'files': files}
 
         source = merge([load(source_json) for source_json in source_jsons])
-        super(SourceFromJson, self).__init__(source['root'],
-                                             source['files'],
-                                             sloc)
+        super().__init__(source['root'], source['files'], sloc)
 
 ################################################################
 
@@ -201,7 +199,7 @@ class SourceFromGoto(Source):
             raise UserWarning('No goto program')
 
         files = sorted(symbol_table.source_files(goto, wkdir))
-        super(SourceFromGoto, self).__init__(srcdir, files, sloc)
+        super().__init__(srcdir, files, sloc)
 
 ################################################################
 
@@ -223,7 +221,7 @@ class SourceFromFind(Source):
         """
 
         files = self.find_sources(root, exclude, extensions)
-        super(SourceFromFind, self).__init__(root, files, sloc)
+        super().__init__(root, files, sloc)
 
     @staticmethod
     def find_sources(root, exclude, extensions):
@@ -251,7 +249,7 @@ class SourceFromWalk(Source):
         """Use walk to list the source files under root."""
 
         files = self.find_sources(root, exclude, extensions)
-        super(SourceFromWalk, self).__init__(root, files, sloc)
+        super().__init__(root, files, sloc)
 
     @staticmethod
     def find_sources(root, exclude=None, extensions=None):
@@ -306,7 +304,7 @@ class SourceFromMake(Source):
         """
 
         files = self.find_sources(build)
-        super(SourceFromMake, self).__init__(root, files, sloc)
+        super().__init__(root, files, sloc)
 
     def find_sources(self, build):
         """Use make to list the source files used to build a goto binary."""

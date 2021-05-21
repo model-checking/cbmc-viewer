@@ -67,12 +67,12 @@ class CodeSnippet:
             if path not in self.source:
                 with open(os.path.join(self.root, path)) as code:
                     self.source[path] = code.read().splitlines()
-        except FileNotFoundError:
+        except FileNotFoundError as error:
             if srcloct.is_builtin(path): # <builtin-library-malloc>, etc.
                 return None
             raise UserWarning(
                 "CodeSnippet lookup: file not found: {}".format(path)
-            )
+            ) from error
 
         # return the whole statement which may be broken over several lines
         snippet = ' '.join(self.source[path][line:line+5])

@@ -55,16 +55,16 @@ def is_xml_file(xml):
 
 def all_text_files(txts):
     """Files are text files."""
-    return all([is_text_file(txt) for txt in txts])
+    return all(is_text_file(txt) for txt in txts)
 def all_json_files(jsons):
     """Files are json files."""
-    return all([is_json_file(json) for json in jsons])
+    return all(is_json_file(json) for json in jsons)
 def all_xml_files(xmls):
     """Files are xml files."""
-    return all([is_xml_file(xml) for xml in xmls])
+    return all(is_xml_file(xml) for xml in xmls)
 
 def any_text_files(txts):
     """Any of the files are text files."""
-    return any([is_text_file(txt) for txt in txts])
+    return any(is_text_file(txt) for txt in txts)
 
 ################################################################

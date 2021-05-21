@@ -173,7 +173,7 @@ def expected_missing_functions(results, config):
 
     return [
         function for function in missing_functions(warnings(results))
-        if function in config.expected_missing_functions() or []
+        if function in config.expected_missing_functions()
     ]
 
 def unexpected_missing_functions(results, config):
@@ -181,7 +181,7 @@ def unexpected_missing_functions(results, config):
 
     return [
         function for function in missing_functions(warnings(results))
-        if function not in config.expected_missing_functions() or []
+        if function not in config.expected_missing_functions()
     ]
 
 def other_warnings(results):

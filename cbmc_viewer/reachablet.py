@@ -98,7 +98,7 @@ class ReachableFromJson(Reachable):
 
     def __init__(self, json_files):
 
-        super(ReachableFromJson, self).__init__(
+        super().__init__(
             [parse.parse_json_file(json_file, fail=True)[JSON_TAG]["reachable"]
              for json_file in json_files]
         )
@@ -111,7 +111,7 @@ class ReachableFromCbmcJson(Reachable):
 
     def __init__(self, json_files, root):
 
-        super(ReachableFromCbmcJson, self).__init__(
+        super().__init__(
             [load_cbmc_json(json_file, root) for json_file in json_files]
         )
 
@@ -159,7 +159,7 @@ class ReachableFromCbmcXml(Reachable):
 
     def __init__(self, xml_files, root):
 
-        super(ReachableFromCbmcXml, self).__init__([])
+        super().__init__([])
 
         _, _ = xml_files, root
         raise UserWarning("The goto-analyzer --xml option generates text "
@@ -176,12 +176,12 @@ class ReachableFromGoto(Reachable):
         try:
             analyzer_output = runt.run(cmd, cwd=cwd)
         except subprocess.CalledProcessError as err:
-            raise UserWarning('Failed to run {}: {}'.format(cmd, str(err)))
+            raise UserWarning('Failed to run {}: {}'.format(cmd, str(err))) from err
 
         json_data = parse.parse_json_string(
             analyzer_output, fail=True, goto_analyzer=True
         )
-        super(ReachableFromGoto, self).__init__(
+        super().__init__(
             [parse_cbmc_json(json_data, root)]
         )
 

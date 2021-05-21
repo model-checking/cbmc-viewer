@@ -178,7 +178,7 @@ class ResultFromJson(Result):
     """CBMC property checking results from make-result"""
 
     def __init__(self, json_files):
-        super(ResultFromJson, self).__init__(
+        super().__init__(
             [self.load_results(json_file) for json_file in json_files]
         )
 
@@ -203,7 +203,7 @@ class ResultFromCbmcText(Result):
     """CBMC property checking results from CBMC text output"""
 
     def __init__(self, text_files):
-        super(ResultFromCbmcText, self).__init__(
+        super().__init__(
             [self.parse_results(text_file) for text_file in text_files]
         )
 
@@ -283,7 +283,7 @@ class ResultFromCbmcJson(Result):
     """CBMC property checking results from CBMC json output"""
 
     def __init__(self, json_files):
-        super(ResultFromCbmcJson, self).__init__(
+        super().__init__(
             [self.parse_results(json_file) for json_file in json_files]
         )
 
@@ -359,7 +359,7 @@ class ResultFromCbmcXml(Result):
     """CBMC property checking results from CBMC xml output"""
 
     def __init__(self, xml_files):
-        super(ResultFromCbmcXml, self).__init__(
+        super().__init__(
             [self.parse_results(xml_file) for xml_file in xml_files]
         )
 

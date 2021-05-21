@@ -123,7 +123,7 @@ class SymbolFromJson(Symbol):
         def merge(tables):
             return util.merge_dicts(tables)
 
-        super(SymbolFromJson, self).__init__(
+        super().__init__(
             merge([load(symbol_json) for symbol_json in symbol_jsons])
         )
 
@@ -162,7 +162,7 @@ class SymbolFromGoto(Symbol):
         symbols = file_symbols
         symbols.update(table_symbols)
 
-        super(SymbolFromGoto, self).__init__(symbols)
+        super().__init__(symbols)
 
 ################################################################
 
@@ -179,7 +179,7 @@ class SymbolFromCtags(Symbol):
     # options −−list−maps and −−langmap.
 
     def __init__(self, root, files):
-        super(SymbolFromCtags, self).__init__(
+        super().__init__(
             self.build_symbol_table(
                 root, ctags_symbols(run_ctags(root, files))
             )
@@ -195,7 +195,7 @@ class SymbolFromEtags(Symbol):
     """
 
     def __init__(self, root, files):
-        super(SymbolFromEtags, self).__init__(
+        super().__init__(
             self.build_symbol_table(
                 root, etags_symbols(run_etags(root, files))
             )

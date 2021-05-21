@@ -156,7 +156,7 @@ class LoopFromJson(Loop):
 
     def __init__(self, json_files):
 
-        super(LoopFromJson, self).__init__(
+        super().__init__(
             [parse.parse_json_file(json_file, fail=True)[JSON_TAG]['loops']
              for json_file in json_files]
         )
@@ -168,7 +168,7 @@ class LoopFromCbmcJson(Loop):
 
     def __init__(self, json_files, root):
 
-        super(LoopFromCbmcJson, self).__init__(
+        super().__init__(
             [load_cbmc_json(json_file, root) for json_file in json_files]
         )
 
@@ -199,7 +199,7 @@ class LoopFromCbmcXml(Loop):
 
     def __init__(self, xml_files, root):
 
-        super(LoopFromCbmcXml, self).__init__(
+        super().__init__(
             [load_cbmc_xml(xml_file, root) for xml_file in xml_files]
         )
 
@@ -226,15 +226,17 @@ class LoopFromGoto(Loop):
 
         cmd = ['cbmc', '--show-loops', '--json-ui', goto]
         try:
-            super(LoopFromGoto, self).__init__(
+            super().__init__(
                 [parse_cbmc_json(json.loads(runt.run(cmd, cwd=cwd)), root)]
             )
         except subprocess.CalledProcessError as err:
-            raise UserWarning('Failed to run {}: {}'
-                              .format(cmd, str(err)))
+            raise UserWarning(
+                'Failed to run {}: {}' .format(cmd, str(err))
+            ) from err
         except json.decoder.JSONDecodeError as err:
-            raise UserWarning('Failed to parse output of {}: {}'
-                              .format(cmd, str(err)))
+            raise UserWarning(
+                'Failed to parse output of {}: {}'.format(cmd, str(err))
+            ) from err
 
 ################################################################
 # make-loop
