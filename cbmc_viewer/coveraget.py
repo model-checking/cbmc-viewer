@@ -495,7 +495,11 @@ def parse_chunk(chunk):
     """Parse a chunk of coverage"""
 
     # The chunk has the form FILE:FUNCTION:LINES
-    filename, function, lines = chunk.split(':')
+    # Don't use split in order to allow FUNCTION to contain ':'
+    first_colon, last_colon = chunk.find(':'), chunk.rfind(':')
+    filename = chunk[:first_colon]
+    function = chunk[first_colon + 1:last_colon]
+    lines = chunk[last_colon + 1:]
     return [(filename, function, line) for line in parse_lines(lines)]
 
 def parse_lines(lines):
