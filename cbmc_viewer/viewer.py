@@ -76,6 +76,7 @@ def create_parser():
     optionst.log(other)
     optionst.config(other)
     optionst.version(other)
+    optionst.source_language(other)
 
     depricated = parser.add_argument_group(
         'Depricated',

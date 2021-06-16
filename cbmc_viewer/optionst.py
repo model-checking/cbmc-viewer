@@ -315,6 +315,17 @@ def version(parser):
     )
     return parser
 
+def source_language(parser):
+    'Define --source-language command line option.'
+
+    parser.add_argument(
+        '--source-language',
+        default='C',
+        choices=['C', 'rust'],
+        help='Set the source language of the analyzed file.'
+    )
+    return parser
+
 ################################################################
 # Depricated command line options
 #
