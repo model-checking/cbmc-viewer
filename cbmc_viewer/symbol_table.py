@@ -62,6 +62,7 @@ def parse_symbol(sym):
     # Symbol......: tag-struct_name
     # Symbol......: tag-union_name
 
+    # Match the shape of the input format
     line_match = re.match("^Symbol\.\.\.\.\.\.: (.*)$", sym)
     if not line_match:
         logging.warning("Invalid symbol line form")
@@ -69,6 +70,7 @@ def parse_symbol(sym):
         return None
     name = line_match.group(1)
 
+    # Match the allowed symbol names
     name_regex, name_group = Language.get_symbol_regex()
     name_match = re.match(name_regex, name)
     if name_match:
@@ -109,6 +111,7 @@ def parse_pretty_name(sym):
     # Pretty name.: struct struct_name
     # Pretty name.: union union_name
 
+    # Match the shape of the input format
     line_match = re.match("^Pretty name\.: (.*)$", sym)
     if not line_match:
         logging.warning("Invalid pretty name line form")
@@ -116,6 +119,7 @@ def parse_pretty_name(sym):
         return None
     name = line_match.group(1)
 
+    # Match the allowed pretty names
     name_regex, name_group = Language.get_pretty_name_regex()
     name_match = re.match(name_regex, name)
     if name_match:
