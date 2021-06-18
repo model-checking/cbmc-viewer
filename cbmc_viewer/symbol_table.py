@@ -9,6 +9,7 @@ import re
 
 from cbmc_viewer import runt
 from cbmc_viewer import srcloct
+from cbmc_viewer.source_language import Language
 
 def symbol_table(goto):
     """Extract symbol table from goto binary as lines of text."""
@@ -61,10 +62,17 @@ def parse_symbol(sym):
     # Symbol......: tag-struct_name
     # Symbol......: tag-union_name
 
-    name = sym.strip().split()[-1]
-    match = re.match('^(tag-)?([a-zA-Z0-9_]+)$', name)
-    if match:
-        return match.group(2)
+    line_match = re.match("^Symbol\.\.\.\.\.\.: (.*)$", sym)
+    if not line_match:
+        logging.warning("Invalid symbol line form")
+        logging.warning("  {}".format(sym))
+        return None
+    name = line_match.group(1)
+
+    name_regex, name_group = Language.get_symbol_regex()
+    name_match = re.match(name_regex, name)
+    if name_match:
+        return name_match.group(name_group)
     return None
 
 def parse_location(loc, wkdir):
@@ -101,9 +109,17 @@ def parse_pretty_name(sym):
     # Pretty name.: struct struct_name
     # Pretty name.: union union_name
 
-    name = sym.strip().split()[-1]
-    if re.match('^[a-zA-Z0-9_]+$', name):
-        return name
+    line_match = re.match("^Pretty name\.: (.*)$", sym)
+    if not line_match:
+        logging.warning("Invalid pretty name line form")
+        logging.warning("  {}".format(sym))
+        return None
+    name = line_match.group(1)
+
+    name_regex, name_group = Language.get_pretty_name_regex()
+    name_match = re.match(name_regex, name)
+    if name_match:
+        return name_match.group(name_group)
     return None
 
 def parse_symbol_table(definitions, wkdir):
