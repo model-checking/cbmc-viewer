@@ -209,7 +209,7 @@ def link_symbols(path, code, symbols):
 
     tokens = split_code_into_symbols(code)
     return ''.join(
-        [markup_link.link_text_to_symbol(tkn, tkn, symbols, from_file=path)
+        [markup_link.link_text_to_symbol(tkn, tkn, symbols, from_file=path, escape_text=False)
          for tkn in tokens]
     )
 

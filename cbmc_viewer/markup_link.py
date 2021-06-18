@@ -41,46 +41,50 @@ def path_to_file(dst, src):
 # Method to link into the source tree.
 # By default, links are from the root of the source tree to the source file.
 
-def link_text_to_file(text, to_file, from_file=None):
+def link_text_to_file(text, to_file, from_file=None, escape_text=True):
     """Link text to a file in the source tree."""
 
+    text = html.escape(str(text)) if escape_text else str(text)
+
     if srcloct.file_is_not_a_source_file(to_file):
-        return html.escape(str(text))
+        return text
 
     from_file = from_file or '.'
     path = path_to_file(to_file, from_file)
     return '<a href="{}.html">{}</a>'.format(path, text)
 
-def link_text_to_line(text, to_file, line, from_file=None):
+def link_text_to_line(text, to_file, line, from_file=None, escape_text=True):
     """Link text to a line in a file in the source tree."""
 
+    text = html.escape(str(text)) if escape_text else str(text)
+
     if srcloct.file_is_not_a_source_file(to_file):
-        return html.escape(str(text))
+        return text
 
     from_file = from_file or '.'
     line = int(line)
     path = path_to_file(to_file, from_file)
     return '<a href="{}.html#{}">{}</a>'.format(path, line, text)
 
-def link_text_to_srcloc(text, srcloc, from_file=None):
+def link_text_to_srcloc(text, srcloc, from_file=None, escape_text=True):
     """Link text to a source location in a file in the source tree."""
 
     if srcloc is None:
-        return text
-    return link_text_to_line(text, srcloc['file'], srcloc['line'], from_file)
+        return html.escape(text) if escape_text else text
+    return link_text_to_line(text, srcloc['file'], srcloc['line'], from_file, escape_text)
 
-def link_text_to_symbol(text, symbol, symbols, from_file=None):
+def link_text_to_symbol(text, symbol, symbols, from_file=None, escape_text=True):
     """Link text to a symbol definition in the source tree."""
 
     srcloc = symbols.lookup(symbol)
-    return link_text_to_srcloc(text, srcloc, from_file)
+    return link_text_to_srcloc(text, srcloc, from_file, escape_text=escape_text)
 
 def split_text_into_symbols(text):
     """Split text into substrings that could be symbols."""
 
     return re.split('([_a-zA-Z][_a-zA-Z0-9]*)', text)
 
-def link_symbols_in_text(text, symbols, from_file=None):
+def link_symbols_in_text(text, symbols, from_file=None, escape_text=True):
     """Link symbols appearing in text to their definitions."""
 
     if text is None:
@@ -88,7 +92,7 @@ def link_symbols_in_text(text, symbols, from_file=None):
 
     tokens = split_text_into_symbols(text)
     return ''.join(
-        [link_text_to_symbol(tkn, tkn, symbols, from_file)
+        [link_text_to_symbol(tkn, tkn, symbols, from_file, escape_text)
          for tkn in tokens]
     )
 
