@@ -62,20 +62,8 @@ def parse_symbol(sym):
     # Symbol......: tag-struct_name
     # Symbol......: tag-union_name
 
-    # Match the shape of the input format
-    line_match = re.match("^Symbol\.\.\.\.\.\.: (.*)$", sym)
-    if not line_match:
-        logging.warning("Invalid symbol line form")
-        logging.warning("  {}".format(sym))
-        return None
-    name = line_match.group(1)
-
-    # Match the allowed symbol names
-    name_regex, name_group = Language.get_symbol_regex()
-    name_match = re.match(name_regex, name)
-    if name_match:
-        return name_match.group(name_group)
-    return None
+    name = sym.split(":", 1)[1].strip()
+    return Language.match_symbol(name)
 
 def parse_location(loc, wkdir):
     """Symbol source location from location line."""
@@ -111,20 +99,8 @@ def parse_pretty_name(sym):
     # Pretty name.: struct struct_name
     # Pretty name.: union union_name
 
-    # Match the shape of the input format
-    line_match = re.match("^Pretty name\.: (.*)$", sym)
-    if not line_match:
-        logging.warning("Invalid pretty name line form")
-        logging.warning("  {}".format(sym))
-        return None
-    name = line_match.group(1)
-
-    # Match the allowed pretty names
-    name_regex, name_group = Language.get_pretty_name_regex()
-    name_match = re.match(name_regex, name)
-    if name_match:
-        return name_match.group(name_group)
-    return None
+    name = sym.split(":", 1)[1].strip()
+    return Language.match_pretty_name(name)
 
 def parse_symbol_table(definitions, wkdir):
     """Extract symbols and source locations from symbol table definitions."""

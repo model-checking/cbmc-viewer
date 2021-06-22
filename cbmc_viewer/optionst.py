@@ -323,7 +323,7 @@ def source_language(parser):
         '--source-language',
         default=Language.C,
         choices=Language.ALL_LANGUAGE_NAMES,
-        help='Set the source language of the analyzed file.'
+        help='The source language compiled to produce the goto binary.'
     )
     return parser
 
@@ -524,11 +524,6 @@ def warn_against_using_text_for_cbmc_output(args):
             logging.warning("Use xml or json instead of text for "
                             "better results: %s", filenames)
 
-def set_default_language(args):
-    'Set the default source language for language specific features.'
-    
-    Language.set_default_language(args.source_language)
-
 def defaults(args):
     'Set default values based on command line arguments.'
 
@@ -537,7 +532,7 @@ def defaults(args):
     args = default_source_method(args)
     args = default_tags_method(args)
     warn_against_using_text_for_cbmc_output(args)
-    set_default_language(args)
+    Language.default_language(args.source_language)
 
     if hasattr(args, 'srcdir'):
         args.srcdir = os.path.abspath(args.srcdir)

@@ -3,6 +3,8 @@
 
 """Source file language for language dependent features."""
 
+import re
+
 class Language:
     """A utility class to handle language-specific functionality.
 
@@ -25,23 +27,17 @@ class Language:
     # Default language handlers
 
     _default_language = None
-    
-    @classmethod
-    def get_default_language(cls):
-        return cls._default_language
 
     @classmethod
-    def get_default_language_or_fail(cls):
-        if cls._default_language == None:
-            raise Exception("Default language is not set.")
-        
+    def default_language(cls, lang=None):
+        'Getter and setter for default source language.'
+        if lang:
+            assert lang in cls.ALL_LANGUAGE_NAMES, f"Invalid language: {lang}"
+            cls._default_language = cls.get_language(lang)
+            return cls._default_language
+
+        assert cls._default_language is not None, "Default language is not set."
         return cls._default_language
-    
-    @classmethod
-    def set_default_language(cls, lang):
-        assert lang in cls.ALL_LANGUAGE_NAMES, f"Invalid language: {lang}"
-        
-        cls._default_language = cls.get_language(lang)
 
     ######################################
     # Utility functions
@@ -50,65 +46,74 @@ class Language:
     def get_language(name):
         'Gets the language utility class from a string name.'
         name_map = {
-            Language.C: C,
-            Language.RUST: Rust
+            Language.C: CLanguage,
+            Language.RUST: RustLanguage
         }
         return name_map[name]
 
     @staticmethod
     def get_language_name(lang):
         'Gets the string name of a language from the utility class.'
-        return lang.get_name()
+        return lang.name()
 
     ######################################
     # Language specific utility functions
-    # These should be over-ridden by 
+    # These should be over-ridden by
     # specific language implementations
 
     @classmethod
-    def get_name(cls):
+    def name(cls):
         """The name of the language"""
-        return cls.get_default_language_or_fail().get_name()
+        return cls.default_language().name()
 
     @classmethod
-    def get_pretty_name_regex(cls):
-        """A regex pattern to match pretty names,
-        and which group in the pattern should be used"""
-        return cls.get_default_language_or_fail().get_pretty_name_regex()
+    def match_pretty_name(cls, name):
+        """Match and return a pretty name, or return None"""
+        return cls.default_language().match_pretty_name(name)
 
     @classmethod
-    def get_symbol_regex(cls):
-        """A regex pattern to match symbol names,
-        and which group in the pattern should be used"""
-        return cls.get_default_language_or_fail().get_symbol_regex()
+    def match_symbol(cls, name):
+        """Match and return a symbol name, or return None"""
+        return cls.default_language().match_symbol(name)
 
 
-class C(Language):
+class CLanguage(Language):
     """C-specific utility functions."""
 
     @staticmethod
-    def get_name():
+    def name():
         return Language.C
 
     @staticmethod
-    def get_pretty_name_regex():
-        return '.*[^\S]([a-zA-Z0-9_]+)$', 1
+    def match_pretty_name(name):
+        last = name.split(" ")[-1]
+        if re.match('^[a-zA-Z0-9_]+$', last):
+            return last
+        return None
 
     @staticmethod
-    def get_symbol_regex():
-        return '^(tag-)?([a-zA-Z0-9_]+)$', 2
+    def match_symbol(name):
+        last = name.split(" ")[-1]
+        match = re.match('^(tag-)?([a-zA-Z0-9_]+)$', last)
+        if match:
+            return match.group(2)
+        return None
 
-class Rust(Language):
+class RustLanguage(Language):
     """Rust-specific utility functions."""
 
     @staticmethod
-    def get_name():
+    def name():
         return Language.RUST
 
     @staticmethod
-    def get_pretty_name_regex():
-        return '^([a-zA-Z0-9_<>: ]+)$', 1
+    def match_pretty_name(name):
+        if re.match('^[a-zA-Z0-9_<>: ]+$', name):
+            return name
+        return None
 
     @staticmethod
-    def get_symbol_regex():
-        return '^([a-zA-Z0-9_]+)$', 1
+    def match_symbol(name):
+        if re.match('^[a-zA-Z0-9_]+$', name):
+            return name
+        return None
