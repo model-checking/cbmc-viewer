@@ -48,7 +48,7 @@ def link_text_to_file(text, to_file, from_file=None):
         return html.escape(str(text))
 
     from_file = from_file or '.'
-    path = path_to_file(to_file, from_file)
+    path = path_to_file(os.path.relpath(to_file), os.path.relpath(from_file))
     return '<a href="{}.html">{}</a>'.format(path, text)
 
 def link_text_to_line(text, to_file, line, from_file=None):
@@ -59,7 +59,7 @@ def link_text_to_line(text, to_file, line, from_file=None):
 
     from_file = from_file or '.'
     line = int(line)
-    path = path_to_file(to_file, from_file)
+    path = path_to_file(os.path.relpath(to_file), os.path.relpath(from_file))
     return '<a href="{}.html#{}">{}</a>'.format(path, line, text)
 
 def link_text_to_srcloc(text, srcloc, from_file=None):
