@@ -44,7 +44,8 @@ def path_to_file(dst, src):
 def link_text_to_file(text, to_file, from_file=None):
     """Link text to a file in the source tree."""
 
-    if srcloct.is_builtin(to_file) or srcloct.is_missing(to_file):
+    # create links only to files under srcdir (with paths relative to srcdir)
+    if srcloct.is_builtin(to_file) or srcloct.is_missing(to_file) or os.path.isabs(to_file):
         return html.escape(str(text))
 
     from_file = from_file or '.'
@@ -54,7 +55,8 @@ def link_text_to_file(text, to_file, from_file=None):
 def link_text_to_line(text, to_file, line, from_file=None):
     """Link text to a line in a file in the source tree."""
 
-    if srcloct.is_builtin(to_file) or srcloct.is_missing(to_file):
+    # create links only to files under srcdir (with paths relative to srcdir)
+    if srcloct.is_builtin(to_file) or srcloct.is_missing(to_file) or os.path.isabs(to_file):
         return html.escape(str(text))
 
     from_file = from_file or '.'
