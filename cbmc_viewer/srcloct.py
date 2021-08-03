@@ -118,6 +118,20 @@ def is_missing(name):
     return name == MISSING
 
 ################################################################
+
+def file_is_not_a_source_file(name):
+    """The file name cannot refer to a source file.
+
+    The source location for a source file under the source root will
+    refer to the source file with a relative pathname that is relative
+    to the source root.  It will not be an absolute pathname (eg, to a
+    file in a system library), it will not refer to a built-in
+    function, and it will not be missing.
+    """
+
+    return os.path.isabs(name) or is_builtin(name) or is_missing(name)
+
+################################################################
 # Construct a viewer source location from cbmc source locations
 # appearing in cbmc output.
 
