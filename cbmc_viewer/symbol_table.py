@@ -61,10 +61,11 @@ def parse_symbol(sym):
     # Symbol......: tag-struct_name
     # Symbol......: tag-union_name
 
-    name = sym.strip().split()[-1]
-    match = re.match('^(tag-)?([a-zA-Z0-9_]+)$', name)
-    if match:
-        return match.group(2)
+    name = sym.split(":", 1)[1].strip()
+    if name.startswith('tag-'):
+        return name[len('tag-'):]
+    if name:
+        return name
     return None
 
 def parse_location(loc, wkdir):
@@ -101,8 +102,12 @@ def parse_pretty_name(sym):
     # Pretty name.: struct struct_name
     # Pretty name.: union union_name
 
-    name = sym.strip().split()[-1]
-    if re.match('^[a-zA-Z0-9_]+$', name):
+    name = sym.split(":", 1)[1].strip()
+    if name.startswith('struct '):
+        return name[len('struct '):]
+    if name.startswith('union '):
+        return name[len('union '):]
+    if name:
         return name
     return None
 
