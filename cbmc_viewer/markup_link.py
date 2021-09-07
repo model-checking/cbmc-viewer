@@ -40,9 +40,20 @@ def path_to_file(dst, src):
 ################################################################
 # Method to link into the source tree.
 # By default, links are from the root of the source tree to the source file.
+#
+# In what follows, the text being linked into the source tree may be
+# None.  For example, the source location for a global variable (a
+# static variable) will give a file name and a line number, but the
+# function name will be omitted (because there is no enclosing
+# function to name).  This may result in one of the following
+# functions being invoked with text set to None as the value of the
+# missing function name.
 
 def link_text_to_file(text, to_file, from_file=None, escape_text=True):
     """Link text to a file in the source tree."""
+
+    if not text:
+        return text
 
     text = html.escape(str(text)) if escape_text else str(text)
 
@@ -55,6 +66,9 @@ def link_text_to_file(text, to_file, from_file=None, escape_text=True):
 
 def link_text_to_line(text, to_file, line, from_file=None, escape_text=True):
     """Link text to a line in a file in the source tree."""
+
+    if not text:
+        return text
 
     text = html.escape(str(text)) if escape_text else str(text)
 
@@ -69,12 +83,18 @@ def link_text_to_line(text, to_file, line, from_file=None, escape_text=True):
 def link_text_to_srcloc(text, srcloc, from_file=None, escape_text=True):
     """Link text to a source location in a file in the source tree."""
 
+    if not text:
+        return text
+
     if srcloc is None:
         return html.escape(text) if escape_text else text
     return link_text_to_line(text, srcloc['file'], srcloc['line'], from_file, escape_text)
 
 def link_text_to_symbol(text, symbol, symbols, from_file=None, escape_text=True):
     """Link text to a symbol definition in the source tree."""
+
+    if not text:
+        return text
 
     srcloc = symbols.lookup(symbol)
     return link_text_to_srcloc(text, srcloc, from_file, escape_text=escape_text)
