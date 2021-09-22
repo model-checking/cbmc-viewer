@@ -261,6 +261,13 @@ def parse_text_state(block, root=None, wkdir=None):
 def parse_text_assumption(block, root=None, wkdir=None):
     """Parse an assumption in a text trace."""
 
+    # A text assumption block normally has the form
+    #   Assumption:
+    #     file test.c line 4 function main
+    #     x > 0
+    # The source location is sometimes missing, but the predicate
+    # being assumed is always the last line of the block
+
     lines = block.splitlines()
     srcloc = srcloct.text_srcloc(lines[1], wkdir, root)
     return {
@@ -268,12 +275,22 @@ def parse_text_assumption(block, root=None, wkdir=None):
         'location': srcloc,
         'hidden': False,
         'detail': {
-            'predicate': lines[2].strip()
+            'predicate': lines[-1].strip()
         }
     }
 
 def parse_text_failure(block, root=None, wkdir=None):
     """Parse a failure in a text trace."""
+
+    # A text failure block normally has the form
+    #   Violated property:
+    #     file test.c function main line 5 thread 0
+    #     assertion x == 0
+    #     x == 0
+    # The source location is sometimes missing, and the name of the
+    # property that failed is always missing in text output, but the
+    # reason for the failure is always the next-to-last line in the
+    # block
 
     lines = block.splitlines()
     srcloc = srcloct.text_srcloc(lines[1], wkdir, root)
@@ -283,7 +300,7 @@ def parse_text_failure(block, root=None, wkdir=None):
         'hidden': False,
         'detail': {
             'property': None,
-            'reason': lines[2].strip()
+            'reason': lines[-2].strip()
         }
     }
 
