@@ -248,11 +248,15 @@ class ResultFromCbmcText(Result):
                     # trace module collects traces
                     continue
                 if section == 'result':
+                    # The nonempty lines of the results section have the form
+                    #   [name] srcloc description: SUCCESS|FAILURE
+                    # but the srcloc may be missing or incomplete in inconsistent ways
                     match = re.match(
-                        r'\[(.*)\] line [0-9]+ (.*): ((FAILURE)|(SUCCESS))',
+                        r'\[(.*)\].*: ((FAILURE)|(SUCCESS))',
                         line)
                     if match:
-                        name, _, status = match.groups()[:3]
+                        name = match.group(1)
+                        status = match.group(2)
                         success = status == 'SUCCESS'
                         results[RESULT][success].append(name)
                     continue
