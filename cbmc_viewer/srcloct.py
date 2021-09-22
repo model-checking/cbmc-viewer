@@ -180,7 +180,7 @@ def text_srcloc(cbmc_srcloc, wkdir=None, root=None):
         return make_srcloc(path, func, line, wkdir, root)
 
     logging.info("Source location missing in text output: %s", cbmc_srcloc)
-    return None
+    return MISSING_SRCLOC
 
 def json_srcloc(cbmc_srcloc, root=None):
     """Parse a CBMC source location in json output."""
