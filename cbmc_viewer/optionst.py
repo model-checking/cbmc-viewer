@@ -319,7 +319,7 @@ def version(parser):
 # Depricated command line options
 #
 # Handle command line options from prior versions of cbmc-viewer that
-# are depricated in the current version.  Some old options have
+# are deprecated in the current version.  Some old options have
 # natural equivalents among the new options, some have a slight change
 # in semantics that aren't easy to fix, and some we no longer support.
 
@@ -366,45 +366,45 @@ def storm(parser):
     )
     return parser
 
-def handle_depricated_arguments(args):
-    """Warn about depricated arguments, use them  when possible."""
+def handle_deprecated_arguments(args):
+    """Warn about deprecated arguments, use them  when possible."""
 
     if hasattr(args, 'block') and args.block:
         if hasattr(args, 'coverage'):
-            logging.warning("--block is depricated, using --coverage %s.",
+            logging.warning("--block is deprecated, using --coverage %s.",
                             args.block)
             args.coverage = [args.block] # block is a string, coverage is a list
         else:
-            logging.warning("--block is depricated, use --coverage instead.")
+            logging.warning("--block is deprecated, use --coverage instead.")
         args.block = None
 
     if hasattr(args, 'htmldir') and args.htmldir:
         if hasattr(args, 'reportdir'):
-            logging.warning("--htmldir is depricated, using --reportdir %s.",
+            logging.warning("--htmldir is deprecated, using --reportdir %s.",
                             args.htmldir)
             args.reportdir = args.htmldir
         else:
-            logging.warning("--htmldir is depricated, use --reportdir instead.")
+            logging.warning("--htmldir is deprecated, use --reportdir instead.")
         args.htmldir = None
 
     if hasattr(args, 'srcexclude') and args.srcexclude:
         if hasattr(args, 'exclude'):
-            logging.warning("--srcexclude is depricated, using --exclude %s.",
+            logging.warning("--srcexclude is deprecated, using --exclude %s.",
                             args.srcexclude)
             args.exclude = args.srcexclude
         else:
-            logging.warning("--srcexclude is depricated, "
+            logging.warning("--srcexclude is deprecated, "
                             "use --exclude instead.")
         logging.warning("--srcexclude and --exclude use slight different "
                         "regular expressions.")
         args.srcexclude = None
 
     if hasattr(args, 'blddir') and args.blddir:
-        logging.warning("--blddir is depricated, ignoring --blddir.")
+        logging.warning("--blddir is deprecated, ignoring --blddir.")
         args.blddir = None
 
     if hasattr(args, 'storm') and args.storm:
-        logging.warning("--storm is depricated, ignoring --storm.")
+        logging.warning("--storm is deprecated, ignoring --storm.")
         args.storm = None
 
     return args
@@ -516,7 +516,7 @@ def defaults(args):
     'Set default values based on command line arguments.'
 
     args = default_logging(args)
-    args = handle_depricated_arguments(args)
+    args = handle_deprecated_arguments(args)
     args = default_source_method(args)
     args = default_tags_method(args)
     warn_against_using_text_for_cbmc_output(args)

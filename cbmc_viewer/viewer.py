@@ -77,15 +77,15 @@ def create_parser():
     optionst.config(other)
     optionst.version(other)
 
-    depricated = parser.add_argument_group(
+    deprecated = parser.add_argument_group(
         'Depricated',
-        'Options from prior versions now depricated.'
+        'Options from prior versions now deprecated.'
     )
-    depricated = optionst.block(depricated)
-    depricated = optionst.htmldir(depricated)
-    depricated = optionst.srcexclude(depricated)
-    depricated = optionst.blddir(depricated)
-    depricated = optionst.storm(depricated)
+    deprecated = optionst.block(deprecated)
+    deprecated = optionst.htmldir(deprecated)
+    deprecated = optionst.srcexclude(deprecated)
+    deprecated = optionst.blddir(deprecated)
+    deprecated = optionst.storm(deprecated)
 
     return parser
 
