@@ -252,7 +252,7 @@ class ResultFromCbmcText(Result):
                     #   [name] srcloc description: SUCCESS|FAILURE
                     # but the srcloc may be missing or incomplete in inconsistent ways
                     match = re.match(
-                        r'\[(.*)\].*: ((FAILURE)|(SUCCESS))',
+                        r'\[([^\]]*)\].*: ((FAILURE)|(SUCCESS))',
                         line)
                     if match:
                         name = match.group(1)
