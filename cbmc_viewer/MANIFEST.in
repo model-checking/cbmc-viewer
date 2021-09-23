@@ -1,0 +1,4 @@
+include doc/*
+include templates/*
+include viewer.css
+include viewer.js

@@ -30,8 +30,18 @@ pylint:
 	*.py cbmc_viewer/*.py
 
 ################################################################
+# Consider building packages with
+#   python3 -m build --sdist
+#   python3 -m build --wheel
+# This requires
+#   apt install python3.8-venv
+#   python3 -m pip install build
+# See https://packaging.python.org/tutorials/packaging-projects/
 
 pip:
+	@ echo
+	@ echo "Install packaging tools with 'python3 -m pip install setuptools'"
+	@ echo
 	./setup.py sdist bdist_wheel
 
 unpip:
@@ -51,6 +61,18 @@ undevelop:
 ################################################################
 
 test:
+	@ echo
+	@ echo "Install testing tools with 'python3 -m pip install setuptools tox'"
+	@ echo
+	@ echo "WARNING:"
+	@ echo "   Regression tests depend on your computer and your cbmc."
+	@ echo "   These regression tests assume MacOS 10.15 and CBMC 5.39.3."
+	@ echo "   To build regression tests for your computer and cbmc, run"
+	@ echo "     pushd tests/coreHTTP; make clone build copy; popd"
+	@ echo "     git add tests/coreHTTP/expected"
+	@ echo "     git commit -m \"Expected results for local configuration\""
+	@ echo "   before modifying cbmc-viewer and running regression tests."
+	@ echo
 	tox
 
 ################################################################
