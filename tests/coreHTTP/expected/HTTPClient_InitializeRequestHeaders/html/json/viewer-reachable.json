@@ -1,0 +1,22 @@
+{
+  "viewer-reachable": {
+    "reachable": {
+      "source/core_http_client.c": [
+        "HTTPClient_InitializeRequestHeaders"
+      ],
+      "test/cbmc/proofs/HTTPClient_InitializeRequestHeaders/HTTPClient_InitializeRequestHeaders_harness.c": [
+        "HTTPClient_InitializeRequestHeaders_harness"
+      ],
+      "test/cbmc/sources/http_cbmc_state.c": [
+        "allocateHttpRequestHeaders",
+        "allocateHttpRequestInfo",
+        "isValidHttpRequestHeaders",
+        "isValidHttpRequestInfo",
+        "mallocCanFail"
+      ],
+      "test/cbmc/stubs/strncpy.c": [
+        "strncpy"
+      ]
+    }
+  }
+}

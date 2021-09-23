@@ -1,0 +1,836 @@
+
+<html>
+  <head>
+    <title>allocateHttpResponse.pointer_arithmetic.11</title>
+    <link rel="stylesheet" type="text/css" href="../viewer.css">
+  </head>
+
+  <body>
+    <h2>Error trace for property allocateHttpResponse.pointer_arithmetic.11</h2>
+
+    <div id="trace-header">
+    <div id="trace-description">
+    <p>
+      Property that failed:
+      <ul>
+        <li> Name: allocateHttpResponse.pointer_arithmetic.11
+        <li> Description: pointer arithmetic: pointer outside object bounds in pResponse->pBuffer + (signed long int)bodyOffset
+        <li> Location: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#103">allocateHttpResponse</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#146">146</a>
+      </ul>
+    </p>
+    </div>
+
+    <div id="trace-navigation">
+    <p>
+      Trace navigation tips:
+      <ul>
+        <li>
+          <strong>Shift-Click: Hide function steps:</strong>
+          Shift-click on any step of a function to toggle the display
+          of function steps (hide or display steps).
+          This corresponds to stepping over a function in a debugger.
+          <em>Example:</em> Shift-click on any step of malloc to hide
+          the initialization of the struct members being malloc'd.
+        </li>
+        <li>
+          <strong>Shift-Alt-Click: Focus on function steps:</strong>
+          Shift-Alt-click on any step of a function to hide all steps
+          of all functions not currently on the call stack.
+          This corresponds to viewing the call stack in a debugger.
+          <em>Example:</em> Shift-Alt-click on a failure step to the display the
+          most direct path from the initial state to the failure.
+        </li>
+      </ul>
+    </p>
+    </div>
+    </div>
+
+    <div class="trace">
+
+      
+
+        
+
+        
+
+        <div id="step1" class="step">
+        <div class="header">Step 1: Function <a href="../test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c.html#33">HTTPClient_Send_harness</a>, File <a href="../test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c.html">test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c</a>, Line <a href="../test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c.html#35">35</a></div>
+        
+        <div class="code">HTTPRequestHeaders_t * pRequestHeaders;</div>
+        
+        <div class="cbmc">pRequestHeaders = INVALID-255 (11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step2" class="step">
+        <div class="header">Step 2: Function <a href="../test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c.html#33">HTTPClient_Send_harness</a>, File <a href="../test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c.html">test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c</a>, Line <a href="../test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c.html#36">36</a></div>
+        
+        <div class="code">HTTPResponse_t * pResponse;</div>
+        
+        <div class="cbmc">pResponse = INVALID-255 (11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step3" class="step">
+        <div class="header">Step 3: Function <a href="../test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c.html#33">HTTPClient_Send_harness</a>, File <a href="../test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c.html">test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c</a>, Line <a href="../test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c.html#37">37</a></div>
+        
+        <div class="code">TransportInterface_t * pTransportInterface;</div>
+        
+        <div class="cbmc">pTransportInterface = INVALID-255 (11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step4" class="step">
+        <div class="header">Step 4: Function <a href="../test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c.html#33">HTTPClient_Send_harness</a>, File <a href="../test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c.html">test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c</a>, Line <a href="../test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c.html#38">38</a></div>
+        
+        <div class="code">uint8_t * pRequestBodyBuf;</div>
+        
+        <div class="cbmc">pRequestBodyBuf = INVALID-255 (11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step5" class="step">
+        <div class="header">Step 5: Function <a href="../test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c.html#33">HTTPClient_Send_harness</a>, File <a href="../test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c.html">test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c</a>, Line <a href="../test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c.html#39">39</a></div>
+        
+        <div class="code">size_t reqBodyBufLen;</div>
+        
+        <div class="cbmc">reqBodyBufLen = 35184372088832ul (00000000 00000000 00100000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step6" class="step">
+        <div class="header">Step 6: Function <a href="../test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c.html#33">HTTPClient_Send_harness</a>, File <a href="../test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c.html">test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c</a>, Line <a href="../test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c.html#40">40</a></div>
+        
+        <div class="code">uint32_t sendFlags;</div>
+        
+        <div class="cbmc">sendFlags = 4294967295u (11111111 11111111 11111111 11111111)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step7" class="step">
+        <div class="header">Step 7: Function <a href="../test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c.html#33">HTTPClient_Send_harness</a>, File <a href="../test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c.html">test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c</a>, Line <a href="../test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c.html#43">43</a></div>
+        
+        <div class="code">pRequestHeaders = allocateHttpRequestHeaders( NULL );</div>
+        
+        <div class="cbmc">pRequestHeaders = ((HTTPRequestHeaders_t *)NULL) (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step8" class="step">
+        <div class="header">Step 8: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#38">allocateHttpRequestHeaders</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#42">42</a></div>
+        
+        <div class="code">pRequestHeaders = mallocCanFail( sizeof( HTTPRequestHeaders_t ) );</div>
+        
+        <div class="cbmc">size = sizeof(HTTPRequestHeaders_t) /*24ul*/  (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00011000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step9" class="step">
+        <div class="header">Step 9: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#32">mallocCanFail</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#35">35</a></div>
+        
+        <div class="code">return malloc( size );</div>
+        
+        <div class="cbmc">malloc_size = sizeof(HTTPRequestHeaders_t) /*24ul*/  (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00011000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step10" class="step">
+        <div class="header">Step 10: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#38">allocateHttpRequestHeaders</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#42">42</a></div>
+        
+        <div class="code">pRequestHeaders = mallocCanFail( sizeof( HTTPRequestHeaders_t ) );</div>
+        
+        <div class="cbmc">pRequestHeaders = ((HTTPRequestHeaders_t *)NULL) (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step11" class="step">
+        <div class="header">Step 11: Function <a href="../test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c.html#33">HTTPClient_Send_harness</a>, File <a href="../test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c.html">test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c</a>, Line <a href="../test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c.html#43">43</a></div>
+        
+        <div class="code">pRequestHeaders = allocateHttpRequestHeaders( NULL );</div>
+        
+        <div class="cbmc">pRequestHeaders = ((HTTPRequestHeaders_t *)NULL) (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step12" class="step">
+        <div class="header">Step 12: Function <a href="../test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c.html#33">HTTPClient_Send_harness</a>, File <a href="../test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c.html">test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c</a>, Line <a href="../test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c.html#44">44</a></div>
+        
+        <div class="code">__CPROVER_assume( isValidHttpRequestHeaders( pRequestHeaders ) );</div>
+        
+        <div class="cbmc">pRequestHeaders = ((HTTPRequestHeaders_t *)NULL) (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step13" class="step">
+        <div class="header">Step 13: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#54">isValidHttpRequestHeaders</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#56">56</a></div>
+        
+        <div class="code">bool isValid = true;</div>
+        
+        <div class="cbmc">isValid = TRUE (11111111)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step14" class="step">
+        <div class="header">Step 14: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#54">isValidHttpRequestHeaders</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#56">56</a></div>
+        
+        <div class="code">bool isValid = true;</div>
+        
+        <div class="cbmc">isValid = TRUE (00000001)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step15" class="step">
+        <div class="header">Step 15: Function <a href="../test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c.html#33">HTTPClient_Send_harness</a>, File <a href="../test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c.html">test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c</a>, Line <a href="../test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c.html#44">44</a></div>
+        
+        <div class="code">__CPROVER_assume( isValidHttpRequestHeaders( pRequestHeaders ) );</div>
+        
+        <div class="cbmc">assumption: return_value_isValidHttpRequestHeaders != FALSE</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step16" class="step">
+        <div class="header">Step 16: Function <a href="../test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c.html#33">HTTPClient_Send_harness</a>, File <a href="../test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c.html">test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c</a>, Line <a href="../test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c.html#47">47</a></div>
+        
+        <div class="code">__CPROVER_assume( reqBodyBufLen &lt; CBMC_MAX_OBJECT_SIZE );</div>
+        
+        <div class="cbmc">assumption: reqBodyBufLen < 18446744073709551615ul >> 8 + 1</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step17" class="step">
+        <div class="header">Step 17: Function <a href="../test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c.html#33">HTTPClient_Send_harness</a>, File <a href="../test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c.html">test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c</a>, Line <a href="../test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c.html#48">48</a></div>
+        
+        <div class="code">pRequestBodyBuf = mallocCanFail( reqBodyBufLen );</div>
+        
+        <div class="cbmc">size = 35184372088832ul (00000000 00000000 00100000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step18" class="step">
+        <div class="header">Step 18: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#32">mallocCanFail</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#35">35</a></div>
+        
+        <div class="code">return malloc( size );</div>
+        
+        <div class="cbmc">malloc_size = 35184372088832ul (00000000 00000000 00100000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step19" class="step">
+        <div class="header">Step 19: Function <a href="../test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c.html#33">HTTPClient_Send_harness</a>, File <a href="../test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c.html">test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c</a>, Line <a href="../test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c.html#48">48</a></div>
+        
+        <div class="code">pRequestBodyBuf = mallocCanFail( reqBodyBufLen );</div>
+        
+        <div class="cbmc">pRequestBodyBuf = ((uint8_t *)NULL) (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step20" class="step">
+        <div class="header">Step 20: Function <a href="../test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c.html#33">HTTPClient_Send_harness</a>, File <a href="../test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c.html">test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c</a>, Line <a href="../test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c.html#51">51</a></div>
+        
+        <div class="code">pResponse = allocateHttpResponse( NULL );</div>
+        
+        <div class="cbmc">pResponse = ((HTTPResponse_t *)NULL) (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step21" class="step">
+        <div class="header">Step 21: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#103">allocateHttpResponse</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#105">105</a></div>
+        
+        <div class="code">size_t headerOffset, bodyOffset;</div>
+        
+        <div class="cbmc">headerOffset = 35184372088942ul (00000000 00000000 00100000 00000000 00000000 00000000 00000000 01101110)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step22" class="step">
+        <div class="header">Step 22: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#103">allocateHttpResponse</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#105">105</a></div>
+        
+        <div class="code">size_t headerOffset, bodyOffset;</div>
+        
+        <div class="cbmc">bodyOffset = 9223407221226864750ul (10000000 00000000 00100000 00000000 00000000 00000000 00000000 01101110)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step23" class="step">
+        <div class="header">Step 23: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#103">allocateHttpResponse</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#109">109</a></div>
+        
+        <div class="code">pResponse = mallocCanFail( sizeof( HTTPResponse_t ) );</div>
+        
+        <div class="cbmc">size = sizeof(HTTPResponse_t) /*96ul*/  (00000000 00000000 00000000 00000000 00000000 00000000 00000000 01100000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step24" class="step">
+        <div class="header">Step 24: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#32">mallocCanFail</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#35">35</a></div>
+        
+        <div class="code">return malloc( size );</div>
+        
+        <div class="cbmc">malloc_size = sizeof(HTTPResponse_t) /*96ul*/  (00000000 00000000 00000000 00000000 00000000 00000000 00000000 01100000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step25" class="step">
+        <div class="header">Step 25: Function <a href="../test/cbmc/stubs/HTTPClient_Send_http_parser_execute.c.html#63">malloc</a>, File &lt;builtin-library-malloc&gt;, Line 38</div>
+        
+        <div class="cbmc">dynamic_object4.pBuffer = INVALID-255 (11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step26" class="step">
+        <div class="header">Step 26: Function <a href="../test/cbmc/stubs/HTTPClient_Send_http_parser_execute.c.html#63">malloc</a>, File &lt;builtin-library-malloc&gt;, Line 38</div>
+        
+        <div class="cbmc">dynamic_object4.bufferLen = 35184372088942ul (00000000 00000000 00100000 00000000 00000000 00000000 00000000 01101110)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step27" class="step">
+        <div class="header">Step 27: Function <a href="../test/cbmc/stubs/HTTPClient_Send_http_parser_execute.c.html#63">malloc</a>, File &lt;builtin-library-malloc&gt;, Line 38</div>
+        
+        <div class="cbmc">dynamic_object4.pHeaderParsingCallback = INVALID-255 (11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step28" class="step">
+        <div class="header">Step 28: Function <a href="../test/cbmc/stubs/HTTPClient_Send_http_parser_execute.c.html#63">malloc</a>, File &lt;builtin-library-malloc&gt;, Line 38</div>
+        
+        <div class="cbmc">dynamic_object4.getTime = INVALID-255 (11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step29" class="step">
+        <div class="header">Step 29: Function <a href="../test/cbmc/stubs/HTTPClient_Send_http_parser_execute.c.html#63">malloc</a>, File &lt;builtin-library-malloc&gt;, Line 38</div>
+        
+        <div class="cbmc">dynamic_object4.pHeaders = INVALID-255 (11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step30" class="step">
+        <div class="header">Step 30: Function <a href="../test/cbmc/stubs/HTTPClient_Send_http_parser_execute.c.html#63">malloc</a>, File &lt;builtin-library-malloc&gt;, Line 38</div>
+        
+        <div class="cbmc">dynamic_object4.headersLen = 0ul (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step31" class="step">
+        <div class="header">Step 31: Function <a href="../test/cbmc/stubs/HTTPClient_Send_http_parser_execute.c.html#63">malloc</a>, File &lt;builtin-library-malloc&gt;, Line 38</div>
+        
+        <div class="cbmc">dynamic_object4.pBody = INVALID-255 (11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step32" class="step">
+        <div class="header">Step 32: Function <a href="../test/cbmc/stubs/HTTPClient_Send_http_parser_execute.c.html#63">malloc</a>, File &lt;builtin-library-malloc&gt;, Line 38</div>
+        
+        <div class="cbmc">dynamic_object4.bodyLen = 0ul (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step33" class="step">
+        <div class="header">Step 33: Function <a href="../test/cbmc/stubs/HTTPClient_Send_http_parser_execute.c.html#63">malloc</a>, File &lt;builtin-library-malloc&gt;, Line 38</div>
+        
+        <div class="cbmc">dynamic_object4.statusCode = 0 (00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step34" class="step">
+        <div class="header">Step 34: Function <a href="../test/cbmc/stubs/HTTPClient_Send_http_parser_execute.c.html#63">malloc</a>, File &lt;builtin-library-malloc&gt;, Line 38</div>
+        
+        <div class="cbmc">dynamic_object4.$pad9 = 281474976710655 (11111111 11111111 11111111 11111111 11111111 11111111)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step35" class="step">
+        <div class="header">Step 35: Function <a href="../test/cbmc/stubs/HTTPClient_Send_http_parser_execute.c.html#63">malloc</a>, File &lt;builtin-library-malloc&gt;, Line 38</div>
+        
+        <div class="cbmc">dynamic_object4.contentLength = 18446744073709551615ul (11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step36" class="step">
+        <div class="header">Step 36: Function <a href="../test/cbmc/stubs/HTTPClient_Send_http_parser_execute.c.html#63">malloc</a>, File &lt;builtin-library-malloc&gt;, Line 38</div>
+        
+        <div class="cbmc">dynamic_object4.headerCount = 1ul (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step37" class="step">
+        <div class="header">Step 37: Function <a href="../test/cbmc/stubs/HTTPClient_Send_http_parser_execute.c.html#63">malloc</a>, File &lt;builtin-library-malloc&gt;, Line 38</div>
+        
+        <div class="cbmc">dynamic_object4.respFlags = 0u (00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step38" class="step">
+        <div class="header">Step 38: Function <a href="../test/cbmc/stubs/HTTPClient_Send_http_parser_execute.c.html#63">malloc</a>, File &lt;builtin-library-malloc&gt;, Line 38</div>
+        
+        <div class="cbmc">dynamic_object4.$pad13 = 4294967295u (11111111 11111111 11111111 11111111)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step39" class="step">
+        <div class="header">Step 39: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#103">allocateHttpResponse</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#109">109</a></div>
+        
+        <div class="code">pResponse = mallocCanFail( sizeof( HTTPResponse_t ) );</div>
+        
+        <div class="cbmc">pResponse = &dynamic_object4 (00000011 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step40" class="step">
+        <div class="header">Step 40: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#103">allocateHttpResponse</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#115">115</a></div>
+        
+        <div class="code">pResponse-&gt;pBuffer = mallocCanFail( pResponse-&gt;bufferLen );</div>
+        
+        <div class="cbmc">size = 35184372088942ul (00000000 00000000 00100000 00000000 00000000 00000000 00000000 01101110)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step41" class="step">
+        <div class="header">Step 41: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#32">mallocCanFail</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#35">35</a></div>
+        
+        <div class="code">return malloc( size );</div>
+        
+        <div class="cbmc">malloc_size = 35184372088942ul (00000000 00000000 00100000 00000000 00000000 00000000 00000000 01101110)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step42" class="step">
+        <div class="header">Step 42: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#103">allocateHttpResponse</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#115">115</a></div>
+        
+        <div class="code">pResponse-&gt;pBuffer = mallocCanFail( pResponse-&gt;bufferLen );</div>
+        
+        <div class="cbmc">dynamic_object4.pBuffer = dynamic_object5 (00000110 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step43" class="step">
+        <div class="header">Step 43: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#103">allocateHttpResponse</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#123">123</a></div>
+        
+        <div class="code">pResponse-&gt;pHeaders = nondet_bool() ? NULL : pResponse-&gt;pBuffer + headerOffset;</div>
+        
+        <div class="cbmc">dynamic_object4.pHeaders = ((uint8_t *)NULL) (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step44" class="step">
+        <div class="header">Step 44: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#103">allocateHttpResponse</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#146">146</a></div>
+        
+        <div class="code">pResponse-&gt;pBuffer + bodyOffset;</div>
+        
+        <div class="cbmc">failure: Unnamed: arithmetic overflow on unsigned to signed type conversion in (signed long int)bodyOffset</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step45" class="step">
+        <div class="header">Step 45: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#103">allocateHttpResponse</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#146">146</a></div>
+        
+        <div class="code">pResponse-&gt;pBuffer + bodyOffset;</div>
+        
+        <div class="cbmc">failure: Unnamed: pointer arithmetic: pointer outside object bounds in pResponse->pBuffer + (signed long int)bodyOffset</div>
+        </div>
+
+        
+
+        
+
+      
+    </div>
+  </body>
+  <script type="text/javascript" src="../viewer.js"></script>
+</html>

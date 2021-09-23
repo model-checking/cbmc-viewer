@@ -1,0 +1,2718 @@
+
+<html>
+  <head>
+    <title>httpParserOnHeadersCompleteCallback.pointer_dereference.61</title>
+    <link rel="stylesheet" type="text/css" href="../viewer.css">
+  </head>
+
+  <body>
+    <h2>Error trace for property httpParserOnHeadersCompleteCallback.pointer_dereference.61</h2>
+
+    <div id="trace-header">
+    <div id="trace-description">
+    <p>
+      Property that failed:
+      <ul>
+        <li> Name: httpParserOnHeadersCompleteCallback.pointer_dereference.61
+        <li> Description: dereference failure: pointer NULL in pResponse->contentLength
+        <li> Location: Function <a href="../source/core_http_client.c.html#803">httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#854">854</a>
+      </ul>
+    </p>
+    </div>
+
+    <div id="trace-navigation">
+    <p>
+      Trace navigation tips:
+      <ul>
+        <li>
+          <strong>Shift-Click: Hide function steps:</strong>
+          Shift-click on any step of a function to toggle the display
+          of function steps (hide or display steps).
+          This corresponds to stepping over a function in a debugger.
+          <em>Example:</em> Shift-click on any step of malloc to hide
+          the initialization of the struct members being malloc'd.
+        </li>
+        <li>
+          <strong>Shift-Alt-Click: Focus on function steps:</strong>
+          Shift-Alt-click on any step of a function to hide all steps
+          of all functions not currently on the call stack.
+          This corresponds to viewing the call stack in a debugger.
+          <em>Example:</em> Shift-Alt-click on a failure step to the display the
+          most direct path from the initial state to the failure.
+        </li>
+      </ul>
+    </p>
+    </div>
+    </div>
+
+    <div class="trace">
+
+      
+
+        
+
+        
+
+        <div id="step1" class="step">
+        <div class="header">Step 1: Function <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#33">httpParserOnHeadersCompleteCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#35">35</a></div>
+        
+        <div class="code">http_parser * pHttpParser;</div>
+        
+        <div class="cbmc">pHttpParser = ((http_parser *)NULL) (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step2" class="step">
+        <div class="header">Step 2: Function <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#33">httpParserOnHeadersCompleteCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#36">36</a></div>
+        
+        <div class="code">HTTPParsingContext_t * pParsingContext;</div>
+        
+        <div class="cbmc">pParsingContext = ((HTTPParsingContext_t *)NULL) (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step3" class="step">
+        <div class="header">Step 3: Function <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#33">httpParserOnHeadersCompleteCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#37">37</a></div>
+        
+        <div class="code">HTTPResponse_t * pResponse;</div>
+        
+        <div class="cbmc">pResponse = ((HTTPResponse_t *)NULL) (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step4" class="step">
+        <div class="header">Step 4: Function <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#33">httpParserOnHeadersCompleteCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#38">38</a></div>
+        
+        <div class="code">HTTPClient_ResponseHeaderParsingCallback_t headerParserCallback;</div>
+        
+        <div class="cbmc">headerParserCallback = { .onHeaderCallback=headerParserCallback!0@1#1..onHeaderCallback, .pContext=NULL } ({ ?, 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 })</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step5" class="step">
+        <div class="header">Step 5: Function <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#33">httpParserOnHeadersCompleteCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#39">39</a></div>
+        
+        <div class="code">size_t bufferOffset;</div>
+        
+        <div class="cbmc">bufferOffset = 9260526750960648158ul (10000000 10000100 00000000 00000100 00000000 00000010 11111111 11011110)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step6" class="step">
+        <div class="header">Step 6: Function <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#33">httpParserOnHeadersCompleteCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#40">40</a></div>
+        
+        <div class="code">size_t headerOffSet;</div>
+        
+        <div class="cbmc">headerOffSet = 9259400833873739743ul (10000000 01111111 11111111 11111111 11111111 11111111 11111111 11011111)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step7" class="step">
+        <div class="header">Step 7: Function <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#33">httpParserOnHeadersCompleteCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#42">42</a></div>
+        
+        <div class="code">pHttpParser = allocateHttpSendParser( NULL );</div>
+        
+        <div class="cbmc">pHttpParser = ((http_parser *)NULL) (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step8" class="step">
+        <div class="header">Step 8: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#203">allocateHttpSendParser</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#205">205</a></div>
+        
+        <div class="code">HTTPParsingContext_t * pHttpParsingContext;</div>
+        
+        <div class="cbmc">pHttpParsingContext = ((HTTPParsingContext_t *)NULL) (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step9" class="step">
+        <div class="header">Step 9: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#203">allocateHttpSendParser</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#209">209</a></div>
+        
+        <div class="code">pHttpParser = malloc( sizeof( http_parser ) );</div>
+        
+        <div class="cbmc">malloc_size = sizeof(http_parser) /*32ul*/  (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00100000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step10" class="step">
+        <div class="header">Step 10: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#203">allocateHttpSendParser</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#209">209</a></div>
+        
+        <div class="code">pHttpParser = malloc( sizeof( http_parser ) );</div>
+        
+        <div class="cbmc">pHttpParser = ((http_parser *)NULL) (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step11" class="step">
+        <div class="header">Step 11: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#203">allocateHttpSendParser</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#213">213</a></div>
+        
+        <div class="code">pHttpParsingContext = allocateHttpSendParsingContext( NULL );</div>
+        
+        <div class="cbmc">pHttpParsingContext = ((HTTPParsingContext_t *)NULL) (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step12" class="step">
+        <div class="header">Step 12: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#222">222</a></div>
+        
+        <div class="code">HTTPResponse_t * pResponse;</div>
+        
+        <div class="cbmc">pResponse = ((HTTPResponse_t *)NULL) (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step13" class="step">
+        <div class="header">Step 13: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#223">223</a></div>
+        
+        <div class="code">size_t bufferOffset;</div>
+        
+        <div class="cbmc">bufferOffset = 9223372036854775812ul (10000000 00000000 00000000 00000000 00000000 00000000 00000000 00000100)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step14" class="step">
+        <div class="header">Step 14: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#227">227</a></div>
+        
+        <div class="code">pHttpParsingContext = malloc( sizeof( HTTPParsingContext_t ) );</div>
+        
+        <div class="cbmc">malloc_size = sizeof(HTTPParsingContext_t) /*96ul*/  (00000000 00000000 00000000 00000000 00000000 00000000 00000000 01100000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step15" class="step">
+        <div class="header">Step 15: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#227">227</a></div>
+        
+        <div class="code">pHttpParsingContext = malloc( sizeof( HTTPParsingContext_t ) );</div>
+        
+        <div class="cbmc">pHttpParsingContext = ((HTTPParsingContext_t *)NULL) (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step16" class="step">
+        <div class="header">Step 16: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#230">230</a></div>
+        
+        <div class="code">pResponse = allocateHttpResponse( NULL );</div>
+        
+        <div class="cbmc">pResponse = ((HTTPResponse_t *)NULL) (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step17" class="step">
+        <div class="header">Step 17: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#103">allocateHttpResponse</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#105">105</a></div>
+        
+        <div class="code">size_t headerOffset, bodyOffset;</div>
+        
+        <div class="cbmc">headerOffset = 2ul (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000010)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step18" class="step">
+        <div class="header">Step 18: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#103">allocateHttpResponse</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#105">105</a></div>
+        
+        <div class="code">size_t headerOffset, bodyOffset;</div>
+        
+        <div class="cbmc">bodyOffset = 0ul (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step19" class="step">
+        <div class="header">Step 19: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#103">allocateHttpResponse</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#109">109</a></div>
+        
+        <div class="code">pResponse = mallocCanFail( sizeof( HTTPResponse_t ) );</div>
+        
+        <div class="cbmc">size = sizeof(HTTPParsingContext_t) /*96ul*/  (00000000 00000000 00000000 00000000 00000000 00000000 00000000 01100000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step20" class="step">
+        <div class="header">Step 20: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#32">mallocCanFail</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#35">35</a></div>
+        
+        <div class="code">return malloc( size );</div>
+        
+        <div class="cbmc">malloc_size = sizeof(HTTPParsingContext_t) /*96ul*/  (00000000 00000000 00000000 00000000 00000000 00000000 00000000 01100000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step21" class="step">
+        <div class="header">Step 21: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#103">allocateHttpResponse</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#109">109</a></div>
+        
+        <div class="code">pResponse = mallocCanFail( sizeof( HTTPResponse_t ) );</div>
+        
+        <div class="cbmc">pResponse = ((HTTPResponse_t *)NULL) (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step22" class="step">
+        <div class="header">Step 22: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#230">230</a></div>
+        
+        <div class="code">pResponse = allocateHttpResponse( NULL );</div>
+        
+        <div class="cbmc">pResponse = ((HTTPResponse_t *)NULL) (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step23" class="step">
+        <div class="header">Step 23: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#237">237</a></div>
+        
+        <div class="code">pHttpParsingContext-&gt;pResponse = pResponse;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: pointer NULL in pHttpParsingContext->pResponse</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step24" class="step">
+        <div class="header">Step 24: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#237">237</a></div>
+        
+        <div class="code">pHttpParsingContext-&gt;pResponse = pResponse;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: deallocated dynamic object in pHttpParsingContext->pResponse</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step25" class="step">
+        <div class="header">Step 25: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#237">237</a></div>
+        
+        <div class="code">pHttpParsingContext-&gt;pResponse = pResponse;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: dead object in pHttpParsingContext->pResponse</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step26" class="step">
+        <div class="header">Step 26: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#237">237</a></div>
+        
+        <div class="code">pHttpParsingContext-&gt;pResponse = pResponse;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: invalid integer address in pHttpParsingContext->pResponse</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step27" class="step">
+        <div class="header">Step 27: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#237">237</a></div>
+        
+        <div class="code">pHttpParsingContext-&gt;pResponse = pResponse;</div>
+        
+        <div class="cbmc">pHttpParsingContext$object.pResponse = ((HTTPResponse_t *)NULL) (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step28" class="step">
+        <div class="header">Step 28: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#240">240</a></div>
+        
+        <div class="code">pHttpParsingContext-&gt;pBufferCur = pResponse-&gt;pBuffer + bufferOffset;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: pointer NULL in pHttpParsingContext->pBufferCur</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step29" class="step">
+        <div class="header">Step 29: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#240">240</a></div>
+        
+        <div class="code">pHttpParsingContext-&gt;pBufferCur = pResponse-&gt;pBuffer + bufferOffset;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: deallocated dynamic object in pHttpParsingContext->pBufferCur</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step30" class="step">
+        <div class="header">Step 30: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#240">240</a></div>
+        
+        <div class="code">pHttpParsingContext-&gt;pBufferCur = pResponse-&gt;pBuffer + bufferOffset;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: dead object in pHttpParsingContext->pBufferCur</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step31" class="step">
+        <div class="header">Step 31: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#240">240</a></div>
+        
+        <div class="code">pHttpParsingContext-&gt;pBufferCur = pResponse-&gt;pBuffer + bufferOffset;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: invalid integer address in pHttpParsingContext->pBufferCur</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step32" class="step">
+        <div class="header">Step 32: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#240">240</a></div>
+        
+        <div class="code">pHttpParsingContext-&gt;pBufferCur = pResponse-&gt;pBuffer + bufferOffset;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: pointer NULL in pResponse->pBuffer</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step33" class="step">
+        <div class="header">Step 33: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#240">240</a></div>
+        
+        <div class="code">pHttpParsingContext-&gt;pBufferCur = pResponse-&gt;pBuffer + bufferOffset;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: deallocated dynamic object in pResponse->pBuffer</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step34" class="step">
+        <div class="header">Step 34: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#240">240</a></div>
+        
+        <div class="code">pHttpParsingContext-&gt;pBufferCur = pResponse-&gt;pBuffer + bufferOffset;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: dead object in pResponse->pBuffer</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step35" class="step">
+        <div class="header">Step 35: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#240">240</a></div>
+        
+        <div class="code">pHttpParsingContext-&gt;pBufferCur = pResponse-&gt;pBuffer + bufferOffset;</div>
+        
+        <div class="cbmc">failure: Unnamed: arithmetic overflow on unsigned to signed type conversion in (signed long int)bufferOffset</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step36" class="step">
+        <div class="header">Step 36: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#240">240</a></div>
+        
+        <div class="code">pHttpParsingContext-&gt;pBufferCur = pResponse-&gt;pBuffer + bufferOffset;</div>
+        
+        <div class="cbmc">failure: Unnamed: pointer arithmetic: pointer NULL in pResponse->pBuffer + (signed long int)bufferOffset</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step37" class="step">
+        <div class="header">Step 37: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#240">240</a></div>
+        
+        <div class="code">pHttpParsingContext-&gt;pBufferCur = pResponse-&gt;pBuffer + bufferOffset;</div>
+        
+        <div class="cbmc">failure: Unnamed: pointer arithmetic: deallocated dynamic object in pResponse->pBuffer + (signed long int)bufferOffset</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step38" class="step">
+        <div class="header">Step 38: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#240">240</a></div>
+        
+        <div class="code">pHttpParsingContext-&gt;pBufferCur = pResponse-&gt;pBuffer + bufferOffset;</div>
+        
+        <div class="cbmc">failure: Unnamed: pointer arithmetic: dead object in pResponse->pBuffer + (signed long int)bufferOffset</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step39" class="step">
+        <div class="header">Step 39: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#240">240</a></div>
+        
+        <div class="code">pHttpParsingContext-&gt;pBufferCur = pResponse-&gt;pBuffer + bufferOffset;</div>
+        
+        <div class="cbmc">failure: Unnamed: pointer arithmetic: pointer outside object bounds in pResponse->pBuffer + (signed long int)bufferOffset</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step40" class="step">
+        <div class="header">Step 40: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#240">240</a></div>
+        
+        <div class="code">pHttpParsingContext-&gt;pBufferCur = pResponse-&gt;pBuffer + bufferOffset;</div>
+        
+        <div class="cbmc">failure: Unnamed: pointer arithmetic: invalid integer address in pResponse->pBuffer + (signed long int)bufferOffset</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step41" class="step">
+        <div class="header">Step 41: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#240">240</a></div>
+        
+        <div class="code">pHttpParsingContext-&gt;pBufferCur = pResponse-&gt;pBuffer + bufferOffset;</div>
+        
+        <div class="cbmc">pHttpParsingContext$object.pBufferCur = ((const char *)NULL) + 4l (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000100)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step42" class="step">
+        <div class="header">Step 42: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#203">allocateHttpSendParser</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#213">213</a></div>
+        
+        <div class="code">pHttpParsingContext = allocateHttpSendParsingContext( NULL );</div>
+        
+        <div class="cbmc">pHttpParsingContext = ((HTTPParsingContext_t *)NULL) (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step43" class="step">
+        <div class="header">Step 43: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#203">allocateHttpSendParser</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#215">215</a></div>
+        
+        <div class="code">pHttpParser-&gt;data = ( void * ) pHttpParsingContext;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: pointer NULL in pHttpParser->data</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step44" class="step">
+        <div class="header">Step 44: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#203">allocateHttpSendParser</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#215">215</a></div>
+        
+        <div class="code">pHttpParser-&gt;data = ( void * ) pHttpParsingContext;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: deallocated dynamic object in pHttpParser->data</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step45" class="step">
+        <div class="header">Step 45: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#203">allocateHttpSendParser</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#215">215</a></div>
+        
+        <div class="code">pHttpParser-&gt;data = ( void * ) pHttpParsingContext;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: dead object in pHttpParser->data</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step46" class="step">
+        <div class="header">Step 46: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#203">allocateHttpSendParser</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#215">215</a></div>
+        
+        <div class="code">pHttpParser-&gt;data = ( void * ) pHttpParsingContext;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: invalid integer address in pHttpParser->data</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step47" class="step">
+        <div class="header">Step 47: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#203">allocateHttpSendParser</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#215">215</a></div>
+        
+        <div class="code">pHttpParser-&gt;data = ( void * ) pHttpParsingContext;</div>
+        
+        <div class="cbmc">pHttpParser$object.data = NULL (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step48" class="step">
+        <div class="header">Step 48: Function <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#33">httpParserOnHeadersCompleteCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#42">42</a></div>
+        
+        <div class="code">pHttpParser = allocateHttpSendParser( NULL );</div>
+        
+        <div class="cbmc">pHttpParser = ((http_parser *)NULL) (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step49" class="step">
+        <div class="header">Step 49: Function <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#33">httpParserOnHeadersCompleteCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#44">44</a></div>
+        
+        <div class="code">pParsingContext = ( HTTPParsingContext_t * ) ( pHttpParser-&gt;data );</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: pointer NULL in pHttpParser->data</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step50" class="step">
+        <div class="header">Step 50: Function <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#33">httpParserOnHeadersCompleteCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#44">44</a></div>
+        
+        <div class="code">pParsingContext = ( HTTPParsingContext_t * ) ( pHttpParser-&gt;data );</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: deallocated dynamic object in pHttpParser->data</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step51" class="step">
+        <div class="header">Step 51: Function <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#33">httpParserOnHeadersCompleteCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#44">44</a></div>
+        
+        <div class="code">pParsingContext = ( HTTPParsingContext_t * ) ( pHttpParser-&gt;data );</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: dead object in pHttpParser->data</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step52" class="step">
+        <div class="header">Step 52: Function <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#33">httpParserOnHeadersCompleteCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#44">44</a></div>
+        
+        <div class="code">pParsingContext = ( HTTPParsingContext_t * ) ( pHttpParser-&gt;data );</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: invalid integer address in pHttpParser->data</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step53" class="step">
+        <div class="header">Step 53: Function <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#33">httpParserOnHeadersCompleteCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#44">44</a></div>
+        
+        <div class="code">pParsingContext = ( HTTPParsingContext_t * ) ( pHttpParser-&gt;data );</div>
+        
+        <div class="cbmc">pParsingContext = ((HTTPParsingContext_t *)NULL) + 137438953472l (00000000 00000000 00000000 00100000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step54" class="step">
+        <div class="header">Step 54: Function <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#33">httpParserOnHeadersCompleteCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#45">45</a></div>
+        
+        <div class="code">headerParserCallback.onHeaderCallback = onHeaderCallbackStub;</div>
+        
+        <div class="cbmc">headerParserCallback.onHeaderCallback = onHeaderCallbackStub (00000110 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step55" class="step">
+        <div class="header">Step 55: Function <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#33">httpParserOnHeadersCompleteCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#47">47</a></div>
+        
+        <div class="code">pResponse = pParsingContext-&gt;pResponse;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: pointer NULL in pParsingContext->pResponse</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step56" class="step">
+        <div class="header">Step 56: Function <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#33">httpParserOnHeadersCompleteCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#47">47</a></div>
+        
+        <div class="code">pResponse = pParsingContext-&gt;pResponse;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: deallocated dynamic object in pParsingContext->pResponse</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step57" class="step">
+        <div class="header">Step 57: Function <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#33">httpParserOnHeadersCompleteCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#47">47</a></div>
+        
+        <div class="code">pResponse = pParsingContext-&gt;pResponse;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: dead object in pParsingContext->pResponse</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step58" class="step">
+        <div class="header">Step 58: Function <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#33">httpParserOnHeadersCompleteCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#47">47</a></div>
+        
+        <div class="code">pResponse = pParsingContext-&gt;pResponse;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: pointer outside object bounds in pParsingContext->pResponse</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step59" class="step">
+        <div class="header">Step 59: Function <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#33">httpParserOnHeadersCompleteCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#47">47</a></div>
+        
+        <div class="code">pResponse = pParsingContext-&gt;pResponse;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: invalid integer address in pParsingContext->pResponse</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step60" class="step">
+        <div class="header">Step 60: Function <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#33">httpParserOnHeadersCompleteCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#47">47</a></div>
+        
+        <div class="code">pResponse = pParsingContext-&gt;pResponse;</div>
+        
+        <div class="cbmc">pResponse = INVALID-20 (00010100 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step61" class="step">
+        <div class="header">Step 61: Function <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#33">httpParserOnHeadersCompleteCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#48">48</a></div>
+        
+        <div class="code">pResponse-&gt;pHeaderParsingCallback = &amp;headerParserCallback;</div>
+        
+        <div class="cbmc">pResponse$object.pHeaderParsingCallback = &headerParserCallback!0@1 (00000111 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step62" class="step">
+        <div class="header">Step 62: Function <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#33">httpParserOnHeadersCompleteCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#52">52</a></div>
+        
+        <div class="code">__CPROVER_assume( bufferOffset &lt; pResponse-&gt;bufferLen );</div>
+        
+        <div class="cbmc">assumption: bufferOffset < pResponse->bufferLen</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step63" class="step">
+        <div class="header">Step 63: Function <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#33">httpParserOnHeadersCompleteCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#53">53</a></div>
+        
+        <div class="code">pParsingContext-&gt;pBufferCur = pResponse-&gt;pBuffer + bufferOffset;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: pointer NULL in pParsingContext->pBufferCur</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step64" class="step">
+        <div class="header">Step 64: Function <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#33">httpParserOnHeadersCompleteCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#53">53</a></div>
+        
+        <div class="code">pParsingContext-&gt;pBufferCur = pResponse-&gt;pBuffer + bufferOffset;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: deallocated dynamic object in pParsingContext->pBufferCur</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step65" class="step">
+        <div class="header">Step 65: Function <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#33">httpParserOnHeadersCompleteCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#53">53</a></div>
+        
+        <div class="code">pParsingContext-&gt;pBufferCur = pResponse-&gt;pBuffer + bufferOffset;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: dead object in pParsingContext->pBufferCur</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step66" class="step">
+        <div class="header">Step 66: Function <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#33">httpParserOnHeadersCompleteCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#53">53</a></div>
+        
+        <div class="code">pParsingContext-&gt;pBufferCur = pResponse-&gt;pBuffer + bufferOffset;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: pointer outside object bounds in pParsingContext->pBufferCur</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step67" class="step">
+        <div class="header">Step 67: Function <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#33">httpParserOnHeadersCompleteCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#53">53</a></div>
+        
+        <div class="code">pParsingContext-&gt;pBufferCur = pResponse-&gt;pBuffer + bufferOffset;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: invalid integer address in pParsingContext->pBufferCur</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step68" class="step">
+        <div class="header">Step 68: Function <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#33">httpParserOnHeadersCompleteCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#53">53</a></div>
+        
+        <div class="code">pParsingContext-&gt;pBufferCur = pResponse-&gt;pBuffer + bufferOffset;</div>
+        
+        <div class="cbmc">failure: Unnamed: arithmetic overflow on unsigned to signed type conversion in (signed long int)bufferOffset</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step69" class="step">
+        <div class="header">Step 69: Function <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#33">httpParserOnHeadersCompleteCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#53">53</a></div>
+        
+        <div class="code">pParsingContext-&gt;pBufferCur = pResponse-&gt;pBuffer + bufferOffset;</div>
+        
+        <div class="cbmc">failure: Unnamed: pointer arithmetic: pointer NULL in pResponse->pBuffer + (signed long int)bufferOffset</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step70" class="step">
+        <div class="header">Step 70: Function <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#33">httpParserOnHeadersCompleteCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#53">53</a></div>
+        
+        <div class="code">pParsingContext-&gt;pBufferCur = pResponse-&gt;pBuffer + bufferOffset;</div>
+        
+        <div class="cbmc">failure: Unnamed: pointer arithmetic: deallocated dynamic object in pResponse->pBuffer + (signed long int)bufferOffset</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step71" class="step">
+        <div class="header">Step 71: Function <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#33">httpParserOnHeadersCompleteCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#53">53</a></div>
+        
+        <div class="code">pParsingContext-&gt;pBufferCur = pResponse-&gt;pBuffer + bufferOffset;</div>
+        
+        <div class="cbmc">failure: Unnamed: pointer arithmetic: dead object in pResponse->pBuffer + (signed long int)bufferOffset</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step72" class="step">
+        <div class="header">Step 72: Function <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#33">httpParserOnHeadersCompleteCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#53">53</a></div>
+        
+        <div class="code">pParsingContext-&gt;pBufferCur = pResponse-&gt;pBuffer + bufferOffset;</div>
+        
+        <div class="cbmc">failure: Unnamed: pointer arithmetic: pointer outside object bounds in pResponse->pBuffer + (signed long int)bufferOffset</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step73" class="step">
+        <div class="header">Step 73: Function <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#33">httpParserOnHeadersCompleteCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#53">53</a></div>
+        
+        <div class="code">pParsingContext-&gt;pBufferCur = pResponse-&gt;pBuffer + bufferOffset;</div>
+        
+        <div class="cbmc">failure: Unnamed: pointer arithmetic: invalid integer address in pResponse->pBuffer + (signed long int)bufferOffset</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step74" class="step">
+        <div class="header">Step 74: Function <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#33">httpParserOnHeadersCompleteCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#53">53</a></div>
+        
+        <div class="code">pParsingContext-&gt;pBufferCur = pResponse-&gt;pBuffer + bufferOffset;</div>
+        
+        <div class="cbmc">pParsingContext$object.pBufferCur = ((const char *)NULL) + 1125917086908415l (00000000 00000100 00000000 00000100 00000000 00000010 11111111 11111111)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step75" class="step">
+        <div class="header">Step 75: Function <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#33">httpParserOnHeadersCompleteCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#59">59</a></div>
+        
+        <div class="code">__CPROVER_assume( headerOffSet &lt; bufferOffset );</div>
+        
+        <div class="cbmc">assumption: headerOffSet < bufferOffset</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step76" class="step">
+        <div class="header">Step 76: Function <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#33">httpParserOnHeadersCompleteCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#60">60</a></div>
+        
+        <div class="code">pResponse-&gt;pHeaders = pResponse-&gt;pBuffer + headerOffSet;</div>
+        
+        <div class="cbmc">failure: Unnamed: arithmetic overflow on unsigned to signed type conversion in (signed long int)headerOffSet</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step77" class="step">
+        <div class="header">Step 77: Function <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#33">httpParserOnHeadersCompleteCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#60">60</a></div>
+        
+        <div class="code">pResponse-&gt;pHeaders = pResponse-&gt;pBuffer + headerOffSet;</div>
+        
+        <div class="cbmc">failure: Unnamed: pointer arithmetic: pointer NULL in pResponse->pBuffer + (signed long int)headerOffSet</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step78" class="step">
+        <div class="header">Step 78: Function <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#33">httpParserOnHeadersCompleteCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#60">60</a></div>
+        
+        <div class="code">pResponse-&gt;pHeaders = pResponse-&gt;pBuffer + headerOffSet;</div>
+        
+        <div class="cbmc">failure: Unnamed: pointer arithmetic: deallocated dynamic object in pResponse->pBuffer + (signed long int)headerOffSet</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step79" class="step">
+        <div class="header">Step 79: Function <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#33">httpParserOnHeadersCompleteCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#60">60</a></div>
+        
+        <div class="code">pResponse-&gt;pHeaders = pResponse-&gt;pBuffer + headerOffSet;</div>
+        
+        <div class="cbmc">failure: Unnamed: pointer arithmetic: dead object in pResponse->pBuffer + (signed long int)headerOffSet</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step80" class="step">
+        <div class="header">Step 80: Function <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#33">httpParserOnHeadersCompleteCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#60">60</a></div>
+        
+        <div class="code">pResponse-&gt;pHeaders = pResponse-&gt;pBuffer + headerOffSet;</div>
+        
+        <div class="cbmc">failure: Unnamed: pointer arithmetic: pointer outside object bounds in pResponse->pBuffer + (signed long int)headerOffSet</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step81" class="step">
+        <div class="header">Step 81: Function <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#33">httpParserOnHeadersCompleteCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#60">60</a></div>
+        
+        <div class="code">pResponse-&gt;pHeaders = pResponse-&gt;pBuffer + headerOffSet;</div>
+        
+        <div class="cbmc">pResponse$object.pHeaders = ((uint8_t *)NULL) (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step82" class="step">
+        <div class="header">Step 82: Function <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#33">httpParserOnHeadersCompleteCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#64">64</a></div>
+        
+        <div class="code">__CPROVER_assume( pResponse-&gt;headerCount &lt; SIZE_MAX );</div>
+        
+        <div class="cbmc">assumption: pResponse->headerCount < 18446744073709551615ul</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step83" class="step">
+        <div class="header">Step 83: Function <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#33">httpParserOnHeadersCompleteCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeadersCompleteCallback/httpParserOnHeadersCompleteCallback_harness.c.html#66">66</a></div>
+        
+        <div class="code">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback( pHttpParser );</div>
+        
+        <div class="cbmc">pHttpParser = ((http_parser *)NULL) (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step84" class="step">
+        <div class="header">Step 84: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#805">805</a></div>
+        
+        <div class="code">int shouldContinueParse = HTTP_PARSER_CONTINUE_PARSING;</div>
+        
+        <div class="cbmc">shouldContinueParse = 0 (00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step85" class="step">
+        <div class="header">Step 85: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#805">805</a></div>
+        
+        <div class="code">int shouldContinueParse = HTTP_PARSER_CONTINUE_PARSING;</div>
+        
+        <div class="cbmc">shouldContinueParse = 0 (00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step86" class="step">
+        <div class="header">Step 86: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#806">806</a></div>
+        
+        <div class="code">HTTPParsingContext_t * pParsingContext = NULL;</div>
+        
+        <div class="cbmc">pParsingContext = ((HTTPParsingContext_t *)NULL) (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step87" class="step">
+        <div class="header">Step 87: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#806">806</a></div>
+        
+        <div class="code">HTTPParsingContext_t * pParsingContext = NULL;</div>
+        
+        <div class="cbmc">pParsingContext = ((HTTPParsingContext_t *)NULL) (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step88" class="step">
+        <div class="header">Step 88: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#807">807</a></div>
+        
+        <div class="code">HTTPResponse_t * pResponse = NULL;</div>
+        
+        <div class="cbmc">pResponse = ((HTTPResponse_t *)NULL) (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step89" class="step">
+        <div class="header">Step 89: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#807">807</a></div>
+        
+        <div class="code">HTTPResponse_t * pResponse = NULL;</div>
+        
+        <div class="cbmc">pResponse = ((HTTPResponse_t *)NULL) (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step90" class="step">
+        <div class="header">Step 90: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#809">809</a></div>
+        
+        <div class="code">assert( pHttpParser != NULL );</div>
+        
+        <div class="cbmc">failure: Unnamed: assertion pHttpParser != NULL</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step91" class="step">
+        <div class="header">Step 91: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#810">810</a></div>
+        
+        <div class="code">assert( pHttpParser-&gt;data != NULL );</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: pointer NULL in pHttpParser->data</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step92" class="step">
+        <div class="header">Step 92: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#810">810</a></div>
+        
+        <div class="code">assert( pHttpParser-&gt;data != NULL );</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: deallocated dynamic object in pHttpParser->data</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step93" class="step">
+        <div class="header">Step 93: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#810">810</a></div>
+        
+        <div class="code">assert( pHttpParser-&gt;data != NULL );</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: dead object in pHttpParser->data</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step94" class="step">
+        <div class="header">Step 94: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#810">810</a></div>
+        
+        <div class="code">assert( pHttpParser-&gt;data != NULL );</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: pointer outside object bounds in pHttpParser->data</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step95" class="step">
+        <div class="header">Step 95: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#810">810</a></div>
+        
+        <div class="code">assert( pHttpParser-&gt;data != NULL );</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: invalid integer address in pHttpParser->data</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step96" class="step">
+        <div class="header">Step 96: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#812">812</a></div>
+        
+        <div class="code">pParsingContext = ( HTTPParsingContext_t * ) ( pHttpParser-&gt;data );</div>
+        
+        <div class="cbmc">pParsingContext = ((HTTPParsingContext_t *)NULL) + 3l (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000011)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step97" class="step">
+        <div class="header">Step 97: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#813">813</a></div>
+        
+        <div class="code">pResponse = pParsingContext-&gt;pResponse;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: pointer NULL in pParsingContext->pResponse</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step98" class="step">
+        <div class="header">Step 98: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#813">813</a></div>
+        
+        <div class="code">pResponse = pParsingContext-&gt;pResponse;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: deallocated dynamic object in pParsingContext->pResponse</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step99" class="step">
+        <div class="header">Step 99: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#813">813</a></div>
+        
+        <div class="code">pResponse = pParsingContext-&gt;pResponse;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: dead object in pParsingContext->pResponse</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step100" class="step">
+        <div class="header">Step 100: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#813">813</a></div>
+        
+        <div class="code">pResponse = pParsingContext-&gt;pResponse;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: pointer outside object bounds in pParsingContext->pResponse</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step101" class="step">
+        <div class="header">Step 101: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#813">813</a></div>
+        
+        <div class="code">pResponse = pParsingContext-&gt;pResponse;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: invalid integer address in pParsingContext->pResponse</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step102" class="step">
+        <div class="header">Step 102: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#813">813</a></div>
+        
+        <div class="code">pResponse = pParsingContext-&gt;pResponse;</div>
+        
+        <div class="cbmc">pResponse = ((HTTPResponse_t *)NULL) + 3l (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000011)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step103" class="step">
+        <div class="header">Step 103: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#816">816</a></div>
+        
+        <div class="code">assert( pParsingContext-&gt;pBufferCur != NULL );</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: pointer NULL in pParsingContext->pBufferCur</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step104" class="step">
+        <div class="header">Step 104: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#816">816</a></div>
+        
+        <div class="code">assert( pParsingContext-&gt;pBufferCur != NULL );</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: deallocated dynamic object in pParsingContext->pBufferCur</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step105" class="step">
+        <div class="header">Step 105: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#816">816</a></div>
+        
+        <div class="code">assert( pParsingContext-&gt;pBufferCur != NULL );</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: dead object in pParsingContext->pBufferCur</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step106" class="step">
+        <div class="header">Step 106: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#816">816</a></div>
+        
+        <div class="code">assert( pParsingContext-&gt;pBufferCur != NULL );</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: pointer outside object bounds in pParsingContext->pBufferCur</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step107" class="step">
+        <div class="header">Step 107: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#816">816</a></div>
+        
+        <div class="code">assert( pParsingContext-&gt;pBufferCur != NULL );</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: invalid integer address in pParsingContext->pBufferCur</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step108" class="step">
+        <div class="header">Step 108: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#820">820</a></div>
+        
+        <div class="code">assert( pParsingContext-&gt;pBufferCur &gt;= ( const char * ) ( pResponse-&gt;pBuffer ) );</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: pointer NULL in pResponse->pBuffer</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step109" class="step">
+        <div class="header">Step 109: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#820">820</a></div>
+        
+        <div class="code">assert( pParsingContext-&gt;pBufferCur &gt;= ( const char * ) ( pResponse-&gt;pBuffer ) );</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: deallocated dynamic object in pResponse->pBuffer</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step110" class="step">
+        <div class="header">Step 110: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#820">820</a></div>
+        
+        <div class="code">assert( pParsingContext-&gt;pBufferCur &gt;= ( const char * ) ( pResponse-&gt;pBuffer ) );</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: dead object in pResponse->pBuffer</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step111" class="step">
+        <div class="header">Step 111: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#820">820</a></div>
+        
+        <div class="code">assert( pParsingContext-&gt;pBufferCur &gt;= ( const char * ) ( pResponse-&gt;pBuffer ) );</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: invalid integer address in pResponse->pBuffer</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step112" class="step">
+        <div class="header">Step 112: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#820">820</a></div>
+        
+        <div class="code">assert( pParsingContext-&gt;pBufferCur &gt;= ( const char * ) ( pResponse-&gt;pBuffer ) );</div>
+        
+        <div class="cbmc">failure: Unnamed: pointer relation: pointer NULL in pParsingContext->pBufferCur</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step113" class="step">
+        <div class="header">Step 113: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#820">820</a></div>
+        
+        <div class="code">assert( pParsingContext-&gt;pBufferCur &gt;= ( const char * ) ( pResponse-&gt;pBuffer ) );</div>
+        
+        <div class="cbmc">failure: Unnamed: pointer relation: deallocated dynamic object in pParsingContext->pBufferCur</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step114" class="step">
+        <div class="header">Step 114: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#820">820</a></div>
+        
+        <div class="code">assert( pParsingContext-&gt;pBufferCur &gt;= ( const char * ) ( pResponse-&gt;pBuffer ) );</div>
+        
+        <div class="cbmc">failure: Unnamed: pointer relation: dead object in pParsingContext->pBufferCur</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step115" class="step">
+        <div class="header">Step 115: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#820">820</a></div>
+        
+        <div class="code">assert( pParsingContext-&gt;pBufferCur &gt;= ( const char * ) ( pResponse-&gt;pBuffer ) );</div>
+        
+        <div class="cbmc">failure: Unnamed: pointer relation: pointer outside object bounds in pParsingContext->pBufferCur</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step116" class="step">
+        <div class="header">Step 116: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#820">820</a></div>
+        
+        <div class="code">assert( pParsingContext-&gt;pBufferCur &gt;= ( const char * ) ( pResponse-&gt;pBuffer ) );</div>
+        
+        <div class="cbmc">failure: Unnamed: pointer relation: invalid integer address in pParsingContext->pBufferCur</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step117" class="step">
+        <div class="header">Step 117: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#820">820</a></div>
+        
+        <div class="code">assert( pParsingContext-&gt;pBufferCur &gt;= ( const char * ) ( pResponse-&gt;pBuffer ) );</div>
+        
+        <div class="cbmc">failure: Unnamed: pointer relation: pointer NULL in (const char *)pResponse->pBuffer</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step118" class="step">
+        <div class="header">Step 118: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#820">820</a></div>
+        
+        <div class="code">assert( pParsingContext-&gt;pBufferCur &gt;= ( const char * ) ( pResponse-&gt;pBuffer ) );</div>
+        
+        <div class="cbmc">failure: Unnamed: pointer relation: deallocated dynamic object in (const char *)pResponse->pBuffer</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step119" class="step">
+        <div class="header">Step 119: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#820">820</a></div>
+        
+        <div class="code">assert( pParsingContext-&gt;pBufferCur &gt;= ( const char * ) ( pResponse-&gt;pBuffer ) );</div>
+        
+        <div class="cbmc">failure: Unnamed: pointer relation: dead object in (const char *)pResponse->pBuffer</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step120" class="step">
+        <div class="header">Step 120: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#821">821</a></div>
+        
+        <div class="code">assert( pParsingContext-&gt;pBufferCur &lt; ( const char * ) ( pResponse-&gt;pBuffer + pResponse-&gt;bufferLen ) );</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: pointer NULL in pResponse->bufferLen</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step121" class="step">
+        <div class="header">Step 121: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#821">821</a></div>
+        
+        <div class="code">assert( pParsingContext-&gt;pBufferCur &lt; ( const char * ) ( pResponse-&gt;pBuffer + pResponse-&gt;bufferLen ) );</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: deallocated dynamic object in pResponse->bufferLen</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step122" class="step">
+        <div class="header">Step 122: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#821">821</a></div>
+        
+        <div class="code">assert( pParsingContext-&gt;pBufferCur &lt; ( const char * ) ( pResponse-&gt;pBuffer + pResponse-&gt;bufferLen ) );</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: dead object in pResponse->bufferLen</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step123" class="step">
+        <div class="header">Step 123: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#821">821</a></div>
+        
+        <div class="code">assert( pParsingContext-&gt;pBufferCur &lt; ( const char * ) ( pResponse-&gt;pBuffer + pResponse-&gt;bufferLen ) );</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: invalid integer address in pResponse->bufferLen</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step124" class="step">
+        <div class="header">Step 124: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#821">821</a></div>
+        
+        <div class="code">assert( pParsingContext-&gt;pBufferCur &lt; ( const char * ) ( pResponse-&gt;pBuffer + pResponse-&gt;bufferLen ) );</div>
+        
+        <div class="cbmc">failure: Unnamed: arithmetic overflow on unsigned to signed type conversion in (signed long int)pResponse->bufferLen</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step125" class="step">
+        <div class="header">Step 125: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#821">821</a></div>
+        
+        <div class="code">assert( pParsingContext-&gt;pBufferCur &lt; ( const char * ) ( pResponse-&gt;pBuffer + pResponse-&gt;bufferLen ) );</div>
+        
+        <div class="cbmc">failure: Unnamed: pointer arithmetic: pointer NULL in pResponse->pBuffer + (signed long int)pResponse->bufferLen</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step126" class="step">
+        <div class="header">Step 126: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#821">821</a></div>
+        
+        <div class="code">assert( pParsingContext-&gt;pBufferCur &lt; ( const char * ) ( pResponse-&gt;pBuffer + pResponse-&gt;bufferLen ) );</div>
+        
+        <div class="cbmc">failure: Unnamed: pointer arithmetic: deallocated dynamic object in pResponse->pBuffer + (signed long int)pResponse->bufferLen</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step127" class="step">
+        <div class="header">Step 127: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#821">821</a></div>
+        
+        <div class="code">assert( pParsingContext-&gt;pBufferCur &lt; ( const char * ) ( pResponse-&gt;pBuffer + pResponse-&gt;bufferLen ) );</div>
+        
+        <div class="cbmc">failure: Unnamed: pointer arithmetic: dead object in pResponse->pBuffer + (signed long int)pResponse->bufferLen</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step128" class="step">
+        <div class="header">Step 128: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#821">821</a></div>
+        
+        <div class="code">assert( pParsingContext-&gt;pBufferCur &lt; ( const char * ) ( pResponse-&gt;pBuffer + pResponse-&gt;bufferLen ) );</div>
+        
+        <div class="cbmc">failure: Unnamed: pointer arithmetic: pointer outside object bounds in pResponse->pBuffer + (signed long int)pResponse->bufferLen</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step129" class="step">
+        <div class="header">Step 129: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#821">821</a></div>
+        
+        <div class="code">assert( pParsingContext-&gt;pBufferCur &lt; ( const char * ) ( pResponse-&gt;pBuffer + pResponse-&gt;bufferLen ) );</div>
+        
+        <div class="cbmc">failure: Unnamed: pointer relation: pointer NULL in (const char *)(pResponse->pBuffer + (signed long int)pResponse->bufferLen)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step130" class="step">
+        <div class="header">Step 130: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#821">821</a></div>
+        
+        <div class="code">assert( pParsingContext-&gt;pBufferCur &lt; ( const char * ) ( pResponse-&gt;pBuffer + pResponse-&gt;bufferLen ) );</div>
+        
+        <div class="cbmc">failure: Unnamed: pointer relation: deallocated dynamic object in (const char *)(pResponse->pBuffer + (signed long int)pResponse->bufferLen)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step131" class="step">
+        <div class="header">Step 131: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#821">821</a></div>
+        
+        <div class="code">assert( pParsingContext-&gt;pBufferCur &lt; ( const char * ) ( pResponse-&gt;pBuffer + pResponse-&gt;bufferLen ) );</div>
+        
+        <div class="cbmc">failure: Unnamed: pointer relation: dead object in (const char *)(pResponse->pBuffer + (signed long int)pResponse->bufferLen)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step132" class="step">
+        <div class="header">Step 132: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#821">821</a></div>
+        
+        <div class="code">assert( pParsingContext-&gt;pBufferCur &lt; ( const char * ) ( pResponse-&gt;pBuffer + pResponse-&gt;bufferLen ) );</div>
+        
+        <div class="cbmc">failure: Unnamed: pointer relation: pointer outside object bounds in (const char *)(pResponse->pBuffer + (signed long int)pResponse->bufferLen)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step133" class="step">
+        <div class="header">Step 133: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#821">821</a></div>
+        
+        <div class="code">assert( pParsingContext-&gt;pBufferCur &lt; ( const char * ) ( pResponse-&gt;pBuffer + pResponse-&gt;bufferLen ) );</div>
+        
+        <div class="cbmc">failure: Unnamed: assertion pParsingContext->pBufferCur < ( const char * ) ( pResponse->pBuffer + pResponse->bufferLen )</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step134" class="step">
+        <div class="header">Step 134: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#829">829</a></div>
+        
+        <div class="code">if( pResponse-&gt;pHeaders != NULL ) { /* The start of the headers ALWAYS come before the the end of the headers. */ assert( ( const char * ) ( pResponse-&gt;pHeaders ) &lt; pParsingContext-&gt;pBufferCur );</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: pointer NULL in pResponse->pHeaders</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step135" class="step">
+        <div class="header">Step 135: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#829">829</a></div>
+        
+        <div class="code">if( pResponse-&gt;pHeaders != NULL ) { /* The start of the headers ALWAYS come before the the end of the headers. */ assert( ( const char * ) ( pResponse-&gt;pHeaders ) &lt; pParsingContext-&gt;pBufferCur );</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: deallocated dynamic object in pResponse->pHeaders</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step136" class="step">
+        <div class="header">Step 136: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#829">829</a></div>
+        
+        <div class="code">if( pResponse-&gt;pHeaders != NULL ) { /* The start of the headers ALWAYS come before the the end of the headers. */ assert( ( const char * ) ( pResponse-&gt;pHeaders ) &lt; pParsingContext-&gt;pBufferCur );</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: dead object in pResponse->pHeaders</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step137" class="step">
+        <div class="header">Step 137: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#829">829</a></div>
+        
+        <div class="code">if( pResponse-&gt;pHeaders != NULL ) { /* The start of the headers ALWAYS come before the the end of the headers. */ assert( ( const char * ) ( pResponse-&gt;pHeaders ) &lt; pParsingContext-&gt;pBufferCur );</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: invalid integer address in pResponse->pHeaders</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step138" class="step">
+        <div class="header">Step 138: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#843">843</a></div>
+        
+        <div class="code">pResponse-&gt;headersLen = 0U;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: pointer NULL in pResponse->headersLen</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step139" class="step">
+        <div class="header">Step 139: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#843">843</a></div>
+        
+        <div class="code">pResponse-&gt;headersLen = 0U;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: deallocated dynamic object in pResponse->headersLen</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step140" class="step">
+        <div class="header">Step 140: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#843">843</a></div>
+        
+        <div class="code">pResponse-&gt;headersLen = 0U;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: dead object in pResponse->headersLen</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step141" class="step">
+        <div class="header">Step 141: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#843">843</a></div>
+        
+        <div class="code">pResponse-&gt;headersLen = 0U;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: invalid integer address in pResponse->headersLen</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step142" class="step">
+        <div class="header">Step 142: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#843">843</a></div>
+        
+        <div class="code">pResponse-&gt;headersLen = 0U;</div>
+        
+        <div class="cbmc">pResponse$object.headersLen = 0ul (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step143" class="step">
+        <div class="header">Step 143: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#848">848</a></div>
+        
+        <div class="code">if( pHttpParser-&gt;content_length != UINT64_MAX ) { pResponse-&gt;contentLength = ( size_t ) ( pHttpParser-&gt;content_length );</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: pointer NULL in pHttpParser->content_length</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step144" class="step">
+        <div class="header">Step 144: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#848">848</a></div>
+        
+        <div class="code">if( pHttpParser-&gt;content_length != UINT64_MAX ) { pResponse-&gt;contentLength = ( size_t ) ( pHttpParser-&gt;content_length );</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: deallocated dynamic object in pHttpParser->content_length</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step145" class="step">
+        <div class="header">Step 145: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#848">848</a></div>
+        
+        <div class="code">if( pHttpParser-&gt;content_length != UINT64_MAX ) { pResponse-&gt;contentLength = ( size_t ) ( pHttpParser-&gt;content_length );</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: dead object in pHttpParser->content_length</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step146" class="step">
+        <div class="header">Step 146: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#848">848</a></div>
+        
+        <div class="code">if( pHttpParser-&gt;content_length != UINT64_MAX ) { pResponse-&gt;contentLength = ( size_t ) ( pHttpParser-&gt;content_length );</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: pointer outside object bounds in pHttpParser->content_length</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step147" class="step">
+        <div class="header">Step 147: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#848">848</a></div>
+        
+        <div class="code">if( pHttpParser-&gt;content_length != UINT64_MAX ) { pResponse-&gt;contentLength = ( size_t ) ( pHttpParser-&gt;content_length );</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: invalid integer address in pHttpParser->content_length</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step148" class="step">
+        <div class="header">Step 148: Function <a href="../source/core_http_client.c.html#803">__CPROVER_file_local_core_http_client_c_httpParserOnHeadersCompleteCallback</a>, File <a href="../source/core_http_client.c.html">source/core_http_client.c</a>, Line <a href="../source/core_http_client.c.html#854">854</a></div>
+        
+        <div class="code">pResponse-&gt;contentLength = 0U;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: pointer NULL in pResponse->contentLength</div>
+        </div>
+
+        
+
+        
+
+      
+    </div>
+  </body>
+  <script type="text/javascript" src="../viewer.js"></script>
+</html>

@@ -1,0 +1,44 @@
+{
+  "viewer-source": {
+    "all_files": [
+      "/home/ubuntu/cbmc-viewer/tests/coreHTTP/coreHTTP/source/core_http_client.c",
+      "/home/ubuntu/cbmc-viewer/tests/coreHTTP/coreHTTP/source/dependency/3rdparty/http_parser/http_parser.h",
+      "/home/ubuntu/cbmc-viewer/tests/coreHTTP/coreHTTP/source/include/core_http_client.h",
+      "/home/ubuntu/cbmc-viewer/tests/coreHTTP/coreHTTP/source/include/core_http_client_private.h",
+      "/home/ubuntu/cbmc-viewer/tests/coreHTTP/coreHTTP/source/interface/transport_interface.h",
+      "/home/ubuntu/cbmc-viewer/tests/coreHTTP/coreHTTP/test/cbmc/include/http_cbmc_state.h",
+      "/home/ubuntu/cbmc-viewer/tests/coreHTTP/coreHTTP/test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c",
+      "/home/ubuntu/cbmc-viewer/tests/coreHTTP/coreHTTP/test/cbmc/sources/http_cbmc_state.c",
+      "/home/ubuntu/cbmc-viewer/tests/coreHTTP/coreHTTP/test/cbmc/stubs/HTTPClient_Send_http_parser_execute.c",
+      "/home/ubuntu/cbmc-viewer/tests/coreHTTP/coreHTTP/test/cbmc/stubs/get_time_stub.c",
+      "/home/ubuntu/cbmc-viewer/tests/coreHTTP/coreHTTP/test/cbmc/stubs/httpHeaderStrncpy.c",
+      "/home/ubuntu/cbmc-viewer/tests/coreHTTP/coreHTTP/test/cbmc/stubs/strncpy.c",
+      "/home/ubuntu/cbmc-viewer/tests/coreHTTP/coreHTTP/test/cbmc/stubs/transport_interface_stubs.c",
+      "/usr/include/assert.h",
+      "/usr/include/ctype.h",
+      "/usr/include/string.h",
+      "/usr/include/x86_64-linux-gnu/bits/byteswap.h",
+      "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h",
+      "/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h",
+      "/usr/include/x86_64-linux-gnu/bits/types.h",
+      "/usr/include/x86_64-linux-gnu/bits/uintn-identity.h",
+      "/usr/lib/gcc/x86_64-linux-gnu/9/include/stddef.h"
+    ],
+    "files": [
+      "source/core_http_client.c",
+      "source/dependency/3rdparty/http_parser/http_parser.h",
+      "source/include/core_http_client.h",
+      "source/include/core_http_client_private.h",
+      "source/interface/transport_interface.h",
+      "test/cbmc/include/http_cbmc_state.h",
+      "test/cbmc/proofs/HTTPClient_Send/HTTPClient_Send_harness.c",
+      "test/cbmc/sources/http_cbmc_state.c",
+      "test/cbmc/stubs/HTTPClient_Send_http_parser_execute.c",
+      "test/cbmc/stubs/get_time_stub.c",
+      "test/cbmc/stubs/httpHeaderStrncpy.c",
+      "test/cbmc/stubs/strncpy.c",
+      "test/cbmc/stubs/transport_interface_stubs.c"
+    ],
+    "root": "/home/ubuntu/cbmc-viewer/tests/coreHTTP/coreHTTP"
+  }
+}

@@ -1,0 +1,3976 @@
+{
+  "viewer-trace": {
+    "traces": {
+      "allocateHttpReadHeaderParser.pointer_dereference.1": [
+        {
+          "detail": {
+            "lhs": "pHttpParser",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_parser *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/findHeaderOnHeaderCompleteCallback_harness.c",
+            "function": "findHeaderOnHeaderCompleteCallback_harness",
+            "line": 35
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pHttpParser",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_parser *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/findHeaderOnHeaderCompleteCallback_harness.c",
+            "function": "findHeaderOnHeaderCompleteCallback_harness",
+            "line": 37
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pFindHeaderContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((HTTPParsingContext_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 258
+          }
+        },
+        {
+          "detail": {
+            "lhs": "malloc_size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00100000",
+            "rhs-value": "sizeof(http_parser) /*32ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 262
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pHttpParser",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_parser *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 262
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pFindHeaderContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((findHeaderContext_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 266
+          }
+        },
+        {
+          "detail": {
+            "lhs": "malloc_size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00101000",
+            "rhs-value": "sizeof(findHeaderContext_t) /*40ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateFindHeaderContext",
+            "line": 276
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.pField",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((const char *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.fieldLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "0ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.pValueLoc",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((const char **)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.pValueLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((__CPROVER_size_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.fieldFound",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000",
+            "rhs-value": "0"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.valueFound",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000",
+            "rhs-value": "0"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.$pad6",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "0"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pFindHeaderContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000011 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "&dynamic_object2"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateFindHeaderContext",
+            "line": 276
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pFindHeaderContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000011 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "(HTTPParsingContext_t *)&dynamic_object2"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 266
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: pointer NULL in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        }
+      ],
+      "allocateHttpReadHeaderParser.pointer_dereference.3": [
+        {
+          "detail": {
+            "lhs": "pHttpParser",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_parser *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/findHeaderOnHeaderCompleteCallback_harness.c",
+            "function": "findHeaderOnHeaderCompleteCallback_harness",
+            "line": 35
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pHttpParser",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_parser *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/findHeaderOnHeaderCompleteCallback_harness.c",
+            "function": "findHeaderOnHeaderCompleteCallback_harness",
+            "line": 37
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pFindHeaderContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((HTTPParsingContext_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 258
+          }
+        },
+        {
+          "detail": {
+            "lhs": "malloc_size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00100000",
+            "rhs-value": "sizeof(http_parser) /*32ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 262
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pHttpParser",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_parser *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 262
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pFindHeaderContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((findHeaderContext_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 266
+          }
+        },
+        {
+          "detail": {
+            "lhs": "malloc_size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00101000",
+            "rhs-value": "sizeof(findHeaderContext_t) /*40ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateFindHeaderContext",
+            "line": 276
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.pField",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((const char *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.fieldLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "0ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.pValueLoc",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((const char **)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.pValueLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((__CPROVER_size_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.fieldFound",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000",
+            "rhs-value": "0"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.valueFound",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000",
+            "rhs-value": "0"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.$pad6",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "0"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pFindHeaderContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000011 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "&dynamic_object2"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateFindHeaderContext",
+            "line": 276
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pFindHeaderContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000011 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "(HTTPParsingContext_t *)&dynamic_object2"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 266
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: pointer NULL in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: deallocated dynamic object in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        }
+      ],
+      "allocateHttpReadHeaderParser.pointer_dereference.4": [
+        {
+          "detail": {
+            "lhs": "pHttpParser",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_parser *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/findHeaderOnHeaderCompleteCallback_harness.c",
+            "function": "findHeaderOnHeaderCompleteCallback_harness",
+            "line": 35
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pHttpParser",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_parser *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/findHeaderOnHeaderCompleteCallback_harness.c",
+            "function": "findHeaderOnHeaderCompleteCallback_harness",
+            "line": 37
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pFindHeaderContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((HTTPParsingContext_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 258
+          }
+        },
+        {
+          "detail": {
+            "lhs": "malloc_size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00100000",
+            "rhs-value": "sizeof(http_parser) /*32ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 262
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pHttpParser",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_parser *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 262
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pFindHeaderContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((findHeaderContext_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 266
+          }
+        },
+        {
+          "detail": {
+            "lhs": "malloc_size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00101000",
+            "rhs-value": "sizeof(findHeaderContext_t) /*40ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateFindHeaderContext",
+            "line": 276
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.pField",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((const char *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.fieldLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "0ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.pValueLoc",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((const char **)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.pValueLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((__CPROVER_size_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.fieldFound",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000",
+            "rhs-value": "0"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.valueFound",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000",
+            "rhs-value": "0"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.$pad6",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "0"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pFindHeaderContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000011 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "&dynamic_object2"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateFindHeaderContext",
+            "line": 276
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pFindHeaderContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000011 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "(HTTPParsingContext_t *)&dynamic_object2"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 266
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: pointer NULL in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: deallocated dynamic object in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: dead object in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        }
+      ],
+      "allocateHttpReadHeaderParser.pointer_dereference.5": [
+        {
+          "detail": {
+            "lhs": "pHttpParser",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_parser *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/findHeaderOnHeaderCompleteCallback_harness.c",
+            "function": "findHeaderOnHeaderCompleteCallback_harness",
+            "line": 35
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pHttpParser",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_parser *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/findHeaderOnHeaderCompleteCallback_harness.c",
+            "function": "findHeaderOnHeaderCompleteCallback_harness",
+            "line": 37
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pFindHeaderContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((HTTPParsingContext_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 258
+          }
+        },
+        {
+          "detail": {
+            "lhs": "malloc_size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00100000",
+            "rhs-value": "sizeof(http_parser) /*32ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 262
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pHttpParser",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_parser *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 262
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pFindHeaderContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((findHeaderContext_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 266
+          }
+        },
+        {
+          "detail": {
+            "lhs": "malloc_size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00101000",
+            "rhs-value": "sizeof(findHeaderContext_t) /*40ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateFindHeaderContext",
+            "line": 276
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.pField",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((const char *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.fieldLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "0ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.pValueLoc",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((const char **)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.pValueLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((__CPROVER_size_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.fieldFound",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000",
+            "rhs-value": "0"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.valueFound",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000",
+            "rhs-value": "0"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.$pad6",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "0"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pFindHeaderContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000011 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "&dynamic_object2"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateFindHeaderContext",
+            "line": 276
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pFindHeaderContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000011 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "(HTTPParsingContext_t *)&dynamic_object2"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 266
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: pointer NULL in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: deallocated dynamic object in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: dead object in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: pointer outside object bounds in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        }
+      ],
+      "allocateHttpReadHeaderParser.pointer_dereference.6": [
+        {
+          "detail": {
+            "lhs": "pHttpParser",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_parser *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/findHeaderOnHeaderCompleteCallback_harness.c",
+            "function": "findHeaderOnHeaderCompleteCallback_harness",
+            "line": 35
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pHttpParser",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_parser *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/findHeaderOnHeaderCompleteCallback_harness.c",
+            "function": "findHeaderOnHeaderCompleteCallback_harness",
+            "line": 37
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pFindHeaderContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((HTTPParsingContext_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 258
+          }
+        },
+        {
+          "detail": {
+            "lhs": "malloc_size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00100000",
+            "rhs-value": "sizeof(http_parser) /*32ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 262
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pHttpParser",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_parser *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 262
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pFindHeaderContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((findHeaderContext_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 266
+          }
+        },
+        {
+          "detail": {
+            "lhs": "malloc_size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00101000",
+            "rhs-value": "sizeof(findHeaderContext_t) /*40ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateFindHeaderContext",
+            "line": 276
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.pField",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((const char *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.fieldLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "0ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.pValueLoc",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((const char **)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.pValueLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((__CPROVER_size_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.fieldFound",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000",
+            "rhs-value": "0"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.valueFound",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000",
+            "rhs-value": "0"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.$pad6",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "0"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pFindHeaderContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000011 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "&dynamic_object2"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateFindHeaderContext",
+            "line": 276
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pFindHeaderContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000011 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "(HTTPParsingContext_t *)&dynamic_object2"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 266
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: pointer NULL in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: deallocated dynamic object in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: dead object in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: pointer outside object bounds in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: invalid integer address in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        }
+      ],
+      "findHeaderOnHeaderCompleteCallback.assertion.1": [
+        {
+          "detail": {
+            "lhs": "pHttpParser",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_parser *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/findHeaderOnHeaderCompleteCallback_harness.c",
+            "function": "findHeaderOnHeaderCompleteCallback_harness",
+            "line": 35
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pHttpParser",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_parser *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/findHeaderOnHeaderCompleteCallback_harness.c",
+            "function": "findHeaderOnHeaderCompleteCallback_harness",
+            "line": 37
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pFindHeaderContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((HTTPParsingContext_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 258
+          }
+        },
+        {
+          "detail": {
+            "lhs": "malloc_size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00100000",
+            "rhs-value": "sizeof(http_parser) /*32ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 262
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pHttpParser",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_parser *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 262
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pFindHeaderContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((findHeaderContext_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 266
+          }
+        },
+        {
+          "detail": {
+            "lhs": "malloc_size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00101000",
+            "rhs-value": "sizeof(findHeaderContext_t) /*40ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateFindHeaderContext",
+            "line": 276
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.pField",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((const char *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.fieldLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "0ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.pValueLoc",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((const char **)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.pValueLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((__CPROVER_size_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.fieldFound",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000",
+            "rhs-value": "0"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.valueFound",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000",
+            "rhs-value": "0"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.$pad6",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "0"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pFindHeaderContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000011 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "&dynamic_object2"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateFindHeaderContext",
+            "line": 276
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pFindHeaderContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000011 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "(HTTPParsingContext_t *)&dynamic_object2"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 266
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: pointer NULL in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: deallocated dynamic object in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: dead object in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: pointer outside object bounds in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: invalid integer address in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pHttpParser$object.data",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000011 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "(const void *)&dynamic_object2.pField"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pHttpParser",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_parser *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/findHeaderOnHeaderCompleteCallback_harness.c",
+            "function": "findHeaderOnHeaderCompleteCallback_harness",
+            "line": 37
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pHttpParser",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_parser *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/findHeaderOnHeaderCompleteCallback_harness.c",
+            "function": "findHeaderOnHeaderCompleteCallback_harness",
+            "line": 39
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((findHeaderContext_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "__CPROVER_file_local_core_http_client_c_findHeaderOnHeaderCompleteCallback",
+            "line": 2356
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((findHeaderContext_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "__CPROVER_file_local_core_http_client_c_findHeaderOnHeaderCompleteCallback",
+            "line": 2356
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "assertion pHttpParser != NULL"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "__CPROVER_file_local_core_http_client_c_findHeaderOnHeaderCompleteCallback",
+            "line": 2363
+          }
+        }
+      ],
+      "findHeaderOnHeaderCompleteCallback.pointer_dereference.1": [
+        {
+          "detail": {
+            "lhs": "pHttpParser",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_parser *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/findHeaderOnHeaderCompleteCallback_harness.c",
+            "function": "findHeaderOnHeaderCompleteCallback_harness",
+            "line": 35
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pHttpParser",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_parser *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/findHeaderOnHeaderCompleteCallback_harness.c",
+            "function": "findHeaderOnHeaderCompleteCallback_harness",
+            "line": 37
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pFindHeaderContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((HTTPParsingContext_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 258
+          }
+        },
+        {
+          "detail": {
+            "lhs": "malloc_size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00100000",
+            "rhs-value": "sizeof(http_parser) /*32ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 262
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pHttpParser",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_parser *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 262
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pFindHeaderContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((findHeaderContext_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 266
+          }
+        },
+        {
+          "detail": {
+            "lhs": "malloc_size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00101000",
+            "rhs-value": "sizeof(findHeaderContext_t) /*40ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateFindHeaderContext",
+            "line": 276
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.pField",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((const char *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.fieldLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "0ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.pValueLoc",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((const char **)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.pValueLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((__CPROVER_size_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.fieldFound",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000",
+            "rhs-value": "0"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.valueFound",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000",
+            "rhs-value": "0"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.$pad6",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "0"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pFindHeaderContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000011 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "&dynamic_object2"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateFindHeaderContext",
+            "line": 276
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pFindHeaderContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000011 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "(HTTPParsingContext_t *)&dynamic_object2"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 266
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: pointer NULL in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: deallocated dynamic object in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: dead object in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: pointer outside object bounds in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: invalid integer address in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pHttpParser$object.data",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000011 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "(const void *)&dynamic_object2.pField"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pHttpParser",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_parser *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/findHeaderOnHeaderCompleteCallback_harness.c",
+            "function": "findHeaderOnHeaderCompleteCallback_harness",
+            "line": 37
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pHttpParser",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_parser *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/findHeaderOnHeaderCompleteCallback_harness.c",
+            "function": "findHeaderOnHeaderCompleteCallback_harness",
+            "line": 39
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((findHeaderContext_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "__CPROVER_file_local_core_http_client_c_findHeaderOnHeaderCompleteCallback",
+            "line": 2356
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((findHeaderContext_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "__CPROVER_file_local_core_http_client_c_findHeaderOnHeaderCompleteCallback",
+            "line": 2356
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "assertion pHttpParser != NULL"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "__CPROVER_file_local_core_http_client_c_findHeaderOnHeaderCompleteCallback",
+            "line": 2363
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: pointer NULL in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "__CPROVER_file_local_core_http_client_c_findHeaderOnHeaderCompleteCallback",
+            "line": 2365
+          }
+        }
+      ],
+      "findHeaderOnHeaderCompleteCallback.pointer_dereference.3": [
+        {
+          "detail": {
+            "lhs": "pHttpParser",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_parser *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/findHeaderOnHeaderCompleteCallback_harness.c",
+            "function": "findHeaderOnHeaderCompleteCallback_harness",
+            "line": 35
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pHttpParser",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_parser *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/findHeaderOnHeaderCompleteCallback_harness.c",
+            "function": "findHeaderOnHeaderCompleteCallback_harness",
+            "line": 37
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pFindHeaderContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((HTTPParsingContext_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 258
+          }
+        },
+        {
+          "detail": {
+            "lhs": "malloc_size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00100000",
+            "rhs-value": "sizeof(http_parser) /*32ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 262
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pHttpParser",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_parser *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 262
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pFindHeaderContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((findHeaderContext_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 266
+          }
+        },
+        {
+          "detail": {
+            "lhs": "malloc_size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00101000",
+            "rhs-value": "sizeof(findHeaderContext_t) /*40ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateFindHeaderContext",
+            "line": 276
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.pField",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((const char *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.fieldLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "0ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.pValueLoc",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((const char **)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.pValueLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((__CPROVER_size_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.fieldFound",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000",
+            "rhs-value": "0"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.valueFound",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000",
+            "rhs-value": "0"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.$pad6",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "0"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pFindHeaderContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000011 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "&dynamic_object2"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateFindHeaderContext",
+            "line": 276
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pFindHeaderContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000011 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "(HTTPParsingContext_t *)&dynamic_object2"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 266
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: pointer NULL in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: deallocated dynamic object in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: dead object in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: pointer outside object bounds in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: invalid integer address in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pHttpParser$object.data",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000011 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "(const void *)&dynamic_object2.pField"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pHttpParser",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_parser *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/findHeaderOnHeaderCompleteCallback_harness.c",
+            "function": "findHeaderOnHeaderCompleteCallback_harness",
+            "line": 37
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pHttpParser",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_parser *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/findHeaderOnHeaderCompleteCallback_harness.c",
+            "function": "findHeaderOnHeaderCompleteCallback_harness",
+            "line": 39
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((findHeaderContext_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "__CPROVER_file_local_core_http_client_c_findHeaderOnHeaderCompleteCallback",
+            "line": 2356
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((findHeaderContext_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "__CPROVER_file_local_core_http_client_c_findHeaderOnHeaderCompleteCallback",
+            "line": 2356
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "assertion pHttpParser != NULL"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "__CPROVER_file_local_core_http_client_c_findHeaderOnHeaderCompleteCallback",
+            "line": 2363
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: pointer NULL in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "__CPROVER_file_local_core_http_client_c_findHeaderOnHeaderCompleteCallback",
+            "line": 2365
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: deallocated dynamic object in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "__CPROVER_file_local_core_http_client_c_findHeaderOnHeaderCompleteCallback",
+            "line": 2365
+          }
+        }
+      ],
+      "findHeaderOnHeaderCompleteCallback.pointer_dereference.4": [
+        {
+          "detail": {
+            "lhs": "pHttpParser",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_parser *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/findHeaderOnHeaderCompleteCallback_harness.c",
+            "function": "findHeaderOnHeaderCompleteCallback_harness",
+            "line": 35
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pHttpParser",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_parser *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/findHeaderOnHeaderCompleteCallback_harness.c",
+            "function": "findHeaderOnHeaderCompleteCallback_harness",
+            "line": 37
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pFindHeaderContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((HTTPParsingContext_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 258
+          }
+        },
+        {
+          "detail": {
+            "lhs": "malloc_size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00100000",
+            "rhs-value": "sizeof(http_parser) /*32ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 262
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pHttpParser",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_parser *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 262
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pFindHeaderContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((findHeaderContext_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 266
+          }
+        },
+        {
+          "detail": {
+            "lhs": "malloc_size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00101000",
+            "rhs-value": "sizeof(findHeaderContext_t) /*40ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateFindHeaderContext",
+            "line": 276
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.pField",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((const char *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.fieldLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "0ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.pValueLoc",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((const char **)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.pValueLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((__CPROVER_size_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.fieldFound",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000",
+            "rhs-value": "0"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.valueFound",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000",
+            "rhs-value": "0"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.$pad6",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "0"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pFindHeaderContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000011 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "&dynamic_object2"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateFindHeaderContext",
+            "line": 276
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pFindHeaderContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000011 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "(HTTPParsingContext_t *)&dynamic_object2"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 266
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: pointer NULL in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: deallocated dynamic object in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: dead object in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: pointer outside object bounds in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: invalid integer address in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pHttpParser$object.data",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000011 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "(const void *)&dynamic_object2.pField"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pHttpParser",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_parser *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/findHeaderOnHeaderCompleteCallback_harness.c",
+            "function": "findHeaderOnHeaderCompleteCallback_harness",
+            "line": 37
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pHttpParser",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_parser *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/findHeaderOnHeaderCompleteCallback_harness.c",
+            "function": "findHeaderOnHeaderCompleteCallback_harness",
+            "line": 39
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((findHeaderContext_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "__CPROVER_file_local_core_http_client_c_findHeaderOnHeaderCompleteCallback",
+            "line": 2356
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((findHeaderContext_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "__CPROVER_file_local_core_http_client_c_findHeaderOnHeaderCompleteCallback",
+            "line": 2356
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "assertion pHttpParser != NULL"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "__CPROVER_file_local_core_http_client_c_findHeaderOnHeaderCompleteCallback",
+            "line": 2363
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: pointer NULL in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "__CPROVER_file_local_core_http_client_c_findHeaderOnHeaderCompleteCallback",
+            "line": 2365
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: deallocated dynamic object in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "__CPROVER_file_local_core_http_client_c_findHeaderOnHeaderCompleteCallback",
+            "line": 2365
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: dead object in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "__CPROVER_file_local_core_http_client_c_findHeaderOnHeaderCompleteCallback",
+            "line": 2365
+          }
+        }
+      ],
+      "findHeaderOnHeaderCompleteCallback.pointer_dereference.5": [
+        {
+          "detail": {
+            "lhs": "pHttpParser",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_parser *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/findHeaderOnHeaderCompleteCallback_harness.c",
+            "function": "findHeaderOnHeaderCompleteCallback_harness",
+            "line": 35
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pHttpParser",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_parser *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/findHeaderOnHeaderCompleteCallback_harness.c",
+            "function": "findHeaderOnHeaderCompleteCallback_harness",
+            "line": 37
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pFindHeaderContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((HTTPParsingContext_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 258
+          }
+        },
+        {
+          "detail": {
+            "lhs": "malloc_size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00100000",
+            "rhs-value": "sizeof(http_parser) /*32ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 262
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pHttpParser",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_parser *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 262
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pFindHeaderContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((findHeaderContext_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 266
+          }
+        },
+        {
+          "detail": {
+            "lhs": "malloc_size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00101000",
+            "rhs-value": "sizeof(findHeaderContext_t) /*40ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateFindHeaderContext",
+            "line": 276
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.pField",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((const char *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.fieldLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "0ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.pValueLoc",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((const char **)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.pValueLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((__CPROVER_size_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.fieldFound",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000",
+            "rhs-value": "0"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.valueFound",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000",
+            "rhs-value": "0"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.$pad6",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "0"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pFindHeaderContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000011 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "&dynamic_object2"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateFindHeaderContext",
+            "line": 276
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pFindHeaderContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000011 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "(HTTPParsingContext_t *)&dynamic_object2"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 266
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: pointer NULL in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: deallocated dynamic object in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: dead object in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: pointer outside object bounds in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: invalid integer address in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pHttpParser$object.data",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000011 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "(const void *)&dynamic_object2.pField"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pHttpParser",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_parser *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/findHeaderOnHeaderCompleteCallback_harness.c",
+            "function": "findHeaderOnHeaderCompleteCallback_harness",
+            "line": 37
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pHttpParser",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_parser *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/findHeaderOnHeaderCompleteCallback_harness.c",
+            "function": "findHeaderOnHeaderCompleteCallback_harness",
+            "line": 39
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((findHeaderContext_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "__CPROVER_file_local_core_http_client_c_findHeaderOnHeaderCompleteCallback",
+            "line": 2356
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((findHeaderContext_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "__CPROVER_file_local_core_http_client_c_findHeaderOnHeaderCompleteCallback",
+            "line": 2356
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "assertion pHttpParser != NULL"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "__CPROVER_file_local_core_http_client_c_findHeaderOnHeaderCompleteCallback",
+            "line": 2363
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: pointer NULL in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "__CPROVER_file_local_core_http_client_c_findHeaderOnHeaderCompleteCallback",
+            "line": 2365
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: deallocated dynamic object in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "__CPROVER_file_local_core_http_client_c_findHeaderOnHeaderCompleteCallback",
+            "line": 2365
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: dead object in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "__CPROVER_file_local_core_http_client_c_findHeaderOnHeaderCompleteCallback",
+            "line": 2365
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: pointer outside object bounds in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "__CPROVER_file_local_core_http_client_c_findHeaderOnHeaderCompleteCallback",
+            "line": 2365
+          }
+        }
+      ],
+      "findHeaderOnHeaderCompleteCallback.pointer_dereference.6": [
+        {
+          "detail": {
+            "lhs": "pHttpParser",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_parser *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/findHeaderOnHeaderCompleteCallback_harness.c",
+            "function": "findHeaderOnHeaderCompleteCallback_harness",
+            "line": 35
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pHttpParser",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_parser *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/findHeaderOnHeaderCompleteCallback_harness.c",
+            "function": "findHeaderOnHeaderCompleteCallback_harness",
+            "line": 37
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pFindHeaderContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((HTTPParsingContext_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 258
+          }
+        },
+        {
+          "detail": {
+            "lhs": "malloc_size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00100000",
+            "rhs-value": "sizeof(http_parser) /*32ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 262
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pHttpParser",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_parser *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 262
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pFindHeaderContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((findHeaderContext_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 266
+          }
+        },
+        {
+          "detail": {
+            "lhs": "malloc_size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00101000",
+            "rhs-value": "sizeof(findHeaderContext_t) /*40ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateFindHeaderContext",
+            "line": 276
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.pField",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((const char *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.fieldLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "0ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.pValueLoc",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((const char **)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.pValueLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((__CPROVER_size_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.fieldFound",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000",
+            "rhs-value": "0"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.valueFound",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000",
+            "rhs-value": "0"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object2.$pad6",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "0"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pFindHeaderContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000011 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "&dynamic_object2"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateFindHeaderContext",
+            "line": 276
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pFindHeaderContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000011 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "(HTTPParsingContext_t *)&dynamic_object2"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 266
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: pointer NULL in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: deallocated dynamic object in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: dead object in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: pointer outside object bounds in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: invalid integer address in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pHttpParser$object.data",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000011 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "(const void *)&dynamic_object2.pField"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpReadHeaderParser",
+            "line": 267
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pHttpParser",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_parser *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/findHeaderOnHeaderCompleteCallback_harness.c",
+            "function": "findHeaderOnHeaderCompleteCallback_harness",
+            "line": 37
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pHttpParser",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((http_parser *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/findHeaderOnHeaderCompleteCallback_harness.c",
+            "function": "findHeaderOnHeaderCompleteCallback_harness",
+            "line": 39
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((findHeaderContext_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "__CPROVER_file_local_core_http_client_c_findHeaderOnHeaderCompleteCallback",
+            "line": 2356
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pContext",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((findHeaderContext_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "__CPROVER_file_local_core_http_client_c_findHeaderOnHeaderCompleteCallback",
+            "line": 2356
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "assertion pHttpParser != NULL"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "__CPROVER_file_local_core_http_client_c_findHeaderOnHeaderCompleteCallback",
+            "line": 2363
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: pointer NULL in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "__CPROVER_file_local_core_http_client_c_findHeaderOnHeaderCompleteCallback",
+            "line": 2365
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: deallocated dynamic object in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "__CPROVER_file_local_core_http_client_c_findHeaderOnHeaderCompleteCallback",
+            "line": 2365
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: dead object in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "__CPROVER_file_local_core_http_client_c_findHeaderOnHeaderCompleteCallback",
+            "line": 2365
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: pointer outside object bounds in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "__CPROVER_file_local_core_http_client_c_findHeaderOnHeaderCompleteCallback",
+            "line": 2365
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "dereference failure: invalid integer address in pHttpParser->data"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "source/core_http_client.c",
+            "function": "__CPROVER_file_local_core_http_client_c_findHeaderOnHeaderCompleteCallback",
+            "line": 2365
+          }
+        }
+      ]
+    }
+  }
+}

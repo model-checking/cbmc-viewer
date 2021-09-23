@@ -1,0 +1,268 @@
+{
+  "viewer-coverage": {
+    "coverage": {
+      "source/core_http_client.c": {
+        "findHeaderValueParserCallback": {
+          "2299": "hit",
+          "2300": "hit",
+          "2302": "hit",
+          "2303": "hit",
+          "2304": "hit",
+          "2306": "hit",
+          "2308": "hit",
+          "2309": "hit",
+          "2310": "hit",
+          "2311": "hit",
+          "2314": "hit",
+          "2316": "hit",
+          "2322": "hit",
+          "2326": "hit",
+          "2327": "hit",
+          "2333": "hit",
+          "2334": "hit",
+          "2338": "hit",
+          "2342": "hit",
+          "2349": "hit",
+          "2350": "hit"
+        }
+      },
+      "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c": {
+        "findHeaderValueParserCallback_harness": {
+          "35": "hit",
+          "36": "hit",
+          "37": "hit",
+          "38": "hit",
+          "39": "hit",
+          "41": "hit",
+          "42": "hit",
+          "43": "hit",
+          "44": "hit",
+          "46": "hit",
+          "47": "hit",
+          "49": "hit",
+          "50": "hit",
+          "51": "hit",
+          "53": "hit",
+          "54": "hit",
+          "55": "hit",
+          "56": "hit",
+          "57": "hit",
+          "58": "hit",
+          "59": "hit",
+          "60": "hit",
+          "61": "hit",
+          "62": "hit",
+          "64": "hit",
+          "65": "hit"
+        }
+      },
+      "test/cbmc/sources/http_cbmc_state.c": {
+        "allocateFindHeaderContext": {
+          "274": "hit",
+          "276": "hit",
+          "278": "hit",
+          "280": "hit",
+          "281": "hit"
+        },
+        "allocateHttpReadHeaderParser": {
+          "258": "hit",
+          "260": "hit",
+          "262": "hit",
+          "264": "hit",
+          "266": "hit",
+          "267": "hit",
+          "269": "hit",
+          "270": "hit"
+        },
+        "allocateHttpResponse": {
+          "105": "hit",
+          "107": "hit",
+          "109": "hit",
+          "110": "hit",
+          "112": "hit",
+          "115": "hit",
+          "119": "hit",
+          "123": "hit",
+          "124": "hit",
+          "125": "hit",
+          "127": "hit",
+          "134": "hit",
+          "136": "hit",
+          "143": "hit",
+          "145": "hit",
+          "146": "hit",
+          "147": "hit",
+          "151": "hit",
+          "155": "hit",
+          "157": "hit",
+          "158": "hit"
+        },
+        "isValidHttpResponse": {
+          "162": "hit",
+          "164": "hit",
+          "166": "both",
+          "167": "hit",
+          "168": "hit",
+          "169": "hit",
+          "170": "hit",
+          "172": "hit",
+          "173": "hit"
+        },
+        "mallocCanFail": {
+          "34": "hit",
+          "35": "hit",
+          "36": "hit"
+        }
+      }
+    },
+    "function_coverage": {
+      "source/core_http_client.c": {
+        "findHeaderValueParserCallback": {
+          "hit": 21,
+          "percentage": 1.0,
+          "total": 21
+        }
+      },
+      "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c": {
+        "findHeaderValueParserCallback_harness": {
+          "hit": 26,
+          "percentage": 1.0,
+          "total": 26
+        }
+      },
+      "test/cbmc/sources/http_cbmc_state.c": {
+        "allocateFindHeaderContext": {
+          "hit": 5,
+          "percentage": 1.0,
+          "total": 5
+        },
+        "allocateHttpReadHeaderParser": {
+          "hit": 8,
+          "percentage": 1.0,
+          "total": 8
+        },
+        "allocateHttpResponse": {
+          "hit": 21,
+          "percentage": 1.0,
+          "total": 21
+        },
+        "isValidHttpResponse": {
+          "hit": 9,
+          "percentage": 1.0,
+          "total": 9
+        },
+        "mallocCanFail": {
+          "hit": 3,
+          "percentage": 1.0,
+          "total": 3
+        }
+      }
+    },
+    "line_coverage": {
+      "source/core_http_client.c": {
+        "2299": "hit",
+        "2300": "hit",
+        "2302": "hit",
+        "2303": "hit",
+        "2304": "hit",
+        "2306": "hit",
+        "2308": "hit",
+        "2309": "hit",
+        "2310": "hit",
+        "2311": "hit",
+        "2314": "hit",
+        "2316": "hit",
+        "2322": "hit",
+        "2326": "hit",
+        "2327": "hit",
+        "2333": "hit",
+        "2334": "hit",
+        "2338": "hit",
+        "2342": "hit",
+        "2349": "hit",
+        "2350": "hit"
+      },
+      "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c": {
+        "35": "hit",
+        "36": "hit",
+        "37": "hit",
+        "38": "hit",
+        "39": "hit",
+        "41": "hit",
+        "42": "hit",
+        "43": "hit",
+        "44": "hit",
+        "46": "hit",
+        "47": "hit",
+        "49": "hit",
+        "50": "hit",
+        "51": "hit",
+        "53": "hit",
+        "54": "hit",
+        "55": "hit",
+        "56": "hit",
+        "57": "hit",
+        "58": "hit",
+        "59": "hit",
+        "60": "hit",
+        "61": "hit",
+        "62": "hit",
+        "64": "hit",
+        "65": "hit"
+      },
+      "test/cbmc/sources/http_cbmc_state.c": {
+        "34": "hit",
+        "35": "hit",
+        "36": "hit",
+        "105": "hit",
+        "107": "hit",
+        "109": "hit",
+        "110": "hit",
+        "112": "hit",
+        "115": "hit",
+        "119": "hit",
+        "123": "hit",
+        "124": "hit",
+        "125": "hit",
+        "127": "hit",
+        "134": "hit",
+        "136": "hit",
+        "143": "hit",
+        "145": "hit",
+        "146": "hit",
+        "147": "hit",
+        "151": "hit",
+        "155": "hit",
+        "157": "hit",
+        "158": "hit",
+        "162": "hit",
+        "164": "hit",
+        "166": "both",
+        "167": "hit",
+        "168": "hit",
+        "169": "hit",
+        "170": "hit",
+        "172": "hit",
+        "173": "hit",
+        "258": "hit",
+        "260": "hit",
+        "262": "hit",
+        "264": "hit",
+        "266": "hit",
+        "267": "hit",
+        "269": "hit",
+        "270": "hit",
+        "274": "hit",
+        "276": "hit",
+        "278": "hit",
+        "280": "hit",
+        "281": "hit"
+      }
+    },
+    "overall_coverage": {
+      "hit": 93,
+      "percentage": 1.0,
+      "total": 93
+    }
+  }
+}

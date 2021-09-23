@@ -1,0 +1,186 @@
+{
+  "viewer-trace": {
+    "traces": {
+      "mallocCanFail.assertion.1": [
+        {
+          "detail": {
+            "lhs": "pRequestHeaders",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((HTTPRequestHeaders_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_AddRangeHeader/HTTPClient_AddRangeHeader_harness.c",
+            "function": "HTTPClient_AddRangeHeader_harness",
+            "line": 34
+          }
+        },
+        {
+          "detail": {
+            "lhs": "rangeStartOrlastNbytes",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11110100 10111000 10111110 11111000",
+            "rhs-value": "-189219080"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_AddRangeHeader/HTTPClient_AddRangeHeader_harness.c",
+            "function": "HTTPClient_AddRangeHeader_harness",
+            "line": 35
+          }
+        },
+        {
+          "detail": {
+            "lhs": "rangeEnd",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "11000100 11011111 01101001 11101111",
+            "rhs-value": "-991991313"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_AddRangeHeader/HTTPClient_AddRangeHeader_harness.c",
+            "function": "HTTPClient_AddRangeHeader_harness",
+            "line": 36
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pRequestHeaders",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((HTTPRequestHeaders_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/proofs/HTTPClient_AddRangeHeader/HTTPClient_AddRangeHeader_harness.c",
+            "function": "HTTPClient_AddRangeHeader_harness",
+            "line": 39
+          }
+        },
+        {
+          "detail": {
+            "lhs": "size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00011000",
+            "rhs-value": "sizeof(HTTPRequestHeaders_t) /*24ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpRequestHeaders",
+            "line": 42
+          }
+        },
+        {
+          "detail": {
+            "lhs": "malloc_size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00011000",
+            "rhs-value": "sizeof(HTTPRequestHeaders_t) /*24ul*/ "
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "mallocCanFail",
+            "line": 35
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object1.pBuffer",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((uint8_t *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object1.bufferLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000010 01100001 00000000 00000000 11111111 11111111 11111010 11100010",
+            "rhs-value": "171418265111755490ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "dynamic_object1.headersLen",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000000 01100000 11111111 11111111 11111111 11111111 11111010 11000011",
+            "rhs-value": "27303072740932291ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 38
+          }
+        },
+        {
+          "detail": {
+            "lhs": "pRequestHeaders",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000010 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "&dynamic_object1"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpRequestHeaders",
+            "line": 42
+          }
+        },
+        {
+          "detail": {
+            "lhs": "size",
+            "lhs-lexical-scope": null,
+            "rhs-binary": "00000010 01100001 00000000 00000000 11111111 11111111 11111010 11100010",
+            "rhs-value": "171418265111755490ul"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "allocateHttpRequestHeaders",
+            "line": 48
+          }
+        },
+        {
+          "detail": {
+            "property": null,
+            "reason": "mallocCanFail size is too big"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "test/cbmc/sources/http_cbmc_state.c",
+            "function": "mallocCanFail",
+            "line": 34
+          }
+        }
+      ]
+    }
+  }
+}

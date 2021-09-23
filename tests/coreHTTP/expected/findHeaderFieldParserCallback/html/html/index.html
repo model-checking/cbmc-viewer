@@ -1,0 +1,758 @@
+
+
+<html>
+  <head>
+    <title>CBMC</title>
+    <link rel="stylesheet" type="text/css" href="/viewer.css">
+  </head>
+
+  <body>
+    <h1>CBMC report</h1>
+
+    <div class="coverage">
+      <h2>Coverage</h2>
+
+      
+      <p>
+        Coverage: 1.00 (reached 90 of 90 reachable lines)
+      </p>
+
+      
+      <table class="coverage">
+        <tr>
+          <th class="coverage">Coverage</th>
+          <th class="function">Function</th>
+          <th class="file">File</th>
+        </tr>
+        
+        <tr>
+          <td class="coverage">1.00 (6/6)</td>
+          <td class="function"><a href="./source/core_http_client.c.html#573">caseInsensitiveStringCmp</a></td>
+          <td class="file"><a href="./source/core_http_client.c.html">source/core_http_client.c</a></td>
+        </tr>
+        
+        <tr>
+          <td class="coverage">1.00 (15/15)</td>
+          <td class="function"><a href="./source/core_http_client.c.html#2253">findHeaderFieldParserCallback</a></td>
+          <td class="file"><a href="./source/core_http_client.c.html">source/core_http_client.c</a></td>
+        </tr>
+        
+        <tr>
+          <td class="coverage">1.00 (23/23)</td>
+          <td class="function"><a href="./test/cbmc/proofs/findHeaderFieldParserCallback/findHeaderFieldParserCallback_harness.c.html#33">findHeaderFieldParserCallback_harness</a></td>
+          <td class="file"><a href="./test/cbmc/proofs/findHeaderFieldParserCallback/findHeaderFieldParserCallback_harness.c.html">test/cbmc/proofs/findHeaderFieldParserCallback/findHeaderFieldParserCallback_harness.c</a></td>
+        </tr>
+        
+        <tr>
+          <td class="coverage">1.00 (5/5)</td>
+          <td class="function"><a href="./test/cbmc/sources/http_cbmc_state.c.html#272">allocateFindHeaderContext</a></td>
+          <td class="file"><a href="./test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a></td>
+        </tr>
+        
+        <tr>
+          <td class="coverage">1.00 (8/8)</td>
+          <td class="function"><a href="./test/cbmc/sources/http_cbmc_state.c.html#256">allocateHttpReadHeaderParser</a></td>
+          <td class="file"><a href="./test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a></td>
+        </tr>
+        
+        <tr>
+          <td class="coverage">1.00 (21/21)</td>
+          <td class="function"><a href="./test/cbmc/sources/http_cbmc_state.c.html#103">allocateHttpResponse</a></td>
+          <td class="file"><a href="./test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a></td>
+        </tr>
+        
+        <tr>
+          <td class="coverage">1.00 (9/9)</td>
+          <td class="function"><a href="./test/cbmc/sources/http_cbmc_state.c.html#160">isValidHttpResponse</a></td>
+          <td class="file"><a href="./test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a></td>
+        </tr>
+        
+        <tr>
+          <td class="coverage">1.00 (3/3)</td>
+          <td class="function"><a href="./test/cbmc/sources/http_cbmc_state.c.html#32">mallocCanFail</a></td>
+          <td class="file"><a href="./test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a></td>
+        </tr>
+        
+      </table>
+    </div>
+
+    <div class="warnings">
+      <h2> Warnings</h2>
+      
+
+      
+
+      
+
+      
+
+      
+      None
+      
+
+    <div class="errors">
+      <h2>Errors</h2>
+      
+
+      
+
+      
+
+      
+      <ul>
+        
+        <li> File <a href="./source/core_http_client.c.html">source/core_http_client.c</a>
+          <ul>
+            
+            
+            <li>
+              Function <a href="./source/core_http_client.c.html#573">caseInsensitiveStringCmp</a>
+              <ul>
+                
+                <li>
+                  Line <a href="./source/core_http_client.c.html#581">581</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/caseInsensitiveStringCmp.pointer_arithmetic.1.html">trace</a>]
+                      pointer arithmetic: pointer NULL in str1 + (signed long int)i
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/caseInsensitiveStringCmp.pointer_arithmetic.2.html">trace</a>]
+                      pointer arithmetic: pointer invalid in str1 + (signed long int)i
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/caseInsensitiveStringCmp.pointer_arithmetic.3.html">trace</a>]
+                      pointer arithmetic: deallocated dynamic object in str1 + (signed long int)i
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/caseInsensitiveStringCmp.pointer_arithmetic.4.html">trace</a>]
+                      pointer arithmetic: dead object in str1 + (signed long int)i
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/caseInsensitiveStringCmp.pointer_arithmetic.5.html">trace</a>]
+                      pointer arithmetic: pointer outside object bounds in str1 + (signed long int)i
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/caseInsensitiveStringCmp.pointer_arithmetic.6.html">trace</a>]
+                      pointer arithmetic: invalid integer address in str1 + (signed long int)i
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/caseInsensitiveStringCmp.pointer_dereference.1.html">trace</a>]
+                      dereference failure: pointer NULL in str1[(signed long int)i]
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/caseInsensitiveStringCmp.pointer_dereference.2.html">trace</a>]
+                      dereference failure: pointer invalid in str1[(signed long int)i]
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/caseInsensitiveStringCmp.pointer_dereference.3.html">trace</a>]
+                      dereference failure: deallocated dynamic object in str1[(signed long int)i]
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/caseInsensitiveStringCmp.pointer_dereference.4.html">trace</a>]
+                      dereference failure: dead object in str1[(signed long int)i]
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/caseInsensitiveStringCmp.pointer_dereference.5.html">trace</a>]
+                      dereference failure: pointer outside object bounds in str1[(signed long int)i]
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/caseInsensitiveStringCmp.pointer_dereference.6.html">trace</a>]
+                      dereference failure: invalid integer address in str1[(signed long int)i]
+                    </li>
+                     
+                  </ul>
+                </li>
+                 
+              </ul>
+            </li>
+            
+            
+            <li>
+              Function <a href="./source/core_http_client.c.html#2253">findHeaderFieldParserCallback</a>
+              <ul>
+                
+                <li>
+                  Line <a href="./source/core_http_client.c.html#2259">2259</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback.assertion.1.html">trace</a>]
+                      assertion pHttpParser != NULL
+                    </li>
+                     
+                  </ul>
+                </li>
+                
+                <li>
+                  Line <a href="./source/core_http_client.c.html#2260">2260</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback.assertion.2.html">trace</a>]
+                      assertion pHttpParser->data != NULL
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback.pointer_dereference.1.html">trace</a>]
+                      dereference failure: pointer NULL in pHttpParser->data
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback.pointer_dereference.3.html">trace</a>]
+                      dereference failure: deallocated dynamic object in pHttpParser->data
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback.pointer_dereference.4.html">trace</a>]
+                      dereference failure: dead object in pHttpParser->data
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback.pointer_dereference.5.html">trace</a>]
+                      dereference failure: pointer outside object bounds in pHttpParser->data
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback.pointer_dereference.6.html">trace</a>]
+                      dereference failure: invalid integer address in pHttpParser->data
+                    </li>
+                     
+                  </ul>
+                </li>
+                
+                <li>
+                  Line <a href="./source/core_http_client.c.html#2266">2266</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback.assertion.5.html">trace</a>]
+                      assertion pContext->pField != NULL
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback.pointer_dereference.10.html">trace</a>]
+                      dereference failure: dead object in pContext->pField
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback.pointer_dereference.11.html">trace</a>]
+                      dereference failure: pointer outside object bounds in pContext->pField
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback.pointer_dereference.12.html">trace</a>]
+                      dereference failure: invalid integer address in pContext->pField
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback.pointer_dereference.7.html">trace</a>]
+                      dereference failure: pointer NULL in pContext->pField
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback.pointer_dereference.8.html">trace</a>]
+                      dereference failure: pointer invalid in pContext->pField
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback.pointer_dereference.9.html">trace</a>]
+                      dereference failure: deallocated dynamic object in pContext->pField
+                    </li>
+                     
+                  </ul>
+                </li>
+                
+                <li>
+                  Line <a href="./source/core_http_client.c.html#2267">2267</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback.assertion.6.html">trace</a>]
+                      assertion pContext->fieldLen > 0U
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback.pointer_dereference.13.html">trace</a>]
+                      dereference failure: pointer NULL in pContext->fieldLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback.pointer_dereference.14.html">trace</a>]
+                      dereference failure: pointer invalid in pContext->fieldLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback.pointer_dereference.15.html">trace</a>]
+                      dereference failure: deallocated dynamic object in pContext->fieldLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback.pointer_dereference.16.html">trace</a>]
+                      dereference failure: dead object in pContext->fieldLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback.pointer_dereference.17.html">trace</a>]
+                      dereference failure: pointer outside object bounds in pContext->fieldLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback.pointer_dereference.18.html">trace</a>]
+                      dereference failure: invalid integer address in pContext->fieldLen
+                    </li>
+                     
+                  </ul>
+                </li>
+                
+                <li>
+                  Line <a href="./source/core_http_client.c.html#2270">2270</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback.assertion.7.html">trace</a>]
+                      assertion pContext->fieldFound == 0U
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback.pointer_dereference.19.html">trace</a>]
+                      dereference failure: pointer NULL in pContext->fieldFound
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback.pointer_dereference.20.html">trace</a>]
+                      dereference failure: pointer invalid in pContext->fieldFound
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback.pointer_dereference.21.html">trace</a>]
+                      dereference failure: deallocated dynamic object in pContext->fieldFound
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback.pointer_dereference.22.html">trace</a>]
+                      dereference failure: dead object in pContext->fieldFound
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback.pointer_dereference.23.html">trace</a>]
+                      dereference failure: pointer outside object bounds in pContext->fieldFound
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback.pointer_dereference.24.html">trace</a>]
+                      dereference failure: invalid integer address in pContext->fieldFound
+                    </li>
+                     
+                  </ul>
+                </li>
+                
+                <li>
+                  Line <a href="./source/core_http_client.c.html#2271">2271</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback.assertion.8.html">trace</a>]
+                      assertion pContext->valueFound == 0U
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback.pointer_dereference.25.html">trace</a>]
+                      dereference failure: pointer NULL in pContext->valueFound
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback.pointer_dereference.26.html">trace</a>]
+                      dereference failure: pointer invalid in pContext->valueFound
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback.pointer_dereference.27.html">trace</a>]
+                      dereference failure: deallocated dynamic object in pContext->valueFound
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback.pointer_dereference.28.html">trace</a>]
+                      dereference failure: dead object in pContext->valueFound
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback.pointer_dereference.29.html">trace</a>]
+                      dereference failure: pointer outside object bounds in pContext->valueFound
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback.pointer_dereference.30.html">trace</a>]
+                      dereference failure: invalid integer address in pContext->valueFound
+                    </li>
+                     
+                  </ul>
+                </li>
+                
+                <li>
+                  Line <a href="./source/core_http_client.c.html#2283">2283</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback.pointer_dereference.31.html">trace</a>]
+                      dereference failure: pointer NULL in pContext->fieldFound
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback.pointer_dereference.32.html">trace</a>]
+                      dereference failure: pointer invalid in pContext->fieldFound
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback.pointer_dereference.33.html">trace</a>]
+                      dereference failure: deallocated dynamic object in pContext->fieldFound
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback.pointer_dereference.34.html">trace</a>]
+                      dereference failure: dead object in pContext->fieldFound
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback.pointer_dereference.35.html">trace</a>]
+                      dereference failure: pointer outside object bounds in pContext->fieldFound
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback.pointer_dereference.36.html">trace</a>]
+                      dereference failure: invalid integer address in pContext->fieldFound
+                    </li>
+                     
+                  </ul>
+                </li>
+                 
+              </ul>
+            </li>
+             
+          </ul>
+        </li>
+        
+        <li> File <a href="./test/cbmc/proofs/findHeaderFieldParserCallback/findHeaderFieldParserCallback_harness.c.html">test/cbmc/proofs/findHeaderFieldParserCallback/findHeaderFieldParserCallback_harness.c</a>
+          <ul>
+            
+            
+            <li>
+              Function <a href="./test/cbmc/proofs/findHeaderFieldParserCallback/findHeaderFieldParserCallback_harness.c.html#33">findHeaderFieldParserCallback_harness</a>
+              <ul>
+                
+                <li>
+                  Line <a href="./test/cbmc/proofs/findHeaderFieldParserCallback/findHeaderFieldParserCallback_harness.c.html#54">54</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback_harness.pointer_dereference.31.html">trace</a>]
+                      dereference failure: pointer NULL in pFindHeaderContext->pField
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback_harness.pointer_dereference.33.html">trace</a>]
+                      dereference failure: deallocated dynamic object in pFindHeaderContext->pField
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback_harness.pointer_dereference.34.html">trace</a>]
+                      dereference failure: dead object in pFindHeaderContext->pField
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback_harness.pointer_dereference.35.html">trace</a>]
+                      dereference failure: pointer outside object bounds in pFindHeaderContext->pField
+                    </li>
+                     
+                  </ul>
+                </li>
+                
+                <li>
+                  Line <a href="./test/cbmc/proofs/findHeaderFieldParserCallback/findHeaderFieldParserCallback_harness.c.html#55">55</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback_harness.pointer_dereference.37.html">trace</a>]
+                      dereference failure: pointer NULL in pFindHeaderContext->pField
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback_harness.pointer_dereference.39.html">trace</a>]
+                      dereference failure: deallocated dynamic object in pFindHeaderContext->pField
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback_harness.pointer_dereference.40.html">trace</a>]
+                      dereference failure: dead object in pFindHeaderContext->pField
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback_harness.pointer_dereference.41.html">trace</a>]
+                      dereference failure: pointer outside object bounds in pFindHeaderContext->pField
+                    </li>
+                     
+                  </ul>
+                </li>
+                
+                <li>
+                  Line <a href="./test/cbmc/proofs/findHeaderFieldParserCallback/findHeaderFieldParserCallback_harness.c.html#56">56</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback_harness.pointer_dereference.43.html">trace</a>]
+                      dereference failure: pointer NULL in pFindHeaderContext->fieldLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback_harness.pointer_dereference.45.html">trace</a>]
+                      dereference failure: deallocated dynamic object in pFindHeaderContext->fieldLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback_harness.pointer_dereference.46.html">trace</a>]
+                      dereference failure: dead object in pFindHeaderContext->fieldLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback_harness.pointer_dereference.47.html">trace</a>]
+                      dereference failure: pointer outside object bounds in pFindHeaderContext->fieldLen
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback_harness.pointer_dereference.48.html">trace</a>]
+                      dereference failure: invalid integer address in pFindHeaderContext->fieldLen
+                    </li>
+                     
+                  </ul>
+                </li>
+                
+                <li>
+                  Line <a href="./test/cbmc/proofs/findHeaderFieldParserCallback/findHeaderFieldParserCallback_harness.c.html#57">57</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback_harness.pointer_dereference.49.html">trace</a>]
+                      dereference failure: pointer NULL in pFindHeaderContext->fieldFound
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback_harness.pointer_dereference.51.html">trace</a>]
+                      dereference failure: deallocated dynamic object in pFindHeaderContext->fieldFound
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback_harness.pointer_dereference.52.html">trace</a>]
+                      dereference failure: dead object in pFindHeaderContext->fieldFound
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback_harness.pointer_dereference.53.html">trace</a>]
+                      dereference failure: pointer outside object bounds in pFindHeaderContext->fieldFound
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback_harness.pointer_dereference.54.html">trace</a>]
+                      dereference failure: invalid integer address in pFindHeaderContext->fieldFound
+                    </li>
+                     
+                  </ul>
+                </li>
+                
+                <li>
+                  Line <a href="./test/cbmc/proofs/findHeaderFieldParserCallback/findHeaderFieldParserCallback_harness.c.html#58">58</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback_harness.pointer_dereference.55.html">trace</a>]
+                      dereference failure: pointer NULL in pFindHeaderContext->valueFound
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback_harness.pointer_dereference.57.html">trace</a>]
+                      dereference failure: deallocated dynamic object in pFindHeaderContext->valueFound
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback_harness.pointer_dereference.58.html">trace</a>]
+                      dereference failure: dead object in pFindHeaderContext->valueFound
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback_harness.pointer_dereference.59.html">trace</a>]
+                      dereference failure: pointer outside object bounds in pFindHeaderContext->valueFound
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback_harness.pointer_dereference.60.html">trace</a>]
+                      dereference failure: invalid integer address in pFindHeaderContext->valueFound
+                    </li>
+                     
+                  </ul>
+                </li>
+                
+                <li>
+                  Line <a href="./test/cbmc/proofs/findHeaderFieldParserCallback/findHeaderFieldParserCallback_harness.c.html#59">59</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback_harness.pointer_dereference.61.html">trace</a>]
+                      dereference failure: pointer NULL in pHttpParser->data
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback_harness.pointer_dereference.63.html">trace</a>]
+                      dereference failure: deallocated dynamic object in pHttpParser->data
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback_harness.pointer_dereference.64.html">trace</a>]
+                      dereference failure: dead object in pHttpParser->data
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback_harness.pointer_dereference.65.html">trace</a>]
+                      dereference failure: pointer outside object bounds in pHttpParser->data
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/findHeaderFieldParserCallback_harness.pointer_dereference.66.html">trace</a>]
+                      dereference failure: invalid integer address in pHttpParser->data
+                    </li>
+                     
+                  </ul>
+                </li>
+                 
+              </ul>
+            </li>
+             
+          </ul>
+        </li>
+        
+        <li> File <a href="./test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>
+          <ul>
+            
+            
+            <li>
+              Function <a href="./test/cbmc/sources/http_cbmc_state.c.html#256">allocateHttpReadHeaderParser</a>
+              <ul>
+                
+                <li>
+                  Line <a href="./test/cbmc/sources/http_cbmc_state.c.html#267">267</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpReadHeaderParser.pointer_dereference.1.html">trace</a>]
+                      dereference failure: pointer NULL in pHttpParser->data
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpReadHeaderParser.pointer_dereference.3.html">trace</a>]
+                      dereference failure: deallocated dynamic object in pHttpParser->data
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpReadHeaderParser.pointer_dereference.4.html">trace</a>]
+                      dereference failure: dead object in pHttpParser->data
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpReadHeaderParser.pointer_dereference.5.html">trace</a>]
+                      dereference failure: pointer outside object bounds in pHttpParser->data
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpReadHeaderParser.pointer_dereference.6.html">trace</a>]
+                      dereference failure: invalid integer address in pHttpParser->data
+                    </li>
+                     
+                  </ul>
+                </li>
+                 
+              </ul>
+            </li>
+            
+            
+            <li>
+              Function <a href="./test/cbmc/sources/http_cbmc_state.c.html#103">allocateHttpResponse</a>
+              <ul>
+                
+                <li>
+                  Line <a href="./test/cbmc/sources/http_cbmc_state.c.html#124">124</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpResponse.overflow.1.html">trace</a>]
+                      arithmetic overflow on unsigned to signed type conversion in (signed long int)headerOffset
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpResponse.pointer_arithmetic.5.html">trace</a>]
+                      pointer arithmetic: pointer outside object bounds in pResponse->pBuffer + (signed long int)headerOffset
+                    </li>
+                     
+                  </ul>
+                </li>
+                
+                <li>
+                  Line <a href="./test/cbmc/sources/http_cbmc_state.c.html#146">146</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpResponse.overflow.2.html">trace</a>]
+                      arithmetic overflow on unsigned to signed type conversion in (signed long int)bodyOffset
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpResponse.pointer_arithmetic.11.html">trace</a>]
+                      pointer arithmetic: pointer outside object bounds in pResponse->pBuffer + (signed long int)bodyOffset
+                    </li>
+                     
+                  </ul>
+                </li>
+                 
+              </ul>
+            </li>
+            
+            
+            <li>
+              Function <a href="./test/cbmc/sources/http_cbmc_state.c.html#32">mallocCanFail</a>
+              <ul>
+                
+                <li>
+                  Line <a href="./test/cbmc/sources/http_cbmc_state.c.html#34">34</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/mallocCanFail.assertion.1.html">trace</a>]
+                      mallocCanFail size is too big
+                    </li>
+                     
+                  </ul>
+                </li>
+                 
+              </ul>
+            </li>
+             
+          </ul>
+        </li>
+         
+      </ul>
+      
+
+      
+
+    </div>
+  </body>
+</html>

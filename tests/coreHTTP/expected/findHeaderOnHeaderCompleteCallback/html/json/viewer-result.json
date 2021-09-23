@@ -1,0 +1,63 @@
+{
+  "viewer-result": {
+    "program": "CBMC version 5.39.3 (cbmc-5.39.3) 64-bit arm64 macos",
+    "prover": "failure",
+    "results": {
+      "false": [
+        "allocateHttpReadHeaderParser.pointer_dereference.1",
+        "allocateHttpReadHeaderParser.pointer_dereference.3",
+        "allocateHttpReadHeaderParser.pointer_dereference.4",
+        "allocateHttpReadHeaderParser.pointer_dereference.5",
+        "allocateHttpReadHeaderParser.pointer_dereference.6",
+        "findHeaderOnHeaderCompleteCallback.assertion.1",
+        "findHeaderOnHeaderCompleteCallback.pointer_dereference.1",
+        "findHeaderOnHeaderCompleteCallback.pointer_dereference.3",
+        "findHeaderOnHeaderCompleteCallback.pointer_dereference.4",
+        "findHeaderOnHeaderCompleteCallback.pointer_dereference.5",
+        "findHeaderOnHeaderCompleteCallback.pointer_dereference.6"
+      ],
+      "true": [
+        "allocateHttpReadHeaderParser.pointer_dereference.2",
+        "findHeaderOnHeaderCompleteCallback.pointer_dereference.2",
+        "malloc.assertion.1",
+        "malloc.assertion.2"
+      ]
+    },
+    "status": [
+      "CBMC version 5.39.3 (cbmc-5.39.3) 64-bit arm64 macos",
+      "Reading GOTO program from file",
+      "Reading: /Users/mrtuttle/cbmc-viewer/tests/coreHTTP/coreHTTP/test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/gotos/findHeaderOnHeaderCompleteCallback_harness.goto",
+      "Generating GOTO Program",
+      "Adding CPROVER library (arm64)",
+      "Removal of function pointers and virtual functions",
+      "Generic Property Instrumentation",
+      "Running with 8 object bits, 56 offset bits (user-specified)",
+      "Starting Bounded Model Checking",
+      "Runtime Symex: 0.00467138s",
+      "size of program expression: 249 steps",
+      "simple slicing removed 5 assignments",
+      "Generated 13 VCC(s), 13 remaining after simplification",
+      "Runtime Postprocess Equation: 1.0583e-05s",
+      "Passing problem to propositional reduction",
+      "converting SSA",
+      "Runtime Convert SSA: 0.00139104s",
+      "Running propositional reduction",
+      "Post-processing",
+      "Runtime Post-process: 0.000312542s",
+      "Solving with MiniSAT 2.2.1 with simplifier",
+      "2822 variables, 1605 clauses",
+      "SAT checker: instance is SATISFIABLE",
+      "Runtime Solver: 0.00285858s",
+      "Runtime decision procedure: 0.00430746s",
+      "Building error trace",
+      "Running propositional reduction",
+      "Solving with MiniSAT 2.2.1 with simplifier",
+      "2822 variables, 440 clauses",
+      "SAT checker inconsistent: instance is UNSATISFIABLE",
+      "Runtime Solver: 8.292e-06s",
+      "Runtime decision procedure: 2.9292e-05s",
+      "VERIFICATION FAILED"
+    ],
+    "warning": []
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "viewer-property": {
+    "properties": {
+      "allocateHttpReadHeaderParser.pointer_dereference.1": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer NULL in pHttpParser->data",
+        "expression": "!(POINTER_OBJECT(pHttpParser) == POINTER_OBJECT(((void **)NULL)))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpReadHeaderParser",
+          "line": 267
+        }
+      },
+      "allocateHttpReadHeaderParser.pointer_dereference.2": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer invalid in pHttpParser->data",
+        "expression": "!IS_INVALID_POINTER(pHttpParser)",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpReadHeaderParser",
+          "line": 267
+        }
+      },
+      "allocateHttpReadHeaderParser.pointer_dereference.3": {
+        "class": "pointer dereference",
+        "description": "dereference failure: deallocated dynamic object in pHttpParser->data",
+        "expression": "!(POINTER_OBJECT(pHttpParser) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpReadHeaderParser",
+          "line": 267
+        }
+      },
+      "allocateHttpReadHeaderParser.pointer_dereference.4": {
+        "class": "pointer dereference",
+        "description": "dereference failure: dead object in pHttpParser->data",
+        "expression": "!(POINTER_OBJECT(pHttpParser) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpReadHeaderParser",
+          "line": 267
+        }
+      },
+      "allocateHttpReadHeaderParser.pointer_dereference.5": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer outside object bounds in pHttpParser->data",
+        "expression": "POINTER_OFFSET(pHttpParser) + 24l >= 0l && OBJECT_SIZE(pHttpParser) >= (unsigned long int)POINTER_OFFSET(pHttpParser) + 32ul",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpReadHeaderParser",
+          "line": 267
+        }
+      },
+      "allocateHttpReadHeaderParser.pointer_dereference.6": {
+        "class": "pointer dereference",
+        "description": "dereference failure: invalid integer address in pHttpParser->data",
+        "expression": "!(POINTER_OBJECT(((void **)NULL)) == POINTER_OBJECT(pHttpParser)) || (char *)pHttpParser + 24l == ((char *)NULL)",
+        "location": {
+          "file": "test/cbmc/sources/http_cbmc_state.c",
+          "function": "allocateHttpReadHeaderParser",
+          "line": 267
+        }
+      },
+      "findHeaderOnHeaderCompleteCallback.assertion.1": {
+        "class": "assertion",
+        "description": "assertion pHttpParser != NULL",
+        "expression": "!((signed long int)(signed long int)!(pHttpParser != ((http_parser *)NULL)) != 0l)",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderOnHeaderCompleteCallback",
+          "line": 2363
+        }
+      },
+      "findHeaderOnHeaderCompleteCallback.pointer_dereference.1": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer NULL in pHttpParser->data",
+        "expression": "!(POINTER_OBJECT(pHttpParser) == POINTER_OBJECT(((void **)NULL)))",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderOnHeaderCompleteCallback",
+          "line": 2365
+        }
+      },
+      "findHeaderOnHeaderCompleteCallback.pointer_dereference.2": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer invalid in pHttpParser->data",
+        "expression": "!IS_INVALID_POINTER(pHttpParser)",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderOnHeaderCompleteCallback",
+          "line": 2365
+        }
+      },
+      "findHeaderOnHeaderCompleteCallback.pointer_dereference.3": {
+        "class": "pointer dereference",
+        "description": "dereference failure: deallocated dynamic object in pHttpParser->data",
+        "expression": "!(POINTER_OBJECT(pHttpParser) == POINTER_OBJECT(__CPROVER_deallocated))",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderOnHeaderCompleteCallback",
+          "line": 2365
+        }
+      },
+      "findHeaderOnHeaderCompleteCallback.pointer_dereference.4": {
+        "class": "pointer dereference",
+        "description": "dereference failure: dead object in pHttpParser->data",
+        "expression": "!(POINTER_OBJECT(pHttpParser) == POINTER_OBJECT(__CPROVER_dead_object))",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderOnHeaderCompleteCallback",
+          "line": 2365
+        }
+      },
+      "findHeaderOnHeaderCompleteCallback.pointer_dereference.5": {
+        "class": "pointer dereference",
+        "description": "dereference failure: pointer outside object bounds in pHttpParser->data",
+        "expression": "POINTER_OFFSET(pHttpParser) + 24l >= 0l && OBJECT_SIZE(pHttpParser) >= (unsigned long int)POINTER_OFFSET(pHttpParser) + 32ul",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderOnHeaderCompleteCallback",
+          "line": 2365
+        }
+      },
+      "findHeaderOnHeaderCompleteCallback.pointer_dereference.6": {
+        "class": "pointer dereference",
+        "description": "dereference failure: invalid integer address in pHttpParser->data",
+        "expression": "!(POINTER_OBJECT(((void **)NULL)) == POINTER_OBJECT(pHttpParser)) || (char *)pHttpParser + 24l == ((char *)NULL)",
+        "location": {
+          "file": "source/core_http_client.c",
+          "function": "findHeaderOnHeaderCompleteCallback",
+          "line": 2365
+        }
+      },
+      "malloc.assertion.1": {
+        "class": "assertion",
+        "description": "max allocation size exceeded",
+        "expression": "malloc_size <= __CPROVER_max_malloc_size",
+        "location": {
+          "file": "<builtin-library-malloc>",
+          "function": "malloc",
+          "line": 26
+        }
+      },
+      "malloc.assertion.2": {
+        "class": "assertion",
+        "description": "max allocation may fail",
+        "expression": "!__CPROVER_malloc_may_fail || !should_malloc_fail",
+        "location": {
+          "file": "<builtin-library-malloc>",
+          "function": "malloc",
+          "line": 31
+        }
+      }
+    }
+  }
+}

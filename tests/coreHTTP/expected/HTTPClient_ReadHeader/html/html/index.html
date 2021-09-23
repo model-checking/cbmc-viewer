@@ -1,0 +1,199 @@
+
+
+<html>
+  <head>
+    <title>CBMC</title>
+    <link rel="stylesheet" type="text/css" href="/viewer.css">
+  </head>
+
+  <body>
+    <h1>CBMC report</h1>
+
+    <div class="coverage">
+      <h2>Coverage</h2>
+
+      
+      <p>
+        Coverage: 1.00 (reached 138 of 138 reachable lines)
+      </p>
+
+      
+      <table class="coverage">
+        <tr>
+          <th class="coverage">Coverage</th>
+          <th class="function">Function</th>
+          <th class="file">File</th>
+        </tr>
+        
+        <tr>
+          <td class="coverage">1.00 (35/35)</td>
+          <td class="function"><a href="./source/core_http_client.c.html#2380">findHeaderInResponse</a></td>
+          <td class="file"><a href="./source/core_http_client.c.html">source/core_http_client.c</a></td>
+        </tr>
+        
+        <tr>
+          <td class="coverage">1.00 (24/24)</td>
+          <td class="function"><a href="./source/core_http_client.c.html#2496">HTTPClient_ReadHeader</a></td>
+          <td class="file"><a href="./source/core_http_client.c.html">source/core_http_client.c</a></td>
+        </tr>
+        
+        <tr>
+          <td class="coverage">1.00 (17/17)</td>
+          <td class="function"><a href="./test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c.html#32">HTTPClient_ReadHeader_harness</a></td>
+          <td class="file"><a href="./test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c.html">test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c</a></td>
+        </tr>
+        
+        <tr>
+          <td class="coverage">1.00 (21/21)</td>
+          <td class="function"><a href="./test/cbmc/sources/http_cbmc_state.c.html#103">allocateHttpResponse</a></td>
+          <td class="file"><a href="./test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a></td>
+        </tr>
+        
+        <tr>
+          <td class="coverage">1.00 (9/9)</td>
+          <td class="function"><a href="./test/cbmc/sources/http_cbmc_state.c.html#160">isValidHttpResponse</a></td>
+          <td class="file"><a href="./test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a></td>
+        </tr>
+        
+        <tr>
+          <td class="coverage">1.00 (3/3)</td>
+          <td class="function"><a href="./test/cbmc/sources/http_cbmc_state.c.html#32">mallocCanFail</a></td>
+          <td class="file"><a href="./test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a></td>
+        </tr>
+        
+        <tr>
+          <td class="coverage">1.00 (29/29)</td>
+          <td class="function"><a href="./test/cbmc/stubs/HTTPClient_ReadHeader_http_parser_execute.c.html#41">http_parser_execute</a></td>
+          <td class="file"><a href="./test/cbmc/stubs/HTTPClient_ReadHeader_http_parser_execute.c.html">test/cbmc/stubs/HTTPClient_ReadHeader_http_parser_execute.c</a></td>
+        </tr>
+        
+      </table>
+    </div>
+
+    <div class="warnings">
+      <h2> Warnings</h2>
+      
+
+      
+
+      
+
+      
+
+      
+      None
+      
+
+    <div class="errors">
+      <h2>Errors</h2>
+      
+
+      
+
+      
+
+      
+      <ul>
+        
+        <li> File <a href="./test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>
+          <ul>
+            
+            
+            <li>
+              Function <a href="./test/cbmc/sources/http_cbmc_state.c.html#103">allocateHttpResponse</a>
+              <ul>
+                
+                <li>
+                  Line <a href="./test/cbmc/sources/http_cbmc_state.c.html#124">124</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpResponse.overflow.1.html">trace</a>]
+                      arithmetic overflow on unsigned to signed type conversion in (signed long int)headerOffset
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpResponse.pointer_arithmetic.5.html">trace</a>]
+                      pointer arithmetic: pointer outside object bounds in pResponse->pBuffer + (signed long int)headerOffset
+                    </li>
+                     
+                  </ul>
+                </li>
+                
+                <li>
+                  Line <a href="./test/cbmc/sources/http_cbmc_state.c.html#146">146</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpResponse.overflow.2.html">trace</a>]
+                      arithmetic overflow on unsigned to signed type conversion in (signed long int)bodyOffset
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpResponse.pointer_arithmetic.11.html">trace</a>]
+                      pointer arithmetic: pointer outside object bounds in pResponse->pBuffer + (signed long int)bodyOffset
+                    </li>
+                     
+                  </ul>
+                </li>
+                 
+              </ul>
+            </li>
+            
+            
+            <li>
+              Function <a href="./test/cbmc/sources/http_cbmc_state.c.html#32">mallocCanFail</a>
+              <ul>
+                
+                <li>
+                  Line <a href="./test/cbmc/sources/http_cbmc_state.c.html#34">34</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/mallocCanFail.assertion.1.html">trace</a>]
+                      mallocCanFail size is too big
+                    </li>
+                     
+                  </ul>
+                </li>
+                 
+              </ul>
+            </li>
+             
+          </ul>
+        </li>
+        
+        <li> File <a href="./test/cbmc/stubs/HTTPClient_ReadHeader_http_parser_execute.c.html">test/cbmc/stubs/HTTPClient_ReadHeader_http_parser_execute.c</a>
+          <ul>
+            
+            
+            <li>
+              Function <a href="./test/cbmc/stubs/HTTPClient_ReadHeader_http_parser_execute.c.html#41">http_parser_execute</a>
+              <ul>
+                
+                <li>
+                  Line <a href="./test/cbmc/stubs/HTTPClient_ReadHeader_http_parser_execute.c.html#57">57</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/http_parser_execute.assertion.4.html">trace</a>]
+                      http_parser_execute len >= CBMC_MAX_OBJECT_SIZE
+                    </li>
+                     
+                  </ul>
+                </li>
+                 
+              </ul>
+            </li>
+             
+          </ul>
+        </li>
+         
+      </ul>
+      
+
+      
+
+    </div>
+  </body>
+</html>

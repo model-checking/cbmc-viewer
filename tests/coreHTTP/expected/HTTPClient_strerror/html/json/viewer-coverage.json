@@ -1,0 +1,151 @@
+{
+  "viewer-coverage": {
+    "coverage": {
+      "source/core_http_client.c": {
+        "HTTPClient_strerror": {
+          "2563": "hit",
+          "2565": "hit",
+          "2567": "hit",
+          "2568": "hit",
+          "2569": "hit",
+          "2571": "hit",
+          "2572": "hit",
+          "2573": "hit",
+          "2575": "hit",
+          "2576": "hit",
+          "2577": "hit",
+          "2579": "hit",
+          "2580": "hit",
+          "2581": "hit",
+          "2583": "hit",
+          "2584": "hit",
+          "2585": "hit",
+          "2587": "hit",
+          "2588": "hit",
+          "2589": "hit",
+          "2591": "hit",
+          "2592": "hit",
+          "2593": "hit",
+          "2595": "hit",
+          "2596": "hit",
+          "2597": "hit",
+          "2599": "hit",
+          "2600": "hit",
+          "2601": "hit",
+          "2603": "hit",
+          "2604": "hit",
+          "2605": "hit",
+          "2607": "hit",
+          "2608": "hit",
+          "2609": "hit",
+          "2611": "hit",
+          "2612": "hit",
+          "2613": "hit",
+          "2615": "hit",
+          "2616": "hit",
+          "2617": "hit",
+          "2619": "hit",
+          "2620": "hit",
+          "2621": "hit",
+          "2623": "hit",
+          "2624": "hit",
+          "2625": "hit",
+          "2627": "hit",
+          "2628": "hit",
+          "2633": "hit",
+          "2637": "hit",
+          "2638": "hit"
+        }
+      },
+      "test/cbmc/proofs/HTTPClient_strerror/HTTPClient_strerror_harness.c": {
+        "HTTPClient_strerror_harness": {
+          "32": "hit",
+          "34": "hit",
+          "35": "hit"
+        }
+      }
+    },
+    "function_coverage": {
+      "source/core_http_client.c": {
+        "HTTPClient_strerror": {
+          "hit": 52,
+          "percentage": 1.0,
+          "total": 52
+        }
+      },
+      "test/cbmc/proofs/HTTPClient_strerror/HTTPClient_strerror_harness.c": {
+        "HTTPClient_strerror_harness": {
+          "hit": 3,
+          "percentage": 1.0,
+          "total": 3
+        }
+      }
+    },
+    "line_coverage": {
+      "source/core_http_client.c": {
+        "2563": "hit",
+        "2565": "hit",
+        "2567": "hit",
+        "2568": "hit",
+        "2569": "hit",
+        "2571": "hit",
+        "2572": "hit",
+        "2573": "hit",
+        "2575": "hit",
+        "2576": "hit",
+        "2577": "hit",
+        "2579": "hit",
+        "2580": "hit",
+        "2581": "hit",
+        "2583": "hit",
+        "2584": "hit",
+        "2585": "hit",
+        "2587": "hit",
+        "2588": "hit",
+        "2589": "hit",
+        "2591": "hit",
+        "2592": "hit",
+        "2593": "hit",
+        "2595": "hit",
+        "2596": "hit",
+        "2597": "hit",
+        "2599": "hit",
+        "2600": "hit",
+        "2601": "hit",
+        "2603": "hit",
+        "2604": "hit",
+        "2605": "hit",
+        "2607": "hit",
+        "2608": "hit",
+        "2609": "hit",
+        "2611": "hit",
+        "2612": "hit",
+        "2613": "hit",
+        "2615": "hit",
+        "2616": "hit",
+        "2617": "hit",
+        "2619": "hit",
+        "2620": "hit",
+        "2621": "hit",
+        "2623": "hit",
+        "2624": "hit",
+        "2625": "hit",
+        "2627": "hit",
+        "2628": "hit",
+        "2633": "hit",
+        "2637": "hit",
+        "2638": "hit"
+      },
+      "test/cbmc/proofs/HTTPClient_strerror/HTTPClient_strerror_harness.c": {
+        "32": "hit",
+        "34": "hit",
+        "35": "hit"
+      }
+    },
+    "overall_coverage": {
+      "hit": 55,
+      "percentage": 1.0,
+      "total": 55
+    }
+  }
+}

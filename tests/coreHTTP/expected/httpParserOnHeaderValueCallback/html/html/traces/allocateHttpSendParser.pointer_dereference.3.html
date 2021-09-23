@@ -1,0 +1,882 @@
+
+<html>
+  <head>
+    <title>allocateHttpSendParser.pointer_dereference.3</title>
+    <link rel="stylesheet" type="text/css" href="../viewer.css">
+  </head>
+
+  <body>
+    <h2>Error trace for property allocateHttpSendParser.pointer_dereference.3</h2>
+
+    <div id="trace-header">
+    <div id="trace-description">
+    <p>
+      Property that failed:
+      <ul>
+        <li> Name: allocateHttpSendParser.pointer_dereference.3
+        <li> Description: dereference failure: deallocated dynamic object in pHttpParser->data
+        <li> Location: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#203">allocateHttpSendParser</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#215">215</a>
+      </ul>
+    </p>
+    </div>
+
+    <div id="trace-navigation">
+    <p>
+      Trace navigation tips:
+      <ul>
+        <li>
+          <strong>Shift-Click: Hide function steps:</strong>
+          Shift-click on any step of a function to toggle the display
+          of function steps (hide or display steps).
+          This corresponds to stepping over a function in a debugger.
+          <em>Example:</em> Shift-click on any step of malloc to hide
+          the initialization of the struct members being malloc'd.
+        </li>
+        <li>
+          <strong>Shift-Alt-Click: Focus on function steps:</strong>
+          Shift-Alt-click on any step of a function to hide all steps
+          of all functions not currently on the call stack.
+          This corresponds to viewing the call stack in a debugger.
+          <em>Example:</em> Shift-Alt-click on a failure step to the display the
+          most direct path from the initial state to the failure.
+        </li>
+      </ul>
+    </p>
+    </div>
+    </div>
+
+    <div class="trace">
+
+      
+
+        
+
+        
+
+        <div id="step1" class="step">
+        <div class="header">Step 1: Function <a href="../test/cbmc/proofs/httpParserOnHeaderValueCallback/httpParserOnHeaderValueCallback_harness.c.html#32">httpParserOnHeaderValueCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeaderValueCallback/httpParserOnHeaderValueCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeaderValueCallback/httpParserOnHeaderValueCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeaderValueCallback/httpParserOnHeaderValueCallback_harness.c.html#34">34</a></div>
+        
+        <div class="code">http_parser * pHttpParser;</div>
+        
+        <div class="cbmc">pHttpParser = ((http_parser *)NULL) (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step2" class="step">
+        <div class="header">Step 2: Function <a href="../test/cbmc/proofs/httpParserOnHeaderValueCallback/httpParserOnHeaderValueCallback_harness.c.html#32">httpParserOnHeaderValueCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeaderValueCallback/httpParserOnHeaderValueCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeaderValueCallback/httpParserOnHeaderValueCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeaderValueCallback/httpParserOnHeaderValueCallback_harness.c.html#35">35</a></div>
+        
+        <div class="code">HTTPParsingContext_t * pParsingContext;</div>
+        
+        <div class="cbmc">pParsingContext = ((HTTPParsingContext_t *)NULL) (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step3" class="step">
+        <div class="header">Step 3: Function <a href="../test/cbmc/proofs/httpParserOnHeaderValueCallback/httpParserOnHeaderValueCallback_harness.c.html#32">httpParserOnHeaderValueCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeaderValueCallback/httpParserOnHeaderValueCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeaderValueCallback/httpParserOnHeaderValueCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeaderValueCallback/httpParserOnHeaderValueCallback_harness.c.html#36">36</a></div>
+        
+        <div class="code">HTTPResponse_t * pResponse;</div>
+        
+        <div class="cbmc">pResponse = ((HTTPResponse_t *)NULL) (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step4" class="step">
+        <div class="header">Step 4: Function <a href="../test/cbmc/proofs/httpParserOnHeaderValueCallback/httpParserOnHeaderValueCallback_harness.c.html#32">httpParserOnHeaderValueCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeaderValueCallback/httpParserOnHeaderValueCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeaderValueCallback/httpParserOnHeaderValueCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeaderValueCallback/httpParserOnHeaderValueCallback_harness.c.html#37">37</a></div>
+        
+        <div class="code">size_t length, locOffset;</div>
+        
+        <div class="cbmc">length = 10376201090944208898ul (10001111 11111111 10101011 11101010 10101111 11000000 00010000 00000010)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step5" class="step">
+        <div class="header">Step 5: Function <a href="../test/cbmc/proofs/httpParserOnHeaderValueCallback/httpParserOnHeaderValueCallback_harness.c.html#32">httpParserOnHeaderValueCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeaderValueCallback/httpParserOnHeaderValueCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeaderValueCallback/httpParserOnHeaderValueCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeaderValueCallback/httpParserOnHeaderValueCallback_harness.c.html#37">37</a></div>
+        
+        <div class="code">size_t length, locOffset;</div>
+        
+        <div class="cbmc">locOffset = 18446723902261284870ul (11111111 11111111 11101101 10100111 01110111 11111101 11010000 00000110)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step6" class="step">
+        <div class="header">Step 6: Function <a href="../test/cbmc/proofs/httpParserOnHeaderValueCallback/httpParserOnHeaderValueCallback_harness.c.html#32">httpParserOnHeaderValueCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeaderValueCallback/httpParserOnHeaderValueCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeaderValueCallback/httpParserOnHeaderValueCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeaderValueCallback/httpParserOnHeaderValueCallback_harness.c.html#38">38</a></div>
+        
+        <div class="code">char * pLoc;</div>
+        
+        <div class="cbmc">pLoc = ((char *)NULL) (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step7" class="step">
+        <div class="header">Step 7: Function <a href="../test/cbmc/proofs/httpParserOnHeaderValueCallback/httpParserOnHeaderValueCallback_harness.c.html#32">httpParserOnHeaderValueCallback_harness</a>, File <a href="../test/cbmc/proofs/httpParserOnHeaderValueCallback/httpParserOnHeaderValueCallback_harness.c.html">test/cbmc/proofs/httpParserOnHeaderValueCallback/httpParserOnHeaderValueCallback_harness.c</a>, Line <a href="../test/cbmc/proofs/httpParserOnHeaderValueCallback/httpParserOnHeaderValueCallback_harness.c.html#40">40</a></div>
+        
+        <div class="code">pHttpParser = allocateHttpSendParser( NULL );</div>
+        
+        <div class="cbmc">pHttpParser = ((http_parser *)NULL) (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step8" class="step">
+        <div class="header">Step 8: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#203">allocateHttpSendParser</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#205">205</a></div>
+        
+        <div class="code">HTTPParsingContext_t * pHttpParsingContext;</div>
+        
+        <div class="cbmc">pHttpParsingContext = ((HTTPParsingContext_t *)NULL) (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step9" class="step">
+        <div class="header">Step 9: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#203">allocateHttpSendParser</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#209">209</a></div>
+        
+        <div class="code">pHttpParser = malloc( sizeof( http_parser ) );</div>
+        
+        <div class="cbmc">malloc_size = sizeof(http_parser) /*32ul*/  (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00100000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step10" class="step">
+        <div class="header">Step 10: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#203">allocateHttpSendParser</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#209">209</a></div>
+        
+        <div class="code">pHttpParser = malloc( sizeof( http_parser ) );</div>
+        
+        <div class="cbmc">pHttpParser = ((http_parser *)NULL) (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step11" class="step">
+        <div class="header">Step 11: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#203">allocateHttpSendParser</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#213">213</a></div>
+        
+        <div class="code">pHttpParsingContext = allocateHttpSendParsingContext( NULL );</div>
+        
+        <div class="cbmc">pHttpParsingContext = ((HTTPParsingContext_t *)NULL) (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step12" class="step">
+        <div class="header">Step 12: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#222">222</a></div>
+        
+        <div class="code">HTTPResponse_t * pResponse;</div>
+        
+        <div class="cbmc">pResponse = ((HTTPResponse_t *)NULL) (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step13" class="step">
+        <div class="header">Step 13: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#223">223</a></div>
+        
+        <div class="code">size_t bufferOffset;</div>
+        
+        <div class="cbmc">bufferOffset = 0ul (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step14" class="step">
+        <div class="header">Step 14: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#227">227</a></div>
+        
+        <div class="code">pHttpParsingContext = malloc( sizeof( HTTPParsingContext_t ) );</div>
+        
+        <div class="cbmc">malloc_size = sizeof(HTTPParsingContext_t) /*96ul*/  (00000000 00000000 00000000 00000000 00000000 00000000 00000000 01100000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step15" class="step">
+        <div class="header">Step 15: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#227">227</a></div>
+        
+        <div class="code">pHttpParsingContext = malloc( sizeof( HTTPParsingContext_t ) );</div>
+        
+        <div class="cbmc">pHttpParsingContext = ((HTTPParsingContext_t *)NULL) (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step16" class="step">
+        <div class="header">Step 16: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#230">230</a></div>
+        
+        <div class="code">pResponse = allocateHttpResponse( NULL );</div>
+        
+        <div class="cbmc">pResponse = ((HTTPResponse_t *)NULL) (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step17" class="step">
+        <div class="header">Step 17: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#103">allocateHttpResponse</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#105">105</a></div>
+        
+        <div class="code">size_t headerOffset, bodyOffset;</div>
+        
+        <div class="cbmc">headerOffset = 18446723902261284871ul (11111111 11111111 11101101 10100111 01110111 11111101 11010000 00000111)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step18" class="step">
+        <div class="header">Step 18: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#103">allocateHttpResponse</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#105">105</a></div>
+        
+        <div class="code">size_t headerOffset, bodyOffset;</div>
+        
+        <div class="cbmc">bodyOffset = 0ul (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step19" class="step">
+        <div class="header">Step 19: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#103">allocateHttpResponse</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#109">109</a></div>
+        
+        <div class="code">pResponse = mallocCanFail( sizeof( HTTPResponse_t ) );</div>
+        
+        <div class="cbmc">size = sizeof(HTTPParsingContext_t) /*96ul*/  (00000000 00000000 00000000 00000000 00000000 00000000 00000000 01100000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step20" class="step">
+        <div class="header">Step 20: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#32">mallocCanFail</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#35">35</a></div>
+        
+        <div class="code">return malloc( size );</div>
+        
+        <div class="cbmc">malloc_size = sizeof(HTTPParsingContext_t) /*96ul*/  (00000000 00000000 00000000 00000000 00000000 00000000 00000000 01100000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step21" class="step">
+        <div class="header">Step 21: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#103">allocateHttpResponse</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#109">109</a></div>
+        
+        <div class="code">pResponse = mallocCanFail( sizeof( HTTPResponse_t ) );</div>
+        
+        <div class="cbmc">pResponse = ((HTTPResponse_t *)NULL) (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step22" class="step">
+        <div class="header">Step 22: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#230">230</a></div>
+        
+        <div class="code">pResponse = allocateHttpResponse( NULL );</div>
+        
+        <div class="cbmc">pResponse = ((HTTPResponse_t *)NULL) (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step23" class="step">
+        <div class="header">Step 23: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#237">237</a></div>
+        
+        <div class="code">pHttpParsingContext-&gt;pResponse = pResponse;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: pointer NULL in pHttpParsingContext->pResponse</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step24" class="step">
+        <div class="header">Step 24: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#237">237</a></div>
+        
+        <div class="code">pHttpParsingContext-&gt;pResponse = pResponse;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: deallocated dynamic object in pHttpParsingContext->pResponse</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step25" class="step">
+        <div class="header">Step 25: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#237">237</a></div>
+        
+        <div class="code">pHttpParsingContext-&gt;pResponse = pResponse;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: dead object in pHttpParsingContext->pResponse</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step26" class="step">
+        <div class="header">Step 26: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#237">237</a></div>
+        
+        <div class="code">pHttpParsingContext-&gt;pResponse = pResponse;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: pointer outside object bounds in pHttpParsingContext->pResponse</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step27" class="step">
+        <div class="header">Step 27: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#237">237</a></div>
+        
+        <div class="code">pHttpParsingContext-&gt;pResponse = pResponse;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: invalid integer address in pHttpParsingContext->pResponse</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step28" class="step">
+        <div class="header">Step 28: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#237">237</a></div>
+        
+        <div class="code">pHttpParsingContext-&gt;pResponse = pResponse;</div>
+        
+        <div class="cbmc">pHttpParsingContext$object.pResponse = ((HTTPResponse_t *)NULL) (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step29" class="step">
+        <div class="header">Step 29: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#240">240</a></div>
+        
+        <div class="code">pHttpParsingContext-&gt;pBufferCur = pResponse-&gt;pBuffer + bufferOffset;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: pointer NULL in pHttpParsingContext->pBufferCur</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step30" class="step">
+        <div class="header">Step 30: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#240">240</a></div>
+        
+        <div class="code">pHttpParsingContext-&gt;pBufferCur = pResponse-&gt;pBuffer + bufferOffset;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: deallocated dynamic object in pHttpParsingContext->pBufferCur</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step31" class="step">
+        <div class="header">Step 31: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#240">240</a></div>
+        
+        <div class="code">pHttpParsingContext-&gt;pBufferCur = pResponse-&gt;pBuffer + bufferOffset;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: dead object in pHttpParsingContext->pBufferCur</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step32" class="step">
+        <div class="header">Step 32: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#240">240</a></div>
+        
+        <div class="code">pHttpParsingContext-&gt;pBufferCur = pResponse-&gt;pBuffer + bufferOffset;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: pointer outside object bounds in pHttpParsingContext->pBufferCur</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step33" class="step">
+        <div class="header">Step 33: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#240">240</a></div>
+        
+        <div class="code">pHttpParsingContext-&gt;pBufferCur = pResponse-&gt;pBuffer + bufferOffset;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: invalid integer address in pHttpParsingContext->pBufferCur</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step34" class="step">
+        <div class="header">Step 34: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#240">240</a></div>
+        
+        <div class="code">pHttpParsingContext-&gt;pBufferCur = pResponse-&gt;pBuffer + bufferOffset;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: pointer NULL in pResponse->pBuffer</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step35" class="step">
+        <div class="header">Step 35: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#240">240</a></div>
+        
+        <div class="code">pHttpParsingContext-&gt;pBufferCur = pResponse-&gt;pBuffer + bufferOffset;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: deallocated dynamic object in pResponse->pBuffer</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step36" class="step">
+        <div class="header">Step 36: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#240">240</a></div>
+        
+        <div class="code">pHttpParsingContext-&gt;pBufferCur = pResponse-&gt;pBuffer + bufferOffset;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: dead object in pResponse->pBuffer</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step37" class="step">
+        <div class="header">Step 37: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#240">240</a></div>
+        
+        <div class="code">pHttpParsingContext-&gt;pBufferCur = pResponse-&gt;pBuffer + bufferOffset;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: pointer outside object bounds in pResponse->pBuffer</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step38" class="step">
+        <div class="header">Step 38: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#240">240</a></div>
+        
+        <div class="code">pHttpParsingContext-&gt;pBufferCur = pResponse-&gt;pBuffer + bufferOffset;</div>
+        
+        <div class="cbmc">failure: Unnamed: pointer arithmetic: pointer NULL in pResponse->pBuffer + (signed long int)bufferOffset</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step39" class="step">
+        <div class="header">Step 39: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#240">240</a></div>
+        
+        <div class="code">pHttpParsingContext-&gt;pBufferCur = pResponse-&gt;pBuffer + bufferOffset;</div>
+        
+        <div class="cbmc">failure: Unnamed: pointer arithmetic: deallocated dynamic object in pResponse->pBuffer + (signed long int)bufferOffset</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step40" class="step">
+        <div class="header">Step 40: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#240">240</a></div>
+        
+        <div class="code">pHttpParsingContext-&gt;pBufferCur = pResponse-&gt;pBuffer + bufferOffset;</div>
+        
+        <div class="cbmc">failure: Unnamed: pointer arithmetic: dead object in pResponse->pBuffer + (signed long int)bufferOffset</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step41" class="step">
+        <div class="header">Step 41: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#240">240</a></div>
+        
+        <div class="code">pHttpParsingContext-&gt;pBufferCur = pResponse-&gt;pBuffer + bufferOffset;</div>
+        
+        <div class="cbmc">failure: Unnamed: pointer arithmetic: pointer outside object bounds in pResponse->pBuffer + (signed long int)bufferOffset</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step42" class="step">
+        <div class="header">Step 42: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#240">240</a></div>
+        
+        <div class="code">pHttpParsingContext-&gt;pBufferCur = pResponse-&gt;pBuffer + bufferOffset;</div>
+        
+        <div class="cbmc">failure: Unnamed: pointer arithmetic: invalid integer address in pResponse->pBuffer + (signed long int)bufferOffset</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step43" class="step">
+        <div class="header">Step 43: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#240">240</a></div>
+        
+        <div class="code">pHttpParsingContext-&gt;pBufferCur = pResponse-&gt;pBuffer + bufferOffset;</div>
+        
+        <div class="cbmc">pHttpParsingContext$object.pBufferCur = ((char *)NULL) + -36028797018963968l (00000000 10000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step44" class="step">
+        <div class="header">Step 44: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#203">allocateHttpSendParser</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#213">213</a></div>
+        
+        <div class="code">pHttpParsingContext = allocateHttpSendParsingContext( NULL );</div>
+        
+        <div class="cbmc">pHttpParsingContext = ((HTTPParsingContext_t *)NULL) (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step45" class="step">
+        <div class="header">Step 45: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#203">allocateHttpSendParser</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#215">215</a></div>
+        
+        <div class="code">pHttpParser-&gt;data = ( void * ) pHttpParsingContext;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: pointer NULL in pHttpParser->data</div>
+        </div>
+
+        
+
+        
+
+      
+
+        
+
+        
+
+        <div id="step46" class="step">
+        <div class="header">Step 46: Function <a href="../test/cbmc/sources/http_cbmc_state.c.html#203">allocateHttpSendParser</a>, File <a href="../test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>, Line <a href="../test/cbmc/sources/http_cbmc_state.c.html#215">215</a></div>
+        
+        <div class="code">pHttpParser-&gt;data = ( void * ) pHttpParsingContext;</div>
+        
+        <div class="cbmc">failure: Unnamed: dereference failure: deallocated dynamic object in pHttpParser->data</div>
+        </div>
+
+        
+
+        
+
+      
+    </div>
+  </body>
+  <script type="text/javascript" src="../viewer.js"></script>
+</html>

@@ -1,0 +1,28 @@
+{
+  "viewer-result": {
+    "program": "CBMC version 5.39.3 (cbmc-5.39.3) 64-bit arm64 macos",
+    "prover": "success",
+    "results": {
+      "false": [],
+      "true": []
+    },
+    "status": [
+      "CBMC version 5.39.3 (cbmc-5.39.3) 64-bit arm64 macos",
+      "Reading GOTO program from file",
+      "Reading: /Users/mrtuttle/cbmc-viewer/tests/coreHTTP/coreHTTP/test/cbmc/proofs/HTTPClient_strerror/gotos/HTTPClient_strerror_harness.goto",
+      "Generating GOTO Program",
+      "Adding CPROVER library (arm64)",
+      "Removal of function pointers and virtual functions",
+      "Generic Property Instrumentation",
+      "Running with 8 object bits, 56 offset bits (user-specified)",
+      "Starting Bounded Model Checking",
+      "Runtime Symex: 0.00250042s",
+      "size of program expression: 127 steps",
+      "simple slicing removed 0 assignments",
+      "Generated 0 VCC(s), 0 remaining after simplification",
+      "Runtime Postprocess Equation: 8.042e-06s",
+      "VERIFICATION SUCCESSFUL"
+    ],
+    "warning": []
+  }
+}

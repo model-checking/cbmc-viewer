@@ -1,0 +1,31 @@
+{
+  "viewer-loop": {
+    "loops": {
+      "__CPROVER_file_local_core_http_client_c_convertInt32ToAscii.0": {
+        "file": "source/core_http_client.c",
+        "function": "convertInt32ToAscii",
+        "line": 1260
+      },
+      "__CPROVER_file_local_core_http_client_c_convertInt32ToAscii.1": {
+        "file": "source/core_http_client.c",
+        "function": "convertInt32ToAscii",
+        "line": 1264
+      },
+      "__CPROVER_file_local_core_http_client_c_receiveAndParseHttpResponse.0": {
+        "file": "source/core_http_client.c",
+        "function": "receiveAndParseHttpResponse",
+        "line": 2029
+      },
+      "__CPROVER_file_local_core_http_client_c_sendHttpData.0": {
+        "file": "source/core_http_client.c",
+        "function": "sendHttpData",
+        "line": 1807
+      },
+      "strncmp.0": {
+        "file": "<builtin-library-strncmp>",
+        "function": "strncmp",
+        "line": 42
+      }
+    }
+  }
+}

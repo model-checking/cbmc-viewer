@@ -1,0 +1,19 @@
+{
+  "viewer-reachable": {
+    "reachable": {
+      "source/core_http_client.c": [
+        "caseInsensitiveStringCmp"
+      ],
+      "test/cbmc/proofs/findHeaderFieldParserCallback/findHeaderFieldParserCallback_harness.c": [
+        "findHeaderFieldParserCallback_harness"
+      ],
+      "test/cbmc/sources/http_cbmc_state.c": [
+        "allocateFindHeaderContext",
+        "allocateHttpReadHeaderParser",
+        "allocateHttpResponse",
+        "isValidHttpResponse",
+        "mallocCanFail"
+      ]
+    }
+  }
+}

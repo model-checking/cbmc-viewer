@@ -1,0 +1,434 @@
+
+
+<html>
+  <head>
+    <title>CBMC</title>
+    <link rel="stylesheet" type="text/css" href="/viewer.css">
+  </head>
+
+  <body>
+    <h1>CBMC report</h1>
+
+    <div class="coverage">
+      <h2>Coverage</h2>
+
+      
+      <p>
+        Coverage: 1.00 (reached 53 of 53 reachable lines)
+      </p>
+
+      
+      <table class="coverage">
+        <tr>
+          <th class="coverage">Coverage</th>
+          <th class="function">Function</th>
+          <th class="file">File</th>
+        </tr>
+        
+        <tr>
+          <td class="coverage">1.00 (7/7)</td>
+          <td class="function"><a href="./source/core_http_client.c.html#970">httpParserOnMessageCompleteCallback</a></td>
+          <td class="file"><a href="./source/core_http_client.c.html">source/core_http_client.c</a></td>
+        </tr>
+        
+        <tr>
+          <td class="coverage">1.00 (4/4)</td>
+          <td class="function"><a href="./test/cbmc/proofs/httpParserOnMessageCompleteCallback/httpParserOnMessageCompleteCallback_harness.c.html#32">httpParserOnMessageCompleteCallback_harness</a></td>
+          <td class="file"><a href="./test/cbmc/proofs/httpParserOnMessageCompleteCallback/httpParserOnMessageCompleteCallback_harness.c.html">test/cbmc/proofs/httpParserOnMessageCompleteCallback/httpParserOnMessageCompleteCallback_harness.c</a></td>
+        </tr>
+        
+        <tr>
+          <td class="coverage">1.00 (21/21)</td>
+          <td class="function"><a href="./test/cbmc/sources/http_cbmc_state.c.html#103">allocateHttpResponse</a></td>
+          <td class="file"><a href="./test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a></td>
+        </tr>
+        
+        <tr>
+          <td class="coverage">1.00 (8/8)</td>
+          <td class="function"><a href="./test/cbmc/sources/http_cbmc_state.c.html#203">allocateHttpSendParser</a></td>
+          <td class="file"><a href="./test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a></td>
+        </tr>
+        
+        <tr>
+          <td class="coverage">1.00 (10/10)</td>
+          <td class="function"><a href="./test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a></td>
+          <td class="file"><a href="./test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a></td>
+        </tr>
+        
+        <tr>
+          <td class="coverage">1.00 (3/3)</td>
+          <td class="function"><a href="./test/cbmc/sources/http_cbmc_state.c.html#32">mallocCanFail</a></td>
+          <td class="file"><a href="./test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a></td>
+        </tr>
+        
+      </table>
+    </div>
+
+    <div class="warnings">
+      <h2> Warnings</h2>
+      
+
+      
+
+      
+
+      
+
+      
+      None
+      
+
+    <div class="errors">
+      <h2>Errors</h2>
+      
+
+      
+
+      
+
+      
+      <ul>
+        
+        <li> File <a href="./source/core_http_client.c.html">source/core_http_client.c</a>
+          <ul>
+            
+            
+            <li>
+              Function <a href="./source/core_http_client.c.html#970">httpParserOnMessageCompleteCallback</a>
+              <ul>
+                
+                <li>
+                  Line <a href="./source/core_http_client.c.html#974">974</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnMessageCompleteCallback.assertion.1.html">trace</a>]
+                      assertion pHttpParser != NULL
+                    </li>
+                     
+                  </ul>
+                </li>
+                
+                <li>
+                  Line <a href="./source/core_http_client.c.html#975">975</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnMessageCompleteCallback.assertion.2.html">trace</a>]
+                      assertion pHttpParser->data != NULL
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnMessageCompleteCallback.pointer_dereference.1.html">trace</a>]
+                      dereference failure: pointer NULL in pHttpParser->data
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnMessageCompleteCallback.pointer_dereference.3.html">trace</a>]
+                      dereference failure: deallocated dynamic object in pHttpParser->data
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnMessageCompleteCallback.pointer_dereference.4.html">trace</a>]
+                      dereference failure: dead object in pHttpParser->data
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnMessageCompleteCallback.pointer_dereference.5.html">trace</a>]
+                      dereference failure: pointer outside object bounds in pHttpParser->data
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnMessageCompleteCallback.pointer_dereference.6.html">trace</a>]
+                      dereference failure: invalid integer address in pHttpParser->data
+                    </li>
+                     
+                  </ul>
+                </li>
+                
+                <li>
+                  Line <a href="./source/core_http_client.c.html#980">980</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnMessageCompleteCallback.pointer_dereference.10.html">trace</a>]
+                      dereference failure: dead object in pParsingContext->state
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnMessageCompleteCallback.pointer_dereference.11.html">trace</a>]
+                      dereference failure: pointer outside object bounds in pParsingContext->state
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnMessageCompleteCallback.pointer_dereference.12.html">trace</a>]
+                      dereference failure: invalid integer address in pParsingContext->state
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnMessageCompleteCallback.pointer_dereference.7.html">trace</a>]
+                      dereference failure: pointer NULL in pParsingContext->state
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnMessageCompleteCallback.pointer_dereference.8.html">trace</a>]
+                      dereference failure: pointer invalid in pParsingContext->state
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/httpParserOnMessageCompleteCallback.pointer_dereference.9.html">trace</a>]
+                      dereference failure: deallocated dynamic object in pParsingContext->state
+                    </li>
+                     
+                  </ul>
+                </li>
+                 
+              </ul>
+            </li>
+             
+          </ul>
+        </li>
+        
+        <li> File <a href="./test/cbmc/sources/http_cbmc_state.c.html">test/cbmc/sources/http_cbmc_state.c</a>
+          <ul>
+            
+            
+            <li>
+              Function <a href="./test/cbmc/sources/http_cbmc_state.c.html#103">allocateHttpResponse</a>
+              <ul>
+                
+                <li>
+                  Line <a href="./test/cbmc/sources/http_cbmc_state.c.html#124">124</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpResponse.overflow.1.html">trace</a>]
+                      arithmetic overflow on unsigned to signed type conversion in (signed long int)headerOffset
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpResponse.pointer_arithmetic.5.html">trace</a>]
+                      pointer arithmetic: pointer outside object bounds in pResponse->pBuffer + (signed long int)headerOffset
+                    </li>
+                     
+                  </ul>
+                </li>
+                
+                <li>
+                  Line <a href="./test/cbmc/sources/http_cbmc_state.c.html#146">146</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpResponse.overflow.2.html">trace</a>]
+                      arithmetic overflow on unsigned to signed type conversion in (signed long int)bodyOffset
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpResponse.pointer_arithmetic.11.html">trace</a>]
+                      pointer arithmetic: pointer outside object bounds in pResponse->pBuffer + (signed long int)bodyOffset
+                    </li>
+                     
+                  </ul>
+                </li>
+                 
+              </ul>
+            </li>
+            
+            
+            <li>
+              Function <a href="./test/cbmc/sources/http_cbmc_state.c.html#203">allocateHttpSendParser</a>
+              <ul>
+                
+                <li>
+                  Line <a href="./test/cbmc/sources/http_cbmc_state.c.html#215">215</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParser.pointer_dereference.1.html">trace</a>]
+                      dereference failure: pointer NULL in pHttpParser->data
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParser.pointer_dereference.3.html">trace</a>]
+                      dereference failure: deallocated dynamic object in pHttpParser->data
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParser.pointer_dereference.4.html">trace</a>]
+                      dereference failure: dead object in pHttpParser->data
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParser.pointer_dereference.5.html">trace</a>]
+                      dereference failure: pointer outside object bounds in pHttpParser->data
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParser.pointer_dereference.6.html">trace</a>]
+                      dereference failure: invalid integer address in pHttpParser->data
+                    </li>
+                     
+                  </ul>
+                </li>
+                 
+              </ul>
+            </li>
+            
+            
+            <li>
+              Function <a href="./test/cbmc/sources/http_cbmc_state.c.html#220">allocateHttpSendParsingContext</a>
+              <ul>
+                
+                <li>
+                  Line <a href="./test/cbmc/sources/http_cbmc_state.c.html#237">237</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParsingContext.pointer_dereference.1.html">trace</a>]
+                      dereference failure: pointer NULL in pHttpParsingContext->pResponse
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParsingContext.pointer_dereference.3.html">trace</a>]
+                      dereference failure: deallocated dynamic object in pHttpParsingContext->pResponse
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParsingContext.pointer_dereference.4.html">trace</a>]
+                      dereference failure: dead object in pHttpParsingContext->pResponse
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParsingContext.pointer_dereference.5.html">trace</a>]
+                      dereference failure: pointer outside object bounds in pHttpParsingContext->pResponse
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParsingContext.pointer_dereference.6.html">trace</a>]
+                      dereference failure: invalid integer address in pHttpParsingContext->pResponse
+                    </li>
+                     
+                  </ul>
+                </li>
+                
+                <li>
+                  Line <a href="./test/cbmc/sources/http_cbmc_state.c.html#240">240</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParsingContext.overflow.1.html">trace</a>]
+                      arithmetic overflow on unsigned to signed type conversion in (signed long int)bufferOffset
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParsingContext.pointer_arithmetic.1.html">trace</a>]
+                      pointer arithmetic: pointer NULL in pResponse->pBuffer + (signed long int)bufferOffset
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParsingContext.pointer_arithmetic.2.html">trace</a>]
+                      pointer arithmetic: pointer invalid in pResponse->pBuffer + (signed long int)bufferOffset
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParsingContext.pointer_arithmetic.3.html">trace</a>]
+                      pointer arithmetic: deallocated dynamic object in pResponse->pBuffer + (signed long int)bufferOffset
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParsingContext.pointer_arithmetic.4.html">trace</a>]
+                      pointer arithmetic: dead object in pResponse->pBuffer + (signed long int)bufferOffset
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParsingContext.pointer_arithmetic.5.html">trace</a>]
+                      pointer arithmetic: pointer outside object bounds in pResponse->pBuffer + (signed long int)bufferOffset
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParsingContext.pointer_arithmetic.6.html">trace</a>]
+                      pointer arithmetic: invalid integer address in pResponse->pBuffer + (signed long int)bufferOffset
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParsingContext.pointer_dereference.10.html">trace</a>]
+                      dereference failure: dead object in pHttpParsingContext->pBufferCur
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParsingContext.pointer_dereference.11.html">trace</a>]
+                      dereference failure: pointer outside object bounds in pHttpParsingContext->pBufferCur
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParsingContext.pointer_dereference.12.html">trace</a>]
+                      dereference failure: invalid integer address in pHttpParsingContext->pBufferCur
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParsingContext.pointer_dereference.13.html">trace</a>]
+                      dereference failure: pointer NULL in pResponse->pBuffer
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParsingContext.pointer_dereference.15.html">trace</a>]
+                      dereference failure: deallocated dynamic object in pResponse->pBuffer
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParsingContext.pointer_dereference.16.html">trace</a>]
+                      dereference failure: dead object in pResponse->pBuffer
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParsingContext.pointer_dereference.17.html">trace</a>]
+                      dereference failure: pointer outside object bounds in pResponse->pBuffer
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParsingContext.pointer_dereference.7.html">trace</a>]
+                      dereference failure: pointer NULL in pHttpParsingContext->pBufferCur
+                    </li>
+                    
+                    <li>
+                      [<a href="./traces/allocateHttpSendParsingContext.pointer_dereference.9.html">trace</a>]
+                      dereference failure: deallocated dynamic object in pHttpParsingContext->pBufferCur
+                    </li>
+                     
+                  </ul>
+                </li>
+                 
+              </ul>
+            </li>
+            
+            
+            <li>
+              Function <a href="./test/cbmc/sources/http_cbmc_state.c.html#32">mallocCanFail</a>
+              <ul>
+                
+                <li>
+                  Line <a href="./test/cbmc/sources/http_cbmc_state.c.html#34">34</a>
+                  <ul>
+                    
+                    <li>
+                      [<a href="./traces/mallocCanFail.assertion.1.html">trace</a>]
+                      mallocCanFail size is too big
+                    </li>
+                     
+                  </ul>
+                </li>
+                 
+              </ul>
+            </li>
+             
+          </ul>
+        </li>
+         
+      </ul>
+      
+
+      
+
+    </div>
+  </body>
+</html>

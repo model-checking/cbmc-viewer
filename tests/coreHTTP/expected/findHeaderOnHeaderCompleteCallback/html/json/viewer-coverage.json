@@ -1,0 +1,109 @@
+{
+  "viewer-coverage": {
+    "coverage": {
+      "source/core_http_client.c": {
+        "findHeaderOnHeaderCompleteCallback": {
+          "2356": "hit",
+          "2359": "hit",
+          "2361": "hit",
+          "2363": "hit",
+          "2365": "hit",
+          "2375": "hit",
+          "2376": "hit"
+        }
+      },
+      "test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/findHeaderOnHeaderCompleteCallback_harness.c": {
+        "findHeaderOnHeaderCompleteCallback_harness": {
+          "35": "hit",
+          "37": "hit",
+          "39": "hit",
+          "40": "hit"
+        }
+      },
+      "test/cbmc/sources/http_cbmc_state.c": {
+        "allocateFindHeaderContext": {
+          "274": "hit",
+          "276": "hit",
+          "278": "hit",
+          "280": "hit",
+          "281": "hit"
+        },
+        "allocateHttpReadHeaderParser": {
+          "258": "hit",
+          "260": "hit",
+          "262": "hit",
+          "264": "hit",
+          "266": "hit",
+          "267": "hit",
+          "269": "hit",
+          "270": "hit"
+        }
+      }
+    },
+    "function_coverage": {
+      "source/core_http_client.c": {
+        "findHeaderOnHeaderCompleteCallback": {
+          "hit": 7,
+          "percentage": 1.0,
+          "total": 7
+        }
+      },
+      "test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/findHeaderOnHeaderCompleteCallback_harness.c": {
+        "findHeaderOnHeaderCompleteCallback_harness": {
+          "hit": 4,
+          "percentage": 1.0,
+          "total": 4
+        }
+      },
+      "test/cbmc/sources/http_cbmc_state.c": {
+        "allocateFindHeaderContext": {
+          "hit": 5,
+          "percentage": 1.0,
+          "total": 5
+        },
+        "allocateHttpReadHeaderParser": {
+          "hit": 8,
+          "percentage": 1.0,
+          "total": 8
+        }
+      }
+    },
+    "line_coverage": {
+      "source/core_http_client.c": {
+        "2356": "hit",
+        "2359": "hit",
+        "2361": "hit",
+        "2363": "hit",
+        "2365": "hit",
+        "2375": "hit",
+        "2376": "hit"
+      },
+      "test/cbmc/proofs/findHeaderOnHeaderCompleteCallback/findHeaderOnHeaderCompleteCallback_harness.c": {
+        "35": "hit",
+        "37": "hit",
+        "39": "hit",
+        "40": "hit"
+      },
+      "test/cbmc/sources/http_cbmc_state.c": {
+        "258": "hit",
+        "260": "hit",
+        "262": "hit",
+        "264": "hit",
+        "266": "hit",
+        "267": "hit",
+        "269": "hit",
+        "270": "hit",
+        "274": "hit",
+        "276": "hit",
+        "278": "hit",
+        "280": "hit",
+        "281": "hit"
+      }
+    },
+    "overall_coverage": {
+      "hit": 24,
+      "percentage": 1.0,
+      "total": 24
+    }
+  }
+}

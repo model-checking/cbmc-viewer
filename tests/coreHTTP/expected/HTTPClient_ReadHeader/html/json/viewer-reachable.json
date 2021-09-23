@@ -1,0 +1,21 @@
+{
+  "viewer-reachable": {
+    "reachable": {
+      "source/core_http_client.c": [
+        "HTTPClient_ReadHeader",
+        "findHeaderInResponse"
+      ],
+      "test/cbmc/proofs/HTTPClient_ReadHeader/HTTPClient_ReadHeader_harness.c": [
+        "HTTPClient_ReadHeader_harness"
+      ],
+      "test/cbmc/sources/http_cbmc_state.c": [
+        "allocateHttpResponse",
+        "isValidHttpResponse",
+        "mallocCanFail"
+      ],
+      "test/cbmc/stubs/HTTPClient_ReadHeader_http_parser_execute.c": [
+        "http_parser_execute"
+      ]
+    }
+  }
+}

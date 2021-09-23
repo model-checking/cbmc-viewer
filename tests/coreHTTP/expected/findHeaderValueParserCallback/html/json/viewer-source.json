@@ -1,0 +1,42 @@
+{
+  "viewer-source": {
+    "all_files": [
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_ctype.h",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_uint16_t.h",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_uint32_t.h",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_uint64_t.h",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_uint8_t.h",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/arm/_types.h",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/assert.h",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/libkern/arm/OSByteOrder.h",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/malloc/_malloc.h",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/runetype.h",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/string.h",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_int32_t.h",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_int8_t.h",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_uintptr_t.h",
+      "/Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/include/stddef.h",
+      "/Users/mrtuttle/cbmc-viewer/tests/coreHTTP/coreHTTP/source/core_http_client.c",
+      "/Users/mrtuttle/cbmc-viewer/tests/coreHTTP/coreHTTP/source/dependency/3rdparty/http_parser/http_parser.h",
+      "/Users/mrtuttle/cbmc-viewer/tests/coreHTTP/coreHTTP/source/include/core_http_client.h",
+      "/Users/mrtuttle/cbmc-viewer/tests/coreHTTP/coreHTTP/source/include/core_http_client_private.h",
+      "/Users/mrtuttle/cbmc-viewer/tests/coreHTTP/coreHTTP/source/interface/transport_interface.h",
+      "/Users/mrtuttle/cbmc-viewer/tests/coreHTTP/coreHTTP/test/cbmc/include/http_cbmc_state.h",
+      "/Users/mrtuttle/cbmc-viewer/tests/coreHTTP/coreHTTP/test/cbmc/include/transport_interface_stubs.h",
+      "/Users/mrtuttle/cbmc-viewer/tests/coreHTTP/coreHTTP/test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+      "/Users/mrtuttle/cbmc-viewer/tests/coreHTTP/coreHTTP/test/cbmc/sources/http_cbmc_state.c"
+    ],
+    "files": [
+      "source/core_http_client.c",
+      "source/dependency/3rdparty/http_parser/http_parser.h",
+      "source/include/core_http_client.h",
+      "source/include/core_http_client_private.h",
+      "source/interface/transport_interface.h",
+      "test/cbmc/include/http_cbmc_state.h",
+      "test/cbmc/include/transport_interface_stubs.h",
+      "test/cbmc/proofs/findHeaderValueParserCallback/findHeaderValueParserCallback_harness.c",
+      "test/cbmc/sources/http_cbmc_state.c"
+    ],
+    "root": "/Users/mrtuttle/cbmc-viewer/tests/coreHTTP/coreHTTP"
+  }
+}
