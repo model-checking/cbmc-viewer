@@ -9,7 +9,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="cbmc-viewer",
-    version="2.7",
+    version="2.8",
     author="Mark R. Tuttle",
     author_email="mrtuttle@amazon.com",
     description="A CBMC viewer",
