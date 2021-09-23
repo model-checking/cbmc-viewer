@@ -81,7 +81,7 @@ class Property:
     def __str__(self):
         """A string representation of an property table."""
 
-        return json.dumps({JSON_TAG: self.__repr__()}, indent=2)
+        return json.dumps({JSON_TAG: self.__repr__()}, indent=2, sort_keys=True)
 
     def validate(self):
         """Validate properties."""

@@ -51,7 +51,7 @@ class Reachable:
     def __str__(self):
         """A string representation of the reachable functions."""
 
-        return json.dumps({JSON_TAG: self.__repr__()}, indent=2)
+        return json.dumps({JSON_TAG: self.__repr__()}, indent=2, sort_keys=True)
 
     def validate(self):
         """Validate reachable functions."""
