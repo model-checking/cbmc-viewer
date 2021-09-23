@@ -76,10 +76,60 @@
         "function": null,
         "line": 1654
       },
+      "HTTPClient_AddHeader::1::returnStatus": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1660
+      },
+      "HTTPClient_AddHeader::fieldLen": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1656
+      },
+      "HTTPClient_AddHeader::pField": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1655
+      },
+      "HTTPClient_AddHeader::pRequestHeaders": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1654
+      },
+      "HTTPClient_AddHeader::pValue": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1657
+      },
+      "HTTPClient_AddHeader::valueLen": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1658
+      },
       "HTTPClient_AddRangeHeader": {
         "file": "source/core_http_client.c",
         "function": null,
         "line": 1714
+      },
+      "HTTPClient_AddRangeHeader::1::returnStatus": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1718
+      },
+      "HTTPClient_AddRangeHeader::pRequestHeaders": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1714
+      },
+      "HTTPClient_AddRangeHeader::rangeEnd": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1716
+      },
+      "HTTPClient_AddRangeHeader::rangeStartOrlastNbytes": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1715
       },
       "HTTPClient_GetCurrentTimeFunc_t": {
         "file": "source/include/core_http_client.h",
@@ -91,10 +141,55 @@
         "function": null,
         "line": 1557
       },
+      "HTTPClient_InitializeRequestHeaders::1::returnStatus": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1560
+      },
+      "HTTPClient_InitializeRequestHeaders::pRequestHeaders": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1557
+      },
+      "HTTPClient_InitializeRequestHeaders::pRequestInfo": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1558
+      },
       "HTTPClient_ReadHeader": {
         "file": "source/core_http_client.c",
         "function": null,
         "line": 2496
+      },
+      "HTTPClient_ReadHeader::1::returnStatus": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2502
+      },
+      "HTTPClient_ReadHeader::fieldLen": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2498
+      },
+      "HTTPClient_ReadHeader::pField": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2497
+      },
+      "HTTPClient_ReadHeader::pResponse": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2496
+      },
+      "HTTPClient_ReadHeader::pValueLen": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2500
+      },
+      "HTTPClient_ReadHeader::pValueLoc": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2499
       },
       "HTTPClient_ResponseHeaderParsingCallback": {
         "file": "source/include/core_http_client.h",
@@ -111,7 +206,52 @@
         "function": null,
         "line": 2154
       },
+      "HTTPClient_Send::1::returnStatus": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2161
+      },
+      "HTTPClient_Send::pRequestBodyBuf": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2156
+      },
+      "HTTPClient_Send::pRequestHeaders": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2155
+      },
+      "HTTPClient_Send::pResponse": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2158
+      },
+      "HTTPClient_Send::pTransport": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2154
+      },
+      "HTTPClient_Send::reqBodyBufLen": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2157
+      },
+      "HTTPClient_Send::sendFlags": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2159
+      },
       "HTTPClient_strerror": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2561
+      },
+      "HTTPClient_strerror::1::str": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2563
+      },
+      "HTTPClient_strerror::status": {
         "file": "source/core_http_client.c",
         "function": null,
         "line": 2561
@@ -671,17 +811,152 @@
         "function": null,
         "line": 1859
       },
+      "addContentLengthHeader::1::contentLengthValueNumBytes": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1864
+      },
+      "addContentLengthHeader::1::pContentLengthValue": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1863
+      },
+      "addContentLengthHeader::1::returnStatus": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1862
+      },
+      "addContentLengthHeader::contentLength": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1860
+      },
+      "addContentLengthHeader::pRequestHeaders": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1859
+      },
       "addHeader": {
         "file": "source/core_http_client.c",
         "function": null,
         "line": 1325
+      },
+      "addHeader::$tmp::return_value_httpHeaderStrncpy": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1369
+      },
+      "addHeader::$tmp::return_value_httpHeaderStrncpy$0": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1386
+      },
+      "addHeader::$tmp::return_value_strncmp": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1350
+      },
+      "addHeader::1::backtrackHeaderLen": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1334
+      },
+      "addHeader::1::pBufferCur": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1332
+      },
+      "addHeader::1::returnStatus": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1331
+      },
+      "addHeader::1::toAddLen": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1333
+      },
+      "addHeader::fieldLen": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1327
+      },
+      "addHeader::pField": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1326
+      },
+      "addHeader::pRequestHeaders": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1325
+      },
+      "addHeader::pValue": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1328
+      },
+      "addHeader::valueLen": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1329
       },
       "addRangeHeader": {
         "file": "source/core_http_client.c",
         "function": null,
         "line": 1420
       },
+      "addRangeHeader::$tmp::return_value_convertInt32ToAscii": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1444
+      },
+      "addRangeHeader::$tmp::return_value_convertInt32ToAscii$0": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1458
+      },
+      "addRangeHeader::1::rangeValueBuffer": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1425
+      },
+      "addRangeHeader::1::rangeValueLength": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1426
+      },
+      "addRangeHeader::1::returnStatus": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1424
+      },
+      "addRangeHeader::pRequestHeaders": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1420
+      },
+      "addRangeHeader::rangeEnd": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1422
+      },
+      "addRangeHeader::rangeStartOrlastNbytes": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1421
+      },
       "allocateFindHeaderContext": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 272
+      },
+      "allocateFindHeaderContext::$tmp::return_value_malloc": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 276
+      },
+      "allocateFindHeaderContext::pFindHeaderContext": {
         "file": "test/cbmc/sources/http_cbmc_state.c",
         "function": null,
         "line": 272
@@ -691,7 +966,42 @@
         "function": null,
         "line": 256
       },
+      "allocateHttpReadHeaderParser::$tmp::return_value_allocateFindHeaderContext": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 266
+      },
+      "allocateHttpReadHeaderParser::$tmp::return_value_malloc": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 262
+      },
+      "allocateHttpReadHeaderParser::1::pFindHeaderContext": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 258
+      },
+      "allocateHttpReadHeaderParser::pHttpParser": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 256
+      },
       "allocateHttpRequestHeaders": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 38
+      },
+      "allocateHttpRequestHeaders::$tmp::return_value_mallocCanFail": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 42
+      },
+      "allocateHttpRequestHeaders::$tmp::return_value_mallocCanFail$0": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 48
+      },
+      "allocateHttpRequestHeaders::pRequestHeaders": {
         "file": "test/cbmc/sources/http_cbmc_state.c",
         "function": null,
         "line": 38
@@ -701,7 +1011,77 @@
         "function": null,
         "line": 67
       },
+      "allocateHttpRequestInfo::$tmp::return_value_mallocCanFail": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 71
+      },
+      "allocateHttpRequestInfo::$tmp::return_value_mallocCanFail$0": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 77
+      },
+      "allocateHttpRequestInfo::$tmp::return_value_mallocCanFail$1": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 80
+      },
+      "allocateHttpRequestInfo::$tmp::return_value_mallocCanFail$2": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 83
+      },
+      "allocateHttpRequestInfo::pRequestInfo": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 67
+      },
       "allocateHttpResponse": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 103
+      },
+      "allocateHttpResponse::$tmp::return_value_mallocCanFail": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 109
+      },
+      "allocateHttpResponse::$tmp::return_value_mallocCanFail$0": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 115
+      },
+      "allocateHttpResponse::$tmp::return_value_nondet_bool": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 123
+      },
+      "allocateHttpResponse::$tmp::return_value_nondet_bool$0": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 145
+      },
+      "allocateHttpResponse::$tmp::tmp_if_expr": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 123
+      },
+      "allocateHttpResponse::$tmp::tmp_if_expr$0": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 145
+      },
+      "allocateHttpResponse::1::bodyOffset": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 105
+      },
+      "allocateHttpResponse::1::headerOffset": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 105
+      },
+      "allocateHttpResponse::pResponse": {
         "file": "test/cbmc/sources/http_cbmc_state.c",
         "function": null,
         "line": 103
@@ -711,12 +1091,62 @@
         "function": null,
         "line": 203
       },
+      "allocateHttpSendParser::$tmp::return_value_malloc": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 209
+      },
+      "allocateHttpSendParser::1::pHttpParsingContext": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 205
+      },
+      "allocateHttpSendParser::pHttpParser": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 203
+      },
       "allocateHttpSendParsingContext": {
         "file": "test/cbmc/sources/http_cbmc_state.c",
         "function": null,
         "line": 220
       },
+      "allocateHttpSendParsingContext::$tmp::return_value_malloc": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 227
+      },
+      "allocateHttpSendParsingContext::1::bufferOffset": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 223
+      },
+      "allocateHttpSendParsingContext::1::pResponse": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 222
+      },
+      "allocateHttpSendParsingContext::pHttpParsingContext": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 220
+      },
       "allocateTransportInterface": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 175
+      },
+      "allocateTransportInterface::$tmp::return_value_mallocCanFail": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 179
+      },
+      "allocateTransportInterface::$tmp::return_value_mallocCanFail$0": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 184
+      },
+      "allocateTransportInterface::pTransport": {
         "file": "test/cbmc/sources/http_cbmc_state.c",
         "function": null,
         "line": 175
@@ -741,6 +1171,36 @@
         "function": null,
         "line": 573
       },
+      "caseInsensitiveStringCmp::$tmp::return_value_toupper": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 581
+      },
+      "caseInsensitiveStringCmp::$tmp::return_value_toupper$0": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 581
+      },
+      "caseInsensitiveStringCmp::1::i": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 577
+      },
+      "caseInsensitiveStringCmp::n": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 575
+      },
+      "caseInsensitiveStringCmp::str1": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 573
+      },
+      "caseInsensitiveStringCmp::str2": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 574
+      },
       "contentLength": {
         "file": "source/include/core_http_client.h",
         "function": null,
@@ -752,6 +1212,46 @@
         "line": 311
       },
       "convertInt32ToAscii": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1223
+      },
+      "convertInt32ToAscii::1::absoluteValue": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1233
+      },
+      "convertInt32ToAscii::1::index": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1235
+      },
+      "convertInt32ToAscii::1::isNegative": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1236
+      },
+      "convertInt32ToAscii::1::numOfDigits": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1234
+      },
+      "convertInt32ToAscii::1::temp": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1237
+      },
+      "convertInt32ToAscii::bufferLength": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1225
+      },
+      "convertInt32ToAscii::pBuffer": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1224
+      },
+      "convertInt32ToAscii::value": {
         "file": "source/core_http_client.c",
         "function": null,
         "line": 1223
@@ -801,17 +1301,182 @@
         "function": null,
         "line": 2253
       },
+      "findHeaderFieldParserCallback::$tmp::return_value_caseInsensitiveStringCmp": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2276
+      },
+      "findHeaderFieldParserCallback::$tmp::tmp_if_expr": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2275
+      },
+      "findHeaderFieldParserCallback::1::pContext": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2257
+      },
+      "findHeaderFieldParserCallback::fieldLen": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2255
+      },
+      "findHeaderFieldParserCallback::pFieldLoc": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2254
+      },
+      "findHeaderFieldParserCallback::pHttpParser": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2253
+      },
       "findHeaderFieldParserCallback_harness": {
         "file": "test/cbmc/proofs/findHeaderFieldParserCallback/findHeaderFieldParserCallback_harness.c",
         "function": null,
         "line": 33
+      },
+      "findHeaderFieldParserCallback_harness::$tmp::return_value_isValidHttpResponse": {
+        "file": "test/cbmc/proofs/findHeaderFieldParserCallback/findHeaderFieldParserCallback_harness.c",
+        "function": null,
+        "line": 44
+      },
+      "findHeaderFieldParserCallback_harness::$tmp::return_value_malloc": {
+        "file": "test/cbmc/proofs/findHeaderFieldParserCallback/findHeaderFieldParserCallback_harness.c",
+        "function": null,
+        "line": 54
+      },
+      "findHeaderFieldParserCallback_harness::$tmp::tmp_if_expr": {
+        "file": "test/cbmc/proofs/findHeaderFieldParserCallback/findHeaderFieldParserCallback_harness.c",
+        "function": null,
+        "line": 44
+      },
+      "findHeaderFieldParserCallback_harness::$tmp::tmp_if_expr$0": {
+        "file": "test/cbmc/proofs/findHeaderFieldParserCallback/findHeaderFieldParserCallback_harness.c",
+        "function": null,
+        "line": 47
+      },
+      "findHeaderFieldParserCallback_harness::$tmp::tmp_if_expr$1": {
+        "file": "test/cbmc/proofs/findHeaderFieldParserCallback/findHeaderFieldParserCallback_harness.c",
+        "function": null,
+        "line": 49
+      },
+      "findHeaderFieldParserCallback_harness::1::fieldContextLen": {
+        "file": "test/cbmc/proofs/findHeaderFieldParserCallback/findHeaderFieldParserCallback_harness.c",
+        "function": null,
+        "line": 38
+      },
+      "findHeaderFieldParserCallback_harness::1::fieldLen": {
+        "file": "test/cbmc/proofs/findHeaderFieldParserCallback/findHeaderFieldParserCallback_harness.c",
+        "function": null,
+        "line": 38
+      },
+      "findHeaderFieldParserCallback_harness::1::fieldOffset": {
+        "file": "test/cbmc/proofs/findHeaderFieldParserCallback/findHeaderFieldParserCallback_harness.c",
+        "function": null,
+        "line": 38
+      },
+      "findHeaderFieldParserCallback_harness::1::pFieldLoc": {
+        "file": "test/cbmc/proofs/findHeaderFieldParserCallback/findHeaderFieldParserCallback_harness.c",
+        "function": null,
+        "line": 39
+      },
+      "findHeaderFieldParserCallback_harness::1::pFindHeaderContext": {
+        "file": "test/cbmc/proofs/findHeaderFieldParserCallback/findHeaderFieldParserCallback_harness.c",
+        "function": null,
+        "line": 37
+      },
+      "findHeaderFieldParserCallback_harness::1::pHttpParser": {
+        "file": "test/cbmc/proofs/findHeaderFieldParserCallback/findHeaderFieldParserCallback_harness.c",
+        "function": null,
+        "line": 35
+      },
+      "findHeaderFieldParserCallback_harness::1::pResponse": {
+        "file": "test/cbmc/proofs/findHeaderFieldParserCallback/findHeaderFieldParserCallback_harness.c",
+        "function": null,
+        "line": 36
+      },
+      "findHeaderFieldParserCallback_harness::1::valueLen": {
+        "file": "test/cbmc/proofs/findHeaderFieldParserCallback/findHeaderFieldParserCallback_harness.c",
+        "function": null,
+        "line": 38
+      },
+      "findHeaderFieldParserCallback_harness::1::valueOffset": {
+        "file": "test/cbmc/proofs/findHeaderFieldParserCallback/findHeaderFieldParserCallback_harness.c",
+        "function": null,
+        "line": 38
       },
       "findHeaderInResponse": {
         "file": "source/core_http_client.c",
         "function": null,
         "line": 2380
       },
+      "findHeaderInResponse::1::context": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2390
+      },
+      "findHeaderInResponse::1::numOfBytesParsed": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2391
+      },
+      "findHeaderInResponse::1::parser": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2388
+      },
+      "findHeaderInResponse::1::parserSettings": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2389
+      },
+      "findHeaderInResponse::1::returnStatus": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2387
+      },
+      "findHeaderInResponse::bufferLen": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2381
+      },
+      "findHeaderInResponse::fieldLen": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2383
+      },
+      "findHeaderInResponse::pBuffer": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2380
+      },
+      "findHeaderInResponse::pField": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2382
+      },
+      "findHeaderInResponse::pValueLen": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2385
+      },
+      "findHeaderInResponse::pValueLoc": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2384
+      },
       "findHeaderOnHeaderCompleteCallback": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2354
+      },
+      "findHeaderOnHeaderCompleteCallback::1::pContext": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2356
+      },
+      "findHeaderOnHeaderCompleteCallback::pHttpParser": {
         "file": "source/core_http_client.c",
         "function": null,
         "line": 2354
@@ -820,6 +1485,31 @@
         "file": "source/core_http_client.c",
         "function": null,
         "line": 2295
+      },
+      "findHeaderValueParserCallback::1::pContext": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2300
+      },
+      "findHeaderValueParserCallback::1::retCode": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2299
+      },
+      "findHeaderValueParserCallback::pHttpParser": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2295
+      },
+      "findHeaderValueParserCallback::pValueLoc": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2296
+      },
+      "findHeaderValueParserCallback::valueLen": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2297
       },
       "flags": {
         "file": "source/dependency/3rdparty/http_parser/http_parser.h",
@@ -830,6 +1520,26 @@
         "file": "source/core_http_client.c",
         "function": null,
         "line": 1950
+      },
+      "getFinalResponseStatus::1::returnStatus": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1954
+      },
+      "getFinalResponseStatus::parsingState": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1950
+      },
+      "getFinalResponseStatus::responseBufferLen": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1952
+      },
+      "getFinalResponseStatus::totalReceived": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1951
       },
       "getTime": {
         "file": "source/include/core_http_client.h",
@@ -866,6 +1576,46 @@
         "function": null,
         "line": 1276
       },
+      "httpHeaderStrncpy::$tmp::tmp_if_expr": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1302
+      },
+      "httpHeaderStrncpy::1::hasError": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1283
+      },
+      "httpHeaderStrncpy::1::i": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1281
+      },
+      "httpHeaderStrncpy::1::pRet": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1282
+      },
+      "httpHeaderStrncpy::isField": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1279
+      },
+      "httpHeaderStrncpy::len": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1278
+      },
+      "httpHeaderStrncpy::pDest": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1276
+      },
+      "httpHeaderStrncpy::pSrc": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1277
+      },
       "httpParser": {
         "file": "source/include/core_http_client_private.h",
         "function": null,
@@ -876,17 +1626,117 @@
         "function": null,
         "line": 893
       },
+      "httpParserOnBodyCallback::1::pNextWriteLoc": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 900
+      },
+      "httpParserOnBodyCallback::1::pParsingContext": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 898
+      },
+      "httpParserOnBodyCallback::1::pResponse": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 899
+      },
+      "httpParserOnBodyCallback::1::shouldContinueParse": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 897
+      },
+      "httpParserOnBodyCallback::length": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 895
+      },
+      "httpParserOnBodyCallback::pHttpParser": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 893
+      },
+      "httpParserOnBodyCallback::pLoc": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 894
+      },
       "httpParserOnHeaderFieldCallback": {
         "file": "source/core_http_client.c",
         "function": null,
         "line": 701
+      },
+      "httpParserOnHeaderFieldCallback::1::pParsingContext": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 705
+      },
+      "httpParserOnHeaderFieldCallback::1::pResponse": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 706
+      },
+      "httpParserOnHeaderFieldCallback::length": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 703
+      },
+      "httpParserOnHeaderFieldCallback::pHttpParser": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 701
+      },
+      "httpParserOnHeaderFieldCallback::pLoc": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 702
       },
       "httpParserOnHeaderValueCallback": {
         "file": "source/core_http_client.c",
         "function": null,
         "line": 758
       },
+      "httpParserOnHeaderValueCallback::1::pParsingContext": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 762
+      },
+      "httpParserOnHeaderValueCallback::length": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 760
+      },
+      "httpParserOnHeaderValueCallback::pHttpParser": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 758
+      },
+      "httpParserOnHeaderValueCallback::pLoc": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 759
+      },
       "httpParserOnHeadersCompleteCallback": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 803
+      },
+      "httpParserOnHeadersCompleteCallback::1::pParsingContext": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 806
+      },
+      "httpParserOnHeadersCompleteCallback::1::pResponse": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 807
+      },
+      "httpParserOnHeadersCompleteCallback::1::shouldContinueParse": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 805
+      },
+      "httpParserOnHeadersCompleteCallback::pHttpParser": {
         "file": "source/core_http_client.c",
         "function": null,
         "line": 803
@@ -896,7 +1746,27 @@
         "function": null,
         "line": 641
       },
+      "httpParserOnMessageBeginCallback::1::pParsingContext": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 643
+      },
+      "httpParserOnMessageBeginCallback::pHttpParser": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 641
+      },
       "httpParserOnMessageCompleteCallback": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 970
+      },
+      "httpParserOnMessageCompleteCallback::1::pParsingContext": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 972
+      },
+      "httpParserOnMessageCompleteCallback::pHttpParser": {
         "file": "source/core_http_client.c",
         "function": null,
         "line": 970
@@ -905,6 +1775,31 @@
         "file": "source/core_http_client.c",
         "function": null,
         "line": 660
+      },
+      "httpParserOnStatusCallback::1::pParsingContext": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 664
+      },
+      "httpParserOnStatusCallback::1::pResponse": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 665
+      },
+      "httpParserOnStatusCallback::length": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 662
+      },
+      "httpParserOnStatusCallback::pHttpParser": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 660
+      },
+      "httpParserOnStatusCallback::pLoc": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 661
       },
       "http_cb": {
         "file": "source/dependency/3rdparty/http_parser/http_parser.h",
@@ -1001,6 +1896,21 @@
         "function": null,
         "line": 989
       },
+      "initializeParsingContextForFirstResponse::$tmp::return_value_strncmp": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1012
+      },
+      "initializeParsingContextForFirstResponse::pParsingContext": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 989
+      },
+      "initializeParsingContextForFirstResponse::pRequestHeaders": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 990
+      },
       "int16_t": {
         "file": "source/dependency/3rdparty/http_parser/http_parser.h",
         "function": null,
@@ -1031,7 +1941,42 @@
         "function": null,
         "line": 54
       },
+      "isValidHttpRequestHeaders::$tmp::tmp_if_expr": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 60
+      },
+      "isValidHttpRequestHeaders::1::isValid": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 56
+      },
+      "isValidHttpRequestHeaders::pRequestHeaders": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 54
+      },
       "isValidHttpRequestInfo": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 89
+      },
+      "isValidHttpRequestInfo::$tmp::tmp_if_expr": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 95
+      },
+      "isValidHttpRequestInfo::$tmp::tmp_if_expr$0": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 97
+      },
+      "isValidHttpRequestInfo::1::isValid": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 91
+      },
+      "isValidHttpRequestInfo::pRequestInfo": {
         "file": "test/cbmc/sources/http_cbmc_state.c",
         "function": null,
         "line": 89
@@ -1041,12 +1986,87 @@
         "function": null,
         "line": 160
       },
+      "isValidHttpResponse::$tmp::tmp_if_expr": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 166
+      },
+      "isValidHttpResponse::$tmp::tmp_if_expr$0": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 168
+      },
+      "isValidHttpResponse::$tmp::tmp_if_expr$1": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 169
+      },
+      "isValidHttpResponse::1::isValid": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 162
+      },
+      "isValidHttpResponse::pResponse": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 160
+      },
       "isValidHttpSendParsingContext": {
         "file": "test/cbmc/sources/http_cbmc_state.c",
         "function": null,
         "line": 246
       },
+      "isValidHttpSendParsingContext::$tmp::tmp_if_expr": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 250
+      },
+      "isValidHttpSendParsingContext::$tmp::tmp_if_expr$0": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 251
+      },
+      "isValidHttpSendParsingContext::1::isValid": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 248
+      },
+      "isValidHttpSendParsingContext::pHttpParsingContext": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 246
+      },
       "isValidTransportInterface": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 190
+      },
+      "isValidTransportInterface::$tmp::tmp_if_expr": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 196
+      },
+      "isValidTransportInterface::$tmp::tmp_if_expr$0": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 196
+      },
+      "isValidTransportInterface::$tmp::tmp_if_expr$1": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 198
+      },
+      "isValidTransportInterface::$tmp::tmp_if_expr$2": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 198
+      },
+      "isValidTransportInterface::1::isValid": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 192
+      },
+      "isValidTransportInterface::pTransportInterface": {
         "file": "test/cbmc/sources/http_cbmc_state.c",
         "function": null,
         "line": 190
@@ -1072,6 +2092,16 @@
         "line": 308
       },
       "mallocCanFail": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 32
+      },
+      "mallocCanFail::$tmp::return_value_malloc": {
+        "file": "test/cbmc/sources/http_cbmc_state.c",
+        "function": null,
+        "line": 35
+      },
+      "mallocCanFail::size": {
         "file": "test/cbmc/sources/http_cbmc_state.c",
         "function": null,
         "line": 32
@@ -1241,6 +2271,41 @@
         "function": null,
         "line": 1136
       },
+      "parseHttpResponse::1::bytesParsed": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1142
+      },
+      "parseHttpResponse::1::parserSettings": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1141
+      },
+      "parseHttpResponse::1::parsingStartLoc": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1143
+      },
+      "parseHttpResponse::1::returnStatus": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1140
+      },
+      "parseHttpResponse::pParsingContext": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1136
+      },
+      "parseHttpResponse::pResponse": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1137
+      },
+      "parseHttpResponse::parseLen": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1138
+      },
       "pathLen": {
         "file": "source/include/core_http_client.h",
         "function": null,
@@ -1256,12 +2321,107 @@
         "function": null,
         "line": 592
       },
+      "processCompleteHeader::1::pResponse": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 594
+      },
+      "processCompleteHeader::pParsingContext": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 592
+      },
       "processHttpParserError": {
         "file": "source/core_http_client.c",
         "function": null,
         "line": 1022
       },
+      "processHttpParserError::1::returnStatus": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1024
+      },
+      "processHttpParserError::pHttpParser": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1022
+      },
       "receiveAndParseHttpResponse": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1997
+      },
+      "receiveAndParseHttpResponse::$tmp::return_value": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2060
+      },
+      "receiveAndParseHttpResponse::$tmp::tmp_if_expr": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2091
+      },
+      "receiveAndParseHttpResponse::1::currentReceived": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2003
+      },
+      "receiveAndParseHttpResponse::1::lastRecvTimeMs": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2006
+      },
+      "receiveAndParseHttpResponse::1::parsingContext": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2004
+      },
+      "receiveAndParseHttpResponse::1::retryTimeoutMs": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2007
+      },
+      "receiveAndParseHttpResponse::1::returnStatus": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2001
+      },
+      "receiveAndParseHttpResponse::1::shouldParse": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2005
+      },
+      "receiveAndParseHttpResponse::1::shouldRecv": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2005
+      },
+      "receiveAndParseHttpResponse::1::timeSinceLastRecvMs": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2006
+      },
+      "receiveAndParseHttpResponse::1::timeoutReached": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2005
+      },
+      "receiveAndParseHttpResponse::1::totalReceived": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2002
+      },
+      "receiveAndParseHttpResponse::pRequestHeaders": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1999
+      },
+      "receiveAndParseHttpResponse::pResponse": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1998
+      },
+      "receiveAndParseHttpResponse::pTransport": {
         "file": "source/core_http_client.c",
         "function": null,
         "line": 1997
@@ -1291,7 +2451,92 @@
         "function": null,
         "line": 1929
       },
+      "sendHttpBody::1::returnStatus": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1934
+      },
+      "sendHttpBody::getTimestampMs": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1930
+      },
+      "sendHttpBody::pRequestBodyBuf": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1931
+      },
+      "sendHttpBody::pTransport": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1929
+      },
+      "sendHttpBody::reqBodyBufLen": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1932
+      },
       "sendHttpData": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1779
+      },
+      "sendHttpData::$tmp::return_value": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1842
+      },
+      "sendHttpData::1::bytesRemaining": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1787
+      },
+      "sendHttpData::1::bytesSent": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1786
+      },
+      "sendHttpData::1::lastSendTimeMs": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1788
+      },
+      "sendHttpData::1::pIndex": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1785
+      },
+      "sendHttpData::1::retryTimeoutMs": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1789
+      },
+      "sendHttpData::1::returnStatus": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1784
+      },
+      "sendHttpData::1::timeSinceLastSendMs": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1788
+      },
+      "sendHttpData::dataLen": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1782
+      },
+      "sendHttpData::getTimestampMs": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1780
+      },
+      "sendHttpData::pData": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1781
+      },
+      "sendHttpData::pTransport": {
         "file": "source/core_http_client.c",
         "function": null,
         "line": 1779
@@ -1301,10 +2546,80 @@
         "function": null,
         "line": 1891
       },
+      "sendHttpHeaders::1::returnStatus": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1897
+      },
+      "sendHttpHeaders::1::shouldSendContentLength": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1898
+      },
+      "sendHttpHeaders::getTimestampMs": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1892
+      },
+      "sendHttpHeaders::pRequestHeaders": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1893
+      },
+      "sendHttpHeaders::pTransport": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1891
+      },
+      "sendHttpHeaders::reqBodyLen": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1894
+      },
+      "sendHttpHeaders::sendFlags": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1895
+      },
       "sendHttpRequest": {
         "file": "source/core_http_client.c",
         "function": null,
         "line": 2111
+      },
+      "sendHttpRequest::1::returnStatus": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2118
+      },
+      "sendHttpRequest::getTimestampMs": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2112
+      },
+      "sendHttpRequest::pRequestBodyBuf": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2114
+      },
+      "sendHttpRequest::pRequestHeaders": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2113
+      },
+      "sendHttpRequest::pTransport": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2111
+      },
+      "sendHttpRequest::reqBodyBufLen": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2115
+      },
+      "sendHttpRequest::sendFlags": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 2116
       },
       "state": {
         "file": "source/include/core_http_client_private.h",
@@ -1365,6 +2680,46 @@
         "file": "source/core_http_client.c",
         "function": null,
         "line": 1486
+      },
+      "writeRequestLine::1::pBufferCur": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1493
+      },
+      "writeRequestLine::1::returnStatus": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1492
+      },
+      "writeRequestLine::1::toAddLen": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1494
+      },
+      "writeRequestLine::methodLen": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1488
+      },
+      "writeRequestLine::pMethod": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1487
+      },
+      "writeRequestLine::pPath": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1489
+      },
+      "writeRequestLine::pRequestHeaders": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1486
+      },
+      "writeRequestLine::pathLen": {
+        "file": "source/core_http_client.c",
+        "function": null,
+        "line": 1490
       }
     }
   }
