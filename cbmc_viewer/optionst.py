@@ -114,6 +114,20 @@ def property(parser):
     )
     return parser
 
+def array(parser):
+    'Define --array command line option.'
+
+    parser.add_argument(
+        '--array',
+        metavar='FILE',
+        help="""
+        CBMC array constraints added during postprocessing.
+        A json file containing the output of
+        'cbmc --show-array-constraints'.
+        """
+    )
+    return parser
+
 def exclude(parser):
     'Define --exclude command line option.'
 

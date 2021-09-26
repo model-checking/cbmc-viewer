@@ -14,6 +14,9 @@ SUMMARY_TEMPLATE = 'summary.jinja.html'
 CODE_TEMPLATE = 'code.jinja.html'
 TRACE_TEMPLATE = 'trace.jinja.html'
 
+# runtime analysis metrics
+ARRAY_CONSTRAINT_SUMMARY_TEMPLATE = 'array.jinja.html'
+
 ENV = None
 
 def env():
@@ -48,4 +51,11 @@ def render_trace(name, desc, srcloc, steps):
 
     return env().get_template(TRACE_TEMPLATE).render(
         prop_name=name, prop_desc=desc, prop_srcloc=srcloc, steps=steps
+    )
+
+def render_array_constraint_summary(array_constraint_summary):
+    """Render array constraint summary as html."""
+
+    return env().get_template(ARRAY_CONSTRAINT_SUMMARY_TEMPLATE).render(
+        summary=array_constraint_summary
     )
