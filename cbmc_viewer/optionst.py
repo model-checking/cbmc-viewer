@@ -114,6 +114,20 @@ def property(parser):
     )
     return parser
 
+def alias(parser):
+    'Define --alias command line option.'
+
+    parser.add_argument(
+        '--alias',
+        metavar='FILE',
+        help="""
+        CBMC points-to set metrics.
+        A json file containing the output of
+        'cbmc --show-points-to-sets --json-ui'.
+        """
+    )
+    return parser
+
 def exclude(parser):
     'Define --exclude command line option.'
 

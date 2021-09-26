@@ -1,0 +1,105 @@
+
+<html>
+  <head>
+    <title>CBMC</title>
+    <style>
+      .alias table td
+      {
+        padding-right: 1em; 
+      }
+
+      .alias table th
+      {
+        padding-right: 1em;
+        text-align: left;
+      }
+      .pointsToSett
+      {
+        display: none;
+      }
+      .retainedValuest
+      {
+        display: none;
+      }
+      .valuet
+      {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>CBMC Pointer Dereference Points-to Set Report</h1>
+    <p>
+      Max points-to set size: {{max}}
+    </p>
+    <p>
+      Total points-to set size: {{total}}
+    </p>
+    <div class="alias">
+      <table class="alias">
+        <tr>
+          <th class="id">Pointer</th>
+          <th class="deref">#Dereference</th>
+          <th class="pointsToSetSize">Points-to Set Size</th>
+          <th class="pointsToSet"><button onclick="toggleButton(0)" id="showPtSet">Show Points-to Set</button></th>
+          <th class="value"><button onclick="toggleButton(2)" id="showExpr">Show Value</button></th>
+        </tr>
+
+          {% for metric in summary.items()|sort(attribute='1.numOfDeref', reverse = True)|sort(attribute='1.PointsToSetSize', reverse=True) %}
+          <tr>
+            <td class="id">{{metric[0]}}</td>
+            <td class="deref">{{metric[1].numOfDeref}}</td>
+            <td class="pointsToSetSize">{{metric[1].PointsToSetSize}}</td>
+            <td class="pointsToSett">{{metric[1].PointsToSet}}</td>
+            <td class="valuet">{{metric[1].Value}}</th>
+          </tr>
+          {% endfor %}
+      </table>
+    </div>
+  </body>
+  <script type="text/javascript">
+    function toggleButton(column){
+      if(column == 0)
+      {
+        var x = document.getElementsByClassName("pointsToSett");
+        var button = document.getElementById("showPtSet");
+      }
+      else if(column == 1)
+      {
+        var x = document.getElementsByClassName("retainedValuest");
+        var button = document.getElementById("showRtVal");
+      }
+      else if(column == 2)
+      {
+        var x = document.getElementsByClassName("valuet");
+        var button = document.getElementById("showExpr");
+      }
+
+      for (elt of x){
+        if(elt.style.display == "none"){
+          elt.style.display = "block";
+          if(column == 0)
+            button.innerHTML = "Hide Points-to Set";
+          else if(column == 1)
+            button.innerHTML = "Hide Retained Values";
+          else if(column == 2)
+            button.innerHTML = "Hide Value";
+          else
+            button.innerHTML = "Hide";
+        }
+        else {
+          elt.style.display = "none";
+          if(column == 0)
+            button.innerHTML = "Show Points-to Set";
+          else if(column == 1)
+            button.innerHTML = "Show Retained Values";
+          else if(column == 2)
+            button.innerHTML = "Show Value";
+          else
+            button.innerHTML = "Show";
+        }
+      }
+    }
+  </script>
+</html>
