@@ -1,0 +1,58 @@
+{
+  "Amn FreeRTOS": {
+    "github": "git@github.com:aws/amazon-freertos",
+    "proofs": "tools/cbmc/proofs"
+  },
+  "Defender": {
+    "github": "git@github.com:aws/device-defender-for-aws-iot-embedded-sdk",
+    "proofs": "test/cbmc/proofs"
+  },
+  "Shadow": {
+    "github": "git@github.com:aws/device-shadow-for-aws-iot-embedded-sdk",
+    "proofs": "test/cbmc/proofs"
+  },
+  "Jobs": {
+    "github": "git@github.com:aws/jobs-for-aws-iot-embedded-sdk",
+    "proofs": "test/cbmc/proofs"
+  },
+  "OTA": {
+    "github": "git@github.com:aws/ota-for-aws-iot-embedded-sdk",
+    "proofs": "test/cbmc/proofs"
+  },
+  "SigV4": {
+    "github": "git@github.com:aws/SigV4-for-AWS-IoT-embedded-sdk",
+    "proofs": "test/cbmc/proofs"
+  },
+  "FreeRTOS": {
+    "github": "git@github.com:FreeRTOS/FreeRTOS",
+    "proofs": "FreeRTOS/Test/CBMC/proofs"
+  },
+  "FreeRTOS TCP": {
+    "github": "git@github.com:FreeRTOS/FreeRTOS-Plus-TCP",
+    "proofs": "test/cbmc/proofs"
+  },
+  "HTTP": {
+    "github": "git@github.com:FreeRTOS/coreHTTP",
+    "proofs": "test/cbmc/proofs"
+  },
+  "JSON": {
+    "github": "git@github.com:FreeRTOS/coreJSON",
+    "proofs": "test/cbmc/proofs"
+  },
+  "MQTT": {
+    "github": "git@github.com:FreeRTOS/coreMQTT",
+    "proofs": "test/cbmc/proofs"
+  },
+  "MQTT-Agent": {
+    "github": "git@github.com:FreeRTOS/coreMQTT-Agent",
+    "proofs": "test/cbmc/proofs"
+  },
+  "PKCS11": {
+    "github": "git@github.com:FreeRTOS/corePKCS11",
+    "proofs": "test/cbmc/proofs"
+  },
+  "SNTP": {
+    "github": "git@github.com:FreeRTOS/coreSNTP",
+    "proofs": "test/cbmc/proofs"
+  }
+}
