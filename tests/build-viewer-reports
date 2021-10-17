@@ -1,0 +1,199 @@
+#!/usr/bin/env python3
+
+# Set emacs mode to Python
+# -*- mode: Python;-*-
+
+"""Rebuild and save cbmc-viewer reports using litani proof artifacts.
+
+The run-cbmc-proofs.py script uses litani to run cbmc and cbmc-viewer
+to build proof reports.  This script assumes that run-cbmc-proofs.py
+has been run in the current directory, and uses the litani artifacts
+produced by the script to rebuild the cbmc-viewer reports.  This
+script then saves the cbmc-viewer reports by copying them into a
+directory specified on the command line.
+"""
+
+from pathlib import Path
+import argparse
+import json
+import logging
+import shutil
+import subprocess
+
+################################################################
+# Command line arguments
+
+def parse_arguments():
+    """Parse command line arguemnts"""
+
+    parser = argparse.ArgumentParser(description=
+       'Rebuild and save cbmc-viewer reports using litani proof artifacts.'
+    )
+    options = [
+        {'flag': 'results',
+         'help': 'Copy results into RESULTS.'},
+        {'flag': '--copy-only',
+         'action': 'store_true',
+         'help': 'Copy results without generating results'},
+        {'flag': '--verbose',
+         'action': 'store_true',
+         'help': 'Verbose output'},
+        {'flag': '--debug',
+         'action': 'store_true',
+         'help': 'Debug output'},
+    ]
+    for option in options:
+        flag = option.pop('flag')
+        parser.add_argument(flag, **option)
+    args = parser.parse_args()
+    return args
+
+def configure_logging(verbose=False, debug=False):
+    """Configure logging based on command line arguments"""
+
+    if debug:
+        logging.basicConfig(level=logging.DEBUG,
+                            format='%(levelname)s: %(message)s')
+        return
+    if verbose:
+        logging.basicConfig(level=logging.INFO,
+                            format='%(levelname)s: %(message)s')
+        return
+    logging.basicConfig(format='%(levelname)s: %(message)s')
+
+################################################################
+# The litani cache
+#
+# When litani runs, it caches everything there is to know about the
+# run in a file named 'run.json'. It writes the path to the cache
+# directory containing 'run.json' to a file named '.litani_cache_dir'
+# in the current working directory.
+#
+# The file run.json contains the cbmc-viewer commands that this script
+# should re-run.  The file is huge, but stripped down to the data we
+# care about it looks like
+#
+# {
+#   "pipelines": [
+#     {
+#       "ci_stages": [
+#         {
+#           "jobs": [
+#             {
+#               "wrapper_arguments": {
+#                 "ci_stage": "report",
+#                 "command": COMMAND,
+#                 "outputs": [ REPORT ],
+#             }
+#           }
+#         ]
+#       }
+#       ]
+#     }
+#   ]
+# }
+#
+# There is one pipeline for each proof.  There are multiple stages for each
+# pipeline.  There are multiple jobs for each stage.  And there are
+# wrapper arguments for each job that record the stage name, the command,
+# and output produced by the command.
+#
+# Each report stage consists of a single job that includes a single
+# command and a single output.  The command is the invocation of
+# cbmc-viewer and the output is the directory containing the report
+# produced by cbmc-viewer.
+
+RUN_JSON = 'run.json'
+LITANI_CACHE_DIR = '.litani_cache_dir'
+COMMAND = 'command'
+REPORT = 'report'
+
+def find_cache():
+    """Locate the file run.json in the litani cache."""
+
+    cache = Path(RUN_JSON)
+    if cache.is_file():
+        return cache
+
+    with open(LITANI_CACHE_DIR, encoding='utf-8') as handle:
+        cache_dir = Path(handle.readline().strip())
+    cache = cache_dir/RUN_JSON
+    if cache.is_file():
+        return cache
+
+    raise UserWarning(f"Can't find {RUN_JSON}")
+
+def load_cache(cache):
+    """Load the file run.json in the litani cache."""
+
+    with open(cache, encoding='utf-8') as handle:
+        return json.load(handle)
+
+def parse_cache(cache):
+    """Parse the file run.json in the litani cache."""
+
+    jobs  = [job
+             for pipeline in cache['pipelines']
+             for ci_stage in pipeline['ci_stages']
+             for job in ci_stage['jobs']
+             if job['wrapper_arguments']['ci_stage'] == 'report']
+    return [{
+        COMMAND: job['wrapper_arguments']['command'],
+        REPORT: job['wrapper_arguments']['outputs'][0]
+    } for job in jobs]
+
+################################################################
+# Re-generate the cbmc-viewer reports
+
+def delete_viewer_reports(jobs):
+    """Delete cbmc-viewer reports."""
+
+    for job in jobs:
+        report = job[REPORT]
+        logging.info("Removing %s", report)
+        shutil.rmtree(report,  ignore_errors=True)
+
+def build_viewer_reports(jobs):
+    """Build cbmc-viewer reports."""
+
+    for job in jobs:
+        report = job[REPORT]
+        command = job[COMMAND]
+        logging.info("Generating %s", report)
+        logging.debug("Running %s", command)
+        result = subprocess.run(command.split(),
+                                check=True, capture_output=True, text=True)
+        for line in result.stdout.splitlines():
+            logging.debug(line)
+        for line in result.stderr.splitlines():
+            logging.debug(line)
+
+def copy_viewer_reports(jobs, reports):
+    """Copy cbmc-viewer reports to the reports directory."""
+
+    cwd = Path.cwd()
+    shutil.rmtree(reports, ignore_errors=True)
+    for job in jobs:
+        report = Path(job[REPORT])
+        path = report.relative_to(cwd)
+        logging.info("Copying %s to %s", path, reports/path)
+        shutil.copytree(path, reports/path, dirs_exist_ok=True)
+
+################################################################
+
+def main():
+    """Rebuild and save cbmc-viewer reports."""
+
+    args = parse_arguments()
+    configure_logging(args.verbose, args.debug)
+    logging.debug(args)
+
+    jobs = parse_cache(load_cache(find_cache()))
+
+    if not args.copy_only:
+        delete_viewer_reports(jobs)
+        build_viewer_reports(jobs)
+    copy_viewer_reports(jobs, args.results)
+
+if __name__ == '__main__':
+    main()

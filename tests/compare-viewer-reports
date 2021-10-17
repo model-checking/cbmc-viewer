@@ -1,0 +1,218 @@
+#! /usr/bin/env python3
+
+# Set emacs mode to Python
+# -*- mode: Python;-*-
+
+"""Compare sets of reports produced by cbmc-viewer."""
+
+from pathlib import Path
+import argparse
+import logging
+import subprocess
+import sys
+
+RESULT_JSON = 'viewer-result.json'
+SOURCE_JSON = 'viewer-source.json'
+OTHER_JSON = [
+    'viewer-coverage.json',
+    'viewer-loop.json',
+    'viewer-property.json',
+    'viewer-reachable.json',
+    'viewer-symbol.json',
+    'viewer-trace.json'
+]
+
+SCRIPT_DIR = Path(__file__).resolve().parent
+
+################################################################
+# Command line arguments
+
+def parse_arguments():
+    """Parse command line arguments."""
+
+    parser = argparse.ArgumentParser(
+        description='Compare sets of reports produced by cbmc-viewer.'
+    )
+    options = [
+        {'flag': 'reports1',
+         'help': 'Directory of cbmc-viewer reports'},
+        {'flag': 'reports2',
+         'help': 'Directory of cbmc-viewer reports'},
+        {'flag': '--proof',
+         'nargs': '+',
+         'action': 'append',
+         'default': [],
+         'help': 'Relative path to a proof directory containing a cbmc-viewer report'},
+        {'flag': '--report',
+         'default': 'report',
+         'help': 'Subdirectory of PROOF containing the cbmc-viewer report (default: %(default)s)'},
+        {'flag': '--html',
+         'default': 'html',
+         'help': 'Subdirectory of REPORT containing the html output (default: %(default)s)'},
+        {'flag': '--json',
+         'default': 'json',
+         'help': 'Subdirectory of REPORT containing the json output (default: %(default)s)'},
+        {'flag': '--verbose',
+         'action': 'store_true',
+         'help': 'Verbose output'},
+        {'flag': '--debug',
+         'action': 'store_true',
+         'help': 'Debug output'},
+    ]
+    for option in options:
+        flag = option.pop('flag')
+        parser.add_argument(flag, **option)
+    args = parser.parse_args()
+
+    args.reports1 = Path(args.reports1)
+    args.reports2 = Path(args.reports2)
+    args.proof = [Path(proof)
+                  for proof_list in args.proof
+                  for proof in proof_list]
+
+    return args
+
+def configure_logging(verbose=False, debug=False):
+    """Configure logging based on command line arguments."""
+
+    if debug:
+        logging.basicConfig(level=logging.DEBUG,
+                            format='%(levelname)s: %(message)s')
+        return
+    if verbose:
+        logging.basicConfig(level=logging.INFO,
+                            format='%(levelname)s: %(message)s')
+        return
+    logging.basicConfig(format='%(levelname)s: %(message)s')
+
+################################################################
+
+def common_proofs(reports1, reports2, proofs):
+    """Find the proofs in common to both sets of proof reports."""
+
+    def subdirs(reports, proofs):
+        paths = [reports/proof for proof in proofs] or Path(reports).iterdir()
+        return {path.relative_to(reports) for path in paths if path.is_dir()}
+
+    proofs1 = subdirs(reports1, proofs)
+    proofs2 = subdirs(reports2, proofs)
+    common = proofs1.intersection(proofs2)
+    for proof in proofs:
+        if proof not in common:
+            logging.warning('Skipping "%s": Not found in "%s" or not found in "%s"',
+                            proof, reports1, reports2)
+    return common
+
+################################################################
+# Comparison methods
+
+def run(cmd):
+    """Run a command."""
+
+    return subprocess.run(cmd, capture_output=True, check=False, text=True)
+
+def stringify(cmd):
+    """Render a command as a string."""
+
+    return ' '.join([str(word) for word in cmd])
+
+def truncate(string, verbose=False, length=800):
+    """Truncate a long string like a json blob."""
+
+    if not verbose and len(string) > length:
+        return string[:800].strip() + ' ...[truncated]...'
+    return string.strip()
+
+def compare_diff(path1, path2, verbose):
+    """Use diff to compare two files or two directories."""
+
+    cmd = ['diff', '-r', path1, path2]
+    result = run(cmd)
+    if result.returncode:
+        print(stringify(cmd))
+        print(truncate(result.stdout, verbose))
+    return result.returncode == 0
+
+def compare_result(path1, path2):
+    """Use compare-result to compare two copies of viewer-result.json."""
+
+    cmd = [SCRIPT_DIR/'compare-result', path1, path2]
+    try:
+        return run(cmd).returncode == 0
+    except UserWarning as err:
+        print(stringify(cmd))
+        print(err)
+        return False
+
+def compare_source(path1, path2):
+    """Use compare-source to compare two copies of viewer-source.json."""
+
+    cmd = [SCRIPT_DIR/'compare-source', path1, path2]
+    try:
+        return run(cmd).returncode == 0
+    except UserWarning as err:
+        print(stringify(cmd))
+        print(err)
+        return False
+
+def compare_html(proof, reports1, reports2,
+                 report='report', html='html', verbose=False):
+    # pylint: disable=too-many-arguments
+    """Compare html reports produced by cbmc-viewer."""
+
+    html_path = proof/report/html
+    if not (reports1/html_path).is_dir():
+        raise FileNotFoundError(reports1/html_path)
+    if not (reports2/html_path).is_dir():
+        raise FileNotFoundError(reports2/html_path)
+
+    logging.info("Comparing %s", html_path)
+    return compare_diff(reports1/html_path, reports2/html_path, verbose)
+
+def compare_json(proof, reports1, reports2,
+                 report='report', jsn='json', verbose=False):
+    # pylint: disable=too-many-arguments
+    """Compare json summaries produced by cbmc-viewer."""
+
+    json_path = proof/report/jsn
+    if not (reports1/json_path).is_dir():
+        raise FileNotFoundError(reports1/json_path)
+    if not (reports2/json_path).is_dir():
+        raise FileNotFoundError(reports2/json_path)
+
+    equal_json = True
+    logging.info("Comparing %s", json_path)
+
+    result_path = json_path/RESULT_JSON
+    logging.info("Comparing %s", result_path)
+    equal_json = compare_result(reports1/result_path, reports2/result_path) and equal_json
+
+    source_path = json_path/SOURCE_JSON
+    logging.info("Comparing %s", source_path)
+    equal_json = compare_source(reports1/source_path, reports2/source_path) and equal_json
+
+    for other in OTHER_JSON:
+        other_path = json_path/other
+        logging.info("Comparing %s", other_path)
+        equal_json = compare_diff(reports1/other_path, reports2/other_path, verbose) and equal_json
+
+    return equal_json
+
+def main():
+    """Compare viewer reports."""
+
+    args = parse_arguments()
+    configure_logging(args.verbose, args.debug)
+
+    proofs = common_proofs(args.reports1, args.reports2, args.proof)
+    equal = True
+    for proof in proofs:
+        logging.info("Comparing %s", proof)
+        equal = compare_html(proof, args.reports1, args.reports2, args.report,
+                             args.html, args.verbose) and equal
+        equal = compare_json(proof, args.reports1, args.reports2, args.report,
+                             args.json, args.verbose) and equal
+    return equal
+
+if __name__ == '__main__':
+    sys.exit(0 if main() else 1)
