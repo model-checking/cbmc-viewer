@@ -29,7 +29,6 @@ setuptools.setup(
         "setuptools",
         "voluptuous",
     ],
-    include_package_data=True,
     package_data={
         "cbmc_viewer": [
             "doc/*",
