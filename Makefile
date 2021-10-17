@@ -28,10 +28,21 @@ pylint:
 		--disable=too-many-branches \
 		--module-rgx '[\w-]+' \
 	*.py cbmc_viewer/*.py
+	$(MAKE) -C tests pylint
 
 ################################################################
+# Consider building packages with
+#   python3 -m build --sdist
+#   python3 -m build --wheel
+# This requires
+#   apt install python3.8-venv
+#   python3 -m pip install build
+# See https://packaging.python.org/tutorials/packaging-projects/
 
 pip:
+	@ echo
+	@ echo "Install packaging tools with 'python3 -m pip install setuptools'"
+	@ echo
 	./setup.py sdist bdist_wheel
 
 unpip:
@@ -50,17 +61,11 @@ undevelop:
 
 ################################################################
 
-test:
-	tox
-
-################################################################
-
 install: pip
 	cd .. && sudo python3 -m pip install $(abspath dist/cbmc_viewer-2.0-py3-none-any.whl)
 
 uninstall:
 	cd .. && sudo python3 -m pip uninstall -y cbmc-viewer
-
 
 ################################################################
 
@@ -69,9 +74,9 @@ clean:
 	$(RM) *.pyc
 	$(RM) -r __pycache__
 
-
 veryclean: clean undevelop unpip
 
 ################################################################
 
-.PHONY: default pylint pip unpip develop undevelop clean veryclean
+.PHONY: default pylint pip unpip develop undevelop install uninstall
+.PHONY: clean veryclean
