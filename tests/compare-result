@@ -1,0 +1,77 @@
+#! /usr/bin/env python3
+
+# Set emacs mode to Python
+# -*- mode: Python;-*-
+
+"""Compare make-result output ignoring known variations in cbmc output."""
+
+import argparse
+import json
+
+def parse_arguments():
+    """Parse command-line arguments."""
+
+    parser = argparse.ArgumentParser(description=
+        'Compare make-result output ignoring known variations in cbmc output.'
+    )
+    parser.add_argument(
+        'RESULT1',
+        help='make-result output'
+    )
+    parser.add_argument(
+        'RESULT2',
+        help='make-result output'
+    )
+    return parser.parse_args()
+
+def clean_program(result):
+    """Ignore variable data like commit ids in cbmc version strings."""
+
+    del result['viewer-result']['program']
+    return result
+
+def clean_status(result):
+    """Ignore variable data like run times in cbmc status messages."""
+
+    result['viewer-result']['status'] = [
+        line for line in result['viewer-result']['status']
+        if
+          # Ignore reported version number for CBMC
+          not line.startswith('CBMC version') and
+          # Ignore reported runtimes
+          not line.startswith('Runtime') and
+          # Ignore path to goto binary
+          not line.startswith('Reading') and
+          # Ignore status lines with embedded path names
+          not line.startswith('Unwinding loop') and
+          not line.startswith('aborting path') and
+          not line.startswith('Not unwinding loop')
+    ]
+    return result
+
+def clean(result):
+    """Ignore variable data in cbmc results."""
+
+    return clean_status(clean_program(result))
+
+def main():
+    """Compare make-result output."""
+
+    args = parse_arguments()
+    with open(args.RESULT1, encoding='utf-8') as handle:
+        result1 = clean(json.load(handle))
+    with open(args.RESULT2, encoding='utf-8') as handle:
+        result2 = clean(json.load(handle))
+
+    with open('/tmp/result1.json', "w", encoding='utf-8') as handle:
+        json.dump(result1, handle, indent=2)
+    with open('/tmp/result2.json', "w", encoding='utf-8') as handle:
+        json.dump(result2, handle, indent=2)
+
+    if result1 != result2:
+        raise UserWarning(
+            f"make-result output differs: {args.RESULT1} {args.RESULT2}"
+        )
+
+if __name__ == "__main__":
+    main()

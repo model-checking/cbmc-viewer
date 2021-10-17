@@ -1,0 +1,58 @@
+#! /usr/bin/env python3
+
+# Set emacs mode to Python
+# -*- mode: Python;-*-
+
+"""Compare make-source output ignoring known differences in path names."""
+
+import argparse
+import json
+
+def parse_arguments():
+    """Parse command-line arguments."""
+
+    parser = argparse.ArgumentParser(description=
+        'Compare make-source output ignoring known differences in path names.'
+    )
+    parser.add_argument(
+        'SOURCE1',
+        help='make-source output'
+    )
+    parser.add_argument(
+        'SOURCE2',
+        help='make-source output'
+    )
+    return parser.parse_args()
+
+def clean(source):
+    """Strip references to path to the source root."""
+
+    root = source['viewer-source']['root'] + '/'
+    all_files = source['viewer-source']['all_files']
+
+    # Ignore system files not under the source root
+    # Strip the source root from absolute paths of files under the source root
+    all_files = [path[len(root):] for path in all_files
+                 if path.startswith(root)]
+
+    source['viewer-source']['root'] = ''
+    source['viewer-source']['all_files'] = all_files
+
+    return source
+
+def main():
+    """Compare make-source output."""
+
+    args = parse_arguments()
+    with open(args.SOURCE1, encoding='utf-8') as handle:
+        source1 = clean(json.load(handle))
+    with open(args.SOURCE2, encoding='utf-8') as handle:
+        source2 = clean(json.load(handle))
+
+    if source1 != source2:
+        raise UserWarning(
+            f"make-source output differs: {args.SOURCE1} {args.SOURCE2}"
+        )
+
+if __name__ == "__main__":
+    main()
