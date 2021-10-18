@@ -3,10 +3,8 @@
 
 """The symbols used to build a goto binary."""
 
-import enum
 import json
 import logging
-import os
 
 import voluptuous
 import voluptuous.humanize
@@ -19,14 +17,6 @@ from cbmc_viewer import symbol_table
 from cbmc_viewer import util
 
 JSON_TAG = 'viewer-symbol'
-
-################################################################
-
-class Tags(enum.Enum):
-    """Enum values for --tags_method command line option"""
-
-    CTAGS = 1
-    ETAGS = 2
 
 ################################################################
 # Data validator for symbol object
@@ -86,7 +76,7 @@ class Symbol:
 
     @staticmethod
     def build_symbol_table(root, definitions):
-        """Build a symbol table using parsed output of ctags or etags."""
+        """Build a symbol table using parsed output of ctags."""
 
         logging.info('Building symbol table from tags data...')
         symbols = {}
@@ -186,22 +176,6 @@ class SymbolFromCtags(Symbol):
         )
 
 ################################################################
-
-class SymbolFromEtags(Symbol):
-    """Create a symbol table with etags (the emacs ctags).
-
-    Run etags (the ctags for emacs) from the given root over the given
-    list of files.
-    """
-
-    def __init__(self, root, files):
-        super().__init__(
-            self.build_symbol_table(
-                root, etags_symbols(run_etags(root, files))
-            )
-        )
-
-################################################################
 # Parse a ctags file
 #
 # This is not easy.  The default output of ctags identifies the symbol
@@ -291,117 +265,6 @@ def ctags_symbols(ctags_data):
     return definitions
 
 ################################################################
-# Parse an etags file
-#
-# The etags format is described at https://en.wikipedia.org/wiki/Ctags#Etags_2
-
-ETAGS = 'etags'
-TAGS = 'TAGS' + '-' + str(os.getpid())
-
-def have_etags():
-    """Test for the existence of etags."""
-
-    try:
-        help_banner = runt.run([ETAGS, '--help']).splitlines()[0].lower().split()
-        return ETAGS in help_banner
-    except FileNotFoundError:
-        return False
-
-def run_etags(root, files, chunk=2000):
-    """Run etags from the given root over the given files.
-
-    Some operating systems limit the number of command line arguments
-    (or the length of the command), we we process the list of files in
-    chunks.
-    """
-
-    if not files:
-        return ''
-
-    try:
-        os.remove(TAGS)
-    except FileNotFoundError:
-        pass # file did not exist
-
-    logging.info('Running etags on %s files...', len(files))
-    while files:
-        paths = files[:chunk]
-        files = files[chunk:]
-        logging.info('Running etags on %s files starting with %s...',
-                     len(paths),
-                     paths[0])
-        runt.run([ETAGS, '-o', TAGS, '--append'] + paths,
-                 cwd=root, encoding='latin1')
-    logging.info('Finished running etags.')
-
-    with open(os.path.join(root, TAGS)) as etags_file:
-        etags_data = etags_file.read()
-    os.remove(os.path.join(root, TAGS))
-    return etags_data
-
-def etags_symbols(etags_data):
-    """Return the symbol definitions appearing in an etags file.
-
-    Scan etags_data, the contents of an etags file, and return the
-    list of symbol definitions in the file as a list of tuples of the
-    form [symbol, filename, linenumber].
-    """
-
-    logging.info('Parsing etag symbol definitions...')
-    # Each section begins with a line containing just "\f"
-    sections = etags_data.split('\f\n')[1:]
-    symbols = [definition
-               for section in sections
-               for definition in etags_section_definitions(section)]
-    logging.info('Finished parsing etag symbol definitions.')
-    return symbols
-
-def etags_section_definitions(section):
-    """Return the symbol definitions in a section of an etags file.
-
-    A section consists of a sequence of lines: a header containing a
-    file name, and a sequence of definitions containing symbols and
-    line numbers.
-    """
-
-    lines = section.splitlines()
-    filename = etags_section_filename(lines[0])
-    return [[symbol, filename, num]
-            for symbol, num in [etags_symbol_definition(line)
-                                for line in lines[1:]]
-            if symbol is not None]
-
-def etags_section_filename(header):
-    """Return the file name in the section header.
-
-    A section header is a filename and a section length separated by a
-    comma.
-    """
-    return header.split(',')[0]
-
-def etags_symbol_definition(definition):
-    """Return the symbol and line number in a symbol definition.
-
-    A symbol definition is the symbol definition, '\x7f', the symbol
-    name, '\x01, the line number, ',', and the offset within the file.
-    The symbol name is omitted if it can be easily located in the
-    symbol definition.
-    """
-
-    try:
-        tag_def, tag_name_line_offset = definition.split('\x7f')
-        tag_name_line, _ = tag_name_line_offset.split(',')
-        tag_name, tag_line = ([None] + tag_name_line.split('\x01'))[-2:]
-        if tag_name is None:
-            tag_name = tag_def.split()[-1].lstrip('(')
-        tag_name = tag_name.rstrip('()[].,;')
-    except ValueError:
-        logging.debug('Skipping unparsable etags definition: %s', definition)
-        return None, 0
-
-    return tag_name, int(tag_line)
-
-################################################################
 # make-symbol
 
 # pylint: disable=inconsistent-return-statements
@@ -412,7 +275,7 @@ def fail(msg):
     logging.info(msg)
     raise UserWarning(msg)
 
-def do_make_symbol(viewer_symbol, make_source, tags_method,
+def do_make_symbol(viewer_symbol, make_source,
                    goto, wkdir, srcdir, files):
     """Implementation of make-symbol."""
 
@@ -433,14 +296,7 @@ def do_make_symbol(viewer_symbol, make_source, tags_method,
         files = sources.files
 
     if srcdir and files:
-        # tags_method was set to a reasonable value by optionst.defaults()
-        # if it was not specified on the command line.
-        if tags_method == Tags.CTAGS:
-            logging.info("Symbols by SymbolFromCtags")
-            return SymbolFromCtags(srcdir, files)
-        if tags_method == Tags.ETAGS:
-            logging.info("Symbols by SymbolFromEtags")
-            return SymbolFromEtags(srcdir, files)
+        SymbolFromCtags(srcdir, files)
 
     if goto and wkdir and srcdir:
         logging.info("Symbols by SymbolFromGoto")

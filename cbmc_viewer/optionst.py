@@ -8,10 +8,8 @@ import os
 import platform
 
 from cbmc_viewer import filet
-from cbmc_viewer import symbolt
 from cbmc_viewer import version as viewer_version
 from cbmc_viewer.sourcet import Sources
-from cbmc_viewer.symbolt import Tags
 
 def goto(parser):
     'Define --goto command line option.'
@@ -163,20 +161,6 @@ def source_method(parser):
         the goto binary.  The default method is 'goto' if
         SRCDIR and WKDIR and GOTO are specified, 'make' if SRCDIR and WKDIR
         are specified, 'walk' on Windows, and 'find' otherwise.
-        """
-    )
-    return parser
-
-def tags_method(parser):
-    'Define --tags_method command line option.'
-
-    parser.add_argument(
-        '--tags-method',
-        metavar='TAGS',
-        choices=['ctags', 'etags'],
-        help="""
-        ctags: exuberant ctags
-        etags: emacs tags
         """
     )
     return parser
@@ -479,30 +463,6 @@ def default_source_method(args):
 
     return args
 
-def default_tags_method(args):
-    'Set default tags method.'
-
-    # Set tags_method to an enum
-    if hasattr(args, 'tags_method'):
-        args.tags_method = {
-            'ctags': Tags.CTAGS,
-            'etags': Tags.ETAGS,
-            None: None
-        }[args.tags_method]
-
-        if args.tags_method is None:
-            if symbolt.have_ctags():
-                args.tags_method = Tags.CTAGS
-            elif symbolt.have_etags():
-                args.tags_method = Tags.ETAGS
-            else:
-                logging.warning("Can't find ctags or etags.")
-
-        if args.tags_method != Tags.CTAGS:
-            logging.warning("Consider installing ctags for better results.")
-
-    return args
-
 def warn_against_using_text_for_cbmc_output(args):
     'Recommend the use of xml or json input instead of text.'
 
@@ -518,7 +478,6 @@ def defaults(args):
     args = default_logging(args)
     args = handle_deprecated_arguments(args)
     args = default_source_method(args)
-    args = default_tags_method(args)
     warn_against_using_text_for_cbmc_output(args)
 
     if hasattr(args, 'srcdir'):
