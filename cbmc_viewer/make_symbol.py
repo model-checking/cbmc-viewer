@@ -40,7 +40,6 @@ def create_parser():
         """
     )
 
-    optionst.tags_method(parser)
     optionst.log(parser)
 
     return parser
@@ -55,7 +54,6 @@ def main():
 
     try:
         symbols = symbolt.do_make_symbol(args.viewer_symbol, args.viewer_source,
-                                         args.tags_method,
                                          args.goto,
                                          args.wkdir,
                                          args.srcdir, args.files)

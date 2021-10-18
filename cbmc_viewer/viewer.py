@@ -45,7 +45,6 @@ def create_parser():
     optionst.exclude(proof_sources)
     optionst.extensions(proof_sources)
     optionst.source_method(proof_sources)
-    optionst.tags_method(proof_sources)
 
     proof_binaries = parser.add_argument_group('Binaries')
     optionst.wkdir(proof_binaries)
@@ -203,7 +202,6 @@ def viewer():
 
     progress("Preparing symbol table")
     symbols = symbolt.do_make_symbol(args.viewer_symbol, args.viewer_source,
-                                     args.tags_method,
                                      args.goto, args.wkdir,
                                      args.srcdir, None)
     dump(symbols, 'viewer-symbol.json')
