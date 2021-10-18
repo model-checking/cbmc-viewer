@@ -29,11 +29,13 @@ VALID_SYMBOL = voluptuous.schema_builder.Schema({
 }, required=True)
 
 ################################################################
+# Symbol class and subclasses
 
 class Symbol:
-    """The symbols used to build a goto binary."""
+    """A mapping from symbols to source locations."""
 
     def __init__(self, symbols):
+        """Save and validate a mapping from symbols to source locations."""
 
         self.symbols = symbols
 
@@ -41,11 +43,6 @@ class Symbol:
         logging.info('Validating symbol definitions...')
         self.validate()
         logging.info('Validating symbol definitions...done')
-
-    def lookup(self, symbol):
-        """Look up the srcloc for a name in the symbol table."""
-
-        return self.symbols.get(symbol)
 
     def __repr__(self):
         """A dict representation of a symbol table."""
@@ -74,24 +71,10 @@ class Symbol:
 
         util.dump(self, filename, directory)
 
-    @staticmethod
-    def build_symbol_table(root, definitions):
-        """Build a symbol table using parsed output of ctags."""
+    def lookup(self, symbol):
+        """Look up a symbol's source location."""
 
-        logging.info('Building symbol table from tags data...')
-        symbols = {}
-        for symbol, filename, linenumber in definitions:
-            if symbol in symbols:
-                logging.debug('Found duplicate definition: %s: %s, %s <- %s %s',
-                              symbol,
-                              symbols[symbol]['file'], symbols[symbol]['line'],
-                              filename, linenumber)
-                continue
-            symbols[symbol] = srcloct.make_srcloc(
-                filename, None, linenumber, root, root
-            )
-        logging.info('Building symbol table from tags data...done')
-        return symbols
+        return self.symbols.get(symbol)
 
 ################################################################
 
@@ -119,17 +102,29 @@ class SymbolFromJson(Symbol):
 
 ################################################################
 
+class SymbolFromCtags(Symbol):
+    """Create a symbol table with ctags."""
+
+    def __init__(self, root, files):
+        """Run ctags on files in the source root."""
+
+        super().__init__(
+            parse_ctags_data(run_ctags(root, files), root)
+        )
+
+################################################################
+
 class SymbolFromGoto(Symbol):
     """Load symbol table from a goto binary.
 
-    Given a goto binary, scan the symbol table in the goto binary for
-    a list of symbols.  This will include every symbol used in the
-    goto binary, but will omit preprocessor definitions.  Fill out
-    this list of symbols and definitions by running ctags over the
-    files listed in the symbol table, but definitions in the table
-    take precedence over definitions inferred by ctags.  This still
-    omits definitions from files that list only definitions and do not
-    contribute symbols to the symbol table.
+    Extract symbols listed in the symbol table of a goto binary.  Use
+    ctags to extract symbols from source files listed in the symbol
+    table (which will find type definitions and preprocessor
+    definitions not appearing in the goto symbol table).  Merge these
+    lists of symbol definitions, with definitions in the symbol table
+    taking precedence over definitions in the ctags output.  This
+    still omits definitions from files that list only definitions and
+    do not contribute symbols to the symbol table.
     """
 
     def __init__(self, goto, wkdir, srcdir):
@@ -155,27 +150,6 @@ class SymbolFromGoto(Symbol):
         super().__init__(symbols)
 
 ################################################################
-
-class SymbolFromCtags(Symbol):
-    """Create a symbol table with ctags.
-
-    Run ctags (the ctags for vi) from the given root over the given
-    list of files.
-    """
-
-    # TODO: ctags by default accepts only certain file extensions
-    # like .c and .h as source files.  Files with other extensions
-    # like .inl are currently ignored, but consider using the ctags
-    # options −−list−maps and −−langmap.
-
-    def __init__(self, root, files):
-        super().__init__(
-            self.build_symbol_table(
-                root, ctags_symbols(run_ctags(root, files))
-            )
-        )
-
-################################################################
 # Parse a ctags file
 #
 # This is not easy.  The default output of ctags identifies the symbol
@@ -185,14 +159,19 @@ class SymbolFromCtags(Symbol):
 # intended to be human readable and not machine parsable.
 
 EXUBERANT = 'exuberant'
+UNIVERSAL = 'universal'
 CTAGS = 'ctags'
 
 def have_ctags():
-    """Test for existence of exuberant ctags."""
+    """Test for existence of exuberant or universal ctags."""
 
     try:
-        help_banner = runt.run([CTAGS, '--help']).splitlines()[0].lower().split()
-        return all(string in help_banner for string in [EXUBERANT, CTAGS])
+        ctags_help = runt.run([CTAGS, '--help']).splitlines()[0]
+        ctags_tokens = ctags_help.lower().split()
+        return (
+            (EXUBERANT in ctags_tokens and CTAGS in ctags_tokens) or
+            (UNIVERSAL in ctags_tokens and CTAGS in ctags_tokens)
+        )
     except FileNotFoundError:
         return False
 
@@ -208,61 +187,47 @@ def run_ctags(root, files, chunk=2000):
         return ''
 
     logging.info('Running ctags on %s files...', len(files))
-    output = ''
+    ctags_data = []
     while files:
         paths = files[:chunk]
         files = files[chunk:]
         logging.info('Running ctags on %s files starting with %s...',
-                     len(paths),
-                     paths[0])
-        output += runt.run([CTAGS, '-x'] + paths, cwd=root, encoding='latin1')
+                     len(paths), paths[0])
+        ctags_output = runt.run(
+            [CTAGS, '-n', '-f', '-'] + paths, cwd=root, encoding='latin1'
+        )
+        ctags_data += ctags_output.splitlines()
     logging.info('Running ctags on %s files...done', len(files))
-    return output
+    return ctags_data
 
-def ctags_symbols(ctags_data):
-    """Return the symbol definitions appears in a ctags file.
+def parse_ctags_data(ctags_data, root):
+    """Parse the ctags output into a mapping from symbol to source location."""
 
-    Each line names a symbol, a symbol kind, a line number, and a file
-    name.  The values are space-separated.
-    """
+    logging.info('Parsing ctag data...')
 
-    logging.info('Parsing ctag symbol definitions...')
-    definitions = []
-    for line in [line.strip() for line in ctags_data.splitlines()]:
-        if not line:
+    symbols = {}
+    for line in ctags_data:
+        # line has the form: symbol<tab>file<tab>line;" ...
+
+        symbol, filename, linenumber = line.split(';"')[0].split("\t")
+        srcloc = srcloct.make_srcloc(
+            filename, None, linenumber, root, root
+        )
+
+        old_srcloc = symbols.get(symbol)
+        if old_srcloc:
+            logging.debug(
+                'Symbol definition: %s: skipping %s, %s; keeping %s %s',
+                symbol,
+                srcloc['file'], srcloc['line'],
+                old_srcloc['file'], old_srcloc['line']
+            )
             continue
 
-        # ctags default output does not include line numbers.  Each
-        # symbol is respresented by a symbol, a file, and a vi regular
-        # expression that vi can use to find the symbol in the file.
-        # This is why we use ctags -x output.
-        #
-        # ctags -x output is a "tabular, human-readable cross reference"
-        # and is not intended to be parsable and doesn't even produce
-        # tab-separated output.
-        #
-        # ctags -x output generally has the form
-        # SYMBOL KIND LINENUMBER FILENAME CODE_FRAGMENT
-        #
-        # We assume filenames do not contain whitespace (false on windows)
+        symbols[symbol] = srcloc
 
-        symbol, _, linenumber, filename = line.split()[:4]
-
-        # However, c++ code in the source tree generates ctags -x output like
-        # operator != function 80 header.h bool operator!=...
-        #
-        # We skip c++ symbols by checking that LINENUMBER is actual an int
-
-        try:
-            int(linenumber)
-        except ValueError:
-            logging.debug('Skipping unparsable ctags definition: %s', line)
-            continue
-
-        definitions.append([symbol, filename, linenumber])
-    logging.info('Parsing ctag symbol definitions...done')
-
-    return definitions
+    logging.info('Parsing ctag data...done')
+    return symbols
 
 ################################################################
 # make-symbol
