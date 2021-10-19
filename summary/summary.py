@@ -249,7 +249,6 @@ def main():
         print(json.dumps(summary, indent=2))
 
     if args.chart:
-#        chart_projects_csv(summary)
         print(chart_projects_json(summary))
 
 if __name__ == "__main__":
