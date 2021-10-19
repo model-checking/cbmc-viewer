@@ -1,5 +1,5 @@
 default:
-	@echo Nothing to do
+	@echo Nothing to do for $@
 
 pylint:
 	pylint \
