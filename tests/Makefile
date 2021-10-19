@@ -4,9 +4,6 @@ SCRIPTS = \
   compare-source \
   compare-viewer-reports
 
-default:
-	@ echo Nothing to do for $@
-
 pylint:
 	pylint	\
 		--disable=duplicate-code \
