@@ -67,12 +67,10 @@ def result(parser):
     parser.add_argument(
         '--result',
         metavar='FILE',
-        default=['result.xml'],
         nargs='+',
         help="""
         CBMC property checking results.
         A text, xml, or json file containing the output of 'cbmc'.
-        (Default: %(default)s)
         """
     )
     return parser
@@ -83,12 +81,11 @@ def coverage(parser):
     parser.add_argument(
         '--coverage',
         metavar='FILE',
-        default=['coverage.xml'],
         nargs='+',
         help="""
         CBMC coverage checking results.
         An xml or json file containing the output of
-        'cbmc --cover locations'. (Default: %(default)s)
+        'cbmc --cover locations'.
         """
     )
     return parser
@@ -101,13 +98,11 @@ def property(parser):
     parser.add_argument(
         '--property',
         metavar='FILE',
-        default=['property.xml'],
         nargs='+',
         help="""
         CBMC properties checked during property checking.
         An xml or json file containing the output of
         'cbmc --show-properties'.
-        (Default: %(default)s)
         """
     )
     return parser
@@ -480,9 +475,9 @@ def defaults(args):
     args = default_source_method(args)
     warn_against_using_text_for_cbmc_output(args)
 
-    if hasattr(args, 'srcdir'):
+    if hasattr(args, 'srcdir') and args.srcdir is not None:
         args.srcdir = os.path.abspath(args.srcdir)
-    if hasattr(args, 'wkdir'):
+    if hasattr(args, 'wkdir') and args.wkdir is not None:
         args.wkdir = os.path.abspath(args.wkdir)
 
     return args
