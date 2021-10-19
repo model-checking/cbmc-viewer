@@ -21,6 +21,7 @@ OTHER_JSON = [
     'viewer-symbol.json',
     'viewer-trace.json'
 ]
+KNOWN_JSON = [RESULT_JSON, SOURCE_JSON] +  OTHER_JSON
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 
@@ -105,6 +106,12 @@ def common_proofs(reports1, reports2, proofs):
 
 ################################################################
 # Comparison methods
+#
+# The comparison methods are basically textual diff combined with the
+# compare-result and compare-source scripts.  In the future, as the
+# content of the html reports and json summaries evolves, textual diff
+# may become too cumbersome, and we may want to use difflib or
+# json-diff to do a more semantic (less textual) comparison.
 
 def run(cmd):
     """Run a command."""
@@ -179,6 +186,14 @@ def compare_json(proof, reports1, reports2,
         raise FileNotFoundError(reports1/json_path)
     if not (reports2/json_path).is_dir():
         raise FileNotFoundError(reports2/json_path)
+
+    # Warn if our list of known json files ever becomes incomplete
+    for path in Path(reports1/json_path).glob('viewer-*.json'):
+        if path.name not in KNOWN_JSON:
+            logging.warning('Found unknown json file %s', path)
+    for path in Path(reports2/json_path).glob('viewer-*.json'):
+        if path.name not in KNOWN_JSON:
+            logging.warning('Found unknown json file %s', path)
 
     equal_json = True
     logging.info("Comparing %s", json_path)
