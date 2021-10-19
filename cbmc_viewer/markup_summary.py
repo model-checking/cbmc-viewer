@@ -15,11 +15,14 @@ from cbmc_viewer import util
 VALID_SUMMARY_DATA = voluptuous.schema_builder.Schema({
     # coverage section of the summary
     'coverage': {
-        'overall': {
-            'percentage': float, # percentage of lines hit
-            'hit': int, # lines hit
-            'total': int # lines total
-        },
+        'overall': voluptuous.validators.Any(
+            voluptuous.schema_builder.Schema({
+                'percentage': float, # percentage of lines hit
+                'hit': int, # lines hit
+                'total': int # lines total
+            }),
+            {}
+        ),
         'function': [{
             'percentage': float, # percentage of lines hit
             'hit': int, # lines hit
@@ -118,6 +121,9 @@ def overall_coverage(coverage):
     """Overall proof coverage."""
 
     cov = coverage.overall_coverage
+    if not cov:
+        return {}
+
     return {
         'percentage': cov['percentage'],
         'hit': cov['hit'],

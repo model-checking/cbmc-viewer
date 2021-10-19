@@ -11,13 +11,17 @@
 
     <div class="coverage">
       <h2>Coverage</h2>
+      {% set coverage = summary.coverage %}
 
-      {% set overall = summary.coverage.overall %}
+      {% if coverage.overall %}
+      {% set overall = coverage.overall %}
       <p>
         Coverage: {{'{:.2f}'.format(overall.percentage)}} (reached {{overall.hit}} of {{overall.total}} reachable lines)
       </p>
+      {% endif %}
 
-      {% set function = summary.coverage.function %}
+      {% if coverage.function %}
+      {% set function = coverage.function %}
       <table class="coverage">
         <tr>
           <th class="coverage">Coverage</th>
@@ -33,6 +37,11 @@
         {% endfor %}
       </table>
     </div>
+    {% endif %}
+
+    {% if not coverage.overall and not coverage.function %}
+    None
+    {% endif %}
 
     <div class="warnings">
       <h2> Warnings</h2>
