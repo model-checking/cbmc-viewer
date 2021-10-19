@@ -86,7 +86,7 @@ class Status(enum.Enum):
 ################################################################
 # Line coverage validator
 
-LINES_COVERED = voluptuous.schema_builder.Schema(
+LINES_COVERED = voluptuous.Schema(
     {
         'percentage': float, # lines hit / lines total
         'hit': int,
@@ -94,7 +94,7 @@ LINES_COVERED = voluptuous.schema_builder.Schema(
     }, required=True
 )
 
-RAW_COVERAGE_DATA = voluptuous.schema_builder.Schema(
+RAW_COVERAGE_DATA = voluptuous.Schema(
     {   # file name ->
         str: {
             # function name ->
@@ -106,7 +106,7 @@ RAW_COVERAGE_DATA = voluptuous.schema_builder.Schema(
     }, required=True
 )
 
-LINE_COVERAGE = voluptuous.schema_builder.Schema(
+LINE_COVERAGE = voluptuous.Schema(
     {  # file name ->
         str: {
             # line number -> coverage status
@@ -115,7 +115,7 @@ LINE_COVERAGE = voluptuous.schema_builder.Schema(
     }, required=True
 )
 
-FUNCTION_COVERAGE = voluptuous.schema_builder.Schema(
+FUNCTION_COVERAGE = voluptuous.Schema(
     {  # file name ->
         str: {
             # function name -> (percent, hit, total)
@@ -124,15 +124,15 @@ FUNCTION_COVERAGE = voluptuous.schema_builder.Schema(
     }, required=True
 )
 
-OVERALL_COVERAGE = voluptuous.schema_builder.Schema(LINES_COVERED)
+OVERALL_COVERAGE = voluptuous.Schema(LINES_COVERED)
 
 
-VALID_COVERAGE = voluptuous.schema_builder.Schema(
+VALID_COVERAGE = voluptuous.Schema(
     {
-        'coverage': voluptuous.validators.Any(RAW_COVERAGE_DATA, {}),
-        'line_coverage': voluptuous.validators.Any(LINE_COVERAGE, {}),
-        'function_coverage': voluptuous.validators.Any(FUNCTION_COVERAGE, {}),
-        'overall_coverage': voluptuous.validators.Any(OVERALL_COVERAGE, {})
+        'coverage': voluptuous.Any(RAW_COVERAGE_DATA, {}),
+        'line_coverage': voluptuous.Any(LINE_COVERAGE, {}),
+        'function_coverage': voluptuous.Any(FUNCTION_COVERAGE, {}),
+        'overall_coverage': voluptuous.Any(OVERALL_COVERAGE, {})
     }, required=True
 )
 
@@ -225,7 +225,7 @@ def merge_coverage_data(coverage_list):
 
     try:
         coverage and RAW_COVERAGE_DATA(coverage)
-    except voluptuous.error.Error as error:
+    except voluptuous.Error as error:
         raise UserWarning("Error merging coverage data: {}".format(error)) from error
     return coverage
 
@@ -314,7 +314,7 @@ def load_json(json_file):
     coverage = repair_json(json_data[JSON_TAG]['coverage'])
     try:
         RAW_COVERAGE_DATA(coverage)
-    except voluptuous.error.Error as error:
+    except voluptuous.Error as error:
         raise UserWarning(
             "Error loading json coverage data: {}: {}".format(json_file, error)
         ) from error
@@ -378,7 +378,7 @@ def load_cbmc_json(json_file, root):
 
     try:
         RAW_COVERAGE_DATA(coverage)
-    except voluptuous.error.Error as error:
+    except voluptuous.Error as error:
         raise UserWarning(
             "Error loading cbmc json coverage data: {}: {}".format(json_file, error)
         ) from error
@@ -416,7 +416,7 @@ def load_cbmc_xml(xml_file, root):
 
     try:
         RAW_COVERAGE_DATA(coverage)
-    except voluptuous.error.Error as error:
+    except voluptuous.Error as error:
         raise UserWarning(
             "Error loading cbmc xml coverage data: {}: {}".format(xml_file, error)
         ) from error

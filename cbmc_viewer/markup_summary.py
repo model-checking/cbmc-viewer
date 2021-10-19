@@ -12,11 +12,11 @@ from cbmc_viewer import util
 ################################################################
 # Data passed to jinja to generate proof summary from summary.jinja.html
 
-VALID_SUMMARY_DATA = voluptuous.schema_builder.Schema({
+VALID_SUMMARY_DATA = voluptuous.Schema({
     # coverage section of the summary
     'coverage': {
-        'overall': voluptuous.validators.Any(
-            voluptuous.schema_builder.Schema({
+        'overall': voluptuous.Any(
+            voluptuous.Schema({
                 'percentage': float, # percentage of lines hit
                 'hit': int, # lines hit
                 'total': int # lines total
@@ -59,7 +59,7 @@ VALID_SUMMARY_DATA = voluptuous.schema_builder.Schema({
     }
 }, required=True)
 
-VALID_SUMMARY = voluptuous.schema_builder.Schema({
+VALID_SUMMARY = voluptuous.Schema({
     'summary': VALID_SUMMARY_DATA,
     'outdir': str # default output directory for dump()
 }, required=True)

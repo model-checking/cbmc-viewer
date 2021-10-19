@@ -99,7 +99,7 @@ def relpath(path, root):
 
 # TODO: Consider replacing the srcloc dict with a srcloc class.
 
-VALID_SRCLOC = voluptuous.schema_builder.Schema(
+VALID_SRCLOC = voluptuous.Schema(
     {"file": str, "function": voluptuous.Any(None, str), "line": int},
     required=True
 )

@@ -22,8 +22,8 @@ TRACES = "traces"
 ################################################################
 # Data passed to jinja to generate annotated traces from trace.jinja.html
 
-VALID_STEP = voluptuous.schema_builder.Schema({
-    'kind': voluptuous.validators.Any(
+VALID_STEP = voluptuous.Schema({
+    'kind': voluptuous.Any(
         'function-call',
         'function-return',
         'variable-assignment',
@@ -33,11 +33,11 @@ VALID_STEP = voluptuous.schema_builder.Schema({
     ),
     'num': int,
     'srcloc': str,
-    'code': voluptuous.validators.Any(str, None),
+    'code': voluptuous.Any(str, None),
     'cbmc': str
 }, required=True)
 
-VALID_TRACE = voluptuous.schema_builder.Schema({
+VALID_TRACE = voluptuous.Schema({
     'prop_name': str,
     'prop_desc': str,
     'prop_srcloc': str,

@@ -36,7 +36,7 @@ SUCCESS = 'success'
 ################################################################
 # Property checking results validator
 
-VALID_RESULT = voluptuous.schema_builder.Schema({
+VALID_RESULT = voluptuous.Schema({
     PROGRAM: str,     # program version information
     STATUS: [str],    # list of status messages
     WARNING: [str],   # list of warning messages

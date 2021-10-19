@@ -25,17 +25,17 @@ JSON_TAG = "viewer-property"
 ################################################################
 # Property validator
 
-VALID_PROPERTY_DEFINITION = voluptuous.schema_builder.Schema({
+VALID_PROPERTY_DEFINITION = voluptuous.Schema({
     'class': str,       # eg, "pointer dereference"
     'description': str, # eg, "pointer outside dynamic object"
     'expression': str,
     'location': srcloct.VALID_SRCLOC
 }, required=True)
 
-VALID_PROPERTY = voluptuous.schema_builder.Schema({
+VALID_PROPERTY = voluptuous.Schema({
     'properties': {
         # property name -> property definition
-        voluptuous.schema_builder.Optional(str): VALID_PROPERTY_DEFINITION
+        voluptuous.Optional(str): VALID_PROPERTY_DEFINITION
     }
 }, required=True)
 

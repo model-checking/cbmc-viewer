@@ -21,10 +21,10 @@ JSON_TAG = 'viewer-reachable'
 ################################################################
 # Reachable validator
 
-VALID_REACHABLE = voluptuous.schema_builder.Schema({
+VALID_REACHABLE = voluptuous.Schema({
     'reachable': {
         # file name -> list of reachable functions
-        voluptuous.schema_builder.Optional(str): [str]
+        voluptuous.Optional(str): [str]
     }
 }, required=True)
 
