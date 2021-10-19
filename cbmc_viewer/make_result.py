@@ -46,8 +46,7 @@ def main():
     args = optionst.defaults(args)
 
     try:
-        results = resultt.do_make_result(args.viewer_result,
-                                         args.cbmc_result)
+        results = resultt.make_result(args.viewer_result, args.cbmc_result)
         print(results)
     except UserWarning as error:
         sys.exit(error)

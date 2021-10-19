@@ -704,7 +704,7 @@ def fail(msg):
     logging.info(msg)
     raise UserWarning(msg)
 
-def do_make_trace(viewer_trace, cbmc_trace, srcdir, wkdir):
+def make_trace(viewer_trace, cbmc_trace, srcdir, wkdir):
     """Implementation of make-trace"""
 
     if viewer_trace:

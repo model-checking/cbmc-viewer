@@ -161,58 +161,49 @@ def viewer():
             output.write(str(obj))
 
     progress("Scanning property checking results")
-    results = resultt.do_make_result(args.viewer_result, args.result)
+    results = resultt.make_result(args.viewer_result, args.result)
     dump(results, 'viewer-result.json')
     progress("Scanning property checking results", True)
 
     progress("Scanning error traces")
-    traces = tracet.do_make_trace(args.viewer_trace, args.result,
-                                  args.srcdir, args.wkdir)
+    traces = tracet.make_trace(args.viewer_trace, args.result, args.srcdir, args.wkdir)
     dump(traces, 'viewer-trace.json')
     progress("Scanning error traces", True)
 
     progress("Scanning coverage data")
-    coverage = coveraget.do_make_coverage(args.viewer_coverage,
-                                          args.srcdir,
-                                          args.coverage)
+    coverage = coveraget.make_coverage(args.viewer_coverage, args.srcdir, args.coverage)
     dump(coverage, 'viewer-coverage.json')
     progress("Scanning coverage data", True)
 
     progress("Scanning loop definitions")
-    loops = loopt.do_make_loop(args.viewer_loop, None,
-                               args.srcdir, args.goto)
+    loops = loopt.make_loop(args.viewer_loop, None, args.srcdir, args.goto)
     dump(loops, 'viewer-loop.json')
     progress("Scanning loop definitions", True)
 
     progress("Scanning properties")
-    properties = propertyt.do_make_property(args.viewer_property,
-                                            args.property,
-                                            args.srcdir)
+    properties = propertyt.make_property(args.viewer_property, args.property, args.srcdir)
     dump(properties, 'viewer-property.json')
     progress("Scanning properties", True)
 
     progress("Computing reachable functions")
-    reachable = reachablet.do_make_reachable(args.viewer_reachable,
-                                             None,
-                                             args.srcdir,
-                                             args.goto)
+    reachable = reachablet.make_reachable(args.viewer_reachable, None, args.srcdir, args.goto)
     dump(reachable, 'viewer-reachable.json')
     progress("Computing reachable functions", True)
 
     # Make sources last, it may delete the goto binary
     progress("Scanning source tree")
-    sources = sourcet.do_make_source(args.viewer_source,
-                                     args.goto,
-                                     args.source_method,
-                                     args.srcdir, args.wkdir,
-                                     args.exclude, args.extensions)
+    sources = sourcet.make_source(args.viewer_source,
+                                  args.goto,
+                                  args.source_method,
+                                  args.srcdir, args.wkdir,
+                                  args.exclude, args.extensions)
     dump(sources, 'viewer-source.json')
     progress("Scanning source tree", True)
 
     progress("Preparing symbol table")
-    symbols = symbolt.do_make_symbol(args.viewer_symbol, args.viewer_source,
-                                     args.goto, args.wkdir,
-                                     args.srcdir, None)
+    symbols = symbolt.make_symbol(args.viewer_symbol, args.viewer_source,
+                                  args.goto, args.wkdir,
+                                  args.srcdir, None)
     dump(symbols, 'viewer-symbol.json')
     progress("Preparing symbol table", True)
 

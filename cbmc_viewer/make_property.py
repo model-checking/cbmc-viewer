@@ -47,9 +47,7 @@ def main():
     args = optionst.defaults(args)
 
     try:
-        properties = propertyt.do_make_property(args.viewer_property,
-                                                args.cbmc_property,
-                                                args.srcdir)
+        properties = propertyt.make_property(args.viewer_property, args.cbmc_property, args.srcdir)
         print(properties)
     except UserWarning as error:
         sys.exit(error)
