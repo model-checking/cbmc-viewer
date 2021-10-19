@@ -48,10 +48,10 @@ def main():
     args = optionst.defaults(args)
 
     try:
-        reachable = reachablet.do_make_reachable(args.viewer_reachable,
-                                                 args.cbmc_reachable,
-                                                 args.srcdir,
-                                                 args.goto)
+        reachable = reachablet.make_reachable(args.viewer_reachable,
+                                              args.cbmc_reachable,
+                                              args.srcdir,
+                                              args.goto)
         print(reachable)
     except UserWarning as error:
         sys.exit(error)

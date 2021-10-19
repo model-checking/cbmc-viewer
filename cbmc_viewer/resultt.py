@@ -438,7 +438,7 @@ def fail(msg):
     logging.info(msg)
     raise UserWarning(msg)
 
-def do_make_result(viewer_result, cbmc_result):
+def make_result(viewer_result, cbmc_result):
     """Implementation of make-result."""
 
     if viewer_result:

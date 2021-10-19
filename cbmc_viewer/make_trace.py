@@ -47,8 +47,7 @@ def main():
     args = optionst.defaults(args)
 
     try:
-        traces = tracet.do_make_trace(args.viewer_trace, args.cbmc_trace,
-                                      args.srcdir, args.wkdir)
+        traces = tracet.make_trace(args.viewer_trace, args.cbmc_trace, args.srcdir, args.wkdir)
         print(traces)
     except UserWarning as error:
         sys.exit(error)

@@ -240,8 +240,7 @@ def fail(msg):
     logging.info(msg)
     raise UserWarning(msg)
 
-def do_make_symbol(viewer_symbol, viewer_source,
-                   goto, wkdir, srcdir, files):
+def make_symbol(viewer_symbol, viewer_source, goto, wkdir, srcdir, files):
     """Implementation of make-symbol."""
 
     wkdir = srcloct.abspath(wkdir) if wkdir else None

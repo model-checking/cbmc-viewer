@@ -251,7 +251,7 @@ def fail(msg):
     logging.info(msg)
     raise UserWarning(msg)
 
-def do_make_loop(viewer_loop, cbmc_loop, srcdir, goto):
+def make_loop(viewer_loop, cbmc_loop, srcdir, goto):
     """The implementation of make-loop"""
 
     if viewer_loop:

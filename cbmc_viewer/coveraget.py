@@ -545,7 +545,7 @@ def fail(msg):
     logging.info(msg)
     raise UserWarning(msg)
 
-def do_make_coverage(viewer_coverage, srcdir, cbmc_coverage):
+def make_coverage(viewer_coverage, srcdir, cbmc_coverage):
     """The implementation of make-coverage."""
 
     if viewer_coverage:

@@ -198,7 +198,7 @@ def fail(msg):
     logging.info(msg)
     raise UserWarning(msg)
 
-def do_make_reachable(viewer_reachable, cbmc_reachable, srcdir, goto):
+def make_reachable(viewer_reachable, cbmc_reachable, srcdir, goto):
     """The implementation of make-reachable."""
 
     if viewer_reachable:

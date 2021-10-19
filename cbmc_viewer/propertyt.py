@@ -209,7 +209,7 @@ def fail(msg):
     logging.info(msg)
     raise UserWarning(msg)
 
-def do_make_property(viewer_property, cbmc_property, srcdir):
+def make_property(viewer_property, cbmc_property, srcdir):
     """The implementation of make-property."""
 
     if viewer_property:
