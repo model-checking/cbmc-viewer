@@ -116,8 +116,8 @@ class Trace:
     object) merge the traces into a single set of results.
     """
 
-    def __init__(self, trace_lists):
-
+    def __init__(self, trace_lists=None):
+        trace_lists = trace_lists or []
         self.traces = self.merge(trace_lists)
         self.validate()
 
@@ -724,7 +724,6 @@ def do_make_trace(viewer_trace, cbmc_trace, srcdir, wkdir):
         fail("Expected json files or xml files, not both: {}"
              .format(cbmc_trace))
 
-    fail("Expected --make-trace or --srcdir, --wkdir, and "
-         "cbmc trace output.")
+    return Trace()
 
 ################################################################

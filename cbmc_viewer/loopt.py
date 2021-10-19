@@ -34,8 +34,10 @@ VALID_LOOP = voluptuous.schema_builder.Schema({
 class Loop:
     """CBMC loop information."""
 
-    def __init__(self, loop_maps):
+    def __init__(self, loop_maps=None):
         """Load CBMC loop map from a lists of loop maps."""
+
+        loop_maps = loop_maps or []
 
         def handle_duplicates(name, srcloc1, srcloc2):
             logging.warning("Found duplicate loop definition: "
@@ -268,7 +270,10 @@ def do_make_loop(viewer_loop, cbmc_loop, srcdir, goto):
     if goto and srcdir:
         return LoopFromGoto(goto, srcdir)
 
-    fail("Expected --make-loop, or --srcdir and --goto, "
-         "or --srcdir and cbmc loop output.")
+    logging.info("make-loop: nothing to do: need "
+                 "--goto and --srcdir, or "
+                 "cbmc loop listing results (cbmc --show-loops) and --srcdir, or "
+                 "--viewer-loop")
+    return Loop()
 
 ################################################################

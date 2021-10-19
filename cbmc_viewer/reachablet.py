@@ -35,8 +35,10 @@ class Reachable:
 
 # TODO: again dicts -> dict
 
-    def __init__(self, function_lists):
+    def __init__(self, function_lists=None):
         """Load CBMC reachable functions from lists of functions."""
+
+        function_lists = function_lists or []
 
         functions = self.merge_function_lists(function_lists)
         self.reachable = self.sort_function_names(functions)
@@ -215,8 +217,11 @@ def do_make_reachable(viewer_reachable, cbmc_reachable, srcdir, goto):
     if goto and srcdir:
         return ReachableFromGoto(goto, srcdir)
 
-    fail("Expected --viewer-reachable, "
-         "or --srcdir and --goto, "
-         "or --srcdir and cbmc reachable functions output.")
+    logging.info("make-reachable: nothing to do: need "
+                 "--srcdir and --goto, or "
+                 "cbmc reachable functions results (goto-analyzer --reachable-functions)"
+                 " and --srcdir, or "
+                 "--viewer-reachable")
+    return Reachable()
 
 ################################################################

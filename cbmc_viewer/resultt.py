@@ -47,6 +47,17 @@ VALID_RESULT = voluptuous.schema_builder.Schema({
     PROVER: str       # prover status: success or failure
 }, required=True)
 
+NO_RESULT = {
+    PROGRAM: "",
+    STATUS: [],
+    WARNING: [],
+    RESULT: {
+        True: [],
+        False: [],
+    },
+    PROVER: FAILURE
+}
+
 ################################################################
 # CBMC property checking results
 
@@ -58,7 +69,9 @@ class Result:
     results.
     """
 
-    def __init__(self, results_list):
+    def __init__(self, results_list=None):
+        results_list = results_list or [NO_RESULT]
+
         map(lambda results: results.validate(), results_list)
         self.program = self.flatten_string_list(
             [results[PROGRAM] for results in results_list]
@@ -431,7 +444,7 @@ def do_make_result(viewer_result, cbmc_result):
     if viewer_result:
         if filet.all_json_files(viewer_result):
             return ResultFromJson(viewer_result)
-        fail("Expected json files: {}".format(viewer_result))
+        fail("Expected a list of json files: {}".format(viewer_result))
 
     if cbmc_result:
         if filet.all_text_files(cbmc_result):
@@ -440,9 +453,12 @@ def do_make_result(viewer_result, cbmc_result):
             return ResultFromCbmcJson(cbmc_result)
         if filet.all_xml_files(cbmc_result):
             return ResultFromCbmcXml(cbmc_result)
-        fail("Expected text files json files or xml files, not both: {}"
+        fail("Expected a list of text files, json files, or xml files: {}"
              .format(cbmc_result))
 
-    fail("Expected --viewer-result or cbmc property checking results.")
+    logging.info("make-result: nothing to do: need "
+                 "cbmc property checking results or "
+                 "--viewer-result")
+    return Result()
 
 ################################################################
