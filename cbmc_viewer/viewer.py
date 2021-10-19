@@ -33,8 +33,11 @@ def create_parser():
     )
 
     cbmc_data = parser.add_argument_group(
-        """CBMC data""",
-        """Output of 'cbmc' for property checking, coverage checking, etc."""
+        """CBMC results""",
+        """CBMC results from property checking, coverage checking, and
+        property listing.  Specify at least one of property checking
+        or coverage checking, using either "CBMC results" here or
+        "Viewer data" below."""
     )
     optionst.result(cbmc_data)
     optionst.coverage(cbmc_data)
@@ -137,8 +140,14 @@ def global_progress(msg, done=False):
 def viewer():
     """Construct the cbmc report."""
 
-    args = create_parser().parse_args()
+    parser = create_parser()
+    args = parser.parse_args()
     args = optionst.defaults(args)
+
+    if not (args.result or args.viewer_result or args.coverage or args.viewer_coverage):
+        print("Nothing to do without property checking or coverage checking results.")
+        parser.print_usage()
+        return 2 # exit with argparse.ArgumentParser.parse_args() "invalid argument" return code
 
     global_progress("CBMC viewer")
 
@@ -212,3 +221,4 @@ def viewer():
                   properties, loops, htmldir, progress)
 
     global_progress("CBMC viewer", True)
+    return 0 # exit with normal return code
