@@ -20,63 +20,63 @@ JSON_TAG = 'viewer-trace'
 ################################################################
 # Every trace step has a KIND and a LOCATION and other DETAIL
 
-VALID_FUNCTION_CALL = voluptuous.schema_builder.Schema({
+VALID_FUNCTION_CALL = voluptuous.Schema({
     'kind': 'function-call',
     'location': srcloct.VALID_SRCLOC, # function call
     'hidden': bool,
     'detail' : {
         'name': str,
-        'name-path': voluptuous.validators.Any(str, None),
+        'name-path': voluptuous.Any(str, None),
         'location': srcloct.VALID_SRCLOC # function being called
     }
 }, required=True)
 
-VALID_FUNCTION_RETURN = voluptuous.schema_builder.Schema({
+VALID_FUNCTION_RETURN = voluptuous.Schema({
     'kind': 'function-return',
     'location': srcloct.VALID_SRCLOC, # function return
     'hidden': bool,
     'detail' : {
         'name': str,
-        'name-path': voluptuous.validators.Any(str, None),
+        'name-path': voluptuous.Any(str, None),
         'location': srcloct.VALID_SRCLOC # function being returned to
     }
 }, required=True)
 
-VALID_VARIABLE_ASSIGNMENT = voluptuous.schema_builder.Schema({
+VALID_VARIABLE_ASSIGNMENT = voluptuous.Schema({
     'kind': 'variable-assignment',
     'location': srcloct.VALID_SRCLOC,
     'hidden': bool,
     'detail': {
         'lhs': str,
-        'lhs-lexical-scope': voluptuous.validators.Any(str, None),
+        'lhs-lexical-scope': voluptuous.Any(str, None),
         'rhs-value': str,
-        'rhs-binary': voluptuous.validators.Any(str, None)
+        'rhs-binary': voluptuous.Any(str, None)
     }
 }, required=True)
 
-VALID_PARAMETER_ASSIGNMENT = voluptuous.schema_builder.Schema({
+VALID_PARAMETER_ASSIGNMENT = voluptuous.Schema({
     'kind': 'parameter-assignment',
     'location': srcloct.VALID_SRCLOC,
     'hidden': bool,
     'detail': {
         'lhs': str,
-        'lhs-lexical-scope': voluptuous.validators.Any(str, None),
+        'lhs-lexical-scope': voluptuous.Any(str, None),
         'rhs-value': str,
-        'rhs-binary': voluptuous.validators.Any(str, None)
+        'rhs-binary': voluptuous.Any(str, None)
     }
 }, required=True)
 
-VALID_FAILURE = voluptuous.schema_builder.Schema({
+VALID_FAILURE = voluptuous.Schema({
     'kind': 'failure',
     'location': srcloct.VALID_SRCLOC,
     'hidden': bool,
     'detail': {
-        'property': voluptuous.validators.Any(str, None),
+        'property': voluptuous.Any(str, None),
         'reason': str
     }
 }, required=True)
 
-VALID_ASSUMPTION = voluptuous.schema_builder.Schema({
+VALID_ASSUMPTION = voluptuous.Schema({
     'kind': 'assumption',
     'location': srcloct.VALID_SRCLOC,
     'hidden': bool,
@@ -85,8 +85,8 @@ VALID_ASSUMPTION = voluptuous.schema_builder.Schema({
     }
 }, required=True)
 
-VALID_STEP = voluptuous.schema_builder.Schema(
-    voluptuous.validators.Any(
+VALID_STEP = voluptuous.Schema(
+    voluptuous.Any(
         VALID_FUNCTION_CALL,
         VALID_FUNCTION_RETURN,
         VALID_VARIABLE_ASSIGNMENT,
@@ -96,15 +96,15 @@ VALID_STEP = voluptuous.schema_builder.Schema(
     ), required=True
 )
 
-VALID_TRACE = voluptuous.schema_builder.Schema(
+VALID_TRACE = voluptuous.Schema(
     [VALID_STEP],
     required=True
 )
 
-VALID_TRACES = voluptuous.schema_builder.Schema({
+VALID_TRACES = voluptuous.Schema({
     'traces': {
         # failed property name -> failure trace
-        voluptuous.schema_builder.Optional(str): VALID_TRACE}
+        voluptuous.Optional(str): VALID_TRACE}
 }, required=True)
 
 ################################################################

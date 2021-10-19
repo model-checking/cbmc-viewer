@@ -22,10 +22,10 @@ JSON_TAG = 'viewer-loop'
 ################################################################
 # Loop validator
 
-VALID_LOOP = voluptuous.schema_builder.Schema({
+VALID_LOOP = voluptuous.Schema({
     'loops': {
         # loop name -> loop srcloc
-        voluptuous.schema_builder.Optional(str): srcloct.VALID_SRCLOC
+        voluptuous.Optional(str): srcloct.VALID_SRCLOC
     }
 }, required=True)
 

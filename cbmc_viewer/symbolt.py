@@ -21,10 +21,10 @@ JSON_TAG = 'viewer-symbol'
 ################################################################
 # Data validator for symbol object
 
-VALID_SYMBOL = voluptuous.schema_builder.Schema({
+VALID_SYMBOL = voluptuous.Schema({
     'symbols': {
         # symbol name -> symbol srcloc
-        voluptuous.schema_builder.Optional(str) : srcloct.VALID_SRCLOC
+        voluptuous.Optional(str) : srcloct.VALID_SRCLOC
     }
 }, required=True)
 

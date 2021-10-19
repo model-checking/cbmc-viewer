@@ -18,13 +18,13 @@ from cbmc_viewer import util
 ################################################################
 # Data passed to jinja to generate annotated code from code.jinja.html
 
-VALID_LINE = voluptuous.schema_builder.Schema({
+VALID_LINE = voluptuous.Schema({
     'num': int,
-    'status': voluptuous.validators.Any('hit', 'missed', 'both', 'none'),
+    'status': voluptuous.Any('hit', 'missed', 'both', 'none'),
     'code': str,
 }, required=True)
 
-VALID_CODE = voluptuous.schema_builder.Schema({
+VALID_CODE = voluptuous.Schema({
     'filename': str,
     'path_to_root': str,
     'lines': [VALID_LINE],
