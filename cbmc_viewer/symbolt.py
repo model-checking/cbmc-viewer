@@ -34,10 +34,10 @@ VALID_SYMBOL = voluptuous.schema_builder.Schema({
 class Symbol:
     """A mapping from symbols to source locations."""
 
-    def __init__(self, symbols):
+    def __init__(self, symbols=None):
         """Save and validate a mapping from symbols to source locations."""
 
-        self.symbols = symbols
+        self.symbols = symbols or {}
 
         # show progress: symbol validation can be slow on large tables
         logging.info('Validating symbol definitions...')
@@ -240,7 +240,7 @@ def fail(msg):
     logging.info(msg)
     raise UserWarning(msg)
 
-def do_make_symbol(viewer_symbol, make_source,
+def do_make_symbol(viewer_symbol, viewer_source,
                    goto, wkdir, srcdir, files):
     """Implementation of make-symbol."""
 
@@ -255,8 +255,8 @@ def do_make_symbol(viewer_symbol, make_source,
         logging.info("Symbols by SymbolFromJson")
         return SymbolFromJson(viewer_symbol)
 
-    if make_source:
-        sources = sourcet.SourceFromJson(make_source)
+    if viewer_source:
+        sources = sourcet.SourceFromJson(viewer_source)
         srcdir = sources.root
         files = sources.files
 
@@ -267,6 +267,10 @@ def do_make_symbol(viewer_symbol, make_source,
         logging.info("Symbols by SymbolFromGoto")
         return SymbolFromGoto(goto, wkdir, srcdir)
 
-    fail("Unable to generate a symbol table (is ctags installed?).")
+    logging.info("make-symbol: nothing to do: need "
+                 "--goto and --wkdir and --srcdir or "
+                 "--viewer-source or"
+                 "--viewer-symbol")
+    return Symbol()
 
 ################################################################

@@ -129,10 +129,10 @@ OVERALL_COVERAGE = voluptuous.schema_builder.Schema(LINES_COVERED)
 
 VALID_COVERAGE = voluptuous.schema_builder.Schema(
     {
-        'coverage': RAW_COVERAGE_DATA,
-        'line_coverage': LINE_COVERAGE,
-        'function_coverage': FUNCTION_COVERAGE,
-        'overall_coverage': OVERALL_COVERAGE
+        'coverage': voluptuous.validators.Any(RAW_COVERAGE_DATA, {}),
+        'line_coverage': voluptuous.validators.Any(LINE_COVERAGE, {}),
+        'function_coverage': voluptuous.validators.Any(FUNCTION_COVERAGE, {}),
+        'overall_coverage': voluptuous.validators.Any(OVERALL_COVERAGE, {})
     }, required=True
 )
 
@@ -142,8 +142,10 @@ VALID_COVERAGE = voluptuous.schema_builder.Schema(
 class Coverage:
     """CBMC coverage checking results"""
 
-    def __init__(self, coverage_list):
+    def __init__(self, coverage_list=None):
         """Load CBMC coverage data."""
+
+        coverage_list = coverage_list or []
 
         # TODO: distinguish between coverage of source code and proof code
 
@@ -222,7 +224,7 @@ def merge_coverage_data(coverage_list):
                     coverage[filename][func][line] = cov
 
     try:
-        RAW_COVERAGE_DATA(coverage)
+        coverage and RAW_COVERAGE_DATA(coverage)
     except voluptuous.error.Error as error:
         raise UserWarning("Error merging coverage data: {}".format(error)) from error
     return coverage
@@ -270,6 +272,9 @@ def extract_function_coverage(coverage):
 # overall_coverage: (percentage, hit, total)
 def extract_overall_coverage(function_coverage):
     """Extract overall coverage from function coverage data."""
+
+    if not function_coverage:
+        return {}
 
     hit = 0
     total = 0
@@ -556,8 +561,9 @@ def do_make_coverage(viewer_coverage, srcdir, cbmc_coverage):
         fail("Expected json files or xml files, not both: {}"
              .format(cbmc_coverage))
 
-    fail("Expected --viewer-coverage or --srcdir and cbmc coverage results.")
-
-
+    logging.info("make-coverage: nothing to do: need "
+                 "cbmc coverage checking results and --srcdir or "
+                 "--viewer-coverage")
+    return Coverage()
 
 ################################################################

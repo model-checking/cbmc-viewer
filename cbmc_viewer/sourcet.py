@@ -58,12 +58,13 @@ class Source:
     class itself maintains these paths with a consistent representation.
     """
 
-    def __init__(self, root, files, sloc=False):
+    def __init__(self, root=None, files=None, sloc=False):
 
         # Absolute path to the source root (initialized by subclass)
-        self.root = srcloct.abspath(root)
+        self.root = srcloct.abspath(root) if root else ''
 
         # Absolute paths to all source files (initialized by subclass)
+        files = files or []
         self.all_files = sorted({srcloct.abspath(path) for path in files})
 
         # Relative paths to those source files under the source root
@@ -76,9 +77,6 @@ class Source:
             lines_of_code = self.sloc(self.files, self.root)
             if lines_of_code:
                 self.lines_of_code = lines_of_code
-
-        if not self.all_files:
-            raise UserWarning("The list of source files is empty.")
 
         self.validate()
 
@@ -497,6 +495,7 @@ def do_make_source(viewer_source, goto, source_method, srcdir,
         logging.info("Sources by SourceFromWalk")
         return SourceFromWalk(srcdir, exclude, extensions)
 
-    fail("Unable to list source files.")
+    logging.info("make-source: nothing to do")
+    return Source()
 
 ################################################################

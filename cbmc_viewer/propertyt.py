@@ -57,8 +57,10 @@ def key(name):
 class Property:
     """CBMC properties checked during property checking."""
 
-    def __init__(self, property_lists):
+    def __init__(self, property_lists=None):
         """Load CBMC properties from lists of properties."""
+
+        property_lists = property_lists or []
 
         def handle_duplicates(name, defn1, defn2):
             logging.warning("Found duplicate property definition: "
@@ -223,6 +225,9 @@ def do_make_property(viewer_property, cbmc_property, srcdir):
         fail("Expected json files or xml files, not both: {}"
              .format(cbmc_property))
 
-    fail("Expected --viewer-property or --srcdir and cbmc property output.")
+    logging.info("make-property: nothing to do: need "
+                 "cbmc property listing results (cbmc --show-properties) and --srcdir or "
+                 "--viewer-property")
+    return Property()
 
 ################################################################
