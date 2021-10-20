@@ -145,9 +145,7 @@ def viewer():
     args = optionst.defaults(args)
 
     if not (args.result or args.viewer_result or args.coverage or args.viewer_coverage):
-        print("Nothing to do without property checking or coverage checking results.")
-        parser.print_usage()
-        return 2 # exit with argparse.ArgumentParser.parse_args() "invalid argument" return code
+        parser.error("Need property checking results or coverage checking results.")
 
     global_progress("CBMC viewer")
 
