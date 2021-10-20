@@ -206,9 +206,6 @@ def build_ninja(jobs, debug=False):
             "rule": proof_name
         })
 
-    print('builds', builds)
-
-
     with open("build.ninja", "w", encoding='utf-8') as handle:
         writer = ninja.ninja_syntax.Writer(handle)
         for rule in rules:
