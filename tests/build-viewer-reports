@@ -20,6 +20,8 @@ import logging
 import shutil
 import subprocess
 
+import ninja
+
 ################################################################
 # Command line arguments
 
@@ -181,6 +183,50 @@ def copy_viewer_reports(jobs, reports):
         shutil.copytree(path, reports/path, dirs_exist_ok=True)
 
 ################################################################
+# Run cbmc-viewer commands concurrently with ninja
+
+def build_ninja(jobs, debug=False):
+    """Build ninja file for running cbmc-viewer commands"""
+
+    rules, builds = [], []
+    for job in jobs:
+        report_dir = Path(job[REPORT])
+        proof_dir = report_dir.parent
+        proof_name = proof_dir.name
+        cbmc_viewer = job[COMMAND]
+
+        rules.append({
+            "name": proof_name,
+            "description": proof_name,
+            "command": cbmc_viewer + ("" if debug else " >/dev/null") + " 2>&1"
+        })
+        builds.append({
+            "inputs": [],
+            "outputs": str(report_dir),
+            "rule": proof_name
+        })
+
+    print('builds', builds)
+
+
+    with open("build.ninja", "w", encoding='utf-8') as handle:
+        writer = ninja.ninja_syntax.Writer(handle)
+        for rule in rules:
+            writer.rule(**rule)
+            writer.newline()
+        for build in builds:
+            writer.build(**build)
+            writer.newline()
+
+def run_ninja(verbose=False):
+    """Run ninja to run cbmc-viewer commands"""
+
+    cmd = ['ninja'] + (['--verbose'] if verbose else [])
+    logging.debug("Running %s", ' '.join(cmd))
+    subprocess.run(cmd, check=True)
+
+
+################################################################
 
 def main():
     """Rebuild and save cbmc-viewer reports."""
@@ -193,7 +239,8 @@ def main():
 
     if not args.copy_only:
         delete_viewer_reports(jobs)
-        build_viewer_reports(jobs)
+        build_ninja(jobs, args.debug)
+        run_ninja(args.verbose)
     copy_viewer_reports(jobs, args.results)
 
 if __name__ == '__main__':
