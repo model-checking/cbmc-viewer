@@ -16,11 +16,11 @@ VALID_SUMMARY_DATA = voluptuous.Schema({
     # coverage section of the summary
     'coverage': {
         'overall': voluptuous.Any(
-            voluptuous.Schema({
+            {
                 'percentage': float, # percentage of lines hit
                 'hit': int, # lines hit
                 'total': int # lines total
-            }),
+            },
             {}
         ),
         'function': [{

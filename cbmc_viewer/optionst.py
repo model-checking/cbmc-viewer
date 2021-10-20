@@ -27,6 +27,7 @@ def srcdir(parser):
 
     parser.add_argument(
         '--srcdir',
+        type=os.path.abspath,
         help="""
         The source directory.  The root of the source tree.
         """
@@ -39,6 +40,7 @@ def wkdir(parser):
     parser.add_argument(
         '--wkdir',
         default=".",
+        type=os.path.abspath,
         help="""
         The working directory in source locations in the goto binary
         (and omitted when source locations are printed in textual form).
@@ -54,6 +56,7 @@ def reportdir(parser):
     parser.add_argument(
         '--reportdir',
         default='report',
+        type=os.path.abspath,
         help="""
         The report directory.  Write the final report to this directory.
         (Default: %(default)s)
