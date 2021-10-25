@@ -3,7 +3,27 @@
 
 """Miscellaneous functions."""
 
+import logging
 import os
+
+################################################################
+
+def flatten(groups):
+    """Flatten a list of lists to a single list"""
+
+    return [item
+            for group in groups if group is not None
+            for item in group if item is not None]
+
+def choose(items):
+    """Choose an item from a list (use a deterministic choice)"""
+
+    items = sorted({item for item in items if item is not None})
+    if len(items) != 1:
+        logging.debug("No unique element in %s", items)
+    return items[0] if items else None
+
+################################################################
 
 def merge_dicts(dicts, handle_duplicate=None):
     """Merge a list of dictionaries.
@@ -31,6 +51,8 @@ def merge_dicts(dicts, handle_duplicate=None):
             result[key] = val
     return result
 
+################################################################
+
 def dump(data, filename=None, directory='.'):
     """Write data to a file or stdout."""
 
@@ -44,3 +66,5 @@ def dump(data, filename=None, directory='.'):
             print(data, file=fileobj)
     else:
         print(data)
+
+################################################################
