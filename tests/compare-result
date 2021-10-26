@@ -45,7 +45,9 @@ def clean_status(result):
           # Ignore status lines with embedded path names
           not line.startswith('Unwinding loop') and
           not line.startswith('aborting path') and
-          not line.startswith('Not unwinding loop')
+          not line.startswith('Not unwinding loop') and
+          # Ignore line emitted by json and xml but not text
+          not line.startswith('Building error trace')
     ]
     return result
 
