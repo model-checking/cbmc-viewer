@@ -25,7 +25,10 @@ def env():
     if ENV is None:
         template_dir = pkg_resources.resource_filename(PACKAGE, TEMPLATES)
         ENV = jinja2.Environment(
-            loader=jinja2.FileSystemLoader(template_dir)
+            loader=jinja2.FileSystemLoader(template_dir),
+            autoescape=jinja2.select_autoescape(
+                enabled_extensions=('html'),
+                default_for_string=True)
         )
     return ENV
 
