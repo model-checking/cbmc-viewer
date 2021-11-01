@@ -1,0 +1,74 @@
+#! /usr/bin/env python3
+
+# Set emacs mode to Python
+# -*- mode: Python;-*-
+
+"""Compare make-trace output ignoring known variations in cbmc output."""
+
+import argparse
+import json
+
+def parse_arguments():
+    """Parse command-line arguments."""
+
+    parser = argparse.ArgumentParser(description=
+        'Compare make-trace output ignoring known variations in cbmc output.'
+    )
+    parser.add_argument(
+        'TRACE1',
+        help='make-trace output'
+    )
+    parser.add_argument(
+        'TRACE2',
+        help='make-trace output'
+    )
+    return parser.parse_args()
+
+def clean_step_detail(detail):
+    """Clean up step details."""
+
+    for key in ["lhs-lexical-scope", "rhs-binary", "rhs-value"]:
+        if key in detail:
+            del detail[key]
+    return detail
+
+def clean_step(step):
+    """Clean up a step."""
+
+    step["detail"] = clean_step_detail(step["detail"])
+    return step
+
+def clean_trace(trace):
+    """Clean up a trace."""
+
+    return [clean_step(step) for step in trace]
+
+def clean_traces(data):
+    """Clean up traces in output of make-traces."""
+
+    data["viewer-trace"]["traces"] = {
+        name: clean_trace(trace) for name, trace in data["viewer-trace"]["traces"].items()
+    }
+    return data
+
+def main():
+    """Compare make-trace output."""
+
+    args = parse_arguments()
+    with open(args.TRACE1, encoding='utf-8') as handle:
+        trace1 = clean_traces(json.load(handle))
+    with open(args.TRACE2, encoding='utf-8') as handle:
+        trace2 = clean_traces(json.load(handle))
+
+    with open('/tmp/trace1.json', "w", encoding='utf-8') as handle:
+        json.dump(trace1, handle, indent=2)
+    with open('/tmp/trace2.json', "w", encoding='utf-8') as handle:
+        json.dump(trace2, handle, indent=2)
+
+    if trace1 != trace2:
+        raise UserWarning(
+            f"make-trace output differs: {args.TRACE1} {args.TRACE2}"
+        )
+
+if __name__ == "__main__":
+    main()
