@@ -355,10 +355,8 @@ def parse_xml_step(step, root=None):
     """Parse a step in an xml trace."""
 
     if step.get('hidden') == 'true': # Skip most hidden steps, but...
-
         # ...don't skip a function call or return
         function_call_step = step.tag in ['function_call', 'function_return']
-
         # ...don't skip static initialization (do skip internal assignments)
         visible_assignment_step = (
             step.tag == 'assignment' and
@@ -366,6 +364,7 @@ def parse_xml_step(step, root=None):
             not step.find('full_lhs').text.startswith('return_value_')
         )
         if not function_call_step and not visible_assignment_step:
+            logging.debug('Skipping step type: %s', step.tag)
             return None
 
     kind = step.tag
@@ -422,7 +421,7 @@ def parse_xml_assignment(step, root=None):
             'lhs': step.find('full_lhs').text,
             'lhs-lexical-scope': step.get('identifier'),
             'rhs-value': step.find('full_lhs_value').text,
-            'rhs-binary': None
+            'rhs-binary': binary_as_bytes(step.find('full_lhs_value').get('binary'))
         }
     }
 
@@ -498,9 +497,17 @@ def parse_json_trace(steps, root=None):
 def parse_json_step(step, root=None):
     """Parse a step of a json trace."""
 
-    if step['hidden']:
-        # Skip hidden steps, but retain function call/return pairs
-        if step['stepType'] not in ['function-call', 'function-return']:
+    if step['hidden']: # Skip most hidden steps, but...
+        # ...don't skip a function call or return
+        function_call_step = step['stepType'] in ['function-call', 'function-return']
+        # ...don't skip static initialization (do skip internal assignments)
+        visible_assignment_step = (
+            step['stepType'] == 'assignment' and
+            not step['lhs'].startswith('__CPROVER') and
+            not step['lhs'].startswith('return_value_')
+        )
+        if not function_call_step and not visible_assignment_step:
+            logging.debug('Skipping step type: %s', step['stepType'])
             return None
 
     kind = step['stepType']
@@ -510,7 +517,14 @@ def parse_json_step(step, root=None):
               parse_json_function_return if kind == 'function-return' else
               parse_json_location_only if kind == 'location-only' else None)
     if parser is None:
-        raise UserWarning("Unknown json step type: {}".format(kind))
+        # skip uninteresting kinds of steps
+        if kind in ['loop-head']:
+            logging.debug('Skipping step type: %s', kind)
+            return None
+
+        # warn about skipping a potentially interesting kind of step
+        logging.warning('Skipping step type: %s', kind)
+        return None
 
     parsed_step = parser(step, root)
     if parsed_step:
@@ -541,7 +555,7 @@ def parse_json_assignment(step, root=None):
         raise UserWarning("Unknown json assignment type: {}".format(akind))
 
     # &v is represented as {name: pointer, data: v}
-    # NULL is represented as {name: pointer, data:{(basetype *)NULL)}
+    # NULL is represented as {name: pointer, data: {((basetype *)NULL)}
     data = step['value'].get('data')
     if step['value'].get('name') == 'pointer' and data and 'NULL' not in data:
         data = '&{}'.format(data)
@@ -554,7 +568,8 @@ def parse_json_assignment(step, root=None):
         'detail': {
             'lhs': step['lhs'],
             'lhs-lexical-scope': None,
-            'rhs-value': data or json.dumps(step['value']),
+            # jason data could be the boolean value true or false -> string
+            'rhs-value': str(data if data is not None else json.dumps(step['value'])),
             'rhs-binary': binary_as_bytes(step['value'].get('binary'))
         }
     }
@@ -569,7 +584,7 @@ def parse_json_function_call(step, root=None):
         ),
         'detail': {
             'name': step['function']['displayName'],
-            'name-path': None,
+            'name-path': step['function']['identifier'],
             'location': srcloct.json_srcloc(
                 step['function']['sourceLocation'], root
             )
@@ -586,7 +601,7 @@ def parse_json_function_return(step, root=None):
         ),
         'detail': {
             'name': step['function']['displayName'],
-            'name-path': None,
+            'name-path': step['function']['identifier'],
             'location': srcloct.json_srcloc(
                 step['function']['sourceLocation'], root
             )
