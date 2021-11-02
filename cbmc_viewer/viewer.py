@@ -10,6 +10,7 @@ and with lists of property violations and traces for each violation.
 
 import argparse
 import datetime
+import json
 import logging
 import os
 
@@ -24,6 +25,9 @@ from cbmc_viewer import resultt
 from cbmc_viewer import sourcet
 from cbmc_viewer import symbolt
 from cbmc_viewer import tracet
+
+# runtime analysis metrics
+from cbmc_viewer import memopt
 
 def create_parser():
     """Create the command line parser."""
@@ -42,6 +46,9 @@ def create_parser():
     optionst.result(cbmc_data)
     optionst.coverage(cbmc_data)
     optionst.property(cbmc_data)
+
+    # runtime analysis metrics
+    optionst.memop(cbmc_data)
 
     proof_sources = parser.add_argument_group('Sources')
     optionst.srcdir(proof_sources)
@@ -205,9 +212,18 @@ def viewer():
     dump(symbols, 'viewer-symbol.json')
     progress("Preparing symbol table", True)
 
+    if args.memop:
+        progress("Scanning memory operation call data")
+        memop = memopt.do_make_memop(args.memop,
+                                    args.srcdir)
+        dump(memop, 'viewer-memop.json')
+        progress("Scanning memory operation call data", True)
+    else:
+        memop = None
+
     config = configt.Config(args.config)
     report.report(config, sources, symbols, results, coverage, traces,
-                  properties, loops, htmldir, progress)
+                  properties, loops, memop, htmldir, progress)
 
     global_progress("CBMC viewer", True)
     return 0 # exit with normal return code
