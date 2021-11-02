@@ -376,7 +376,7 @@ def parse_xml_step(step, root=None):
 
     if parser is None:
         # skip uninteresting kinds of steps
-        if kind in ['loop-head']:
+        if kind == 'loop-head':
             logging.debug('Skipping step type: %s', kind)
             return None
 
@@ -518,7 +518,7 @@ def parse_json_step(step, root=None):
               parse_json_location_only if kind == 'location-only' else None)
     if parser is None:
         # skip uninteresting kinds of steps
-        if kind in ['loop-head']:
+        if kind == 'loop-head':
             logging.debug('Skipping step type: %s', kind)
             return None
 
