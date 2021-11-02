@@ -555,7 +555,7 @@ def parse_json_assignment(step, root=None):
         raise UserWarning("Unknown json assignment type: {}".format(akind))
 
     # &v is represented as {name: pointer, data: v}
-    # NULL is represented as {name: pointer, data: {((basetype *)NULL)}
+    # NULL is represented as {name: pointer, data: {((basetype *)NULL)}}
     data = step['value'].get('data')
     if step['value'].get('name') == 'pointer' and data and 'NULL' not in data:
         data = '&{}'.format(data)
