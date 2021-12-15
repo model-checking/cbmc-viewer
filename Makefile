@@ -62,7 +62,7 @@ undevelop:
 ################################################################
 
 install: pip
-	cd .. && sudo python3 -m pip install $(abspath dist/cbmc_viewer-2.0-py3-none-any.whl)
+	cd .. && sudo python3 -m pip install $(abspath dist/cbmc_viewer-*-py3-none-any.whl)
 
 uninstall:
 	cd .. && sudo python3 -m pip uninstall -y cbmc-viewer
