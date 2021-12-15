@@ -215,3 +215,13 @@ def xml_srcloc(cbmc_srcloc, root=None):
     )
 
 ################################################################
+
+def json_srcloc_wkdir(cbmc_srcloc):
+    """Extract working directory from a json source location"""
+    return cbmc_srcloc.get('workingDirectory')
+
+def xml_srcloc_wkdir(cbmc_srcloc):
+    """Extract working directory from an xml source location"""
+    return cbmc_srcloc.get('working-directory')
+
+################################################################
