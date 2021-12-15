@@ -1,14 +1,17 @@
-This is the CBMC Viewer version {}.
+This is CBMC Viewer version {}.
 
-To install this release, download the "PIP installation package" as $PACKAGE and run
+To install this release, download the "PIP installation package" below and run
 ```
-  sudo python3 -m pip install --upgrade $PACKAGE
+  sudo python3 -m pip install --upgrade cbmc_viewer-*.whl
 ```
 
+For best results, install [universal ctags](https://github.com/universal-ctags/ctags) or
+[exuberant ctags](https://github.com/universal-ctags/ctags) with
 
-To get the best results, install Exuberant Ctags with the following commands:
-```
-  On MacOS:   brew install ctags
-  On Ubuntu:  sudo apt-get install ctags
-  On Windows: Download from https://sourceforge.net/projects/ctags
-```
+* MacOS: `brew install universal-ctags` or `brew install ctags`
+* Ubuntu: `sudo apt install universal-ctags` or `sudo apt install ctags`
+* Windows: Follow the installation instructions in the
+  [universal-ctags](https://github.com/universal-ctags/ctags) or
+  [exuberant ctags](http://ctags.sourceforge.net/) repository.
+
+Universal ctags gives the best results.
