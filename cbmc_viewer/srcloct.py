@@ -132,29 +132,66 @@ def file_is_not_a_source_file(name):
     return os.path.isabs(name) or is_builtin(name) or is_missing(name)
 
 ################################################################
+
+def make_relative_path(srcfile, srcdir=None, wkdir=None):
+    """The relative path to the source file from the source root.
+
+    The source locations appearing in a goto program consist of
+      a source file name (goto-cc was invoked on this file)
+      a function name,
+      a line number, and
+      a working directory (goto-cc was invoked in this directory)
+
+    The source file name is either an absolute path or a relative path
+    to the source file from the working directory.  This function
+    returns a relative path to the source file from the source root.
+
+    The directories srcdir and wkdir must be absolute paths if they
+    are given, and srcfile must be an absolute path if wkdir is not
+    given.
+
+    """
+
+    assert not srcdir or os.path.isabs(srcdir)
+    assert not wkdir or os.path.isabs(wkdir)
+    assert srcfile
+    assert os.path.isabs(srcfile) or wkdir
+
+    srcdir = normpath(srcdir) if srcdir else None
+    wkdir = normpath(wkdir) if wkdir else None
+    srcfile = normpath(srcfile)
+
+    path = srcfile
+    if is_builtin(path):
+        path = builtin_name(path)
+    else:
+        path = os.path.join(wkdir, path) if wkdir else path
+        path = relpath(path, srcdir) if srcdir else path
+
+    return normpath(path)
+
+################################################################
 # Construct a viewer source location from cbmc source locations
 # appearing in cbmc output.
 
 def make_srcloc(path, func, line, wkdir, root):
     """Make a viewer source location from a CBMC source location."""
 
-    if path is None or line is None:
-        logging.info("Generating a viewer srcloc for a missing CBMC srcloc.")
+    try:
+        assert path
+        assert line
+
+        return {
+            'file': make_relative_path(path, root, wkdir), # raises AssertionError
+            'function': func,
+            'line': int(line)
+        }
+    except AssertionError:
+        logging.info(
+            "Discarding useless source location {file: %s, function: %s, line: %s}",
+            path, func, line
+        )
         return MISSING_SRCLOC
-
-    path = normpath(path)
-    if is_builtin(path):
-        path = builtin_name(path)
-    else:
-        if wkdir is not None:
-            path = normpath(os.path.join(normpath(wkdir), path))
-        if root is not None:
-            path = relpath(path, normpath(root))
-
-    if line is not None:
-        line = int(line)
-
-    return {'file': path, 'function': func, 'line': line}
 
 def text_srcloc(cbmc_srcloc, wkdir=None, root=None):
     """Parse a CBMC source location in text output."""
