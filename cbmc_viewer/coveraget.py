@@ -373,8 +373,8 @@ def load_cbmc_json(json_file, root):
         description = goal["description"]
         status = goal["status"]
         location = goal["sourceLocation"]
-        srcloc = srcloct.json_srcloc(location, root)
-        coverage = add_coverage_data(coverage, description, status, srcloc)
+        wkdir = srcloct.json_srcloc_wkdir(location)
+        coverage = add_coverage_data(coverage, description, status, wkdir, root)
 
     try:
         RAW_COVERAGE_DATA(coverage)
@@ -411,8 +411,8 @@ def load_cbmc_xml(xml_file, root):
         description = goal.get("description")
         status = goal.get("status")
         location = goal.find("location")
-        srcloc = srcloct.xml_srcloc(location, root)
-        coverage = add_coverage_data(coverage, description, status, srcloc)
+        wkdir = srcloct.xml_srcloc_wkdir(location)
+        coverage = add_coverage_data(coverage, description, status, wkdir, root)
 
     try:
         RAW_COVERAGE_DATA(coverage)
@@ -425,20 +425,57 @@ def load_cbmc_xml(xml_file, root):
 ################################################################
 # Parse coverage data
 
-def add_coverage_data(coverage, description, status, srcloc):
+def add_coverage_data(coverage, description, status, wkdir, root):
     """Add to coverage the coverage data reported for a coverage goal"""
 
     if not description:
-        logging.debug("Expected coverage data, found %s", description)
+        logging.debug("Found a missing coverage description in coverage data.")
         return coverage
+
+    # Warning: What follows assumes that all relative paths appearing
+    # in a basic block's coverage description are relative to the same
+    # working directory (the working directory in the source location
+    # labeling the basic block's coverage goal that contains the
+    # coverage description).  This is probably true.  A project can
+    # avoid this issue altogether, however, by invoking goto-cc on
+    # absolute paths, ensuring that coverage descriptions contain only
+    # absolute paths and no relative paths.
 
     hit = parse_coverage_status(status)
     locations = parse_coverage_description(description)
-    locations = clean_up_location_names(locations, srcloc)
+    locations = relative_locations(locations, wkdir, root)
 
     for path, func, line in locations:
         coverage = update_coverage(coverage, path, func, line, hit)
     return coverage
+
+def relative_locations(locations, wkdir, root):
+    """Replace locations with locations relative to the source root."""
+
+    # Warning: Some goto program transformations currently use a
+    # documentation string as a file name in source locations.  The
+    # result is a source location that has no valid relative form.  We
+    # ignore them when generating coverage data.
+
+    def relative_location(loc_file, loc_func, loc_line):
+        """The source location relative to the source root."""
+        try:
+            return (
+                srcloct.make_relative_path(loc_file, root, wkdir),
+                loc_func,
+                loc_line
+            )
+        except AssertionError: # raised by make_relative_path
+            logging.debug(
+                "Ignoring an invalid source location in coverage data:"
+                " {file: %s, function: %s, line: %s}",
+                loc_file, loc_func, loc_line
+            )
+            return None
+
+    locations = [relative_location(*loc) for loc in locations]
+    locations = [loc for loc in locations if loc is not None]
+    return locations
 
 def update_coverage(coverage, path, func, line, status):
     """Add to coverage the coverage status of a single line"""
@@ -448,31 +485,6 @@ def update_coverage(coverage, path, func, line, status):
     coverage[path][func][line] = coverage[path][func].get(line, status)
     coverage[path][func][line] = coverage[path][func][line].combine(status)
     return coverage
-
-def clean_up_location_names(locations, srcloc):
-    """Clean up file names and functions names in coverage location data"""
-
-    # Use srcloc file names: viewer source location paths are relative
-    # to the source root, cbmc source location paths (that appear in
-    # the locations extracted from cbmc output) are relative to the
-    # working directory.
-
-    # Use location function names: function names appearing in cbmc
-    # goal descriptions (and hence in locations) are "cleaner" than
-    # function names appearing in cbmc source locations (and hence in
-    # viewer source locations).
-    # Examples of "dirty" vs "clean" function names are:
-    #   inlined functions: function$link1 vs function
-    #   intrinsics: __atomic_compare_exchange vs Atomic_CompareAndSwap
-
-    srcloc_file = srcloc['file']
-    srcloc_func = srcloc['function']
-    srcloc_line = srcloc['line']
-
-    return [(srcloc_file or loc_file,
-             loc_func or srcloc_func,
-             loc_line or srcloc_line)
-            for loc_file, loc_func, loc_line in locations]
 
 ################################################################
 # Parse the basic block of code in a coverage goal
