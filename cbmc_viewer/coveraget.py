@@ -499,6 +499,9 @@ def parse_basic_block(basic_block):
 def parse_chunk(chunk):
     """Parse a chunk of coverage"""
 
+    # cbmc has added whitespace to coverage descriptions
+    chunk = chunk.strip()
+
     # The chunk has the form FILE:FUNCTION:LINES
     # Don't use split in order to allow FUNCTION to contain ':'
     first_colon, last_colon = chunk.find(':'), chunk.rfind(':')
