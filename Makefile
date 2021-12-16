@@ -47,7 +47,7 @@ pip:
 
 unpip:
 	./setup.py clean --all
-	$(RM) -r dist cbmc_viewer.egg-info
+	$(RM) -r build cbmc_viewer.egg-info dist 
 
 ################################################################
 
@@ -64,7 +64,7 @@ undevelop:
 install: pip
 	cd .. && sudo python3 -m pip install $(abspath dist/cbmc_viewer-*-py3-none-any.whl)
 
-uninstall:
+uninstall: unpip
 	cd .. && sudo python3 -m pip uninstall -y cbmc-viewer
 
 ################################################################

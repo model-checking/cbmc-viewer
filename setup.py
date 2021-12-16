@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""Package set up script for cbmc-viewer."""
+"""The setuptools packaging script for cbmc-viewer."""
 
 import setuptools
 
