@@ -4,6 +4,7 @@
 """Jinja templates."""
 
 import jinja2
+from jinja2 import select_autoescape
 
 import pkg_resources
 
@@ -26,7 +27,7 @@ def env():
         template_dir = pkg_resources.resource_filename(PACKAGE, TEMPLATES)
         ENV = jinja2.Environment(
             loader=jinja2.FileSystemLoader(template_dir),
-            autoescape=jinja2.select_autoescape(
+            autoescape=select_autoescape(
                 enabled_extensions=('html'),
                 default_for_string=True)
         )
