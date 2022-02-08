@@ -225,7 +225,7 @@ def parse_text_traces(textfile, root=None, wkdir=None):
             break
         raise UserWarning("Unknown block: {}".format(block))
 
-    return traces
+    return list(visible_steps(traces))
 
 def parse_text_assignment(string):
     """Parse an assignment in a text trace."""
@@ -349,23 +349,10 @@ def parse_xml_trace(steps, root=None):
     """Parse a single xml trace."""
 
     trace = [parse_xml_step(step, root) for step in steps]
-    return [step for step in trace if step is not None]
+    return list(visible_steps(trace))
 
 def parse_xml_step(step, root=None):
     """Parse a step in an xml trace."""
-
-    if step.get('hidden') == 'true': # Skip most hidden steps, but...
-        # ...don't skip a function call or return
-        function_call_step = step.tag in ['function_call', 'function_return']
-        # ...don't skip static initialization (do skip internal assignments)
-        visible_assignment_step = (
-            step.tag == 'assignment' and
-            not step.find('full_lhs').text.startswith('__CPROVER') and
-            not step.find('full_lhs').text.startswith('return_value_')
-        )
-        if not function_call_step and not visible_assignment_step:
-            logging.debug('Skipping step type: %s', step.tag)
-            return None
 
     kind = step.tag
     parser = (parse_xml_failure if kind == 'failure' else
@@ -492,23 +479,10 @@ def parse_json_trace(steps, root=None):
     """Parse a single of json trace."""
 
     trace = [parse_json_step(step, root) for step in steps]
-    return [step for step in trace if step is not None]
+    return list(visible_steps(trace))
 
 def parse_json_step(step, root=None):
     """Parse a step of a json trace."""
-
-    if step['hidden']: # Skip most hidden steps, but...
-        # ...don't skip a function call or return
-        function_call_step = step['stepType'] in ['function-call', 'function-return']
-        # ...don't skip static initialization (do skip internal assignments)
-        visible_assignment_step = (
-            step['stepType'] == 'assignment' and
-            not step['lhs'].startswith('__CPROVER') and
-            not step['lhs'].startswith('return_value_')
-        )
-        if not function_call_step and not visible_assignment_step:
-            logging.debug('Skipping step type: %s', step['stepType'])
-            return None
 
     kind = step['stepType']
     parser = (parse_json_failure if kind == 'failure' else
@@ -707,6 +681,55 @@ def strip_external_srclocs(trace):
             if step['detail']['location']['file'].startswith('/'):
                 step['detail']['location'] = srcloct.MISSING_SRCLOC
     return trace
+
+################################################################
+
+def visible_steps(trace):
+    """A generator for the visible steps appearing in a trace.
+
+    A hidden step is generally an internal step of CBMC that is of no
+    interest to a user debugging a code issue raised by CBMC, but
+    there are two exceptions:
+
+    1. Function invocations and returns should be visible.  CBMC marks
+       malloc invocation as visible and return as hidden.
+
+    2. Initialization of static data should be visible.  CBMC marks
+       assignments initializing static data within CBMC initialization
+       as hidden.
+
+    This generator iterates through the visible steps after correcting
+    these mischaracterizations of hidden and visible steps.
+    """
+
+    initializing = True
+    for step in trace:
+        if step is None:
+            continue
+
+        # make function invocation and return visible
+        if step['kind'] == 'function-call':
+            if step['detail']['name'] == '__CPROVER_initialize':
+                initializing = True
+            yield step
+            continue
+        if step['kind'] == 'function-return':
+            if step['detail']['name'] == '__CPROVER_initialize':
+                initializing = False
+            yield step
+            continue
+
+        # make initialization visible
+        if step['kind'] == 'variable-assignment' and initializing:
+            # skip internal initialization
+            if step['detail']['lhs'].startswith('__CPROVER'):
+                continue
+            yield step
+            continue
+
+        # Make visible steps visible
+        if not step['hidden']:
+            yield step
 
 ################################################################
 # make-trace
