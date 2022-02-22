@@ -4,9 +4,6 @@
 .\#*
 
 /cbmc-viewer
-/cbmc_viewer.egg-info
-/easy_install
-/easy_install-*
 /make-coverage
 /make-loop
 /make-property
@@ -15,7 +12,9 @@
 /make-source
 /make-symbol
 /make-trace
-/build
+/src/cbmc_viewer.egg-info
+
 /dist
 /.tox
+
 __pycache__/
