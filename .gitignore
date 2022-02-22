@@ -14,7 +14,10 @@
 /make-trace
 /src/cbmc_viewer.egg-info
 
+/build
 /dist
 /.tox
 
+.litani_cache_dir
+.ninja_log
 __pycache__/
