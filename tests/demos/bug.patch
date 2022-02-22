@@ -1,0 +1,136 @@
+From 836159fb8f508ac7e3305d2ef75b858d0e3a8fba Mon Sep 17 00:00:00 2001
+From: "Mark R. Tuttle" <mrtuttle@amazon.com>
+Date: Thu, 5 Aug 2021 14:45:20 +0000
+Subject: [PATCH] Debug
+
+---
+ test/cbmc/sources/http_cbmc_state.c | 34 +++++++++++++++--------------
+ 1 file changed, 18 insertions(+), 16 deletions(-)
+
+diff --git a/test/cbmc/sources/http_cbmc_state.c b/test/cbmc/sources/http_cbmc_state.c
+index f61be4e..82cf1bc 100644
+--- a/test/cbmc/sources/http_cbmc_state.c
++++ b/test/cbmc/sources/http_cbmc_state.c
+@@ -44,7 +44,7 @@ HTTPRequestHeaders_t * allocateHttpRequestHeaders( HTTPRequestHeaders_t * pReque
+ 
+     if( pRequestHeaders != NULL )
+     {
+-        __CPROVER_assume( pRequestHeaders->bufferLen < CBMC_MAX_OBJECT_SIZE );
++        // __CPROVER_assume( pRequestHeaders->bufferLen < CBMC_MAX_OBJECT_SIZE );
+         pRequestHeaders->pBuffer = mallocCanFail( pRequestHeaders->bufferLen );
+     }
+ 
+@@ -73,13 +73,13 @@ HTTPRequestInfo_t * allocateHttpRequestInfo( HTTPRequestInfo_t * pRequestInfo )
+ 
+     if( pRequestInfo != NULL )
+     {
+-        __CPROVER_assume( pRequestInfo->methodLen < CBMC_MAX_OBJECT_SIZE );
++        // __CPROVER_assume( pRequestInfo->methodLen < CBMC_MAX_OBJECT_SIZE );
+         pRequestInfo->pMethod = mallocCanFail( pRequestInfo->methodLen );
+ 
+-        __CPROVER_assume( pRequestInfo->hostLen < CBMC_MAX_OBJECT_SIZE );
++        // __CPROVER_assume( pRequestInfo->hostLen < CBMC_MAX_OBJECT_SIZE );
+         pRequestInfo->pHost = mallocCanFail( pRequestInfo->hostLen );
+ 
+-        __CPROVER_assume( pRequestInfo->pathLen < CBMC_MAX_OBJECT_SIZE );
++        // __CPROVER_assume( pRequestInfo->pathLen < CBMC_MAX_OBJECT_SIZE );
+         pRequestInfo->pPath = mallocCanFail( pRequestInfo->pathLen );
+     }
+ 
+@@ -111,10 +111,10 @@ HTTPResponse_t * allocateHttpResponse( HTTPResponse_t * pResponse )
+ 
+     if( pResponse != NULL )
+     {
+-        __CPROVER_assume( pResponse->bufferLen < CBMC_MAX_OBJECT_SIZE );
++        // __CPROVER_assume( pResponse->bufferLen < CBMC_MAX_OBJECT_SIZE );
+         pResponse->pBuffer = mallocCanFail( pResponse->bufferLen );
+ 
+-        __CPROVER_assume( headerOffset <= pResponse->bufferLen );
++        // __CPROVER_assume( headerOffset <= pResponse->bufferLen );
+ 
+         if( pResponse->pBuffer != NULL )
+         {
+@@ -128,7 +128,7 @@ HTTPResponse_t * allocateHttpResponse( HTTPResponse_t * pResponse )
+         {
+             /* The length of the headers MUST be between the start of the
+              * headers and the end of the buffer. */
+-            __CPROVER_assume( pResponse->headersLen < ( pResponse->bufferLen - headerOffset ) );
++            // __CPROVER_assume( pResponse->headersLen < ( pResponse->bufferLen - headerOffset ) );
+         }
+ 
+         if( pResponse->bufferLen == 0 )
+@@ -137,7 +137,7 @@ HTTPResponse_t * allocateHttpResponse( HTTPResponse_t * pResponse )
+         }
+         else
+         {
+-            __CPROVER_assume( bodyOffset <= pResponse->bufferLen );
++            // __CPROVER_assume( bodyOffset <= pResponse->bufferLen );
+         }
+ 
+         if( pResponse->pBuffer != NULL )
+@@ -150,7 +150,7 @@ HTTPResponse_t * allocateHttpResponse( HTTPResponse_t * pResponse )
+          * of the buffer. */
+         if( pResponse->pBody )
+         {
+-            __CPROVER_assume( pResponse->bodyLen < ( pResponse->bufferLen - bodyOffset ) );
++            // __CPROVER_assume( pResponse->bodyLen < ( pResponse->bufferLen - bodyOffset ) );
+         }
+     }
+ 
+@@ -207,11 +207,11 @@ http_parser * allocateHttpSendParser( http_parser * pHttpParser )
+     if( pHttpParser == NULL )
+     {
+         pHttpParser = malloc( sizeof( http_parser ) );
+-        __CPROVER_assume( pHttpParser != NULL );
++        // __CPROVER_assume( pHttpParser != NULL );
+     }
+ 
+     pHttpParsingContext = allocateHttpSendParsingContext( NULL );
+-    __CPROVER_assume( isValidHttpSendParsingContext( pHttpParsingContext ) );
++    // __CPROVER_assume( isValidHttpSendParsingContext( pHttpParsingContext ) );
+     pHttpParser->data = ( void * ) pHttpParsingContext;
+ 
+     return pHttpParser;
+@@ -225,16 +225,18 @@ HTTPParsingContext_t * allocateHttpSendParsingContext( HTTPParsingContext_t * pH
+     if( pHttpParsingContext == NULL )
+     {
+         pHttpParsingContext = malloc( sizeof( HTTPParsingContext_t ) );
+-        __CPROVER_assume( pHttpParsingContext != NULL );
++        // __CPROVER_assume( pHttpParsingContext != NULL );
+ 
+         pResponse = allocateHttpResponse( NULL );
+-        __CPROVER_assume( isValidHttpResponse( pResponse ) &&
++        /*
++	__CPROVER_assume( isValidHttpResponse( pResponse ) &&
+                           pResponse != NULL &&
+                           pResponse->pBuffer != NULL &&
+                           pResponse->bufferLen > 0 );
++	*/
+         pHttpParsingContext->pResponse = pResponse;
+ 
+-        __CPROVER_assume( bufferOffset < pResponse->bufferLen );
++        // __CPROVER_assume( bufferOffset < pResponse->bufferLen );
+         pHttpParsingContext->pBufferCur = pResponse->pBuffer + bufferOffset;
+     }
+ 
+@@ -258,7 +260,7 @@ http_parser * allocateHttpReadHeaderParser( http_parser * pHttpParser )
+     if( pHttpParser == NULL )
+     {
+         pHttpParser = malloc( sizeof( http_parser ) );
+-        __CPROVER_assume( pHttpParser != NULL );
++        // __CPROVER_assume( pHttpParser != NULL );
+     }
+ 
+     pFindHeaderContext = allocateFindHeaderContext( NULL );
+@@ -272,7 +274,7 @@ findHeaderContext_t * allocateFindHeaderContext( findHeaderContext_t * pFindHead
+     if( pFindHeaderContext == NULL )
+     {
+         pFindHeaderContext = malloc( sizeof( findHeaderContext_t ) );
+-        __CPROVER_assume( pFindHeaderContext != NULL );
++        // __CPROVER_assume( pFindHeaderContext != NULL );
+     }
+ 
+     return pFindHeaderContext;
+-- 
+2.25.1
+
