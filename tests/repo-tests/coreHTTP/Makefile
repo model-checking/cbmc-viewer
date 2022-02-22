@@ -40,8 +40,8 @@ PROOFS = \
 #	HTTPClient_Send \
 
 # Comparison scripts
-BUILD_REPORTS = $(abspath ../build-viewer-reports)
-COMPARE_REPORTS = $(abspath ../compare-viewer-reports)
+BUILD_REPORTS = $(abspath ../../bin/build-viewer-reports)
+COMPARE_REPORTS = $(abspath ../../bin/compare-viewer-reports)
 
 REPORTS1 = $(abspath reports1)
 REPORTS2 = $(abspath reports2)
