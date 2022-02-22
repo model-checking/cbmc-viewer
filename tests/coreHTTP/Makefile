@@ -60,7 +60,6 @@ clone:
 	git clone $(REPO_URL) $(REPO_DIR)
 	cd $(REPO_DIR); git submodule update --init --checkout --recursive
 	cd $(REPO_DIR); git apply $(abspath bug.patch)
-	cd $(REPO_DIR)/$(TEMPLATE_DIR); git apply $(abspath run-cbmc-proofs.patch)
 
 # Run the proofs and build the reports (using any version of viewer)
 #   EXTERNAL_SAT_SOLVER= to ensure cbmc uses minisat and not kissat
