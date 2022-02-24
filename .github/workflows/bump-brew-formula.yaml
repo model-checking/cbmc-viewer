@@ -1,0 +1,23 @@
+on:
+  release:
+    types: [created]
+
+name: Upload additional release assets
+jobs:
+  homebrew-pr:
+    name: Homebrew Bump Formula PR
+    runs-on: macos-10.15
+    steps:
+      - name: Get release tag name
+        run: echo "RELEASE_TAG=${GITHUB_REF/refs\/tags\/}" >> $GITHUB_ENV
+      - name: Configure git user name and email
+        uses: Homebrew/actions/git-user-config@master
+        with:
+          username: aws-viewer-for-cbmc-release-ci
+      - name: Create homebrew PR
+        run: |
+          brew update-reset
+          brew tap aws/tap
+          brew bump-formula-pr --tag "$RELEASE_TAG" --revision "$GITHUB_SHA" aws/tap/cbmc-viewer
+        env:
+          HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.RELEASE_CI_ACCESS_TOKEN }}
