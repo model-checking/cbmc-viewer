@@ -1,11 +1,69 @@
-## AWS viewer for CBMC
+# CBMC Viewer
 
 [CBMC Viewer](https://github.com/awslabs/aws-viewer-for-cbmc) scans
-the output of CBMC and produces a summary that can be opened in any
-web browser to understand and debug CBMC findings.
-[CBMC](https://github.com/diffblue/cbmc) is a "C Bounded Model
-Checker" that has been widely-used to demonstrate the correctness of
-critical C code.
+the output of CBMC and produces a report that can be opened in a
+web brower to view and debug CBMC findings.
+[CBMC](https://github.com/diffblue/cbmc) is a Bounded Model Checker for C.
+It checks memory safety (including array bounds checks and
+checks for the safe use of pointers), checks for failures of
+user-specified assertions, and checks for instances of undefined behavior.
+
+## Example
+
+Here is a simple example of using cbmc-viewer.
+
+First, follow the instructions on the
+[CBMC release page](https://github.com/diffblue/cbmc/releases/latest)
+to install [CBMC](https://github.com/diffblue/cbmc).
+Installation on MacOS is just `brew install cbmc`.
+
+Second, create a source file `main.c` containing
+```
+    #include <stdlib.h>
+
+    static int global;
+
+    int main() {
+      int *ptr = malloc(sizeof(int));
+
+      assert(global > 0);
+      assert(*ptr > 0);
+
+      return 0;
+    }
+```
+and run the commands
+```
+    goto-cc -o main.goto main.c
+    cbmc main.goto --trace --xml-ui > result.xml
+    cbmc main.goto --cover location --xml-ui > coverage.xml
+    cbmc main.goto --show-properties --xml-ui > property.xml
+    cbmc-viewer --goto main.goto --result result.xml --coverage coverage.xml --property property.xml --srcdir .
+```
+and open the report created by cbmc-viewer in a web browser with
+```
+    open report/html/index.html
+```
+
+What you will see is
+
+* A *coverage report* summarizing what lines of source code were
+  exercised by cbmc.  In this case, coverage is 100%.  Clicking on `main`,
+  you can see the source code for `main` annotated with coverage data
+  (all lines are green because all lines were hit).
+
+* A *bug report* summarizing what issues cbmc found with the code. In this case,
+  the bugs are violations of the assertions because, for example, it is possible
+  that the uninitialized integer allocated on the heap contains a negative value.
+  For each bug reported, there is a link to
+
+    * The line of code where the bug occurred.
+
+    * An error trace showing the steps of the program leading to the bug.
+      For each step, there a link to the line of code that generated the step,
+      making it easy to follow the error trace and root cause the bug.
+
+## Tools
 
 This package provides a set of command-line tools that scan the
 verification artifacts produced by CBMC to answer interesting
@@ -26,18 +84,18 @@ results within a integrated development environment.
 
 For more information, see cbmc-viewer
 
-* [cbmc-viewer](cbmc_viewer/doc/cbmc-viewer.md)
+* [cbmc-viewer](https://github.com/awslabs/aws-viewer-for-cbmc/blob/master/src/cbmc_viewer/doc/cbmc-viewer.md)
 
 and the supporting command-line tools
 
-* [make-coverage](cbmc_viewer/doc/make-coverage.md)
-* [make-loop](cbmc_viewer/doc/make-loop.md)
-* [make-property](cbmc_viewer/doc/make-property.md)
-* [make-reachable](cbmc_viewer/doc/make-reachable.md)
-* [make-result](cbmc_viewer/doc/make-result.md)
-* [make-source](cbmc_viewer/doc/make-source.md)
-* [make-symbol](cbmc_viewer/doc/make-symbol.md)
-* [make-trace](cbmc_viewer/doc/make-trace.md)
+* [make-coverage](https://github.com/awslabs/aws-viewer-for-cbmc/blob/master/src/cbmc_viewer/doc/make-coverage.md)
+* [make-loop](https://github.com/awslabs/aws-viewer-for-cbmc/blob/master/src/cbmc_viewer/doc/make-loop.md)
+* [make-property](https://github.com/awslabs/aws-viewer-for-cbmc/blob/master/src/cbmc_viewer/doc/make-property.md)
+* [make-reachable](https://github.com/awslabs/aws-viewer-for-cbmc/blob/master/src/cbmc_viewer/doc/make-reachable.md)
+* [make-result](https://github.com/awslabs/aws-viewer-for-cbmc/blob/master/src/cbmc_viewer/doc/make-result.md)
+* [make-source](https://github.com/awslabs/aws-viewer-for-cbmc/blob/master/src/cbmc_viewer/doc/make-source.md)
+* [make-symbol](https://github.com/awslabs/aws-viewer-for-cbmc/blob/master/src/cbmc_viewer/doc/make-symbol.md)
+* [make-trace](https://github.com/awslabs/aws-viewer-for-cbmc/blob/master/src/cbmc_viewer/doc/make-trace.md)
 
 For all commands, the --help option prints detailed documentation of
 the command line arguments, and the --verbose and --debug options may
@@ -45,19 +103,29 @@ help figure out what is going on when something unexpected happens.
 
 ## Installation
 
-General users should follow the installation instructions on the
+Most people should just follow the instructions on the
 [release page](https://github.com/awslabs/aws-viewer-for-cbmc/releases/latest).
 
-Developers should install the package in "development mode:"
+Developers can install the package in Python "development mode" as follows.
+First, follow the instructions on the
+[release page](https://github.com/awslabs/aws-viewer-for-cbmc/releases/latest) to install the dependencies,
+then
 
-* Follow the instructions on the
-  [release page](https://github.com/awslabs/aws-viewer-for-cbmc/releases/latest)
-  to install the dependencies.
-* Clone the repository with `git clone https://github.com/awslabs/aws-viewer-for-cbmc.git cbmc-viewer`
-* To install development mode, in the directory `cbmc-viewer`,
-  run `make develop` followed by `export PATH=$(pwd):$PATH`.
-* To uninstall development mode, in the directory `cbmc-viewer`,
-  run `make undevelop`.
+* Clone the repository with
+  ```
+      git clone https://github.com/awslabs/aws-viewer-for-cbmc.git cbmc-viewer
+  ```
+* Install development mode with
+  ```
+      cd cbmc-viewer
+      make develop
+      export PATH=$(pwd):$PATH
+  ```
+* Uninstall development mode with
+  ```
+      cd cbmc-viewer
+      make undevelop
+  ```
 
 ## Security
 
