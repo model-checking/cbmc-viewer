@@ -32,10 +32,10 @@ pylint:
 ################################################################
 # Build the distribution package
 
-build pip:
+build:
 	python3 -m build
 
-unbuild unpip:
+unbuild:
 	$(RM) -r dist
 
 ################################################################
