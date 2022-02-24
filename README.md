@@ -1,48 +1,46 @@
-# CBMC Viewer
+## CBMC Viewer
 
-[CBMC Viewer](https://github.com/awslabs/aws-viewer-for-cbmc) scans
-the output of CBMC and produces a report that can be opened in a
-web brower to view and debug CBMC findings.
 [CBMC](https://github.com/diffblue/cbmc) is a Bounded Model Checker for C.
-It checks memory safety (including array bounds checks and
-checks for the safe use of pointers), checks for failures of
-user-specified assertions, and checks for instances of undefined behavior.
+It can prove that (for computations of bounded depth) a C program exhibits
+no memory safe errors (no buffer overflows, no invalid pointers, etc),
+no undefined behaviors, and no failures of assertions in the code.
+[CBMC Viewer](https://github.com/awslabs/aws-viewer-for-cbmc) is a tool
+that scans the output of CBMC and produces a browsable summary of its findings.
 
 ## Example
 
 Here is a simple example of using cbmc-viewer.
-
-First, follow the instructions on the
-[CBMC release page](https://github.com/diffblue/cbmc/releases/latest)
-to install [CBMC](https://github.com/diffblue/cbmc).
+Running this example requires installing [CBMC](https://github.com/diffblue/cbmc).
 Installation on MacOS is just `brew install cbmc`.
+Installation on other operation systems is described on the [CBMC
+release page](https://github.com/diffblue/cbmc/releases/latest).
 
-Second, create a source file `main.c` containing
+Create a source file `main.c` containing
 ```
-    #include <stdlib.h>
+#include <stdlib.h>
 
-    static int global;
+static int global;
 
-    int main() {
-      int *ptr = malloc(sizeof(int));
+int main() {
+  int *ptr = malloc(sizeof(int));
 
-      assert(global > 0);
-      assert(*ptr > 0);
+  assert(global > 0);
+  assert(*ptr > 0);
 
-      return 0;
-    }
+  return 0;
+}
 ```
 and run the commands
 ```
-    goto-cc -o main.goto main.c
-    cbmc main.goto --trace --xml-ui > result.xml
-    cbmc main.goto --cover location --xml-ui > coverage.xml
-    cbmc main.goto --show-properties --xml-ui > property.xml
-    cbmc-viewer --goto main.goto --result result.xml --coverage coverage.xml --property property.xml --srcdir .
+goto-cc -o main.goto main.c
+cbmc main.goto --trace --xml-ui > result.xml
+cbmc main.goto --cover location --xml-ui > coverage.xml
+cbmc main.goto --show-properties --xml-ui > property.xml
+cbmc-viewer --goto main.goto --result result.xml --coverage coverage.xml --property property.xml --srcdir .
 ```
 and open the report created by cbmc-viewer in a web browser with
 ```
-    open report/html/index.html
+open report/html/index.html
 ```
 
 What you will see is
@@ -55,7 +53,7 @@ What you will see is
 * A *bug report* summarizing what issues cbmc found with the code. In this case,
   the bugs are violations of the assertions because, for example, it is possible
   that the uninitialized integer allocated on the heap contains a negative value.
-  For each bug reported, there is a link to
+  For each bug, there is a link to
 
     * The line of code where the bug occurred.
 
