@@ -1,6 +1,11 @@
 This is CBMC Viewer version {}.
 
-To install this release, download the "PIP installation package" below and run
+On MacOS, you can install with brew: Run
+```
+  brew install aws/tap/cbmc-viewer
+```
+
+On all machines, you can install with pip: Download the "PIP installation package" below and run
 ```
   sudo python3 -m pip install --upgrade cbmc_viewer-*.whl
 ```
