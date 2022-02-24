@@ -1,0 +1,189 @@
+{
+  "viewer-trace": {
+    "traces": {
+      "main.assertion.1": [
+        {
+          "detail": {
+            "location": {
+              "file": "<built-in-additions>",
+              "function": null,
+              "line": 35
+            },
+            "name": "__CPROVER_initialize",
+            "name-path": "__CPROVER_initialize"
+          },
+          "hidden": true,
+          "kind": "function-call",
+          "location": {
+            "file": "MISSING",
+            "function": "MISSING",
+            "line": 0
+          }
+        },
+        {
+          "detail": {
+            "lhs": "global",
+            "lhs-lexical-scope": "global",
+            "rhs-binary": "00000000 00000000 00000000 00000000",
+            "rhs-value": "0"
+          },
+          "hidden": true,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "main.c",
+            "function": null,
+            "line": 3
+          }
+        },
+        {
+          "detail": {
+            "location": {
+              "file": "<built-in-additions>",
+              "function": null,
+              "line": 35
+            },
+            "name": "__CPROVER_initialize",
+            "name-path": "__CPROVER_initialize"
+          },
+          "hidden": true,
+          "kind": "function-return",
+          "location": {
+            "file": "MISSING",
+            "function": "MISSING",
+            "line": 0
+          }
+        },
+        {
+          "detail": {
+            "location": {
+              "file": "main.c",
+              "function": null,
+              "line": 5
+            },
+            "name": "main",
+            "name-path": "main"
+          },
+          "hidden": false,
+          "kind": "function-call",
+          "location": {
+            "file": "main.c",
+            "function": null,
+            "line": 5
+          }
+        },
+        {
+          "detail": {
+            "lhs": "ptr",
+            "lhs-lexical-scope": "main::1::ptr",
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "((signed int *)NULL)"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "main.c",
+            "function": "main",
+            "line": 6
+          }
+        },
+        {
+          "detail": {
+            "location": {
+              "file": "<builtin-library-malloc>",
+              "function": null,
+              "line": 6
+            },
+            "name": "malloc",
+            "name-path": "malloc"
+          },
+          "hidden": false,
+          "kind": "function-call",
+          "location": {
+            "file": "main.c",
+            "function": "main",
+            "line": 6
+          }
+        },
+        {
+          "detail": {
+            "lhs": "malloc_size",
+            "lhs-lexical-scope": "malloc::malloc_size",
+            "rhs-binary": "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000100",
+            "rhs-value": "sizeof(signed int) /*4ul*/ "
+          },
+          "hidden": false,
+          "kind": "parameter-assignment",
+          "location": {
+            "file": "main.c",
+            "function": "main",
+            "line": 6
+          }
+        },
+        {
+          "detail": {
+            "location": {
+              "file": "<builtin-library-malloc>",
+              "function": null,
+              "line": 6
+            },
+            "name": "malloc",
+            "name-path": "malloc"
+          },
+          "hidden": true,
+          "kind": "function-return",
+          "location": {
+            "file": "<builtin-library-malloc>",
+            "function": "malloc",
+            "line": 58
+          }
+        },
+        {
+          "detail": {
+            "lhs": "ptr",
+            "lhs-lexical-scope": "main::1::ptr",
+            "rhs-binary": "00000010 00000000 00000000 00000000 00000000 00000000 00000000 00000000",
+            "rhs-value": "&dynamic_object1"
+          },
+          "hidden": false,
+          "kind": "variable-assignment",
+          "location": {
+            "file": "main.c",
+            "function": "main",
+            "line": 6
+          }
+        },
+        {
+          "detail": {
+            "property": "main.assertion.1",
+            "reason": "assertion global > 0"
+          },
+          "hidden": false,
+          "kind": "failure",
+          "location": {
+            "file": "main.c",
+            "function": "main",
+            "line": 7
+          }
+        },
+        {
+          "detail": {
+            "location": {
+              "file": "main.c",
+              "function": null,
+              "line": 5
+            },
+            "name": "main",
+            "name-path": "main"
+          },
+          "hidden": true,
+          "kind": "function-return",
+          "location": {
+            "file": "main.c",
+            "function": "main",
+            "line": 7
+          }
+        }
+      ]
+    }
+  }
+}
