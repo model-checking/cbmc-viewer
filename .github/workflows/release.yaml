@@ -29,15 +29,15 @@ jobs:
           # Patch the version number the source to be consistent with the tag
           sed -i.bak \
             "s/NUMBER *=.*/NUMBER = \"${VERSION}\"/" \
-            cbmc_viewer/version.py
+            src/cbmc_viewer/version.py
 
           # Patch the version number pip setup to be consistent with the tag
           sed -i.bak \
-            "s/version *=.*/version = \"${VERSION}\",/" \
-            setup.py
+            "s/version *=.*/version = ${VERSION}/" \
+            setup.cfg
 
           # Create the package
-          python3 -m pip install --upgrade setuptools wheel
+          python3 -m pip install --upgrade pip build setuptools wheel
           make pip
 
           # Record the package name
