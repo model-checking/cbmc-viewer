@@ -1,0 +1,20 @@
+name: Release to PyPi
+on:
+  release:
+    types: [created]
+
+jobs:
+  upload-to-pypi:
+    name: Upload to PyPi
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: python3 -m pip install --upgrade pip build setuptools wheel twine
+      - name: Build pip package
+        run: python3 -m build
+      - name: Upload to PyPi
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_ACCESS_TOKEN }}
+        run: python3 -m twine upload dist/*
