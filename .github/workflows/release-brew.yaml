@@ -1,8 +1,8 @@
+name: Release to brew
 on:
   release:
     types: [created]
 
-name: Upload additional release assets
 jobs:
   homebrew-pr:
     name: Homebrew Bump Formula PR

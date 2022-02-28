@@ -1,5 +1,4 @@
 name: CBMC viewer release
-
 # A new release is triggered by a new tag of the form viewer-VERSION
 on:
   push:
@@ -9,48 +8,49 @@ on:
 jobs:
   Release:
     name: CBMC viewer release
-    runs-on: ubuntu-18.04
-
+    runs-on: ubuntu-20.04
+    env:
+      GITHUB_TOKEN: ${{ secrets.RELEASE_CI_ACCESS_TOKEN }}
     steps:
-
-      - name: Checkout the repository
+      - name: Checkout code
         uses: actions/checkout@v2
-
-      - name: Set the package version
+      - name: Get version
         run: |
           # The environment variable GITHUB_REF is refs/tags/viewer-*
-          echo "TAG=${GITHUB_REF:10}" >> $GITHUB_ENV
-          echo "VERSION=${GITHUB_REF:17}" >> $GITHUB_ENV
-          printenv | sort
-          cat ${GITHUB_EVENT_PATH}
-
-      - name: Create the package
+          echo "SETUP_VERSION=$(python3 -c "import configparser; config = configparser.ConfigParser(); config.read('setup.cfg'); print(config['metadata']['version'])")" >> $GITHUB_ENV
+          echo "SOURCE_VERSION=$(python3 -c "import src.cbmc_viewer.version; print(src.cbmc_viewer.version.NUMBER)")" >> $GITHUB_ENV
+          echo "TAG_VERSION=$(echo ${{ github.ref }} | cut -d "/" -f 3 | cut -d "-" -f 2)" >> $GITHUB_ENV
+      - name: Version Check
         run: |
-          # Patch the version number the source to be consistent with the tag
-          sed -i.bak \
-            "s/NUMBER *=.*/NUMBER = \"${VERSION}\"/" \
-            src/cbmc_viewer/version.py
+          if [[ ${{ env.SETUP_VERSION }} != ${{ env.TAG_VERSION }} ]] || [[ ${{ env.SOURCE_VERSION }} != ${{ env.TAG_VERSION }} ]]; then
+            echo "Setup and source versions ${{env.SETUP_VERSION}} and ${{env.SOURCE_VERSION}} did not match tag version ${{env.TAG_VERSION}}"
+            exit 1
+          fi
+      - name: Create release
+        uses: actions/create-release@v1
+        with:
+          tag_name: viewer-${{ env.TAG_VERSION }}
+          release_name: viewer-${{ env.TAG_VERSION }}
+          body: |
+            This is CBMC Viewer version ${{ env.TAG_VERSION }}.
 
-          # Patch the version number pip setup to be consistent with the tag
-          sed -i.bak \
-            "s/version *=.*/version = ${VERSION}/" \
-            setup.cfg
+            On MacOS, you can install with brew: Run
+            ```
+              brew install aws/tap/cbmc-viewer
+            ```
 
-          # Create the package
-          python3 -m pip install --upgrade pip build setuptools wheel
-          make pip
+            On all machines, you can install with pip: Run
+            ```
+              python3 -m pip install --upgrade cbmc_viewer==${{ env.TAG_VERSION }}
+            ```
 
-          # Record the package name
-          # The source *.zip and binary *.whl packages are in dist
-          echo "PACKAGE=$(ls dist/*.whl)" >> $GITHUB_ENV
+            For best results, install [universal ctags](https://github.com/universal-ctags/ctags) or [exuberant ctags](https://github.com/universal-ctags/ctags) with
 
-      - name: Create the release
-        env:
-          # GitHub creates this secret for authentication in a workflow
-          GITHUB_TOKEN: ${{ secrets.RELEASE_CI_ACCESS_TOKEN }}
-        run: |
-          python3 -m pip install --upgrade pygithub
-          python3 .github/workflows/create_tagged_release.py --verbose \
-            --binary-package ${PACKAGE} \
-            --tag ${TAG} \
-            --version ${VERSION}
+            * MacOS: `brew install universal-ctags` or `brew install ctags`
+            * Ubuntu: `sudo apt install universal-ctags` or `sudo apt install ctags`
+            * Windows: Follow the installation instructions in the [universal-ctags](https://github.com/universal-ctags/ctags) or [exuberant ctags](http://ctags.sourceforge.net/) repository.
+
+            Universal ctags gives the best results.
+            ```
+          draft: false
+          prerelease: false
