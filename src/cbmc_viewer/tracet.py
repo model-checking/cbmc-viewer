@@ -221,11 +221,11 @@ def parse_text_traces(textfile, root=None, wkdir=None):
             continue
         if block.startswith('** '):
             if name:
-                traces[name] = trace
+                traces[name] = list(visible_steps(trace))
             break
         raise UserWarning("Unknown block: {}".format(block))
 
-    return list(visible_steps(traces))
+    return traces
 
 def parse_text_assignment(string):
     """Parse an assignment in a text trace."""
