@@ -290,7 +290,7 @@ def compare_reports(reports1, reports2):
     try:
         run(["diff", "-r", reports1, reports2])
     except subprocess.CalledProcessError as error:
-        raise UserWarning("Reports differ: compare with 'diff -r {reports1} {reports2}'") from error
+        raise UserWarning(f"Reports differ: compare with 'diff -r {reports1} {reports2}'") from error
 
 ################################################################
 # Validate command line arguments
