@@ -41,7 +41,7 @@ jobs:
 
             On all machines, you can install with pip: Run
             ```
-              python3 -m pip install --upgrade cbmc_viewer==${{ env.TAG_VERSION }}
+              python3 -m pip install cbmc-viewer
             ```
 
             For best results, install [universal ctags](https://github.com/universal-ctags/ctags) or [exuberant ctags](https://github.com/universal-ctags/ctags) with
