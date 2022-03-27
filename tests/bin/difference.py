@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
-import argparse
+"""Differential testing of cbmc-viewer."""
+
+from pathlib import Path
 import copy
 import json
 import logging
@@ -10,7 +12,8 @@ import shutil
 import subprocess
 import sys
 
-from pathlib import Path
+import arguments
+
 
 ################################################################
 # Parse command line arguments and configure logging
@@ -18,15 +21,13 @@ from pathlib import Path
 def parse_arguments():
     """Parse command line arguemnts"""
 
-    parser = argparse.ArgumentParser(description=
-       """
+    description = """
        Differential testing of cbmc-viewer.  Run two versions of
        cbmc-viewer on the output of cbmc and collect the results in
        two directories for easy comparison.  The script assumes the
        proofs are run using litani (for example, by running the
        script run-cbmc-proofs.py in the cbmc starter kit).
        """
-    )
     options = [
         {'flag': '--proofs',
          'help':
@@ -75,28 +76,10 @@ def parse_arguments():
         {'flag': '--force',
          'action': 'store_true',
          'help': 'Overwrite existing report or installation directories'},
-        {'flag': '--verbose',
-         'action': 'store_true',
-         'help': 'Verbose output'},
-        {'flag': '--debug',
-         'action': 'store_true',
-         'help': 'Debug output'},
     ]
-    for option in options:
-        flag = option.pop('flag')
-        parser.add_argument(flag, **option)
-    return parser.parse_args()
-
-def configure_logging(verbose=False, debug=False):
-    """Configure logging"""
-
-    if debug:
-        logging.basicConfig(level=logging.DEBUG, format='%(levelname)s: %(message)s')
-        return
-    if verbose:
-        logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
-        return
-    logging.basicConfig(format='%(levelname)s: %(message)s')
+    args = arguments.create_parser(options, description).parse_args()
+    arguments.configure_logging(args)
+    return args
 
 ################################################################
 # Run a command
@@ -290,7 +273,8 @@ def compare_reports(reports1, reports2):
     try:
         run(["diff", "-r", reports1, reports2])
     except subprocess.CalledProcessError as error:
-        raise UserWarning(f"Reports differ: compare with 'diff -r {reports1} {reports2}'") from error
+        raise UserWarning(
+            f"Reports differ: compare with 'diff -r {reports1} {reports2}'") from error
 
 ################################################################
 # Validate command line arguments
@@ -398,7 +382,6 @@ def validate_arguments(args):
 
 def main():
     args = parse_arguments()
-    configure_logging(args.verbose, args.debug)
     validate_arguments(args)
 
     shutil.rmtree(args.reports[0], ignore_errors=True)
