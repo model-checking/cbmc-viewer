@@ -6,10 +6,11 @@
 """Compare sets of reports produced by cbmc-viewer."""
 
 from pathlib import Path
-import argparse
 import logging
 import subprocess
 import sys
+
+import arguments
 
 RESULT_JSON = 'viewer-result.json'
 SOURCE_JSON = 'viewer-source.json'
@@ -29,15 +30,15 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 # Command line arguments
 
 def parse_arguments():
-    """Parse command line arguments."""
+    """Parse command line arguments"""
 
-    parser = argparse.ArgumentParser(
-        description='Compare sets of reports produced by cbmc-viewer.'
-    )
+    description = 'Compare sets of reports produced by cbmc-viewer.'
     options = [
         {'flag': 'reports1',
+         'type': Path,
          'help': 'Directory of cbmc-viewer reports'},
         {'flag': 'reports2',
+         'type': Path,
          'help': 'Directory of cbmc-viewer reports'},
         {'flag': '--proof',
          'nargs': '+',
@@ -53,20 +54,11 @@ def parse_arguments():
         {'flag': '--json',
          'default': 'json',
          'help': 'Subdirectory of REPORT containing the json output (default: %(default)s)'},
-        {'flag': '--verbose',
-         'action': 'store_true',
-         'help': 'Verbose output'},
-        {'flag': '--debug',
-         'action': 'store_true',
-         'help': 'Debug output'},
     ]
-    for option in options:
-        flag = option.pop('flag')
-        parser.add_argument(flag, **option)
-    args = parser.parse_args()
+    args = arguments.create_parser(options, description).parse_args()
+    arguments.configure_logging(args)
 
-    args.reports1 = Path(args.reports1)
-    args.reports2 = Path(args.reports2)
+    # A little too complicated for the `type` keyword to argparse
     args.proof = [Path(proof)
                   for proof_list in args.proof
                   for proof in proof_list]

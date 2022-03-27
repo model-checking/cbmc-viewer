@@ -14,7 +14,6 @@ directory specified on the command line.
 """
 
 from pathlib import Path
-import argparse
 import json
 import logging
 import shutil
@@ -22,46 +21,25 @@ import subprocess
 
 import ninja
 
+import arguments
+
 ################################################################
 # Command line arguments
 
 def parse_arguments():
-    """Parse command line arguemnts"""
+    """Parse command line arguments"""
 
-    parser = argparse.ArgumentParser(description=
-       'Rebuild and save cbmc-viewer reports using litani proof artifacts.'
-    )
+    description= 'Rebuild and save cbmc-viewer reports using litani proof artifacts.'
     options = [
         {'flag': 'results',
          'help': 'Copy results into RESULTS.'},
         {'flag': '--copy-only',
          'action': 'store_true',
          'help': 'Copy results without generating results'},
-        {'flag': '--verbose',
-         'action': 'store_true',
-         'help': 'Verbose output'},
-        {'flag': '--debug',
-         'action': 'store_true',
-         'help': 'Debug output'},
     ]
-    for option in options:
-        flag = option.pop('flag')
-        parser.add_argument(flag, **option)
-    args = parser.parse_args()
+    args = arguments.create_parser(options, description).parse_args()
+    arguments.configure_logging(args)
     return args
-
-def configure_logging(verbose=False, debug=False):
-    """Configure logging based on command line arguments"""
-
-    if debug:
-        logging.basicConfig(level=logging.DEBUG,
-                            format='%(levelname)s: %(message)s')
-        return
-    if verbose:
-        logging.basicConfig(level=logging.INFO,
-                            format='%(levelname)s: %(message)s')
-        return
-    logging.basicConfig(format='%(levelname)s: %(message)s')
 
 ################################################################
 # The litani cache
@@ -229,7 +207,6 @@ def main():
     """Rebuild and save cbmc-viewer reports."""
 
     args = parse_arguments()
-    configure_logging(args.verbose, args.debug)
     logging.debug(args)
 
     jobs = parse_cache(load_cache(find_cache()))

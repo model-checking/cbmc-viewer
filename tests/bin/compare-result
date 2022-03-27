@@ -5,24 +5,23 @@
 
 """Compare make-result output ignoring known variations in cbmc output."""
 
-import argparse
 import json
 
-def parse_arguments():
-    """Parse command-line arguments."""
+import arguments
 
-    parser = argparse.ArgumentParser(description=
-        'Compare make-result output ignoring known variations in cbmc output.'
-    )
-    parser.add_argument(
-        'RESULT1',
-        help='make-result output'
-    )
-    parser.add_argument(
-        'RESULT2',
-        help='make-result output'
-    )
-    return parser.parse_args()
+def parse_arguments():
+    """Parse command line arguments"""
+
+    description = 'Compare make-result output ignoring known variations in cbmc output'
+    options = [
+        {'flag': 'RESULT1',
+         'help': 'make-result output'},
+        {'flag': 'RESULT2',
+         'help': 'make-result output'},
+    ]
+    args = arguments.create_parser(options, description).parse_args()
+    arguments.configure_logging(args)
+    return args
 
 def clean_program(result):
     """Ignore variable data like commit ids in cbmc version strings."""

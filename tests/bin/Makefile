@@ -8,4 +8,4 @@ pylint:
 	pylint	\
 		--disable=duplicate-code \
 		--module-rgx '[\w-]+' \
-	$(SCRIPTS)
+	$(SCRIPTS) *.py

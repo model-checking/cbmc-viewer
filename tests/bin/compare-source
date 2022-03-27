@@ -5,24 +5,23 @@
 
 """Compare make-source output ignoring known differences in path names."""
 
-import argparse
 import json
 
-def parse_arguments():
-    """Parse command-line arguments."""
+import arguments
 
-    parser = argparse.ArgumentParser(description=
-        'Compare make-source output ignoring known differences in path names.'
-    )
-    parser.add_argument(
-        'SOURCE1',
-        help='make-source output'
-    )
-    parser.add_argument(
-        'SOURCE2',
-        help='make-source output'
-    )
-    return parser.parse_args()
+def parse_arguments():
+    """Parse command line arguments"""
+
+    description = 'Compare make-source output ignoring known differences in path names.'
+    options = [
+        {'flag': 'SOURCE1',
+         'help': 'make-source output'},
+        {'flag': 'SOURCE2',
+         'help': 'make-source output'},
+    ]
+    args = arguments.create_parser(options, description).parse_args()
+    arguments.configure_logging(args)
+    return args
 
 def clean(source):
     """Strip references to path to the source root."""
