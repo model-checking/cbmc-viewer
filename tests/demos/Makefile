@@ -43,7 +43,6 @@ clone:
 build:
 	cd $(REPO_DIR)/$(PROOF_DIR); \
 	    EXTERNAL_SAT_SOLVER= \
-	    TERM=vt100 \
 	    run-cbmc-proofs.py --proofs $(PROOFS)
 
 COMMIT1 = master
