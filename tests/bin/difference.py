@@ -30,6 +30,7 @@ def parse_arguments():
        """
     options = [
         {'flag': '--proofs',
+         'type': Path,
          'help':
          """
          The directory containing the proofs.  This is the directory
@@ -39,6 +40,7 @@ def parse_arguments():
          """
         },
         {'flag': '--viewer-repository',
+         'type': Path,
          'default': '.',
          'help': "The root of the cbmc-viewer repository.  Defaults to '%(default)s'."
         },
@@ -52,6 +54,7 @@ def parse_arguments():
          """
         },
         {'flag': '--reports',
+         'type': Path,
          'nargs': '*',
          'help':
          """
@@ -62,6 +65,7 @@ def parse_arguments():
          """
         },
         {'flag': '--installs',
+         'type': Path,
          'nargs': '*',
          'help':
          """
@@ -84,24 +88,30 @@ def parse_arguments():
 ################################################################
 # Run a command
 
-def run(cmd, check=True, capture_output=True, env=None, cwd=None):
+def run(cmd, stdin=None, check=True, env=None, cwd=None, capture_output=True):
     """Run a command as a subprocess"""
 
+    cmd = [str(word) for word in cmd]
+    stdin = str(stdin) if stdin is not None else None
     kwds = {
-        "capture_output": capture_output,
         "env": env,
         "cwd": cwd,
-        "text": True
+        "text": True,
+        "stdout": subprocess.PIPE if capture_output else None,
+        "stderr": subprocess.PIPE if capture_output else None,
     }
-    logging.debug("Running command: %s", ' '.join(cmd))
-    proc = subprocess.run(cmd, **kwds, check=check)
-    if capture_output:
-        stdout = proc.stdout.strip().splitlines()
-        stderr = proc.stderr.strip().splitlines()
-        for line in stdout + stderr:
+    with subprocess.Popen(cmd, **kwds) as pipe:
+        stdout, stderr = pipe.communicate(input=stdin)
+    if check and pipe.returncode:
+        raise UserWarning(f"Command '{' '.join(cmd)}' returned code '{pipe.returncode}'")
+    if not capture_output:
+        return None
+    stdout = [line.rstrip() for line in stdout.splitlines()]
+    stderr = [line.rstrip() for line in stderr.splitlines()]
+    for stream in (stdout, stderr):
+        for line in stream:
             logging.debug(line)
-        return stdout
-    return None
+    return stdout
 
 ################################################################
 
@@ -109,13 +119,13 @@ def install_viewer(viewer_commit, venv_root, viewer_repo):
     """Install a given version of viewer into a virtual environment"""
 
     # save the original commit
-    branch = run(["git", "branch", "--show-current"], cwd=viewer_repo, capture_output=True)[0]
+    branch = run(["git", "branch", "--show-current"], cwd=viewer_repo)[0]
     run(["git", "stash"], cwd=viewer_repo)
 
     try:
         logging.info("Setting up virtual environment %s for viewer %s", venv_root, viewer_commit)
         run(["python3", "-m", "venv", venv_root])
-        venv_bin = Path(venv_root) / Path("bin")
+        venv_bin = Path(venv_root) / "bin"
         env = dict(os.environ.items())
         env['PATH'] = str(venv_bin) + os.pathsep + env['PATH']
         run(["python3", "-m", "pip", "install", "--upgrade", "pip", "setuptools", "wheel", "build"],
@@ -125,24 +135,23 @@ def install_viewer(viewer_commit, venv_root, viewer_repo):
         run(["git", "checkout", viewer_commit], cwd=viewer_repo, env=env)
         run(["make", "install"], cwd=viewer_repo, env=env)
 
-        venv_viewer = venv_bin / Path("cbmc-viewer")
-        return str(venv_viewer)
-
-    except subprocess.CalledProcessError as error:
+        venv_viewer = venv_bin / "cbmc-viewer"
+        return venv_viewer
+    except UserWarning as error:
         logging.info("Failed to install viewer %s into virtual environment %s",
                      viewer_commit, venv_root)
-        logging.info(str(error))
-        raise error
+        logging.info(error)
+        raise
 
     finally:
         logging.info("Restoring viewer repository to %s", branch)
         run(["git", "checkout", branch], cwd=viewer_repo)
         try:
             run(["git", "stash", "pop"], cwd=viewer_repo)
-        except subprocess.CalledProcessError as err:
-            # Status 1 probably means prior 'git stash' found nothing to stash
-            if err.returncode != 1:
-                raise err
+        except UserWarning:
+            # Probably means prior 'git stash' found nothing to stash
+            # Consider checking `git status --porcelain` to cover this case
+            pass
 
 ################################################################
 # Reconstruct the litani add-job commands used to run viewer
@@ -167,7 +176,7 @@ def extract_viewer_jobs(run_json):
             for job in ci_stage["jobs"]:
                 wrapper = job["wrapper_arguments"]
                 if wrapper["ci_stage"] == "report":
-                    jobs.append(wrapper)
+                    yield wrapper
 
     return jobs
 
@@ -272,7 +281,7 @@ def compare_reports(reports1, reports2):
     logging.info("Comparing %s and %s...", reports1, reports2)
     try:
         run(["diff", "-r", reports1, reports2])
-    except subprocess.CalledProcessError as error:
+    except UserWarning as error:
         raise UserWarning(
             f"Reports differ: compare with 'diff -r {reports1} {reports2}'") from error
 
@@ -281,8 +290,8 @@ def compare_reports(reports1, reports2):
 
 def check_git_status(repo):
     try:
-        status = run(["git", "status", "--porcelain"], cwd=repo, capture_output=True)
-    except subprocess.CalledProcessError as error:
+        status = run(["git", "status", "--porcelain"], cwd=repo)
+    except UserWarning as error:
         raise UserWarning("This is not a git repository: git status failed") from error
     if status:
         raise UserWarning("This git repository has uncomitted changes.")
@@ -291,8 +300,8 @@ def check_git_status(repo):
 def validate_litani(litani):
     logging.debug("--litani = %s", litani)
     try:
-        return run(["which", litani], capture_output=True)[0]
-    except subprocess.CalledProcessError as error:
+        return run(["which", litani])[0]
+    except UserWarning as error:
         raise UserWarning("Use --litani to give the command invoking litani") from error
 
 def validate_repository(repo):
