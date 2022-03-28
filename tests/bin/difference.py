@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 """Differential testing of cbmc-viewer."""
 
 from pathlib import Path
