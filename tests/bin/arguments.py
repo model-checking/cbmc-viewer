@@ -18,8 +18,6 @@ def create_parser(options=None, description=None):
     if '--debug' not in flags:
         options.append({'flag': '--debug', 'action': 'store_true', 'help': 'Debug output'})
 
-    print(flags)
-
     parser = argparse.ArgumentParser(description=description)
     for option in options:
         flag = option.pop('flag')

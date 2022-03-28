@@ -48,6 +48,8 @@ def parse_arguments():
          'help': "The root of the cbmc-viewer repository.  Defaults to '%(default)s'."
         },
         {'flag': '--commits',
+         'type': str,
+         'default': [],
          'nargs': '*',
          'help':
          """
@@ -58,6 +60,7 @@ def parse_arguments():
         },
         {'flag': '--reports',
          'type': Path,
+         'default': [],
          'nargs': '*',
          'help':
          """
@@ -69,6 +72,7 @@ def parse_arguments():
         },
         {'flag': '--installs',
          'type': Path,
+         'default': [],
          'nargs': '*',
          'help':
          """
@@ -78,6 +82,7 @@ def parse_arguments():
          """
         },
         {'flag': '--litani',
+         'type': Path,
          'default': 'litani',
          'help': "Command to invoke litani.  Defaults to '%(default)s'."},
         {'flag': '--force',
@@ -106,15 +111,13 @@ def run(cmd, stdin=None, check=True, env=None, cwd=None, capture_output=True):
     with subprocess.Popen(cmd, **kwds) as pipe:
         stdout, stderr = pipe.communicate(input=stdin)
     if check and pipe.returncode:
-        raise UserWarning(f"Command '{' '.join(cmd)}' returned code '{pipe.returncode}'")
+        logging.debug("Command %s returned %s", cmd, pipe.returncode)
+        for line in stderr.splitlines():
+            logging.debug(line)
+        raise UserWarning(f"Command '{' '.join(cmd)}' returned '{pipe.returncode}'")
     if not capture_output:
         return None
-    stdout = [line.rstrip() for line in stdout.splitlines()]
-    stderr = [line.rstrip() for line in stderr.splitlines()]
-    for stream in (stdout, stderr):
-        for line in stream:
-            logging.debug(line)
-    return stdout
+    return [line.rstrip() for line in stdout.splitlines()]
 
 ################################################################
 
@@ -217,7 +220,7 @@ def form_reportdir(report_root, proof_name):
 
 def update_command(command, new_viewer, new_reportdir):
     options = viewer_options_without_reportdir(command)
-    return ' '.join([new_viewer, options, '--reportdir', new_reportdir])
+    return ' '.join([str(new_viewer), options, '--reportdir', new_reportdir])
 
 def update_job(job, new_viewer, new_report_root):
 
@@ -285,80 +288,85 @@ def check_git_status(repo):
 
 def validate_litani(litani):
     logging.debug("--litani = %s", litani)
-    try:
-        return run(["which", litani])[0]
-    except UserWarning as error:
-        raise UserWarning("Use --litani to give the command invoking litani") from error
+    path = shutil.which(litani)
+    if path:
+        return path
+    raise UserWarning("Use --litani to give the command to invoke litani")
 
 def validate_repository(repo):
     logging.debug("--viewer-repository = %s", repo)
-    try:
-        assert isinstance(repo, str)
-        assert os.path.exists(f"{repo}{os.sep}.git")
+    if (repo / '.git').is_dir():
         return repo
-    except AssertionError as error:
-        raise UserWarning(
-            "Use --viewer-repository to give the root of the cbmc-viewer repository"
-        ) from error
+    raise UserWarning("Use --viewer-repository to give the root of the cbmc-viewer repository")
 
 def validate_proofs(proofs):
     logging.debug("--proofs = %s", proofs)
-    try:
-        assert isinstance(proofs, str)
-        assert os.path.exists(f"{proofs}{os.sep}.litani_cache_dir")
+    if (proofs / '.litani_cache_dir').is_file():
         return proofs
-    except AssertionError as error:
-        raise UserWarning("Use --proofs to specify a proof directory "
-                          "(containing .litani_cache_dir)") from error
+    raise UserWarning("Use --proofs to specify a proofs directory (containing .litani_cache_dir)")
 
 def validate_commits(commits):
     logging.debug("--commits = %s", commits)
+    commits = commits or []
     try:
-        assert isinstance(commits, list)
-        assert len(commits) == 2
+        cmd = ['git', 'rev-parse', '--verify', '--quiet', '--end-of-options']
+        run([*cmd, commits[0]])
+        run([*cmd, commits[1]])
         return commits
-    except AssertionError as error:
+    except (UserWarning, IndexError) as error:
         raise UserWarning("Use --commits to specify two commits or branches to compare") from error
 
 def validate_reports(reports, commits, force):
     logging.debug("--reports = %s", reports)
     reports = reports or []
-    assert isinstance(reports, list)
+    commits = commits or []
 
-    if len(reports) == 0:
-        assert isinstance(commits, list) and len(commits) == 2
-        reports = [f'/tmp/reports/{commits[0]}', f'/tmp/reports/{commits[1]}']
-    if len(reports) != 2:
-        raise UserWarning("Use --reports to specify two report directories.")
-    if reports[0] == reports[1]:
-        reports = [f"{reports[0]}1", f"{reports[0]}2"]
+    try:
+        if len(reports) not in [0, 2]:
+            raise IndexError
 
-    if os.path.exists(reports[0]) and not force:
-        raise UserWarning(f"Path {reports[0]} exists: use --force to overwrite")
-    if os.path.exists(reports[1]) and not force:
-        raise UserWarning(f"Path {reports[1]} exists: use --force to overwrite")
+        if len(reports) == 0:
+            tmp = Path('/tmp/reports')
+            reports = [tmp/commits[0], tmp/commits[1]]
 
-    return reports
+        if reports[0] == reports[1]:
+            name = reports[0].name # reports[0].name == reports[1].name
+            for idx in [0, 1]:
+                reports[idx] = reports[idx].with_name(name + str(idx))
+
+        for report in reports:
+            if report.exists() and not force:
+                raise UserWarning(f"Path {report} exists: use --force to overwrite")
+
+        return reports
+    except IndexError as error:
+        raise UserWarning("Use --reports to specify two report directories.") from error
 
 def validate_installs(installs, commits, force):
     logging.debug("--installs = %s", installs)
     installs = installs or []
-    assert isinstance(installs, list)
+    commits = commits or []
 
-    if len(installs) == 0:
-        assert isinstance(commits, list) and len(commits) == 2
-        installs = [f'/tmp/viewer/{commits[0]}', f'/tmp/viewer/{commits[1]}']
-    if len(installs) != 2:
-        raise UserWarning("Use --installs to specify two install directories.")
-    if installs[0] == installs[1]:
-        installs = [f"{installs[0]}1", f"{installs[0]}2"]
+    try:
+        if len(installs) not in [0, 2]:
+            raise IndexError
 
-    if os.path.exists(installs[0]) and not force:
-        raise UserWarning(f"Path {installs[0]} exists: use --force to overwrite")
-    if os.path.exists(installs[1]) and not force:
-        raise UserWarning(f"Path {installs[1]} exists: use --force to overwrite")
+        if len(installs) == 0:
+            tmp = Path('/tmp/viewer')
+            installs = [tmp/commits[0], tmp/commits[1]]
 
-    return installs
+        if installs[0] == installs[1]:
+            name = installs[0].name # installs[0].name == installs[1].name
+            for idx in [0, 1]:
+                installs[idx] = installs[idx].with_name(name + str(idx))
+
+        for install in installs:
+            if install.exists() and not force:
+                raise UserWarning(f"Path {install} exists: use --force to overwrite")
+
+        return installs
+    except IndexError as error:
+        raise UserWarning("Use --installs to specify two install directories.") from error
 
 def validate_arguments(args):
     try:
