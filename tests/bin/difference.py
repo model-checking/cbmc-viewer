@@ -197,25 +197,16 @@ def viewer_add_job_commands(proof_root):
 # Update a viewer job to use a different viewer and a different report directory
 
 def viewer_options_without_reportdir(viewer_command):
-    """The arguments used to invoke viewer, but omitting --reportdir"""
+    """Strip --reportdir from command line options used to invoke viewer."""
 
-    # Warning: using whitespace to parse a command line is brittle
-    words = re.split(r'\s+', viewer_command.strip())
-    words.pop(0) # first word is the viewer script itself
+    command = re.sub(r'\s+', ' ', viewer_command.strip())
 
-    # Warning: using position to parse command line arguments is brittle
-    options = []
-    reportdir_option = False
-    for word in words:
-        if word == '--reportdir': # word is reportdir option
-            reportdir_option = True
-            continue
-        if reportdir_option: # word is reportdir option argument
-            reportdir_option = False
-            continue
-        options.append(word)
+    # strip path used to invoke viewer from front of command
+    options = command.split(' ', 1)[-1]
+    # strip --reportdir option from within command
+    options = re.sub(r'--reportdir\s+[^\s]+', '', options)
 
-    return options
+    return re.sub(r'\s+', ' ', options.strip())
 
 def form_reportdir(report_root, proof_name):
     reportdir = Path(report_root) / Path(proof_name)
@@ -223,7 +214,7 @@ def form_reportdir(report_root, proof_name):
 
 def update_command(command, new_viewer, new_reportdir):
     options = viewer_options_without_reportdir(command)
-    return ' '.join([new_viewer, *options, '--reportdir', new_reportdir])
+    return ' '.join([new_viewer, options, '--reportdir', new_reportdir])
 
 def update_job(job, new_viewer, new_report_root):
 
