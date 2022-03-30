@@ -1,0 +1,36 @@
+name: Run Litani Tests
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, labeled, unlabeled]
+  push:
+    branches: [ master ]
+
+jobs:
+  run-differential-tests:
+    if: "!contains(github.event.pull_request.labels.*.name, 'no-test')"
+    name: Run Differential Tests
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Install Dependencies
+        run: |
+          brew update-reset
+          brew install ninja cbmc universal-ctags
+          brew install --ignore-dependencies litani
+          python3 -m pip install jinja2 cbmc-viewer
+      - name: Proof Run
+        run: |
+          cd tests/repo-tests/coreHTTP
+          make clone
+          make build
+      - name: Run Differential Test
+        run: |
+          git checkout -b pr
+          ./tests/bin/difference.py --proofs tests/repo-tests/coreHTTP/coreHTTP/test/cbmc/proofs \
+                                    --viewer-repository $(pwd) \
+                                    --commits ${{ github.event.pull_request.head.sha }} ${{ github.event.pull_request.base.sha }}
