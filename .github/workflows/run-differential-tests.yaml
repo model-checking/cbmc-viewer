@@ -1,0 +1,40 @@
+name: Run Differential Tests
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, labeled, unlabeled]
+  push:
+    branches: [ master ]
+
+jobs:
+  run-differential-tests:
+    if: "!contains(github.event.pull_request.labels.*.name, 'no-test')"
+    name: Run Differential Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Install Dependencies
+        run: |
+          curl -o cbmc.deb -L https://github.com/diffblue/cbmc/releases/download/cbmc-5.54.0/ubuntu-20.04-cbmc-5.54.0-Linux.deb
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+                                  ./cbmc.deb \
+                                  ninja-build \
+                                  universal-ctags
+          rm -rf cbmc.deb
+          python3 -m pip install jinja2 cbmc-viewer
+      - name: Proof Run
+        run: |
+          cd tests/repo-tests/coreHTTP
+          make clone
+          make build
+      - name: Run Differential Test
+        run: |
+          git checkout -b pr
+          git -C tests/repo-tests/coreHTTP/coreHTTP/test/cbmc/litani checkout -B release origin/release
+          git status
+          ./tests/bin/difference.py --proofs tests/repo-tests/coreHTTP/coreHTTP/test/cbmc/proofs \
+                                    --viewer-repository $(pwd) \
+                                    --litani $(pwd)/tests/repo-tests/coreHTTP/coreHTTP/test/cbmc/litani/litani \
+                                    --commits ${{ github.event.pull_request.head.sha }} ${{ github.event.pull_request.base.sha }}
