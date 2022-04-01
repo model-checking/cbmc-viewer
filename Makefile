@@ -27,7 +27,7 @@ pylint:
 		--disable=too-many-branches \
 		--module-rgx '[\w-]+' \
 	    src/cbmc_viewer/*.py
-	$(MAKE) -C tests pylint
+	$(MAKE) -C tests/bin pylint
 
 ################################################################
 # Build the distribution package
