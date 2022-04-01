@@ -39,37 +39,21 @@ unbuild:
 	$(RM) -r dist
 
 ################################################################
-# Install the package into this directory in development mode
+# Install the package into a virtual environment in development mode
 #
-# Note: This may require directory write permission (sudo): It may try
-# to update cbmc-viewer.egg-link and easy-install.pth in site-packages.
-# The Homebrew pip continues to update the system site-packages even
-# with the --user flag to pip install.
+# Note: Editable installs from pyproject.toml require at least pip 21.3
 
+VENV = /tmp/cbmc-viewer
 develop:
-	python3 -m pip install --verbose --editable . --user \
-		--install-option="--script-dir=."
+	python3 -m venv $(VENV)
+	$(VENV)/bin/python3 -m pip install --upgrade pip
+	$(VENV)/bin/python3 -m pip install -e .
 	@ echo
-	@ echo "Add cbmc-viewer to PATH with 'export PATH=$$(pwd):\$$PATH'"
+	@ echo "Add $(VENV)/bin to PATH with 'export PATH=\$$PATH:$(VENV)/bin'"
 	@ echo
 
 undevelop:
-	python3 -m pip uninstall --verbose --yes cbmc-viewer
-	$(RM) cbmc-viewer
-	$(RM) make-coverage
-	$(RM) make-loop
-	$(RM) make-property
-	$(RM) make-reachable
-	$(RM) make-result
-	$(RM) make-source
-	$(RM) make-symbol
-	$(RM) make-trace
-	$(RM) -r src/cbmc_viewer/__pycache__/
-	$(RM) -r src/cbmc_viewer.egg-info
-	@ echo
-	@ echo "This may leave cbmc-viewer in the bash command cache."
-	@ echo "Delete cbmc-viewer from the cache with 'hash -d cbmc-viewer'."
-	@ echo
+	$(RM) -r $(VENV)
 
 ################################################################
 # Install the package
