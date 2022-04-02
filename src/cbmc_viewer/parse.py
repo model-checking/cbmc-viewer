@@ -13,14 +13,10 @@ def parse_xml_file(xfile, fail=False):
     """Open and parse an xml file."""
 
     try:
-        with open(xfile) as data:
-            return parse_xml_string(data.read(), xfile, fail)
-    except IOError as err:
-        message = "Can't open xml file {}: {}".format(xfile, err.strerror)
-        logging.info(message)
-        if fail:
-            raise UserWarning(message) from None
-    return None
+        return ElementTree.parse(xfile)
+    except (IOError, ElementTree.ParseError) as err:
+        logging.debug("%s", err)
+        raise UserWarning(f"Can't load xml file '{xfile}'") from None
 
 def parse_xml_string(xstr, xfile=None, fail=False):
     """Parse an xml string."""
