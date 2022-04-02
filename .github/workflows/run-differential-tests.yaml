@@ -2,8 +2,6 @@ name: Run Differential Tests
 on:
   pull_request:
     types: [opened, synchronize, reopened, labeled, unlabeled]
-  push:
-    branches: [ master ]
 
 jobs:
   run-differential-tests:
@@ -33,7 +31,6 @@ jobs:
         run: |
           git checkout -b pr
           git -C tests/repo-tests/coreHTTP/coreHTTP/test/cbmc/litani checkout -B release origin/release
-          git status
           ./tests/bin/difference.py --proofs tests/repo-tests/coreHTTP/coreHTTP/test/cbmc/proofs \
                                     --viewer-repository $(pwd) \
                                     --litani $(pwd)/tests/repo-tests/coreHTTP/coreHTTP/test/cbmc/litani/litani \
