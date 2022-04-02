@@ -306,7 +306,7 @@ class CoverageFromJson(Coverage):
 def load_json(json_file):
     """Load json file produced by make-coverage"""
 
-    json_data = parse.parse_json_file(json_file, fail=True)
+    json_data = parse.parse_json_file(json_file)
     if json_data is None:
         logging.info("Found empty json coverage data.")
         return None
@@ -355,7 +355,7 @@ class CoverageFromCbmcJson(Coverage):
 def load_cbmc_json(json_file, root):
     """Load json file produced by cbmc --cover location --json-ui."""
 
-    json_data = parse.parse_json_file(json_file, fail=True)
+    json_data = parse.parse_json_file(json_file)
     if not json_data:
         logging.info("Expected coverage data in json file %s, found none",
                      json_file)
@@ -400,7 +400,7 @@ class CoverageFromCbmcXml(Coverage):
 def load_cbmc_xml(xml_file, root):
     """Load xml file produced by cbmc --cover location --xml-ui."""
 
-    xml = parse.parse_xml_file(xml_file, fail=True)
+    xml = parse.parse_xml_file(xml_file)
     if not xml or xml is None:   # Why is 'xml is None' required?
         logging.info("Expected coverage data in xml file %s, found none",
                      xml_file)

@@ -159,7 +159,7 @@ class LoopFromJson(Loop):
     def __init__(self, json_files):
 
         super().__init__(
-            [parse.parse_json_file(json_file, fail=True)[JSON_TAG]['loops']
+            [parse.parse_json_file(json_file)[JSON_TAG]['loops']
              for json_file in json_files]
         )
 
@@ -177,7 +177,7 @@ class LoopFromCbmcJson(Loop):
 def load_cbmc_json(json_file, root):
     """Load a json file produced by cbmc --show-loops --json-ui."""
 
-    return parse_cbmc_json(parse.parse_json_file(json_file, fail=True), root)
+    return parse_cbmc_json(parse.parse_json_file(json_file), root)
 
 def parse_cbmc_json(json_data, root):
     """Parse the json output of cbmc --show-loops --json-ui."""
@@ -208,7 +208,7 @@ class LoopFromCbmcXml(Loop):
 def load_cbmc_xml(xml_file, root):
     """Load an xml file produced by cbmc --show-loops --xml-ui."""
 
-    return parse_cbmc_xml(parse.parse_xml_file(xml_file, fail=True), root)
+    return parse_cbmc_xml(parse.parse_xml_file(xml_file), root)
 
 def parse_cbmc_xml(xml_data, root):
     """Parse the xml output of cbmc --show-loops --xml-ui."""

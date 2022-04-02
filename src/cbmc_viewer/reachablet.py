@@ -101,7 +101,7 @@ class ReachableFromJson(Reachable):
     def __init__(self, json_files):
 
         super().__init__(
-            [parse.parse_json_file(json_file, fail=True)[JSON_TAG]["reachable"]
+            [parse.parse_json_file(json_file)[JSON_TAG]["reachable"]
              for json_file in json_files]
         )
 
@@ -120,7 +120,7 @@ class ReachableFromCbmcJson(Reachable):
 def load_cbmc_json(json_file, root):
     """Load json file produced by goto-analyzer --reachable-functions --json."""
 
-    json_data = parse.parse_json_file(json_file, fail=True, goto_analyzer=True)
+    json_data = parse.parse_json_file(json_file, goto_analyzer=True)
     return parse_cbmc_json(json_data, root)
 
 # TODO: Does file-local name mangling mess this up?
@@ -181,7 +181,7 @@ class ReachableFromGoto(Reachable):
             raise UserWarning('Failed to run {}: {}'.format(cmd, str(err))) from err
 
         json_data = parse.parse_json_string(
-            analyzer_output, fail=True, goto_analyzer=True
+            analyzer_output, goto_analyzer=True
         )
         super().__init__(
             [parse_cbmc_json(json_data, root)]

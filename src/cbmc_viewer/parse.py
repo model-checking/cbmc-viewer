@@ -3,14 +3,15 @@
 
 """Parsing of xml and json files with limited error handling."""
 
+from pathlib import Path
 from xml.etree import ElementTree
 
 import json
 import logging
 import re
 
-def parse_xml_file(xfile, fail=False):
-    """Open and parse an xml file."""
+def parse_xml_file(xfile):
+    """Parse an xml file."""
 
     try:
         return ElementTree.parse(xfile)
@@ -18,58 +19,36 @@ def parse_xml_file(xfile, fail=False):
         logging.debug("%s", err)
         raise UserWarning(f"Can't load xml file '{xfile}'") from None
 
-def parse_xml_string(xstr, xfile=None, fail=False):
+def parse_xml_string(xstr):
     """Parse an xml string."""
 
     try:
         return ElementTree.fromstring(xstr)
     except ElementTree.ParseError as err:
-        if xfile:
-            message = "Can't parse xml file {}: string {}...: {}".format(
-                xfile, xstr[:40], str(err)
-            )
-        else:
-            message = "Can't parse xml string {}...: {}".format(
-                xstr[:40], str(err)
-            )
-        logging.info(message)
-        if fail:
-            raise UserWarning(message) from None
-    return None
+        logging.debug("%s", err)
+        raise UserWarning(f"Can't parse xml string '{xstr[:40]}...'") from None
 
-def parse_json_file(jfile, fail=False, goto_analyzer=False):
-    """Open and parse an json file."""
+def parse_json_file(jfile, goto_analyzer=False):
+    """Parse an json file."""
 
     try:
         with open(jfile) as data:
-            return parse_json_string(data.read(), jfile, fail, goto_analyzer)
-    except IOError as err:
-        message = "Can't open json file {}: {}".format(jfile, err.strerror)
-        logging.info(message)
-        if fail:
-            raise UserWarning(message) from None
-    return None
+            if goto_analyzer:
+                return parse_json_string(data.read(), goto_analyzer)
+            return json.load(data)
+    except (IOError, json.JSONDecodeError, UserWarning) as err:
+        logging.debug("%s", err)
+        raise UserWarning(f"Can't load json file '{jfile}' in {Path.cwd()}") from None
 
-def parse_json_string(jstr, jfile=None, fail=False, goto_analyzer=False):
-    """Parse an json string."""
+def parse_json_string(jstr, goto_analyzer=False):
+    """Parse a json string."""
 
     try:
         jstr = clean_up_goto_analyzer(jstr) if goto_analyzer else jstr
         return json.loads(jstr)
     except json.JSONDecodeError as err:
-        if jfile:
-            message = "Can't parse json file {}: string {}...: {}".format(
-                jfile, jstr[:40], str(err)
-            )
-        else:
-            message = "Can't parse json string {}...: {}".format(
-                jstr[:40], str(err)
-            )
-        logging.info(message)
-        if fail:
-            raise UserWarning(message) from None
-
-    return None
+        logging.debug("%s", err)
+        raise UserWarning(f"Can't parse json string '{jstr[:40]}...'") from None
 
 def clean_up_goto_analyzer(json_data):
     """Clean up the json output of goto-analyzer."""
