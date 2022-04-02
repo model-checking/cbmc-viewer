@@ -5,7 +5,9 @@
 
 import json
 import logging
+import os
 import subprocess
+import tempfile
 
 import voluptuous
 import voluptuous.humanize
@@ -118,9 +120,9 @@ class ReachableFromCbmcJson(Reachable):
         )
 
 def load_cbmc_json(json_file, root):
-    """Load json file produced by goto-analyzer --reachable-functions --json."""
+    """Load json file produced by goto-analyzer --reachable-functions --json json_file"""
 
-    json_data = parse.parse_json_file(json_file, goto_analyzer=True)
+    json_data = parse.parse_json_file(json_file)
     return parse_cbmc_json(json_data, root)
 
 # TODO: Does file-local name mangling mess this up?
@@ -174,15 +176,18 @@ class ReachableFromGoto(Reachable):
 
     def __init__(self, goto, root, cwd=None):
 
-        cmd = ["goto-analyzer", "--reachable-functions", "--json", "-", goto]
+        # pylint: disable=consider-using-with
+        data = tempfile.NamedTemporaryFile(delete=False)
+
+        cmd = ["goto-analyzer", "--reachable-functions", "--json", data.name, goto]
         try:
-            analyzer_output = runt.run(cmd, cwd=cwd)
+            runt.run(cmd, cwd=cwd)
         except subprocess.CalledProcessError as err:
             raise UserWarning('Failed to run {}: {}'.format(cmd, str(err))) from err
 
-        json_data = parse.parse_json_string(
-            analyzer_output, goto_analyzer=True
-        )
+        json_data = parse.parse_json_file(data.name)
+        os.unlink(data.name)
+
         super().__init__(
             [parse_cbmc_json(json_data, root)]
         )
