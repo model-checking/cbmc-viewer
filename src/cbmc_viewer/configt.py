@@ -3,6 +3,9 @@
 
 """CBMC viewer configuration."""
 
+from pathlib import Path
+import logging
+
 from cbmc_viewer import parse
 
 EXPECTED_MISSING = 'expected-missing-functions'
@@ -17,9 +20,12 @@ class Config:
         if config_file is None:
             return
 
+        if not Path(config_file).exists():
+            logging.error("Config file does not exist: %s", config_file)
+            return
+
         config_data = parse.parse_json_file(config_file)
-        if config_data:
-            self.missing_functions = config_data.get(EXPECTED_MISSING, [])
+        self.missing_functions = config_data.get(EXPECTED_MISSING, [])
 
     def expected_missing_functions(self):
         """Return list of expected missing functions."""
