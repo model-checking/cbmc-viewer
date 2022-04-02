@@ -26,11 +26,6 @@ def parse_xml_string(xstr, xfile=None, fail=False):
     """Parse an xml string."""
 
     try:
-        # Messages printed by cbmc before the coverage data we care
-        # about may quote from the code, and quoted null character
-        # '\0' will appear as the string '&#0', which is unparsable by
-        # ElementTree.
-        xstr = xstr.replace('&#0;', 'null_char')
         return ElementTree.fromstring(xstr)
     except ElementTree.ParseError as err:
         if xfile:
