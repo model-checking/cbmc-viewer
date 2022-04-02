@@ -148,7 +148,7 @@ class PropertyFromCbmcJson(Property):
 def load_cbmc_json(jsonfile, root):
     """Load a json file produced by cbmc --show-properties --json-ui."""
 
-    json_data = parse.parse_json_file(jsonfile, fail=True)
+    json_data = parse.parse_json_file(jsonfile)
     assert json_data is not None
 
     # Search cbmc output for {"properties": [ PROPERTY ]}
@@ -184,7 +184,7 @@ class PropertyFromCbmcXml(Property):
 def load_cbmc_xml(xmlfile, root):
     """Load a json file produced by cbmc --show-properties --xml-ui."""
 
-    xml_data = parse.parse_xml_file(xmlfile, fail=True)
+    xml_data = parse.parse_xml_file(xmlfile)
     assert xml_data is not None
 
     root = srcloct.abspath(root)
