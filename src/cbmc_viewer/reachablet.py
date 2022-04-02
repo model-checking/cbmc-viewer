@@ -135,10 +135,16 @@ def parse_cbmc_json(json_data, root):
         if func_name.startswith('__CPROVER'):
             continue
 
+        # goto-analyzer --reachable-functions produces a malformed
+        # entry for __CPROVER_Start with an empty string for the
+        # function name.
+        if not func_name:
+            continue
+
         file_name = function.get('file')
         if file_name is None:
-            logging.error('Skipping reachable function with invalid source location: %s',
-                          function)
+            logging.warning('Skipping reachable function with invalid source location: %s',
+                            function)
             continue
 
         file_name = srcloct.abspath(file_name)
