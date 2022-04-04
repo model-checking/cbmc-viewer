@@ -236,7 +236,7 @@ def parse_cbmc_text_results(text_file):
     except OSError as error:
         raise UserWarning(f"Can't parse {text_file}: {str(error)}") from error
 
-    results = EMPTY_RESULT
+    results = dict(EMPTY_RESULT)
     results[PROGRAM] = cbmc_text_program(sections[LOG_SECTION])
     results[STATUS] = cbmc_text_status(sections[LOG_SECTION], sections[SUMMARY_SECTION])
     results[WARNING] = cbmc_text_warnings(sections[LOG_SECTION])
@@ -252,7 +252,7 @@ def parse_cbmc_json_results(json_file):
     if blob is None:
         return EMPTY_RESULT
 
-    results = EMPTY_RESULT
+    results = dict(EMPTY_RESULT)
     results[PROGRAM] = cbmc_json_program(blob)
     results[STATUS] = cbmc_json_status(blob)
     results[WARNING] = cbmc_json_warnings(blob)
@@ -268,7 +268,7 @@ def parse_cbmc_xml_results(xml_file):
     if blob is None:
         return EMPTY_RESULT
 
-    results = EMPTY_RESULT
+    results = dict(EMPTY_RESULT)
     results[PROGRAM] = cbmc_xml_program(blob)
     results[STATUS] = cbmc_xml_status(blob)
     results[WARNING] = cbmc_xml_warnings(blob)
