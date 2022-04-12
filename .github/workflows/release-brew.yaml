@@ -66,7 +66,7 @@ jobs:
         run: |
           brew tap ${{ env.TAP }}
           brew update-reset
-          brew bump-formula-pr --tag "${{ env.RELEASE_TAG }}" --revision "$GITHUB_SHA" ${{ env.TAP }}/${{ env.FORMULA }}
+          brew bump-formula-pr --tag "${{ env.RELEASE_TAG }}" --revision "$GITHUB_SHA" ${{ env.TAP }}/${{ env.FORMULA }} --force
         env:
           HOMEBREW_GITHUB_API_TOKEN: ${{ env.BOT_TOKEN }}
 
