@@ -3,350 +3,299 @@
 
 """Command line options."""
 
+import argparse
 import logging
 import os
 import platform
+
 
 from cbmc_viewer import filet
 from cbmc_viewer import version as viewer_version
 from cbmc_viewer.sourcet import Sources
 
-def goto(parser):
-    'Define --goto command line option.'
+from cbmc_viewer import coveraget
+from cbmc_viewer import loopt
+from cbmc_viewer import propertyt
+from cbmc_viewer import reachablet
+from cbmc_viewer import resultt
+from cbmc_viewer import sourcet
+from cbmc_viewer import symbolt
+from cbmc_viewer import tracet
+from cbmc_viewer import viewer
 
-    parser.add_argument(
-        '--goto',
-        help="""
-        The goto binary.
-        """
-    )
-    return parser
+choices = []
+if platform.system() != 'Windows':
+    choices.append('find')
+choices.extend(['walk', 'make', 'goto'])
 
-def srcdir(parser):
-    'Define --srcdir command line option.'
+OPTION_GROUPS = [
+    {'group_name': "CBMC results",
+     'group_desc': """
+         CBMC results from property checking, coverage checking, and
+         property listing.  Specify at least one of property checking
+         or coverage checking, using either "CBMC results" here or
+         "Viewer data" below.""",
+     'group_opts': [
+         {'flag': '--result',
+          'metavar': 'FILE',
+          'nargs': '+',
+          'help': """
+              CBMC property checking results.  A text, xml, or json
+              file containing the output of 'cbmc'.  """},
+         {'flag': '--coverage',
+          'metavar': 'FILE',
+          'nargs': '+',
+          'help': """
+              CBMC coverage checking results.  An xml or json file
+              containing the output of 'cbmc --cover locations'."""},
+         {'flag': '--property',
+          'metavar': 'FILE',
+          'nargs': '+',
+          'help': """
+              CBMC properties checked during property checking.  An
+              xml or json file containing the output of 'cbmc
+              --show-properties'."""}]},
 
-    parser.add_argument(
-        '--srcdir',
-        type=os.path.abspath,
-        help="""
-        The source directory.  The root of the source tree.
-        """
-    )
-    return parser
+    {'group_name': 'Sources',
+     'group_desc': None,
+     'group_opts': [
+         {'flag': '--srcdir',
+          'type': os.path.abspath,
+          'help': 'The source directory.  The root of the source tree.'},
+         {'flag': '--exclude',
+          'help': """
+              Paths relative to SRCDIR to exclude from the list of
+              source files.  A Python regular expression matched
+              against the result of os.path.normpath().  The match is
+              case insensitive."""},
+         {'flag': '--extensions',
+          'metavar': 'REGEXP',
+          'default': r'^\.(c|h|inl)$',
+          'help': """
+              File extensions of files to include in the list of
+              source files.  A Python regular expression matched
+              against the result of os.path.splitext().  The match is
+              case insensitive.  (Default: %(default)s)"""},
+         {'flag': '--source-method',
+          'metavar': 'MHD',
+          'choices': choices,
+          'help': """
+              The method to use to list source files under SRCDIR.
+              Methods available are [%(choices)s]: Use the Linux
+              'find' command, use the Python 'walk' method, use the
+              'make' command to build the goto binary with the
+              preprocessor, or use the symbol table in the goto
+              binary.  The default method is 'goto' if SRCDIR and
+              WKDIR and GOTO are specified, 'make' if SRCDIR and WKDIR
+              are specified, 'walk' on Windows, and 'find'
+              otherwise."""}]},
 
-def wkdir(parser):
-    'Define --wkdir command line option.'
+    {'group_name': 'Binaries',
+     'group_desc': None,
+     'group_opts': [
+         {'flag': '--wkdir',
+          'default': ".",
+          'type': os.path.abspath,
+          'help': """
+              The working directory in source locations in the goto
+              binary (and omitted when source locations are printed in
+              textual form).  This is usually the directory in which
+              goto-cc was invoked to build the goto binary."""},
+         {'flag': '--goto',
+          'help': 'The goto binary.'}]},
 
-    parser.add_argument(
-        '--wkdir',
-        default=".",
-        type=os.path.abspath,
-        help="""
-        The working directory in source locations in the goto binary
-        (and omitted when source locations are printed in textual form).
-        This is usually the directory in which goto-cc was invoked to
-        build the goto binary.
-        """
-    )
-    return parser
+    {'group_name': 'Output',
+     'group_desc': None,
+     'group_opts': [
+         {'flag': '--reportdir',
+          'default': 'report',
+          'type': os.path.abspath,
+          'help': """
+              The report directory.  Write the final report to this
+              directory.  (Default: %(default)s)"""},
+         {'flag': '--json-summary',
+          'metavar': 'JSON',
+          'help': 'Write summary of key metrics to this json file.'}]},
 
-def reportdir(parser):
-    'Define --reportdir command line option.'
+    {'group_name': 'Viewer data',
+     'group_desc': 'JSON files produced by the various make-* scripts.',
+     'group_opts': [
+         {'flag': '--viewer-reachable',
+          'metavar': 'JSON',
+          'nargs': '+',
+          'help': """
+              Load reachable functions from the JSON output of
+              make-reachable.  If multiple files are given, merge
+              multiple data sets into one."""},
+         {'flag': '--viewer-coverage',
+          'metavar': 'JSON',
+          'nargs': '+',
+          'help': """
+              Load coverage data from the JSON output of
+              make-coverage.  If multiple files are given, merge
+              multiple data sets into one."""},
+         {'flag': '--viewer-loop',
+          'metavar': 'JSON',
+          'nargs': '+',
+          'help': """
+              Load loops from the JSON output of make-loop. If
+              multiple files are given, merge multiple data sets into
+              one."""},
+         {'flag': '--viewer-property',
+          'metavar': 'JSON',
+          'nargs': '+',
+          'help': """
+              Load properties from the JSON output of make-property.
+              If multiple files are given, merge multiple data sets
+              into one."""},
+         {'flag': '--viewer-result',
+          'metavar': 'JSON',
+          'nargs': '+',
+          'help': """
+              Load results from the JSON output of make-result.  If
+              multiple files are given, merge multiple data sets into
+              one."""},
+         {'flag': '--viewer-source',
+          'metavar': 'JSON',
+          'nargs': '+',
+          'help': """
+              Load sources from the JSON output of make-source. If
+              multiple files are given, merge multiple data sets into
+              one."""},
+         {'flag': '--viewer-symbol',
+          'metavar': 'JSON',
+          'nargs': '+',
+          'help': """
+              Load symbols from the JSON output of make-symbol. If
+              multiple files are given, merge multiple data sets into
+              one."""},
+         {'flag': '--viewer-trace',
+          'metavar': 'JSON',
+          'nargs': '+',
+          'help': """
+              Load traces from the JSON output of make-trace. If
+              multiple files are given, merge multiple data sets into
+              one."""}]},
 
-    parser.add_argument(
-        '--reportdir',
-        default='report',
-        type=os.path.abspath,
-        help="""
-        The report directory.  Write the final report to this directory.
-        (Default: %(default)s)
-        """
-    )
-    return parser
+    {'group_name': 'Other',
+     'group_desc': None,
+     'group_opts': [
+         {'flag': '--verbose',
+          'action': 'store_true',
+          'help': 'Verbose output.'},
+         {'flag': '--debug',
+          'action': 'store_true',
+          'help': 'Debugging output.'},
+         {'flag': '--version',
+          'action': 'version',
+          'version': viewer_version.version(),
+          'help': 'Display version number and exit.'},
+         {'flag': '--config',
+          'metavar': 'JSON',
+          'default': "cbmc-viewer.json",
+          'help': "JSON configuration file. (Default: '%(default)s')"}]},
 
-def result(parser):
-    'Define --result command line option.'
+    {'group_name': 'Deprecated',
+     'group_desc': 'Options from prior versions now deprecated.',
+     'group_opts': [
+         {'flag': '--block',
+          'metavar': 'BLOCK',
+          'help': 'Use --coverage instead.'},
+         {'flag': '--htmldir',
+          'metavar': 'HTMLDIR',
+          'help': 'Use --reportdir instead.'},
+         {'flag': '--srcexclude',
+          'metavar': 'EXCLUDE',
+          'help': 'Use --exclude instead.'},
+         {'flag': '--blddir',
+          'help': 'Ignored.'},
+         {'flag': '--storm',
+          'help': 'Ignored.'}]}
+]
 
-    parser.add_argument(
-        '--result',
-        metavar='FILE',
-        nargs='+',
-        help="""
-        CBMC property checking results.
-        A text, xml, or json file containing the output of 'cbmc'.
-        """
-    )
-    return parser
+SUBPARSERS = [
+    {'name': None,
+     'func': viewer.viewer,
+     'desc': 'Report CBMC results',
+     'flags': None},
+    {'name': 'coverage',
+     'func': coveraget.make_coverage,
+     'desc': 'Summarize CBMC coverage results',
+     'flags': ['--coverage', '--viewer-coverage', '--srcdir']},
+    {'name': 'loop',
+     'func': loopt.make_loop,
+     'desc': 'Summarize CBMC loop',
+     'flags': ['--viewer-loop', '--goto', '--srcdir']},
+    {'name': 'property',
+     'func': propertyt.make_property,
+     'desc': 'Summarize CBMC properties used for property checking',
+     'flags': ['--property', '--viewer-property', '--srcdir']},
+    {'name': 'reachable',
+     'func': reachablet.make_reachable,
+     'desc': 'Summarize CBMC reachable functions',
+     'flags': ['--viewer-reachable', '--goto', '--srcdir']},
+    {'name': 'result',
+     'func': resultt.make_result,
+     'desc': 'Summarize CBMC result functions',
+     'flags': ['--result', '--viewer-result']},
+    {'name': 'source', # TODO: add --files back
+     'func': sourcet.make_source,
+     'desc': 'Summarize CBMC source functions',
+     'flags': ['--viewer-source', '--goto', '--srcdir', '--wkdir',
+               '--source-method', '--extensions', '--exclude']},
+    {'name': 'symbol',  # TODO: add --files back
+     'func': symbolt.make_symbol,
+     'desc': 'Summarize CBMC symbol definitions',
+     'flags': ['--viewer-symbol', '--viewer-source', '--goto', '--wkdir', '--srcdir']},
+    {'name': 'trace',
+     'func': tracet.make_trace,
+     'desc': 'Summarize CBMC trace functions',
+     'flags': ['--result', '--viewer-trace', '--wkdir', '--srcdir']},
+]
 
-def coverage(parser):
-    'Define --coverage command line option.'
+def add_arguments(parser, function=None, flags=None):
+    """Add implementing function and list of flags to a parser"""
 
-    parser.add_argument(
-        '--coverage',
-        metavar='FILE',
-        nargs='+',
-        help="""
-        CBMC coverage checking results.
-        An xml or json file containing the output of
-        'cbmc --cover locations'.
-        """
-    )
-    return parser
+    if function:
+        parser.set_defaults(func=function)
+    if flags:
+        flags = flags + ['--verbose', '--debug', '--version']
 
-def property(parser):
-    'Define --property command line option.'
+    for group in OPTION_GROUPS:
+        options = [
+            option for option in group['group_opts'] if flags is None or option['flag'] in flags]
+        if not options:
+            continue
 
-    # pylint: disable=redefined-builtin
+        parser_group = parser.add_argument_group(group['group_name'], group['group_desc'])
+        for option in options:
+            opt = dict(option) # pop is destructive
+            flag = opt.pop('flag')
+            parser_group.add_argument(flag, **opt)
 
-    parser.add_argument(
-        '--property',
-        metavar='FILE',
-        nargs='+',
-        help="""
-        CBMC properties checked during property checking.
-        An xml or json file containing the output of
-        'cbmc --show-properties'.
-        """
-    )
-    return parser
+def add_subparser(subparsers, sub_name, sub_desc, sub_func, sub_flags):
+    """Add a defined subparser"""
 
-def exclude(parser):
-    'Define --exclude command line option.'
+    if sub_name:
+        subparser = subparsers.add_parser(sub_name, description=sub_desc)
+    add_arguments(subparser, sub_func, sub_flags)
 
-    parser.add_argument(
-        '--exclude',
-        help="""
-        Paths relative to SRCDIR to exclude from the list of source files.
-        A Python regular expression matched against the result
-        of os.path.normpath().  The match is case insensitive.
-        """
-    )
-    return parser
+def create_parser():
+    """Create the parser with defined subparsers"""
 
-def extensions(parser):
-    'Define --extensions command line option.'
+    top = SUBPARSERS[0]
+    assert top['name'] is None
 
-    parser.add_argument(
-        '--extensions',
-        metavar='REGEXP',
-        default=r'^\.(c|h|inl)$',
-        help="""
-        File extensions of files to include in the list of source files.
-        A Python regular expression matched against the result of
-        os.path.splitext().  The match is case insensitive.
-        (Default: %(default)s)
-        """
-    )
-    return parser
+    parser = argparse.ArgumentParser(description=top['desc'])
+    add_arguments(parser, top['func'], top['flags'])
 
-def source_method(parser):
-    'Define --source-method command line option.'
-
-    choices = []
-    if platform.system() != 'Windows':
-        choices.append('find')
-    choices.extend(['walk', 'make', 'goto'])
-
-    parser.add_argument(
-        '--source-method',
-        metavar='MHD',
-        choices=choices,
-        help="""
-        The method to use to list source files under SRCDIR.  Methods
-        available are [%(choices)s]: Use the Linux 'find' command, use
-        the Python 'walk' method, use the 'make' command to build
-        the goto binary with the preprocessor, or use the symbol table in
-        the goto binary.  The default method is 'goto' if
-        SRCDIR and WKDIR and GOTO are specified, 'make' if SRCDIR and WKDIR
-        are specified, 'walk' on Windows, and 'find' otherwise.
-        """
-    )
-    return parser
-
-def config(parser):
-    'Define --config command line option.'
-
-    parser.add_argument(
-        '--config',
-        metavar='JSON',
-        default="cbmc-viewer.json",
-        help="""
-        JSON configuration file. (Default: '%(default)s')
-        """
-    )
-    return parser
-
-################################################################
-# Load data from the make-* commands
-
-def viewer_reachable(parser):
-    "Load make-reachable data"
-
-    parser.add_argument(
-        '--viewer-reachable',
-        metavar='JSON',
-        nargs='+',
-        help='Load reachable functions from the JSON output of make-reachable.'
-        ' If multiple files are given, merge multiple data sets into one.'
-    )
-
-def viewer_coverage(parser):
-    "Load make-coverage data"
-
-    parser.add_argument(
-        '--viewer-coverage',
-        metavar='JSON',
-        nargs='+',
-        help='Load coverage data from the JSON output of make-coverage.'
-        ' If multiple files are given, merge multiple data sets into one.'
-    )
-
-def viewer_loop(parser):
-    "Load make-loop data"
-
-    parser.add_argument(
-        '--viewer-loop',
-        metavar='JSON',
-        nargs='+',
-        help='Load loops from the JSON output of make-loop.'
-        ' If multiple files are given, merge multiple data sets into one.'
-    )
-
-def viewer_property(parser):
-    "Load make-property data"
-
-    parser.add_argument(
-        '--viewer-property',
-        metavar='JSON',
-        nargs='+',
-        help='Load properties from the JSON output of make-property.'
-        ' If multiple files are given, merge multiple data sets into one.'
-    )
-
-def viewer_result(parser):
-    "Load make-result data"
-
-
-    parser.add_argument(
-        '--viewer-result',
-        metavar='JSON',
-        nargs='+',
-        help='Load results from the JSON output of make-result.'
-        ' If multiple files are given, merge multiple data sets into one.'
-    )
-
-def viewer_source(parser):
-    "Load make-source data"
-
-    parser.add_argument(
-        '--viewer-source',
-        metavar='JSON',
-        nargs='+',
-        help='Load sources from the JSON output of make-source.'
-        ' If multiple files are given, merge multiple data sets into one.'
-    )
-def viewer_symbol(parser):
-    "Load make-symbol data"
-
-    parser.add_argument(
-        '--viewer-symbol',
-        metavar='JSON',
-        nargs='+',
-        help='Load symbols from the JSON output of make-symbol.'
-        ' If multiple files are given, merge multiple data sets into one.'
-    )
-
-def viewer_trace(parser):
-    "Load make-trace data"
-
-    parser.add_argument(
-        '--viewer-trace',
-        metavar='JSON',
-        nargs='+',
-        help='Load traces from the JSON output of make-trace.'
-        ' If multiple files are given, merge multiple data sets into one.'
-    )
-    return parser
-
-################################################################
-# Other line options
-
-def log(parser):
-    'Define --verbose and --debug command line options.'
-
-    parser.add_argument(
-        '--verbose',
-        action='store_true',
-        help='Verbose output.'
-    )
-    parser.add_argument(
-        '--debug',
-        action='store_true',
-        help='Debugging output.'
-    )
-    return parser
-
-def version(parser):
-    'Define --version command line option.'
-
-    parser.add_argument(
-        '--version',
-        action='version',
-        version=viewer_version.version(),
-        help="""Display version number and exit."""
-    )
+    subparsers = parser.add_subparsers(title='Subcommands', dest='subcommand')
+    for subparser in SUBPARSERS[1:]:
+        add_subparser(subparsers,
+                      subparser['name'], subparser['desc'], subparser['func'], subparser['flags'])
     return parser
 
 ################################################################
-# Depricated command line options
-#
-# Handle command line options from prior versions of cbmc-viewer that
-# are deprecated in the current version.  Some old options have
-# natural equivalents among the new options, some have a slight change
-# in semantics that aren't easy to fix, and some we no longer support.
-
-def block(parser):
-    'Define --block command line option.'
-    parser.add_argument(
-        '--block',
-        metavar='BLOCK',
-        help="""Use --coverage instead."""
-    )
-    return parser
-
-def htmldir(parser):
-    'Define --htmldir command line option.'
-    parser.add_argument(
-        '--htmldir',
-        metavar='HTMLDIR',
-        help="""Use --reportdir instead."""
-    )
-    return parser
-
-def srcexclude(parser):
-    'Define --srcexclude command line option.'
-    parser.add_argument(
-        '--srcexclude',
-        metavar='EXCLUDE',
-        help="""Use --exclude instead."""
-    )
-    return parser
-
-def blddir(parser):
-    'Define --blddir command line option.'
-    parser.add_argument(
-        '--blddir',
-        help="""Ignored."""
-    )
-    return parser
-
-def storm(parser):
-    'Define --storm command line option.'
-    parser.add_argument(
-        '--storm',
-        help="""Ignored."""
-    )
-    return parser
 
 def handle_deprecated_arguments(args):
     """Warn about deprecated arguments, use them  when possible."""
