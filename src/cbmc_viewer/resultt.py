@@ -512,7 +512,7 @@ def fail(msg):
 def make_result(args):
     """Implementation of make-result."""
 
-    viewer_result, cbmc_result = args.viewer_result, args.cbmc_result
+    viewer_result, cbmc_result = args.viewer_result, args.result
 
     if viewer_result:
         if filet.all_json_files(viewer_result):

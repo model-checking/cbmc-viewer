@@ -746,7 +746,7 @@ def make_trace(args):
     """Implementation of make-trace"""
 
     viewer_trace, cbmc_trace, srcdir, wkdir = (
-        args.viewer_trace, args.cbmc_trace, args.srcdir, args.wkdir)
+        args.viewer_trace, args.result, args.srcdir, args.wkdir)
 
     if viewer_trace:
         if filet.all_json_files(viewer_trace):

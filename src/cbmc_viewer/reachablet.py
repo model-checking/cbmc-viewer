@@ -213,7 +213,7 @@ def make_reachable(args):
     """The implementation of make-reachable."""
 
     viewer_reachable, cbmc_reachable, srcdir, goto = (
-        args.viewer_reachable, args.cbmc_reachable, args.srcdir, args.goto)
+        args.viewer_reachable, None, args.srcdir, args.goto)
 
     if viewer_reachable:
         if filet.all_json_files(viewer_reachable):

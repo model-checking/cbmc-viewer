@@ -244,7 +244,7 @@ def make_symbol(args):
     """Implementation of make-symbol."""
 
     viewer_symbol, viewer_source, goto, wkdir, srcdir, files = (
-        args.viewer_symbol, args.viewer_source, args.goto, args.wkdir, args.srcdir, args.files)
+        args.viewer_symbol, args.viewer_source, args.goto, args.wkdir, args.srcdir, None)
 
     wkdir = srcloct.abspath(wkdir) if wkdir else None
     srcdir = srcloct.abspath(srcdir) if srcdir else None

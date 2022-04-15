@@ -212,7 +212,7 @@ def fail(msg):
 def make_property(args):
     """The implementation of make-property."""
 
-    viewer_property, cbmc_property, srcdir = args.viewer_property, args.cbmc_property, args.srcdir
+    viewer_property, cbmc_property, srcdir = args.viewer_property, args.property, args.srcdir
 
     if viewer_property:
         if filet.all_json_files(viewer_property):
