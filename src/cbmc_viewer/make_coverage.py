@@ -47,7 +47,7 @@ def main():
     args = optionst.defaults(args)
 
     try:
-        coverage = coveraget.make_coverage(args.viewer_coverage, args.srcdir, args.cbmc_coverage)
+        coverage = coveraget.make_coverage(args)
         print(coverage)
     except UserWarning as error:
         sys.exit(error)

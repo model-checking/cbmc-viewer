@@ -457,9 +457,12 @@ def fail(msg):
     logging.info(msg)
     raise UserWarning(msg)
 
-def make_source(viewer_source, goto, source_method, srcdir,
-                wkdir, exclude, extensions):
+def make_source(args):
     """The implementation of make-source."""
+
+    viewer_source, goto, source_method, srcdir, wkdir, exclude, extensions = (
+        args.viewer_source, args.goto, args.source_method, args.srcdir, args.wkdir, args.exclude,
+        args.extensions)
 
     wkdir = srcloct.abspath(wkdir) if wkdir else None
     srcdir = srcloct.abspath(srcdir) if srcdir else None

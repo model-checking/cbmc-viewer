@@ -53,10 +53,7 @@ def main():
     args = optionst.defaults(args)
 
     try:
-        symbols = symbolt.make_symbol(args.viewer_symbol, args.viewer_source,
-                                      args.goto,
-                                      args.wkdir,
-                                      args.srcdir, args.files)
+        symbols = symbolt.make_symbol(args)
         print(symbols)
     except UserWarning as error:
         sys.exit(error)

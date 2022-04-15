@@ -251,8 +251,10 @@ def fail(msg):
     logging.info(msg)
     raise UserWarning(msg)
 
-def make_loop(viewer_loop, cbmc_loop, srcdir, goto):
+def make_loop(args):
     """The implementation of make-loop"""
+
+    viewer_loop, cbmc_loop, srcdir, goto = args.viewer_loop, args.cbmc_loop, args.srcdir, args.goto
 
     if viewer_loop:
         if filet.all_json_files(viewer_loop):
