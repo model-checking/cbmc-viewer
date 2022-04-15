@@ -20,19 +20,8 @@ def create_parser():
         description='List CBMC property checking results.'
     )
 
+    optionst.result(parser)
     optionst.viewer_result(parser)
-    parser.add_argument(
-        'cbmc_result',
-        nargs='*',
-        help="""
-        One or more files containing the output of cbmc property checking
-        as text, xml, or json.
-        Multiple files will be merged into a single list of
-        property checking results.
-        Do not mix text, xml, and json files.
-        """
-    )
-
     optionst.log(parser)
 
     return parser

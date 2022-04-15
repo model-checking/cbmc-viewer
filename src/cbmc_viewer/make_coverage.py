@@ -21,19 +21,9 @@ def create_parser():
         description="List CBMC coverage checking results."
     )
 
+    optionst.coverage(parser)
     optionst.viewer_coverage(parser)
     optionst.srcdir(parser)
-
-    parser.add_argument(
-        'cbmc_coverage',
-        nargs='*',
-        help="""
-        An xml or json file containing the output of 'cbmc --location cover'.
-        Merge the coverage data if more than one file is given.
-        Do not mix xml and json files.
-        """
-    )
-
     optionst.log(parser)
 
     return parser

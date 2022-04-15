@@ -25,16 +25,6 @@ def create_parser():
     optionst.viewer_loop(parser)
     optionst.goto(parser)
     optionst.srcdir(parser)
-
-    parser.add_argument(
-        'cbmc_loop',
-        nargs='*',
-        help="""
-        A list of xml or json files containing the output of
-        'cbmc --show-loops'.  Do not mix xml and json files.
-        """
-    )
-
     optionst.log(parser)
 
     return parser

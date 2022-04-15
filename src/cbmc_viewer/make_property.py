@@ -22,18 +22,9 @@ def create_parser():
         description='Properties checked by CBMC during property checking.'
     )
 
+    optionst.property(parser)
     optionst.viewer_property(parser)
     optionst.srcdir(parser)
-
-    parser.add_argument(
-        'cbmc_property',
-        nargs='*',
-        help="""
-        One or more files containing the xml or json output of
-        'cbmc --show-properties'.  Do not mix xml and json files.
-        """
-    )
-
     optionst.log(parser)
 
     return parser
