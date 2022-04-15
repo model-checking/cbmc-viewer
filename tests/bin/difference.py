@@ -88,6 +88,9 @@ def parse_arguments():
         {'flag': '--force',
          'action': 'store_true',
          'help': 'Overwrite existing report or installation directories'},
+        {'flag': '--utility-tests',
+         'action': 'store_true',
+         'help': 'Compare viewer json output with make_* json output'},
     ]
     args = arguments.create_parser(options, description).parse_args()
     arguments.configure_logging(args)
@@ -214,10 +217,112 @@ def update_jobs(jobs, new_viewer, new_report_root):
 
 ################################################################
 
-def run_viewer(proof_root, viewer1, root1, viewer2, root2, litani):
+def parsed_command(cmd):
+    cmd = re.sub(r'\s+', ' ', cmd.strip())
+
+    command, *options = cmd.split(' ')
+    keys = options[0::2]
+    vals = options[1::2]
+    pairs = zip(keys, vals)
+
+    return command, dict(pairs)
+
+def make_coverage(cmd, opts, old):
+    cmd = Path(cmd).with_name('make-coverage')
+    cov = opts['--coverage']
+    src = opts['--srcdir']
+    if old:
+        return f"{cmd} {cov} --srcdir {src}"
+    return f"{cmd} --coverage {cov} --srcdir {src}"
+
+def make_loop(cmd, opts, _):
+    cmd = Path(cmd).with_name('make-loop')
+    src = opts['--srcdir']
+    goto = opts['--goto']
+    return f"{cmd} --goto {goto} --srcdir {src}"
+
+def make_property(cmd, opts, old):
+    cmd = Path(cmd).with_name('make-property')
+    prop = opts['--property']
+    src = opts['--srcdir']
+    if old:
+        return f"{cmd} {prop} --srcdir {src}"
+    return f"{cmd} --property {prop} --srcdir {src}"
+
+def make_reachable(cmd, opts, _):
+    cmd = Path(cmd).with_name('make-reachable')
+    src = opts['--srcdir']
+    goto = opts['--goto']
+    return f"{cmd} --goto {goto} --srcdir {src}"
+
+def make_result(cmd, opts, old):
+    cmd = Path(cmd).with_name('make-result')
+    res = opts['--result']
+    if old:
+        return f"{cmd} {res}"
+    return f"{cmd} --result {res}"
+
+def make_source(cmd, opts, _):
+    cmd = Path(cmd).with_name('make-source')
+    src = opts['--srcdir']
+    goto = opts['--goto']
+    return f"{cmd} --goto {goto} --srcdir {src}"
+
+def make_symbol(cmd, opts, _):
+    cmd = Path(cmd).with_name('make-symbol')
+    src = opts['--srcdir']
+    goto = opts['--goto']
+    return f"{cmd} --goto {goto} --srcdir {src}"
+
+def make_trace(cmd, opts, old):
+    cmd = Path(cmd).with_name('make-trace')
+    res = opts['--result']
+    src = opts['--srcdir']
+    if old:
+        return f"{cmd} {res} --srcdir {src}"
+    return f"{cmd} --result {res} --srcdir {src}"
+
+def make_kind(job, kind, viewer, report_root, old):
+    job = copy.copy(job) # a shallow copy of job
+    command = job["command"]
+    outputs = job["outputs"]
+    proof_name = job["pipeline_name"]
+    assert len(outputs) == 1
+
+    _, old_opts = parsed_command(command)
+    cmd = ({"coverage": make_coverage,
+            "loop": make_loop,
+            "property": make_property,
+            "reachable": make_reachable,
+            "result": make_result,
+            "source": make_source,
+            "symbol": make_symbol,
+            "trace": make_trace}[kind])(viewer, old_opts, old)
+    out = report_root / proof_name / f'json/viewer-{kind}.json'
+
+    job["command"] = f"{cmd} > {out}"
+    job["outputs"] = [str(out)]
+    return job
+
+def make_jobs(job, viewer, report_root, old):
+    return [make_kind(job, kind, viewer, report_root, old) for kind in
+            ["coverage", "loop", "property", "reachable", "result", "source", "symbol", "trace"]]
+
+def utility_jobs(jobs, viewer, report_root, old):
+    return [make_job  for job in jobs for make_job in make_jobs(job, viewer, report_root, old)]
+
+################################################################
+
+def run_viewer(proof_root, viewer1, root1, viewer2, root2, litani, utility_tests):
     logging.info("Loading and updating viewer jobs...")
     viewer_jobs = get_jobs(proof_root, litani)
+    make1 = root1.with_name(root1.name + "-utility")
+    make2 = root2.with_name(root2.name + "-utility")
+
     jobs = update_jobs(viewer_jobs, viewer1, root1) + update_jobs(viewer_jobs, viewer2, root2)
+    if utility_tests:
+        jobs += utility_jobs(viewer_jobs, viewer1, make1, old=True)
+        jobs += utility_jobs(viewer_jobs, viewer2, make2, old=False)
 
     logging.info("Running litani init...")
     run([litani, "init", "--project", "Differential testing"])
@@ -236,6 +341,22 @@ def compare_reports(reports1, reports2):
     except UserWarning as error:
         raise UserWarning(
             f"Reports differ: compare with 'diff -r {reports1} {reports2}'") from error
+
+def compare_utility_reports(reports):
+    reports1 = reports
+    reports2 = reports.with_name(reports.name + "-utility")
+    logging.info("Comparing %s and %s...", reports1, reports2)
+    try:
+        json1 = sorted(run(['find', '.', '-type', 'd', '-name', 'json'], cwd=reports1))
+        json2 = sorted(run(['find', '.', '-type', 'd', '-name', 'json'], cwd=reports2))
+        assert json1 == json2
+        for path in json1:
+            logging.info("Comparing %s and %s", reports1/path, reports2/path)
+            run(["diff", "-wr", reports1/path, reports2/path])
+    except UserWarning as error:
+        raise UserWarning(
+            f"Reports differ: compare with 'diff -r {reports1} {reports2}'") from error
+
 
 ################################################################
 # Validate command line arguments
@@ -349,6 +470,7 @@ def validate_arguments(args):
 def main():
     args = parse_arguments()
     validate_arguments(args)
+    logging.debug(args)
 
     shutil.rmtree(args.reports[0], ignore_errors=True)
     shutil.rmtree(args.reports[1], ignore_errors=True)
@@ -360,8 +482,11 @@ def main():
     viewer2 = install_viewer(args.commits[1], args.installs[1], args.viewer_repository)
     report2 = args.reports[1]
 
-    run_viewer(args.proofs, viewer1, report1, viewer2, report2, args.litani)
+    run_viewer(args.proofs, viewer1, report1, viewer2, report2, args.litani, args.utility_tests)
     compare_reports(report1, report2)
+    if args.utility_tests:
+        compare_utility_reports(report1)
+        compare_utility_reports(report2)
 
 if __name__ == "__main__":
     main()
