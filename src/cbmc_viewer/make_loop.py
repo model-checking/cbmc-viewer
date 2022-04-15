@@ -48,7 +48,7 @@ def main():
     args = optionst.defaults(args)
 
     try:
-        loops = loopt.make_loop(args.viewer_loop, args.cbmc_loop, args.srcdir, args.goto)
+        loops = loopt.make_loop(args)
         print(loops)
     except UserWarning as error:
         sys.exit(error)

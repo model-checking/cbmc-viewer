@@ -742,8 +742,11 @@ def fail(msg):
     logging.info(msg)
     raise UserWarning(msg)
 
-def make_trace(viewer_trace, cbmc_trace, srcdir, wkdir):
+def make_trace(args):
     """Implementation of make-trace"""
+
+    viewer_trace, cbmc_trace, srcdir, wkdir = (
+        args.viewer_trace, args.cbmc_trace, args.srcdir, args.wkdir)
 
     if viewer_trace:
         if filet.all_json_files(viewer_trace):

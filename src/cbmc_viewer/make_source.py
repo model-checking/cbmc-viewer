@@ -41,11 +41,7 @@ def main():
     args = optionst.defaults(args)
 
     try:
-        sources = sourcet.make_source(args.viewer_source,
-                                      args.goto,
-                                      args.source_method,
-                                      args.srcdir, args.wkdir,
-                                      args.exclude, args.extensions)
+        sources = sourcet.make_source(args)
         print(sources)
     except UserWarning as error:
         sys.exit(error)

@@ -509,8 +509,10 @@ def fail(msg):
     logging.info(msg)
     raise UserWarning(msg)
 
-def make_result(viewer_result, cbmc_result):
+def make_result(args):
     """Implementation of make-result."""
+
+    viewer_result, cbmc_result = args.viewer_result, args.cbmc_result
 
     if viewer_result:
         if filet.all_json_files(viewer_result):

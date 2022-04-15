@@ -209,8 +209,10 @@ def fail(msg):
     logging.info(msg)
     raise UserWarning(msg)
 
-def make_property(viewer_property, cbmc_property, srcdir):
+def make_property(args):
     """The implementation of make-property."""
+
+    viewer_property, cbmc_property, srcdir = args.viewer_property, args.cbmc_property, args.srcdir
 
     if viewer_property:
         if filet.all_json_files(viewer_property):

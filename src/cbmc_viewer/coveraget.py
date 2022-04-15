@@ -560,8 +560,10 @@ def fail(msg):
     logging.info(msg)
     raise UserWarning(msg)
 
-def make_coverage(viewer_coverage, srcdir, cbmc_coverage):
+def make_coverage(args):
     """The implementation of make-coverage."""
+
+    viewer_coverage, srcdir, cbmc_coverage = args.viewer_coverage, args.srcdir, args.cbmc_coverage
 
     if viewer_coverage:
         if filet.all_json_files(viewer_coverage):
