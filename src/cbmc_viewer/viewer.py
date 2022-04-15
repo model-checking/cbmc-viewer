@@ -18,7 +18,6 @@ import sys
 from cbmc_viewer import configt
 from cbmc_viewer import coveraget
 from cbmc_viewer import loopt
-from cbmc_viewer import optionst
 from cbmc_viewer import propertyt
 from cbmc_viewer import reachablet
 from cbmc_viewer import report
@@ -26,72 +25,6 @@ from cbmc_viewer import resultt
 from cbmc_viewer import sourcet
 from cbmc_viewer import symbolt
 from cbmc_viewer import tracet
-
-def create_parser():
-    """Create the command line parser."""
-
-    parser = argparse.ArgumentParser(
-        description='Report CBMC results.'
-    )
-
-    cbmc_data = parser.add_argument_group(
-        """CBMC results""",
-        """CBMC results from property checking, coverage checking, and
-        property listing.  Specify at least one of property checking
-        or coverage checking, using either "CBMC results" here or
-        "Viewer data" below."""
-    )
-    optionst.result(cbmc_data)
-    optionst.coverage(cbmc_data)
-    optionst.property(cbmc_data)
-
-    proof_sources = parser.add_argument_group('Sources')
-    optionst.srcdir(proof_sources)
-    optionst.exclude(proof_sources)
-    optionst.extensions(proof_sources)
-    optionst.source_method(proof_sources)
-
-    proof_binaries = parser.add_argument_group('Binaries')
-    optionst.wkdir(proof_binaries)
-    optionst.goto(proof_binaries)
-
-    viewer_output = parser.add_argument_group('Output')
-    optionst.reportdir(viewer_output)
-    viewer_output.add_argument(
-        '--json-summary',
-        metavar='JSON',
-        help='Write summary of key metrics to this json file.'
-    )
-
-    viewer_data = parser.add_argument_group(
-        """Viewer data""",
-        """JSON files produced by the various make-* scripts."""
-    )
-    optionst.viewer_coverage(viewer_data)
-    optionst.viewer_loop(viewer_data)
-    optionst.viewer_property(viewer_data)
-    optionst.viewer_reachable(viewer_data)
-    optionst.viewer_result(viewer_data)
-    optionst.viewer_source(viewer_data)
-    optionst.viewer_symbol(viewer_data)
-    optionst.viewer_trace(viewer_data)
-
-    other = parser.add_argument_group('Other')
-    optionst.log(other)
-    optionst.config(other)
-    optionst.version(other)
-
-    deprecated = parser.add_argument_group(
-        'Depricated',
-        'Options from prior versions now deprecated.'
-    )
-    deprecated = optionst.block(deprecated)
-    deprecated = optionst.htmldir(deprecated)
-    deprecated = optionst.srcexclude(deprecated)
-    deprecated = optionst.blddir(deprecated)
-    deprecated = optionst.storm(deprecated)
-
-    return parser
 
 ################################################################
 
@@ -193,12 +126,3 @@ def viewer(args):
 
     global_progress("CBMC viewer", True)
     return 0 # exit with normal return code
-
-################################################################
-
-def main():
-    """Construct the cbmc report."""
-
-    args = create_parser().parse_args()
-    args = optionst.defaults(args)
-    viewer(args)
