@@ -20,20 +20,10 @@ def create_parser():
         description="List CBMC error traces."
     )
 
+    optionst.result(parser)
     optionst.viewer_trace(parser)
     optionst.wkdir(parser)
     optionst.srcdir(parser)
-
-    parser.add_argument(
-        'cbmc_trace',
-        nargs='*',
-        help="""
-        An xml or json file containing the output of cbmc property checking.
-        Merge the traces if more than one file is given.
-        Do not mix xml and json files.
-        """
-    )
-
     optionst.log(parser)
 
     return parser
