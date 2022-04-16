@@ -336,27 +336,29 @@ def run_viewer(proof_root, viewer1, root1, viewer2, root2, litani, utility_tests
 
 def compare_reports(reports1, reports2):
     logging.info("Comparing %s and %s...", reports1, reports2)
+    cmd = ["diff", "-rw", reports1, reports2]
     try:
-        run(["diff", "-r", reports1, reports2])
+        run(cmd)
     except UserWarning as error:
-        raise UserWarning(
-            f"Reports differ: compare with 'diff -r {reports1} {reports2}'") from error
+        cmd = ' '.join([str(word) for word in cmd])
+        raise UserWarning(f"Reports differ: {cmd}") from error
 
 def compare_utility_reports(reports):
     reports1 = reports
     reports2 = reports.with_name(reports.name + "-utility")
     logging.info("Comparing %s and %s...", reports1, reports2)
-    try:
-        json1 = sorted(run(['find', '.', '-type', 'd', '-name', 'json'], cwd=reports1))
-        json2 = sorted(run(['find', '.', '-type', 'd', '-name', 'json'], cwd=reports2))
-        assert json1 == json2
-        for path in json1:
-            logging.info("Comparing %s and %s", reports1/path, reports2/path)
-            run(["diff", "-wr", reports1/path, reports2/path])
-    except UserWarning as error:
-        raise UserWarning(
-            f"Reports differ: compare with 'diff -r {reports1} {reports2}'") from error
+    json1 = sorted(run(['find', '.', '-type', 'd', '-name', 'json'], cwd=reports1))
+    json2 = sorted(run(['find', '.', '-type', 'd', '-name', 'json'], cwd=reports2))
+    assert json1 == json2
 
+    for path in json1:
+        logging.info("Comparing %s and %s", reports1/path, reports2/path)
+        cmd = ["diff", "-rw", reports1/path, reports2/path]
+        try:
+            run(cmd)
+        except UserWarning as error:
+            cmd = ' '.join([str(word) for word in cmd])
+            raise UserWarning(f"Reports differ: {cmd}") from error
 
 ################################################################
 # Validate command line arguments
