@@ -8,6 +8,7 @@ line coverage, with coverage reports for statically reachable functions,
 and with lists of property violations and traces for each violation.
 """
 
+from pathlib import Path
 import argparse
 import datetime
 import logging
@@ -151,50 +152,39 @@ def viewer(args):
     jsondir = os.path.join(args.reportdir, "json")
     os.makedirs(htmldir, exist_ok=True)
     os.makedirs(jsondir, exist_ok=True)
-
-    def dump(obj, name):
-        with open(os.path.join(jsondir, name), 'w') as output:
-            output.write(str(obj))
+    jsondir = Path(jsondir)
 
     progress("Scanning property checking results")
-    results = resultt.make_result(args)
-    dump(results, 'viewer-result.json')
+    results = resultt.make_and_save_result(args, jsondir / 'viewer-result.json')
     progress("Scanning property checking results", True)
 
     progress("Scanning error traces")
-    traces = tracet.make_trace(args)
-    dump(traces, 'viewer-trace.json')
+    traces = tracet.make_and_save_trace(args, jsondir / 'viewer-trace.json')
     progress("Scanning error traces", True)
 
     progress("Scanning coverage data")
-    coverage = coveraget.make_coverage(args)
-    dump(coverage, 'viewer-coverage.json')
+    coverage = coveraget.make_and_save_coverage(args, jsondir / 'viewer-coverage.json')
     progress("Scanning coverage data", True)
 
     progress("Scanning loop definitions")
-    loops = loopt.make_loop(args)
-    dump(loops, 'viewer-loop.json')
+    loops = loopt.make_and_save_loop(args, jsondir / 'viewer-loop.json')
     progress("Scanning loop definitions", True)
 
     progress("Scanning properties")
-    properties = propertyt.make_property(args)
-    dump(properties, 'viewer-property.json')
+    properties = propertyt.make_and_save_property(args, jsondir / 'viewer-property.json')
     progress("Scanning properties", True)
 
     progress("Computing reachable functions")
-    reachable = reachablet.make_reachable(args)
-    dump(reachable, 'viewer-reachable.json')
+    reachablet.make_and_save_reachable(args, jsondir / 'viewer-reachable.json')
     progress("Computing reachable functions", True)
 
     # Make sources last, it may delete the goto binary
     progress("Scanning source tree")
-    sources = sourcet.make_source(args)
-    dump(sources, 'viewer-source.json')
+    sources = sourcet.make_and_save_source(args, jsondir / 'viewer-source.json')
     progress("Scanning source tree", True)
 
     progress("Preparing symbol table")
-    symbols = symbolt.make_symbol(args)
-    dump(symbols, 'viewer-symbol.json')
+    symbols = symbolt.make_and_save_symbol(args, jsondir / 'viewer-symbol.json')
     progress("Preparing symbol table", True)
 
     config = configt.Config(args.config)

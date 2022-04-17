@@ -38,8 +38,7 @@ def main():
     args = optionst.defaults(args)
 
     try:
-        properties = propertyt.make_property(args)
-        print(properties)
+        propertyt.make_and_save_property(args)
     except UserWarning as error:
         sys.exit(error)
 

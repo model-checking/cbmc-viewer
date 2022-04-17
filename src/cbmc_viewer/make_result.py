@@ -35,8 +35,7 @@ def main():
     args = optionst.defaults(args)
 
     try:
-        results = resultt.make_result(args)
-        print(results)
+        resultt.make_and_save_result(args)
     except UserWarning as error:
         sys.exit(error)
 
