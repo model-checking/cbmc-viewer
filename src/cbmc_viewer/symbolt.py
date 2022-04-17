@@ -275,4 +275,11 @@ def make_symbol(args):
                  "--viewer-symbol")
     return Symbol()
 
+def make_and_save_symbol(args, path=None):
+    """Make symbol object and write to file or stdout"""
+
+    obj = make_symbol(args)
+    util.save(obj, path)
+    return obj
+
 ################################################################

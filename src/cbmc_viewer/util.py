@@ -67,4 +67,15 @@ def dump(data, filename=None, directory='.'):
     else:
         print(data)
 
+def save(obj, path=None):
+    """Save an object to a file or to stdout"""
+
+    if path is None:
+        print(obj)
+        return
+
+    with open(path, 'w', encoding='utf-8') as output:
+        print(obj, file=output)
+    return
+
 ################################################################

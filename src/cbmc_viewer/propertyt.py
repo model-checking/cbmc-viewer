@@ -232,4 +232,11 @@ def make_property(args):
                  "--viewer-property")
     return Property()
 
+def make_and_save_property(args, path=None):
+    """Make property object and write to file or stdout"""
+
+    obj = make_property(args)
+    util.save(obj, path)
+    return obj
+
 ################################################################
