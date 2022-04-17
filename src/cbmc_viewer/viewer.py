@@ -12,6 +12,7 @@ import argparse
 import datetime
 import logging
 import os
+import sys
 
 from cbmc_viewer import configt
 from cbmc_viewer import coveraget
@@ -137,15 +138,12 @@ def global_progress(msg, done=False):
 
 ################################################################
 
-def viewer():
+def viewer(args):
     """Construct the cbmc report."""
 
-    parser = create_parser()
-    args = parser.parse_args()
-    args = optionst.defaults(args)
-
     if not (args.result or args.viewer_result or args.coverage or args.viewer_coverage):
-        parser.error("Need property checking results or coverage checking results.")
+        logging.error("Need property checking results or coverage checking results.")
+        sys.exit(1)
 
     global_progress("CBMC viewer")
 
@@ -205,3 +203,12 @@ def viewer():
 
     global_progress("CBMC viewer", True)
     return 0 # exit with normal return code
+
+################################################################
+
+def main():
+    """Construct the cbmc report."""
+
+    args = create_parser().parse_args()
+    args = optionst.defaults(args)
+    viewer(args)
