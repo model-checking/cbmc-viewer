@@ -228,59 +228,67 @@ def parsed_command(cmd):
     return command, dict(pairs)
 
 def make_coverage(cmd, opts, old):
-    cmd = Path(cmd).with_name('make-coverage')
     cov = opts['--coverage']
     src = opts['--srcdir']
     if old:
+        cmd = Path(cmd).with_name('make-coverage')
         return f"{cmd} {cov} --srcdir {src}"
-    return f"{cmd} --coverage {cov} --srcdir {src}"
+    return f"{cmd} coverage --coverage {cov} --srcdir {src}"
 
-def make_loop(cmd, opts, _):
-    cmd = Path(cmd).with_name('make-loop')
+def make_loop(cmd, opts, old):
     src = opts['--srcdir']
     goto = opts['--goto']
-    return f"{cmd} --goto {goto} --srcdir {src}"
+    if old:
+        cmd = Path(cmd).with_name('make-loop')
+        return f"{cmd} --goto {goto} --srcdir {src}"
+    return f"{cmd} loop --goto {goto} --srcdir {src}"
 
 def make_property(cmd, opts, old):
-    cmd = Path(cmd).with_name('make-property')
     prop = opts['--property']
     src = opts['--srcdir']
     if old:
+        cmd = Path(cmd).with_name('make-property')
         return f"{cmd} {prop} --srcdir {src}"
-    return f"{cmd} --property {prop} --srcdir {src}"
+    return f"{cmd} property --property {prop} --srcdir {src}"
 
-def make_reachable(cmd, opts, _):
-    cmd = Path(cmd).with_name('make-reachable')
+def make_reachable(cmd, opts, old):
     src = opts['--srcdir']
     goto = opts['--goto']
-    return f"{cmd} --goto {goto} --srcdir {src}"
+    if old:
+        cmd = Path(cmd).with_name('make-reachable')
+        return f"{cmd} --goto {goto} --srcdir {src}"
+    return f"{cmd} reachable --goto {goto} --srcdir {src}"
 
 def make_result(cmd, opts, old):
-    cmd = Path(cmd).with_name('make-result')
     res = opts['--result']
     if old:
+        cmd = Path(cmd).with_name('make-result')
         return f"{cmd} {res}"
-    return f"{cmd} --result {res}"
+    return f"{cmd} result --result {res}"
 
-def make_source(cmd, opts, _):
-    cmd = Path(cmd).with_name('make-source')
+def make_source(cmd, opts, old):
     src = opts['--srcdir']
     goto = opts['--goto']
-    return f"{cmd} --goto {goto} --srcdir {src}"
+    if old:
+        cmd = Path(cmd).with_name('make-source')
+        return f"{cmd} --goto {goto} --srcdir {src}"
+    return f"{cmd} source --goto {goto} --srcdir {src}"
 
-def make_symbol(cmd, opts, _):
-    cmd = Path(cmd).with_name('make-symbol')
+def make_symbol(cmd, opts, old):
     src = opts['--srcdir']
     goto = opts['--goto']
-    return f"{cmd} --goto {goto} --srcdir {src}"
+    if old:
+        cmd = Path(cmd).with_name('make-symbol')
+        return f"{cmd} --goto {goto} --srcdir {src}"
+    return f"{cmd} symbol --goto {goto} --srcdir {src}"
 
 def make_trace(cmd, opts, old):
-    cmd = Path(cmd).with_name('make-trace')
     res = opts['--result']
     src = opts['--srcdir']
     if old:
+        cmd = Path(cmd).with_name('make-trace')
         return f"{cmd} {res} --srcdir {src}"
-    return f"{cmd} --result {res} --srcdir {src}"
+    return f"{cmd} trace --result {res} --srcdir {src}"
 
 def make_kind(job, kind, viewer, report_root, old):
     job = copy.copy(job) # a shallow copy of job
