@@ -38,8 +38,7 @@ def main():
     args = optionst.defaults(args)
 
     try:
-        reachable = reachablet.make_reachable(args)
-        print(reachable)
+        reachablet.make_and_save_reachable(args)
     except UserWarning as error:
         sys.exit(error)
 

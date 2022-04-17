@@ -38,8 +38,7 @@ def main():
     args = optionst.defaults(args)
 
     try:
-        loops = loopt.make_loop(args)
-        print(loops)
+        loopt.make_and_save_loop(args)
     except UserWarning as error:
         sys.exit(error)
 

@@ -37,8 +37,7 @@ def main():
     args = optionst.defaults(args)
 
     try:
-        traces = tracet.make_trace(args)
-        print(traces)
+        tracet.make_and_save_trace(args)
     except UserWarning as error:
         sys.exit(error)
 

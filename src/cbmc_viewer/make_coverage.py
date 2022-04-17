@@ -37,8 +37,7 @@ def main():
     args = optionst.defaults(args)
 
     try:
-        coverage = coveraget.make_coverage(args)
-        print(coverage)
+        coveraget.make_and_save_coverage(args)
     except UserWarning as error:
         sys.exit(error)
 

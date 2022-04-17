@@ -53,8 +53,7 @@ def main():
     args = optionst.defaults(args)
 
     try:
-        symbols = symbolt.make_symbol(args)
-        print(symbols)
+        symbolt.make_and_save_symbol(args)
     except UserWarning as error:
         sys.exit(error)
 
