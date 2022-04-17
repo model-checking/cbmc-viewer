@@ -501,4 +501,11 @@ def make_source(args):
     logging.info("make-source: nothing to do")
     return Source()
 
+def make_and_save_source(args, path=None):
+    """Make source object and write to file or stdout"""
+
+    obj = make_source(args)
+    util.save(obj, path)
+    return obj
+
 ################################################################

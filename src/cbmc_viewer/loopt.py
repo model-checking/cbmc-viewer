@@ -278,4 +278,11 @@ def make_loop(args):
                  "--viewer-loop")
     return Loop()
 
+def make_and_save_loop(args, path=None):
+    """Make loop object and write to file or stdout"""
+
+    obj = make_loop(args)
+    util.save(obj, path)
+    return obj
+
 ################################################################

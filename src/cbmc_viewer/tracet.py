@@ -767,4 +767,11 @@ def make_trace(args):
 
     return Trace()
 
+def make_and_save_trace(args, path=None):
+    """Make trace object and write to file or stdout"""
+
+    obj = make_trace(args)
+    util.save(obj, path)
+    return obj
+
 ################################################################

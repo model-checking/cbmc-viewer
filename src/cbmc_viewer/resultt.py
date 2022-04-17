@@ -534,4 +534,11 @@ def make_result(args):
                  "--viewer-result")
     return Result()
 
+def make_and_save_result(args, path=None):
+    """Make result object and write to file or stdout"""
+
+    obj = make_result(args)
+    util.save(obj, path)
+    return obj
+
 ################################################################

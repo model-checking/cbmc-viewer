@@ -238,4 +238,11 @@ def make_reachable(args):
                  "--viewer-reachable")
     return Reachable()
 
+def make_and_save_reachable(args, path=None):
+    """Make reachable object and write to file or stdout"""
+
+    obj = make_reachable(args)
+    util.save(obj, path)
+    return obj
+
 ################################################################

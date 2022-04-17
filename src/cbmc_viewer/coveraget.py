@@ -583,4 +583,11 @@ def make_coverage(args):
                  "--viewer-coverage")
     return Coverage()
 
+def make_and_save_coverage(args, path=None):
+    """Make coverage object and write to file or stdout"""
+
+    obj = make_coverage(args)
+    util.save(obj, path)
+    return obj
+
 ################################################################
