@@ -8,10 +8,17 @@ jobs:
     if: "!contains(github.event.pull_request.labels.*.name, 'no-test')"
     name: Run Differential Tests
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [ '3.8', '3.9', '3.10' ]
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: ${{ matrix.python-version }}
       - name: Install Dependencies
         run: |
           curl -o cbmc.deb -L https://github.com/diffblue/cbmc/releases/download/cbmc-5.54.0/ubuntu-20.04-cbmc-5.54.0-Linux.deb
