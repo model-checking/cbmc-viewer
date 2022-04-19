@@ -61,43 +61,12 @@ What you will see is
       For each step, there a link to the line of code that generated the step,
       making it easy to follow the error trace and root cause the bug.
 
-## Tools
+## Documentation
 
-This package provides a set of command-line tools that scan the
-verification artifacts produced by CBMC to answer interesting
-questions like "What are the results of the property checking?"
-(`make-result`) and "What are the results of the coverage checking?"
-(`make-coverage`) and "What are the error traces discovered?"
-(`make-trace`). The answer to each question is given in the form of a
-json blob that summarizes the answer.
-
-This package provides a command line tool `cbmc-viewer` that renders
-the answers to these questions into a set of web pages that can be
-opened in a web browser and studied to understand and debug CBMC findings.  By
-default, `cbmc-viewer` runs the various `make-*` tools itsef before
-rendering the results.  Other tools can use the `make-*` tools to do
-other analysis.  For example, a different tool could combine the results
-of all proofs in a project into a single project summary, or could render the
-results within a integrated development environment.
-
-For more information, see cbmc-viewer
-
-* [cbmc-viewer](https://github.com/awslabs/aws-viewer-for-cbmc/blob/master/src/cbmc_viewer/doc/cbmc-viewer.md)
-
-and the supporting command-line tools
-
-* [make-coverage](https://github.com/awslabs/aws-viewer-for-cbmc/blob/master/src/cbmc_viewer/doc/make-coverage.md)
-* [make-loop](https://github.com/awslabs/aws-viewer-for-cbmc/blob/master/src/cbmc_viewer/doc/make-loop.md)
-* [make-property](https://github.com/awslabs/aws-viewer-for-cbmc/blob/master/src/cbmc_viewer/doc/make-property.md)
-* [make-reachable](https://github.com/awslabs/aws-viewer-for-cbmc/blob/master/src/cbmc_viewer/doc/make-reachable.md)
-* [make-result](https://github.com/awslabs/aws-viewer-for-cbmc/blob/master/src/cbmc_viewer/doc/make-result.md)
-* [make-source](https://github.com/awslabs/aws-viewer-for-cbmc/blob/master/src/cbmc_viewer/doc/make-source.md)
-* [make-symbol](https://github.com/awslabs/aws-viewer-for-cbmc/blob/master/src/cbmc_viewer/doc/make-symbol.md)
-* [make-trace](https://github.com/awslabs/aws-viewer-for-cbmc/blob/master/src/cbmc_viewer/doc/make-trace.md)
-
-For all commands, the --help option prints detailed documentation of
-the command line arguments, and the --verbose and --debug options may
-help figure out what is going on when something unexpected happens.
+The [cbmc-viewer documentation](https://model-checking.github.io/cbmc-viewer) includes a
+[reference manual](https://model-checking.github.io/cbmc-viewer/reference-manual) and a
+[user guide](https://model-checking.github.io/cbmc-viewer/user-guide).
+These documents are currently works in progress and will improve over time.
 
 ## Installation
 
