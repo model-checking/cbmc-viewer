@@ -29,82 +29,71 @@ if platform.system() != 'Windows':
 choices.extend(['walk', 'make', 'goto'])
 
 OPTION_GROUPS = [
-    {'group_name': "CBMC results",
+    {'group_name': "CBMC output",
      'group_desc': """
-         CBMC results from property checking, coverage checking, and
-         property listing.  Specify at least one of property checking
-         or coverage checking, using either "CBMC results" here or
-         "Viewer data" below.""",
+         This is the output of CBMC that is summarized by cbmc-viewer.
+         Output can be text, xml, or json, but xml is strongly preferred.""",
      'group_opts': [
          {'flag': '--result',
           'metavar': 'FILE',
           'nargs': '+',
-          'help': """
-              CBMC property checking results.  A text, xml, or json
-              file containing the output of 'cbmc'.  """},
+          'help': 'CBMC property checking the results.  The output of "cbmc".'},
          {'flag': '--coverage',
           'metavar': 'FILE',
           'nargs': '+',
-          'help': """
-              CBMC coverage checking results.  An xml or json file
-              containing the output of 'cbmc --cover locations'."""},
+          'help': 'CBMC coverage checking results.  The output of "cbmc --cover locations".'},
          {'flag': '--property',
           'metavar': 'FILE',
           'nargs': '+',
-          'help': """
-              CBMC properties checked during property checking.  An
-              xml or json file containing the output of 'cbmc
-              --show-properties'."""}]},
+          'help': 'CBMC properties checked during property checking.  '
+                  'The output of "cbmc --show-properties".'}]},
 
-    {'group_name': 'Sources',
+    {'group_name': 'Source files',
      'group_desc': None,
      'group_opts': [
          {'flag': '--srcdir',
           'type': os.path.abspath,
-          'help': 'The source directory.  The root of the source tree.'},
+          'help': 'The root of the source tree, typically the root of the code repository.'},
          {'flag': '--exclude',
           'help': """
-              Paths relative to SRCDIR to exclude from the list of
-              source files.  A Python regular expression matched
-              against the result of os.path.normpath().  The match is
-              case insensitive."""},
+              A regular expression for the paths relative to SRCDIR to exclude from
+              the list of source files.  This is rarely used."""},
          {'flag': '--extensions',
           'metavar': 'REGEXP',
           'default': r'^\.(c|h|inl)$',
           'help': """
-              File extensions of files to include in the list of
-              source files.  A Python regular expression matched
-              against the result of os.path.splitext().  The match is
-              case insensitive.  (Default: %(default)s)"""},
+              A regular expression for the file extensions of files to include
+              in the list of source files.  This is rarely used.  (Default: %(default)s)"""},
          {'flag': '--source-method',
           'metavar': 'MHD',
           'choices': choices,
           'help': """
-              The method to use to list source files under SRCDIR.
-              Methods available are [%(choices)s]: Use the Linux
-              'find' command, use the Python 'walk' method, use the
-              'make' command to build the goto binary with the
-              preprocessor, or use the symbol table in the goto
-              binary.  The default method is 'goto' if SRCDIR and
-              WKDIR and GOTO are specified, 'make' if SRCDIR and WKDIR
-              are specified, 'walk' on Windows, and 'find'
-              otherwise."""}]},
-
-    {'group_name': 'Binaries',
+               The method to use to enumerate the list of source files. This is
+               rarely used.  The default method 'goto' is generally to use the files
+               mentioned in the symbol table of the goto binary.  The full set of
+               methods available is
+               1) 'find': use the Linux 'find' command in SRCDIR,
+               2) 'walk': use the Python 'walk' method in SRCDIR,
+               3) 'make': use the 'make' command in the WKDIR to build the goto
+                   binary with the preprocessor and use the files under SRCDIR
+                   mentioned in the preprocessor output, and
+               4) 'goto': use the files under SRCDIR mentioned in the symbol table
+                   of the goto binary."""}]},
+    {'group_name': 'GOTO binaries',
      'group_desc': None,
      'group_opts': [
          {'flag': '--wkdir',
           'default': ".",
           'type': os.path.abspath,
           'help': """
-              The working directory in source locations in the goto
-              binary (and omitted when source locations are printed in
-              textual form).  This is usually the directory in which
-              goto-cc was invoked to build the goto binary."""},
+              The working directory.  This is generally the directory in which
+              `goto-cc` was invoked to build the goto binary.  It is the working
+              directory that is mentioned in the source locations in the goto
+              binary."""},
          {'flag': '--goto',
-          'help': 'The goto binary.'}]},
+          'help': 'The goto binary itself.'}]},
 
-    {'group_name': 'Output',
+    {'group_name': 'Viewer output',
      'group_desc': None,
      'group_opts': [
          {'flag': '--reportdir',
@@ -117,65 +106,59 @@ OPTION_GROUPS = [
           'metavar': 'JSON',
           'help': 'Write summary of key metrics to this json file.'}]},
 
-    {'group_name': 'Viewer data',
-     'group_desc': 'JSON files produced by the various make-* scripts.',
+    {'group_name': 'Viewer input',
+     'group_desc': """
+         Load json output of cbmc-viewer like "viewer-coverage.json" or the
+         output of cbmc-viewer subcommands like "cbmc-viewer coverage".""",
      'group_opts': [
-         {'flag': '--viewer-reachable',
-          'metavar': 'JSON',
-          'nargs': '+',
-          'help': """
-              Load reachable functions from the JSON output of
-              make-reachable.  If multiple files are given, merge
-              multiple data sets into one."""},
          {'flag': '--viewer-coverage',
           'metavar': 'JSON',
           'nargs': '+',
           'help': """
-              Load coverage data from the JSON output of
-              make-coverage.  If multiple files are given, merge
-              multiple data sets into one."""},
+              Load the output of "cbmc-viewer" or "cbmc-viewer coverage" giving
+              CBMC coverage checking results."""},
          {'flag': '--viewer-loop',
           'metavar': 'JSON',
           'nargs': '+',
           'help': """
-              Load loops from the JSON output of make-loop. If
-              multiple files are given, merge multiple data sets into
-              one."""},
+              Load the output of "cbmc-viewer" or "cbmc-viewer loop" listing the loops
+              found in the goto binary."""},
          {'flag': '--viewer-property',
           'metavar': 'JSON',
           'nargs': '+',
           'help': """
-              Load properties from the JSON output of make-property.
-              If multiple files are given, merge multiple data sets
-              into one."""},
+              Load the output of "cbmc-viewer" or "cbmc-viewer property" listing the properties
+              checked during CBMC property checking."""},
+        {'flag': '--viewer-reachable',
+          'metavar': 'JSON',
+          'nargs': '+',
+          'help': """
+              Load the output of "cbmc-viewer" or "cbmc-viewer property" listing the
+              reachable functions in the goto binary."""},
          {'flag': '--viewer-result',
           'metavar': 'JSON',
           'nargs': '+',
           'help': """
-              Load results from the JSON output of make-result.  If
-              multiple files are given, merge multiple data sets into
-              one."""},
+              Load the output of "cbmc-viewer" or "cbmc-viewer result" giving the
+              CBMC property checking results."""},
          {'flag': '--viewer-source',
           'metavar': 'JSON',
           'nargs': '+',
           'help': """
-              Load sources from the JSON output of make-source. If
-              multiple files are given, merge multiple data sets into
-              one."""},
+              Load the output of "cbmc-viewer" or "cbmc-viewer source" listing the source
+              files used to build the goto binary."""},
          {'flag': '--viewer-symbol',
           'metavar': 'JSON',
           'nargs': '+',
           'help': """
-              Load symbols from the JSON output of make-symbol. If
-              multiple files are given, merge multiple data sets into
-              one."""},
+              Load the output of "cbmc-viewer" or "cbmc-viewer symbol" listing the symbols
+              in the goto binary."""},
          {'flag': '--viewer-trace',
           'metavar': 'JSON',
           'nargs': '+',
           'help': """
-              Load traces from the JSON output of make-trace. If
-              multiple files are given, merge multiple data sets into
-              one."""}]},
+              Load the output of "cbmc-viewer" or "cbmc-viewer trace" giving the error traces
+              generated by CBMC for the issues found during property checking."""}]},
 
     {'group_name': 'Other',
      'group_desc': None,
@@ -193,7 +176,9 @@ OPTION_GROUPS = [
          {'flag': '--config',
           'metavar': 'JSON',
           'default': "cbmc-viewer.json",
-          'help': "JSON configuration file. (Default: '%(default)s')"}]},
+          'help': """
+              Viewer configuration file used (for example) to list the functions
+              intentionally omitted from the verification.  (Default: '%(default)s')"""}]},
 
     {'group_name': 'Deprecated',
      'group_desc': 'Options from prior versions now deprecated.',
@@ -216,40 +201,40 @@ OPTION_GROUPS = [
 SUBPARSERS = [
     {'name': None,
      'func': viewer.viewer,
-     'desc': 'Report CBMC results',
+     'desc': 'Generate a browsable summary of CBMC results',
      'flags': None},
     {'name': 'coverage',
      'func': coveraget.make_and_save_coverage,
-     'desc': 'Summarize CBMC coverage results',
+     'desc': 'Summarize coverage checking results',
      'flags': ['--coverage', '--viewer-coverage', '--srcdir']},
     {'name': 'loop',
      'func': loopt.make_and_save_loop,
-     'desc': 'Summarize CBMC loop',
+     'desc': 'List loops found in the goto binary',
      'flags': ['--viewer-loop', '--goto', '--srcdir']},
     {'name': 'property',
      'func': propertyt.make_and_save_property,
-     'desc': 'Summarize CBMC properties used for property checking',
+     'desc': 'List properties checked for during property checking',
      'flags': ['--property', '--viewer-property', '--srcdir']},
     {'name': 'reachable',
      'func': reachablet.make_and_save_reachable,
-     'desc': 'Summarize CBMC reachable functions',
+     'desc': 'List reachable functions in the goto binary',
      'flags': ['--viewer-reachable', '--goto', '--srcdir']},
     {'name': 'result',
      'func': resultt.make_and_save_result,
-     'desc': 'Summarize CBMC result functions',
+     'desc': 'Summarize CBMC property checking results',
      'flags': ['--result', '--viewer-result']},
     {'name': 'source', # TODO: add --files back
      'func': sourcet.make_and_save_source,
-     'desc': 'Summarize CBMC source functions',
+     'desc': 'List source files used to build the goto binary',
      'flags': ['--viewer-source', '--goto', '--srcdir', '--wkdir',
                '--source-method', '--extensions', '--exclude']},
     {'name': 'symbol',  # TODO: add --files back
      'func': symbolt.make_and_save_symbol,
-     'desc': 'Summarize CBMC symbol definitions',
+     'desc': 'List symbols found in the goto binary',
      'flags': ['--viewer-symbol', '--viewer-source', '--goto', '--wkdir', '--srcdir']},
     {'name': 'trace',
      'func': tracet.make_and_save_trace,
-     'desc': 'Summarize CBMC trace functions',
+     'desc': 'List error traces generated for issues found during property checking',
      'flags': ['--result', '--viewer-trace', '--wkdir', '--srcdir']},
 ]
 
