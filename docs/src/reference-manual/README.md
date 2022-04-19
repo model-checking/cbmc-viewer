@@ -204,7 +204,7 @@ JSON files produced by the various make-* scripts.
 
 * Display version number and exit.
 
-### Depricated:
+### Deprecated:
 
 Options from prior versions now deprecated.
 
