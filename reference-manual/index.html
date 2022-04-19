@@ -75,7 +75,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> CBMC Viewer</a></li><li class="chapter-item expanded "><a href="../installation/index.html"><strong aria-hidden="true">2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="../tutorial/index.html"><strong aria-hidden="true">3.</strong> Tutorial</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> User guide</div></li><li class="chapter-item expanded "><a href="../reference-manual/index.html" class="active"><strong aria-hidden="true">5.</strong> Reference manual</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> Frequently asked questions</div></li><li class="chapter-item expanded "><a href="../resources/index.html"><strong aria-hidden="true">7.</strong> Resources</a></li><li class="chapter-item expanded "><a href="../contributing/index.html"><strong aria-hidden="true">8.</strong> Contributing</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> CBMC Viewer</a></li><li class="chapter-item expanded "><a href="../installation/index.html"><strong aria-hidden="true">2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="../tutorial/index.html"><strong aria-hidden="true">3.</strong> Tutorial</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> User guide</div></li><li class="chapter-item expanded "><a href="../reference-manual/index.html" class="active"><strong aria-hidden="true">5.</strong> Reference manual</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../reference-manual/cbmc-viewer.html"><strong aria-hidden="true">5.1.</strong> cbmc-viewer</a></li><li class="chapter-item expanded "><a href="../reference-manual/cbmc-viewer-coverage.html"><strong aria-hidden="true">5.2.</strong> cbmc-viewer coverage</a></li><li class="chapter-item expanded "><a href="../reference-manual/cbmc-viewer-loop.html"><strong aria-hidden="true">5.3.</strong> cbmc-viewer loop</a></li><li class="chapter-item expanded "><a href="../reference-manual/cbmc-viewer-property.html"><strong aria-hidden="true">5.4.</strong> cbmc-viewer property</a></li><li class="chapter-item expanded "><a href="../reference-manual/cbmc-viewer-reachable.html"><strong aria-hidden="true">5.5.</strong> cbmc-viewer reachable</a></li><li class="chapter-item expanded "><a href="../reference-manual/cbmc-viewer-result.html"><strong aria-hidden="true">5.6.</strong> cbmc-viewer result</a></li><li class="chapter-item expanded "><a href="../reference-manual/cbmc-viewer-source.html"><strong aria-hidden="true">5.7.</strong> cbmc-viewer source</a></li><li class="chapter-item expanded "><a href="../reference-manual/cbmc-viewer-symbol.html"><strong aria-hidden="true">5.8.</strong> cbmc-viewer symbol</a></li><li class="chapter-item expanded "><a href="../reference-manual/cbmc-viewer-trace.html"><strong aria-hidden="true">5.9.</strong> cbmc-viewer trace</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> Frequently asked questions</div></li><li class="chapter-item expanded "><a href="../resources/index.html"><strong aria-hidden="true">7.</strong> Resources</a></li><li class="chapter-item expanded "><a href="../contributing/index.html"><strong aria-hidden="true">8.</strong> Contributing</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -135,210 +135,16 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="reference-manual"><a class="header" href="#reference-manual">Reference manual</a></h1>
-<h2 id="name"><a class="header" href="#name">Name</a></h2>
-<p><code>cbmc-viewer</code> - Generate a browsable summary of CBMC results</p>
-<h2 id="synopsis"><a class="header" href="#synopsis">Synopsis</a></h2>
-<pre><code>cbmc-viewer [-h] [--result FILE [FILE ...]]
-                 [--coverage FILE [FILE ...]] [--property FILE [FILE ...]]
-                 [--srcdir SRCDIR] [--exclude EXCLUDE] [--extensions REGEXP]
-                 [--source-method MHD] [--wkdir WKDIR] [--goto GOTO]
-                 [--reportdir REPORTDIR] [--json-summary JSON]
-                 [--viewer-coverage JSON [JSON ...]]
-                 [--viewer-loop JSON [JSON ...]]
-                 [--viewer-property JSON [JSON ...]]
-                 [--viewer-reachable JSON [JSON ...]]
-                 [--viewer-result JSON [JSON ...]]
-                 [--viewer-source JSON [JSON ...]]
-                 [--viewer-symbol JSON [JSON ...]]
-                 [--viewer-trace JSON [JSON ...]] [--verbose] [--debug]
-                 [--config JSON] [--version] [--block BLOCK]
-                 [--htmldir HTMLDIR] [--srcexclude EXCLUDE]
-                 [--blddir BLDDIR] [--storm STORM]
-</code></pre>
-<h2 id="description"><a class="header" href="#description">Description</a></h2>
-<p>CBMC Viewer generates a browsable summary of CBMC results that makes it
-easy to root cause issues found by CBMC.</p>
-<h2 id="options"><a class="header" href="#options">Options</a></h2>
-<h3 id="cbmc-output"><a class="header" href="#cbmc-output">CBMC output</a></h3>
-<p>This is the output of <code>cbmc</code> that is summarized by <code>cbmc-viewer</code>.</p>
-<p>The output of <code>cbmc</code> can be text, xml, or json.  <code>cbmc</code> outputs text
-by default, but <code>cbmc --xml-ui</code> and <code>cbmc --json-ui</code> will output xml
-and json instead.  <code>cbmc-viewer</code> can generally accept output in any
-form, but xml is strongly preferred.</p>
-<p>The output of <code>cbmc-viewer</code> can be a summary of multiple invocations
-of <code>cbmc</code>.  For example, after testing one function with <code>cbmc</code> in
-multiple configurations, invoking <code>cbmc-viewer</code> with the results of
-all of these tests in all of these configurations will generate a
-single report summarizing the union of these results.</p>
-<p><code>--result FILE [FILE ...]</code></p>
 <ul>
-<li>The property checking results. A text, xml, or json file containing
-the output of <code>cbmc</code>.</li>
-</ul>
-<p><code>--coverage FILE [FILE ...]</code></p>
-<ul>
-<li>The coverage checking results. An xml or json file containing the
-output of <code>cbmc --cover locations</code>.</li>
-</ul>
-<p><code>--property FILE [FILE ...]</code></p>
-<ul>
-<li>The properties checked during property checking. An xml or json
-file containing the output of <code>cbmc --show-properties</code>.</li>
-</ul>
-<h3 id="source-files"><a class="header" href="#source-files">Source files</a></h3>
-<p><code>--srcdir SRCDIR</code></p>
-<ul>
-<li>The root of the source tree.  This is typically the root of the code
-repository itself. For best results, the source tree should include
-both the project code and the proof code written to facilitate
-verification (for example, stubs for functionality not
-being tested).  The final report will not link to files outside the
-source tree or to symbols defined in files outside the source tree.</li>
-</ul>
-<p><code>--exclude EXCLUDE</code></p>
-<ul>
-<li>A regular expression for the paths relative to SRCDIR to exclude from
-the list of source files.  This is rarely used.  It is a Python regular
-expression matched against the result of os.path.normpath(). The
-match is case insensitive.</li>
-</ul>
-<p><code>--extensions REGEXP</code></p>
-<ul>
-<li>A regular expression for the file extensions of files to include
-in the list of source files.  This is rarely used.  It is a Python regular
-expression matched against the result of os.path.splitext(). The
-match is case insensitive. (Default: <code>^\.(c|h|inl)$</code>)</li>
-</ul>
-<p><code>--source-method MHD</code></p>
-<ul>
-<li>
-<p>The method to use to enumerate the list of source files. This is
-rarely used.  The default method is generally to use the files
-mentioned in the symbol table of the goto binary.  The full set of
-methods available is</p>
-<ul>
-<li><code>find</code>: use the Linux <code>find</code> command in SRCDIR,</li>
-<li><code>walk</code>: use the Python <code>walk</code> method in SRCDIR,</li>
-<li><code>make</code>: use the <code>make</code> command in the WKDIR to build the goto
-binary with the preprocessor and use the files under SRCDIR
-mentioned in the preprocessor output, and</li>
-<li><code>goto</code>: use the files under SRCDIR mentioned in the symbol table
-of the goto binary.</li>
-</ul>
-<p>The default method is <code>goto</code> if SRCDIR and
-WKDIR and GOTO are specified, <code>make</code> if SRCDIR and WKDIR are
-specified, <code>walk</code> on Windows, and <code>find</code> otherwise.</p>
-</li>
-</ul>
-<h3 id="goto-binaries"><a class="header" href="#goto-binaries">Goto binaries</a></h3>
-<p><code>--wkdir WKDIR</code></p>
-<ul>
-<li>The working directory.  This is generally the directory in which
-<code>goto-cc</code> was invoked to build the goto binary.  It is the working
-directory that is mentioned in the source locations in the goto
-binary.  It is used to resolve relative paths appearing in source
-locations into absolute paths to source files.  Relative paths
-appear in source locations only when <code>goto-cc</code> is invoked with
-relative paths.  If <code>goto-cc</code> is invoked with absolute paths, paths
-in source locations are absolute paths, and this working directory
-is not needed.</li>
-</ul>
-<p><code>--goto GOTO</code></p>
-<ul>
-<li>The goto binary itself.</li>
-</ul>
-<h3 id="viewer-output"><a class="header" href="#viewer-output">Viewer output</a></h3>
-<p><code>--reportdir REPORTDIR</code></p>
-<ul>
-<li>The report directory. Write the final report to this
-directory. (Default: report)</li>
-</ul>
-<p><code>--json-summary JSON</code></p>
-<ul>
-<li>Write summary of key metrics to this json file.</li>
-</ul>
-<h3 id="viewer-input"><a class="header" href="#viewer-input">Viewer input</a></h3>
-<p>JSON files produced by the various make-* scripts.</p>
-<p><code>--viewer-coverage JSON [JSON ...]</code></p>
-<ul>
-<li>Load coverage data from the JSON output of make-coverage. If
-multiple files are given, merge multiple data
-sets into one.</li>
-</ul>
-<p><code>--viewer-loop JSON [JSON ...]</code></p>
-<ul>
-<li>Load loops from the JSON output of make-loop. If multiple files are
-given, merge multiple data sets into one.</li>
-</ul>
-<p><code>--viewer-property JSON [JSON ...]</code></p>
-<ul>
-<li>Load properties from the JSON output of make-property.  If multiple
-files are given, merge multiple data sets into one.</li>
-</ul>
-<p><code>--viewer-reachable JSON [JSON ...]</code></p>
-<ul>
-<li>Load reachable functions from the JSON output of make-reachable. If
-multiple files are given, merge multiple data sets into one.</li>
-</ul>
-<p><code>--viewer-result JSON [JSON ...]</code></p>
-<ul>
-<li>Load results from the JSON output of make-result. If multiple files
-are given, merge multiple data sets into one.</li>
-</ul>
-<p><code>--viewer-source JSON [JSON ...]</code></p>
-<ul>
-<li>Load sources from the JSON output of make-source. If multiple files
-are given, merge multiple data sets into one.</li>
-</ul>
-<p><code>--viewer-symbol JSON [JSON ...]</code></p>
-<ul>
-<li>Load symbols from the JSON output of make-symbol. If multiple files
-are given, merge multiple data sets into one.</li>
-</ul>
-<p><code>--viewer-trace JSON [JSON ...]</code></p>
-<ul>
-<li>Load traces from the JSON output of make-trace. If multiple files
-are given, merge multiple data sets into one.</li>
-</ul>
-<h3 id="other"><a class="header" href="#other">Other</a></h3>
-<p><code>--help, -h</code></p>
-<p><code>--verbose</code></p>
-<ul>
-<li>Verbose output.</li>
-</ul>
-<p><code>--debug</code></p>
-<ul>
-<li>Debugging output.</li>
-</ul>
-<p><code>--config JSON</code></p>
-<ul>
-<li>JSON configuration file. (Default: <code>cbmc-viewer.json</code>)</li>
-</ul>
-<p><code>--version</code></p>
-<ul>
-<li>Display version number and exit.</li>
-</ul>
-<h3 id="deprecated"><a class="header" href="#deprecated">Deprecated:</a></h3>
-<p>Options from prior versions now deprecated.</p>
-<p><code>--block BLOCK</code></p>
-<ul>
-<li>Use --coverage instead.</li>
-</ul>
-<p><code>--htmldir HTMLDIR</code></p>
-<ul>
-<li>Use --reportdir instead.</li>
-</ul>
-<p><code>--srcexclude EXCLUDE</code></p>
-<ul>
-<li>Use --exclude instead.</li>
-</ul>
-<p><code>--blddir BLDDIR</code></p>
-<ul>
-<li>Ignored.</li>
-</ul>
-<p><code>--storm STORM</code></p>
-<ul>
-<li>Ignored.</li>
+<li><a href="cbmc-viewer.html">cbmc-viewer</a></li>
+<li><a href="cbmc-viewer-coverage.html">cbmc-viewer coverage</a>: Summarize coverage checking results</li>
+<li><a href="cbmc-viewer-loop.html">cbmc-viewer loop</a>: List loops found in the goto binary</li>
+<li><a href="cbmc-viewer-property.html">cbmc-viewer property</a>: List properties checked for during property checking</li>
+<li><a href="cbmc-viewer-reachable.html">cbmc-viewer reachable</a>: List reachable functions in the goto binary</li>
+<li><a href="cbmc-viewer-result.html">cbmc-viewer result</a>: Summarize property checking results</li>
+<li><a href="cbmc-viewer-source.html">cbmc-viewer source</a>: List source files used to build the goto binary</li>
+<li><a href="cbmc-viewer-symbol.html">cbmc-viewer symbol</a>: List symbols found in the goto binary</li>
+<li><a href="cbmc-viewer-trace.html">cbmc-viewer trace</a>: List error traces generated for issues found during property checking</li>
 </ul>
 
                     </main>
@@ -348,7 +154,7 @@ are given, merge multiple data sets into one.</li>
                             <a rel="prev" href="../tutorial/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
-                            <a rel="next" href="../resources/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../reference-manual/cbmc-viewer.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         <div style="clear: both"></div>
@@ -360,7 +166,7 @@ are given, merge multiple data sets into one.</li>
                     <a rel="prev" href="../tutorial/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
-                    <a rel="next" href="../resources/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="../reference-manual/cbmc-viewer.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

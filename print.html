@@ -76,7 +76,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> CBMC Viewer</a></li><li class="chapter-item expanded "><a href="installation/index.html"><strong aria-hidden="true">2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="tutorial/index.html"><strong aria-hidden="true">3.</strong> Tutorial</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> User guide</div></li><li class="chapter-item expanded "><a href="reference-manual/index.html"><strong aria-hidden="true">5.</strong> Reference manual</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> Frequently asked questions</div></li><li class="chapter-item expanded "><a href="resources/index.html"><strong aria-hidden="true">7.</strong> Resources</a></li><li class="chapter-item expanded "><a href="contributing/index.html"><strong aria-hidden="true">8.</strong> Contributing</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> CBMC Viewer</a></li><li class="chapter-item expanded "><a href="installation/index.html"><strong aria-hidden="true">2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="tutorial/index.html"><strong aria-hidden="true">3.</strong> Tutorial</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> User guide</div></li><li class="chapter-item expanded "><a href="reference-manual/index.html"><strong aria-hidden="true">5.</strong> Reference manual</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="reference-manual/cbmc-viewer.html"><strong aria-hidden="true">5.1.</strong> cbmc-viewer</a></li><li class="chapter-item expanded "><a href="reference-manual/cbmc-viewer-coverage.html"><strong aria-hidden="true">5.2.</strong> cbmc-viewer coverage</a></li><li class="chapter-item expanded "><a href="reference-manual/cbmc-viewer-loop.html"><strong aria-hidden="true">5.3.</strong> cbmc-viewer loop</a></li><li class="chapter-item expanded "><a href="reference-manual/cbmc-viewer-property.html"><strong aria-hidden="true">5.4.</strong> cbmc-viewer property</a></li><li class="chapter-item expanded "><a href="reference-manual/cbmc-viewer-reachable.html"><strong aria-hidden="true">5.5.</strong> cbmc-viewer reachable</a></li><li class="chapter-item expanded "><a href="reference-manual/cbmc-viewer-result.html"><strong aria-hidden="true">5.6.</strong> cbmc-viewer result</a></li><li class="chapter-item expanded "><a href="reference-manual/cbmc-viewer-source.html"><strong aria-hidden="true">5.7.</strong> cbmc-viewer source</a></li><li class="chapter-item expanded "><a href="reference-manual/cbmc-viewer-symbol.html"><strong aria-hidden="true">5.8.</strong> cbmc-viewer symbol</a></li><li class="chapter-item expanded "><a href="reference-manual/cbmc-viewer-trace.html"><strong aria-hidden="true">5.9.</strong> cbmc-viewer trace</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> Frequently asked questions</div></li><li class="chapter-item expanded "><a href="resources/index.html"><strong aria-hidden="true">7.</strong> Resources</a></li><li class="chapter-item expanded "><a href="contributing/index.html"><strong aria-hidden="true">8.</strong> Contributing</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -284,6 +284,18 @@ making it easy to follow the error trace and root cause the bug.</p>
 </li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="reference-manual"><a class="header" href="#reference-manual">Reference manual</a></h1>
+<ul>
+<li><a href="reference-manual/cbmc-viewer.html">cbmc-viewer</a></li>
+<li><a href="reference-manual/cbmc-viewer-coverage.html">cbmc-viewer coverage</a>: Summarize coverage checking results</li>
+<li><a href="reference-manual/cbmc-viewer-loop.html">cbmc-viewer loop</a>: List loops found in the goto binary</li>
+<li><a href="reference-manual/cbmc-viewer-property.html">cbmc-viewer property</a>: List properties checked for during property checking</li>
+<li><a href="reference-manual/cbmc-viewer-reachable.html">cbmc-viewer reachable</a>: List reachable functions in the goto binary</li>
+<li><a href="reference-manual/cbmc-viewer-result.html">cbmc-viewer result</a>: Summarize property checking results</li>
+<li><a href="reference-manual/cbmc-viewer-source.html">cbmc-viewer source</a>: List source files used to build the goto binary</li>
+<li><a href="reference-manual/cbmc-viewer-symbol.html">cbmc-viewer symbol</a>: List symbols found in the goto binary</li>
+<li><a href="reference-manual/cbmc-viewer-trace.html">cbmc-viewer trace</a>: List error traces generated for issues found during property checking</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="reference-manual-1"><a class="header" href="#reference-manual-1">Reference manual</a></h1>
 <h2 id="name"><a class="header" href="#name">Name</a></h2>
 <p><code>cbmc-viewer</code> - Generate a browsable summary of CBMC results</p>
 <h2 id="synopsis"><a class="header" href="#synopsis">Synopsis</a></h2>
@@ -488,6 +500,412 @@ are given, merge multiple data sets into one.</li>
 <p><code>--storm STORM</code></p>
 <ul>
 <li>Ignored.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="reference-manual-2"><a class="header" href="#reference-manual-2">Reference manual</a></h1>
+<h2 id="name-1"><a class="header" href="#name-1">Name</a></h2>
+<p><code>cbmc-viewer coverage</code> - Summarize coverage checking results</p>
+<h2 id="synopsis-1"><a class="header" href="#synopsis-1">Synopsis</a></h2>
+<pre><code>cbmc-viewer coverage [-h] [--coverage FILE [FILE ...]]
+                          [--srcdir SRCDIR]
+                          [--viewer-coverage JSON [JSON ...]] [--verbose]
+                          [--debug] [--version]
+</code></pre>
+<h2 id="description-1"><a class="header" href="#description-1">Description</a></h2>
+<p>Summarize coverage checking results</p>
+<h2 id="options-1"><a class="header" href="#options-1">Options</a></h2>
+<h3 id="cbmc-output-1"><a class="header" href="#cbmc-output-1">CBMC output</a></h3>
+<p>This is the output of CBMC that is summarized by cbmc-viewer. Output can
+be text, xml, or json, but xml is strongly preferred.</p>
+<p><code>--coverage FILE [FILE ...]</code></p>
+<ul>
+<li>CBMC coverage checking results. The output of &quot;cbmc --cover locations&quot;.</li>
+</ul>
+<h3 id="source-files-1"><a class="header" href="#source-files-1">Source files</a></h3>
+<p><code>--srcdir SRCDIR</code></p>
+<ul>
+<li>The root of the source tree, typically the root of the code repository.</li>
+</ul>
+<h3 id="viewer-input-1"><a class="header" href="#viewer-input-1">Viewer input</a></h3>
+<p>Load json output of cbmc-viewer like &quot;viewer-coverage.json&quot; or the output
+of cbmc-viewer subcommands like &quot;cbmc-viewer coverage&quot;.</p>
+<p><code>--viewer-coverage JSON [JSON ...]</code></p>
+<ul>
+<li>Load the output of &quot;cbmc-viewer&quot; or &quot;cbmc-viewer coverage&quot; giving CBMC coverage checking results.</li>
+</ul>
+<h3 id="other-1"><a class="header" href="#other-1">Other</a></h3>
+<p><code>--help</code></p>
+<p><code>--verbose</code></p>
+<ul>
+<li>Verbose output.</li>
+</ul>
+<p><code>--debug</code></p>
+<ul>
+<li>Debugging output.</li>
+</ul>
+<p><code>--version</code></p>
+<ul>
+<li>Display version number and exit.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="reference-manual-3"><a class="header" href="#reference-manual-3">Reference manual</a></h1>
+<h2 id="name-2"><a class="header" href="#name-2">Name</a></h2>
+<p><code>cbmc-viewer loop</code> - List loops found in the goto binary</p>
+<h2 id="synopsis-2"><a class="header" href="#synopsis-2">Synopsis</a></h2>
+<pre><code>cbmc-viewer loop [-h] [--srcdir SRCDIR] [--goto GOTO]
+                      [--viewer-loop JSON [JSON ...]] [--verbose] [--debug]
+                      [--version]
+</code></pre>
+<h2 id="description-2"><a class="header" href="#description-2">Description</a></h2>
+<p>List loops found in the goto binary</p>
+<h2 id="options-2"><a class="header" href="#options-2">Options</a></h2>
+<h3 id="source-files-2"><a class="header" href="#source-files-2">Source files</a></h3>
+<p><code>--srcdir SRCDIR</code></p>
+<ul>
+<li>The root of the source tree, typically the root of the code repository.</li>
+</ul>
+<h3 id="goto-binaries-1"><a class="header" href="#goto-binaries-1">GOTO binaries</a></h3>
+<p><code>--goto GOTO</code></p>
+<ul>
+<li>The goto binary itself.</li>
+</ul>
+<h3 id="viewer-input-2"><a class="header" href="#viewer-input-2">Viewer input</a></h3>
+<p>Load json output of cbmc-viewer like &quot;viewer-coverage.json&quot; or the output
+of cbmc-viewer subcommands like &quot;cbmc-viewer coverage&quot;.</p>
+<p>`--viewer-loop JSON [JSON ...]</p>
+<ul>
+<li>Load the output of &quot;cbmc-viewer&quot; or &quot;cbmc-viewer loop&quot; listing the loops found in the goto binary.</li>
+</ul>
+<h3 id="other-2"><a class="header" href="#other-2">Other</a></h3>
+<p><code>--help</code></p>
+<p><code>--verbose</code></p>
+<ul>
+<li>Verbose output.</li>
+</ul>
+<p><code>--debug</code></p>
+<ul>
+<li>Debugging output.</li>
+</ul>
+<p><code>--version</code></p>
+<ul>
+<li>Display version number and exit.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="reference-manual-4"><a class="header" href="#reference-manual-4">Reference manual</a></h1>
+<h2 id="name-3"><a class="header" href="#name-3">Name</a></h2>
+<p><code>cbmc-viewer property</code> - List properties checked for during property checking</p>
+<h2 id="synopsis-3"><a class="header" href="#synopsis-3">Synopsis</a></h2>
+<pre><code>cbmc-viewer property [-h] [--property FILE [FILE ...]]
+                          [--srcdir SRCDIR]
+                          [--viewer-property JSON [JSON ...]] [--verbose]
+                          [--debug] [--version]
+</code></pre>
+<h2 id="description-3"><a class="header" href="#description-3">Description</a></h2>
+<p>List properties checked for during property checking</p>
+<h2 id="options-3"><a class="header" href="#options-3">Options</a></h2>
+<h3 id="cbmc-output-2"><a class="header" href="#cbmc-output-2">CBMC output</a></h3>
+<p>This is the output of CBMC that is summarized by cbmc-viewer. Output can
+be text, xml, or json, but xml is strongly preferred.</p>
+<p><code>--property FILE [FILE ...]</code></p>
+<ul>
+<li>CBMC properties checked during property checking. The output of &quot;cbmc --show-properties&quot;.</li>
+</ul>
+<h3 id="source-files-3"><a class="header" href="#source-files-3">Source files</a></h3>
+<p><code>--srcdir SRCDIR</code></p>
+<ul>
+<li>The root of the source tree, typically the root of the code repository.</li>
+</ul>
+<h3 id="viewer-input-3"><a class="header" href="#viewer-input-3">Viewer input</a></h3>
+<p>Load json output of cbmc-viewer like &quot;viewer-coverage.json&quot; or the output
+of cbmc-viewer subcommands like &quot;cbmc-viewer coverage&quot;.</p>
+<p><code>--viewer-property JSON [JSON ...]</code></p>
+<ul>
+<li>Load the output of &quot;cbmc-viewer&quot; or &quot;cbmc-viewer
+property&quot; listing the properties checked during CBMC
+property checking.</li>
+</ul>
+<h3 id="other-3"><a class="header" href="#other-3">Other</a></h3>
+<p><code>--help</code></p>
+<p><code>--verbose</code></p>
+<ul>
+<li>Verbose output.</li>
+</ul>
+<p><code>--debug</code></p>
+<ul>
+<li>Debugging output.</li>
+</ul>
+<p><code>--version</code></p>
+<ul>
+<li>Display version number and exit.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="reference-manual-5"><a class="header" href="#reference-manual-5">Reference manual</a></h1>
+<h2 id="name-4"><a class="header" href="#name-4">Name</a></h2>
+<p><code>cbmc-viewer reachable</code> - List reachable functions in the goto binary</p>
+<h2 id="synopsis-4"><a class="header" href="#synopsis-4">Synopsis</a></h2>
+<pre><code>cbmc-viewer reachable [-h] [--srcdir SRCDIR] [--goto GOTO]
+                           [--viewer-reachable JSON [JSON ...]] [--verbose]
+                           [--debug] [--version]
+</code></pre>
+<h2 id="description-4"><a class="header" href="#description-4">Description</a></h2>
+<p>List reachable functions in the goto binary</p>
+<h2 id="options-4"><a class="header" href="#options-4">Options</a></h2>
+<h3 id="source-files-4"><a class="header" href="#source-files-4">Source files</a></h3>
+<p><code>--srcdir SRCDIR</code></p>
+<ul>
+<li>The root of the source tree, typically the root of the code repository.</li>
+</ul>
+<h3 id="goto-binaries-2"><a class="header" href="#goto-binaries-2">GOTO binaries</a></h3>
+<p><code>--goto GOTO</code></p>
+<ul>
+<li>The goto binary itself.</li>
+</ul>
+<h3 id="viewer-input-4"><a class="header" href="#viewer-input-4">Viewer input</a></h3>
+<p>Load json output of cbmc-viewer like &quot;viewer-coverage.json&quot; or the output
+of cbmc-viewer subcommands like &quot;cbmc-viewer coverage&quot;.</p>
+<p><code>--viewer-reachable JSON [JSON ...]</code></p>
+<ul>
+<li>Load the output of &quot;cbmc-viewer&quot; or &quot;cbmc-viewer
+property&quot; listing the reachable functions in the goto
+binary.</li>
+</ul>
+<h3 id="other-4"><a class="header" href="#other-4">Other</a></h3>
+<p><code>--help</code></p>
+<p><code>--verbose</code></p>
+<ul>
+<li>Verbose output.</li>
+</ul>
+<p><code>--debug</code></p>
+<ul>
+<li>Debugging output.</li>
+</ul>
+<p><code>--version</code></p>
+<ul>
+<li>Display version number and exit.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="reference-manual-6"><a class="header" href="#reference-manual-6">Reference manual</a></h1>
+<h2 id="name-5"><a class="header" href="#name-5">Name</a></h2>
+<p><code>cbmc-viewer result</code> - Summarize CBMC property checking results</p>
+<h2 id="synopsis-5"><a class="header" href="#synopsis-5">Synopsis</a></h2>
+<pre><code>cbmc-viewer result [-h] [--result FILE [FILE ...]]
+                        [--viewer-result JSON [JSON ...]] [--verbose]
+                        [--debug] [--version]
+</code></pre>
+<h2 id="description-5"><a class="header" href="#description-5">Description</a></h2>
+<p>Summarize CBMC property checking results</p>
+<h2 id="options-5"><a class="header" href="#options-5">Options</a></h2>
+<h3 id="cbmc-output-3"><a class="header" href="#cbmc-output-3">CBMC output</a></h3>
+<p>This is the output of CBMC that is summarized by cbmc-viewer. Output can
+be text, xml, or json, but xml is strongly preferred.</p>
+<p><code>--result FILE [FILE ...]</code></p>
+<ul>
+<li>CBMC property checking the results. The output of &quot;cbmc&quot;.</li>
+</ul>
+<h3 id="viewer-input-5"><a class="header" href="#viewer-input-5">Viewer input</a></h3>
+<p>Load json output of cbmc-viewer like &quot;viewer-coverage.json&quot; or the output
+of cbmc-viewer subcommands like &quot;cbmc-viewer coverage&quot;.</p>
+<p><code>--viewer-result JSON [JSON ...]</code></p>
+<ul>
+<li>Load the output of &quot;cbmc-viewer&quot; or &quot;cbmc-viewer result&quot; giving the CBMC property checking results.</li>
+</ul>
+<h3 id="other-5"><a class="header" href="#other-5">Other</a></h3>
+<p><code>--help</code></p>
+<p><code>--verbose</code></p>
+<ul>
+<li>Verbose output.</li>
+</ul>
+<p><code>--debug</code></p>
+<ul>
+<li>Debugging output.</li>
+</ul>
+<p><code>--version</code></p>
+<ul>
+<li>Display version number and exit.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="reference-manual-7"><a class="header" href="#reference-manual-7">Reference manual</a></h1>
+<h2 id="name-6"><a class="header" href="#name-6">Name</a></h2>
+<p><code>cbmc-viewer source</code> - List source files used to build the goto binary</p>
+<h2 id="synopsis-6"><a class="header" href="#synopsis-6">Synopsis</a></h2>
+<pre><code>cbmc-viewer source [-h] [--srcdir SRCDIR] [--exclude EXCLUDE]
+                        [--extensions REGEXP] [--source-method MHD]
+                        [--wkdir WKDIR] [--goto GOTO]
+                        [--viewer-source JSON [JSON ...]] [--verbose]
+                        [--debug] [--version]
+</code></pre>
+<h2 id="description-6"><a class="header" href="#description-6">Description</a></h2>
+<p>List source files used to build the goto binary</p>
+<h2 id="options-6"><a class="header" href="#options-6">Options</a></h2>
+<h3 id="source-files-5"><a class="header" href="#source-files-5">Source files</a></h3>
+<p><code>--srcdir SRCDIR</code></p>
+<ul>
+<li>The root of the source tree, typically the root of the code repository.</li>
+</ul>
+<p><code>--exclude EXCLUDE</code></p>
+<ul>
+<li>A regular expression for the paths relative to SRCDIR to exclude from the list of source files. This is rarely used.</li>
+</ul>
+<p><code>--extensions REGEXP</code></p>
+<ul>
+<li>A regular expression for the file extensions of files to include in the list of source files. This is rarely used.
+(Default: ^.(c|h|inl)$)</li>
+</ul>
+<p><code>--source-method MHD</code></p>
+<ul>
+<li>The method to use to enumerate the list of source
+files. This is rarely used. The default method 'goto'
+is generally to use the files mentioned in the symbol
+table of the goto binary. The full set of methods
+available is
+<ul>
+<li>'find': use the Linux 'find' command in SRCDIR,</li>
+<li>'walk': use the Python 'walk' method in SRCDIR,</li>
+<li>'make': use the 'make' command in the WKDIR to build the goto binary with the preprocessor and use the files under SRCDIR mentioned in the preprocessor output, and</li>
+<li>'goto': use the files under SRCDIR mentioned in the symbol table of the goto binary.</li>
+</ul>
+</li>
+</ul>
+<h3 id="goto-binaries-3"><a class="header" href="#goto-binaries-3">GOTO binaries</a></h3>
+<p><code>--wkdir WKDIR  </code></p>
+<ul>
+<li>The working directory. This is generally the directory
+in which <code>goto-cc</code> was invoked to build the goto
+binary. It is the working directory that is mentioned
+in the source locations in the goto binary.</li>
+</ul>
+<p><code>--goto GOTO</code></p>
+<ul>
+<li>The goto binary itself.</li>
+</ul>
+<h3 id="viewer-input-6"><a class="header" href="#viewer-input-6">Viewer input</a></h3>
+<p>Load json output of cbmc-viewer like &quot;viewer-coverage.json&quot; or the output
+of cbmc-viewer subcommands like &quot;cbmc-viewer coverage&quot;.</p>
+<p><code>--viewer-source JSON [JSON ...]</code></p>
+<ul>
+<li>Load the output of &quot;cbmc-viewer&quot; or &quot;cbmc-viewer
+source&quot; listing the source files used to build the
+goto binary.</li>
+</ul>
+<h3 id="other-6"><a class="header" href="#other-6">Other</a></h3>
+<p><code>--help</code></p>
+<p><code>--verbose</code></p>
+<ul>
+<li>Verbose output.</li>
+</ul>
+<p><code>--debug</code></p>
+<ul>
+<li>Debugging output.</li>
+</ul>
+<p><code>--version</code></p>
+<ul>
+<li>Display version number and exit.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="reference-manual-8"><a class="header" href="#reference-manual-8">Reference manual</a></h1>
+<h2 id="name-7"><a class="header" href="#name-7">Name</a></h2>
+<p><code>cbmc-viewer symbol</code> - List symbols found in the goto binary</p>
+<h2 id="synopsis-7"><a class="header" href="#synopsis-7">Synopsis</a></h2>
+<pre><code>cbmc-viewer symbol [-h] [--srcdir SRCDIR] [--wkdir WKDIR] [--goto GOTO]
+                        [--viewer-source JSON [JSON ...]]
+                        [--viewer-symbol JSON [JSON ...]] [--verbose]
+                        [--debug] [--version]
+
+</code></pre>
+<h2 id="description-7"><a class="header" href="#description-7">Description</a></h2>
+<p>List symbols found in the goto binary</p>
+<h2 id="options-7"><a class="header" href="#options-7">Options</a></h2>
+<h3 id="source-files-6"><a class="header" href="#source-files-6">Source files</a></h3>
+<p><code>--srcdir SRCDIR</code></p>
+<ul>
+<li>The root of the source tree, typically the root of the
+code repository.</li>
+</ul>
+<h3 id="goto-binaries-4"><a class="header" href="#goto-binaries-4">GOTO binaries</a></h3>
+<p><code>--wkdir WKDIR</code></p>
+<ul>
+<li>The working directory. This is generally the directory
+in which <code>goto-cc</code> was invoked to build the goto
+binary. It is the working directory that is mentioned
+in the source locations in the goto binary.</li>
+</ul>
+<p><code>--goto GOTO</code></p>
+<ul>
+<li>The goto binary itself.</li>
+</ul>
+<h3 id="viewer-input-7"><a class="header" href="#viewer-input-7">Viewer input</a></h3>
+<p>Load json output of cbmc-viewer like &quot;viewer-coverage.json&quot; or the output
+of cbmc-viewer subcommands like &quot;cbmc-viewer coverage&quot;.</p>
+<p><code>--viewer-source JSON [JSON ...]</code></p>
+<ul>
+<li>Load the output of &quot;cbmc-viewer&quot; or &quot;cbmc-viewer
+source&quot; listing the source files used to build the
+goto binary.</li>
+</ul>
+<p><code>--viewer-symbol JSON [JSON ...]</code></p>
+<ul>
+<li>Load the output of &quot;cbmc-viewer&quot; or &quot;cbmc-viewer symbol&quot; listing the symbols in the goto binary.</li>
+</ul>
+<h3 id="other-7"><a class="header" href="#other-7">Other</a></h3>
+<p><code>--help</code></p>
+<p><code>--verbose</code></p>
+<ul>
+<li>Verbose output.</li>
+</ul>
+<p><code>--debug</code></p>
+<ul>
+<li>Debugging output.</li>
+</ul>
+<p><code>--version</code></p>
+<ul>
+<li>Display version number and exit.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="reference-manual-9"><a class="header" href="#reference-manual-9">Reference manual</a></h1>
+<h2 id="name-8"><a class="header" href="#name-8">Name</a></h2>
+<p><code>cbmc-viewer trace</code> - List error traces generated for issues found during property checking</p>
+<h2 id="synopsis-8"><a class="header" href="#synopsis-8">Synopsis</a></h2>
+<pre><code>cbmc-viewer trace [-h] [--result FILE [FILE ...]] [--srcdir SRCDIR]
+                       [--wkdir WKDIR] [--viewer-trace JSON [JSON ...]]
+                       [--verbose] [--debug] [--version]
+</code></pre>
+<h2 id="description-8"><a class="header" href="#description-8">Description</a></h2>
+<p>List error traces generated for issues found during property checking</p>
+<h2 id="options-8"><a class="header" href="#options-8">Options</a></h2>
+<h3 id="cbmc-output-4"><a class="header" href="#cbmc-output-4">CBMC output</a></h3>
+<p>This is the output of CBMC that is summarized by cbmc-viewer. Output can
+be text, xml, or json, but xml is strongly preferred.</p>
+<p><code>--result FILE [FILE ...]</code></p>
+<ul>
+<li>CBMC property checking the results. The output of &quot;cbmc&quot;.</li>
+</ul>
+<h3 id="source-files-7"><a class="header" href="#source-files-7">Source files</a></h3>
+<p><code>--srcdir SRCDIR</code></p>
+<ul>
+<li>The root of the source tree, typically the root of the code repository.</li>
+</ul>
+<h3 id="goto-binaries-5"><a class="header" href="#goto-binaries-5">GOTO binaries</a></h3>
+<p><code>--wkdir WKDIR</code></p>
+<ul>
+<li>The working directory. This is generally the directory
+in which <code>goto-cc</code> was invoked to build the goto
+binary. It is the working directory that is mentioned
+in the source locations in the goto binary.</li>
+</ul>
+<h3 id="viewer-input-8"><a class="header" href="#viewer-input-8">Viewer input</a></h3>
+<p>Load json output of cbmc-viewer like &quot;viewer-coverage.json&quot; or the output
+of cbmc-viewer subcommands like &quot;cbmc-viewer coverage&quot;.</p>
+<p><code>--viewer-trace JSON [JSON ...]</code></p>
+<ul>
+<li>Load the output of &quot;cbmc-viewer&quot; or &quot;cbmc-viewer
+trace&quot; giving the error traces generated by CBMC for
+the issues found during property checking.</li>
+</ul>
+<h3 id="other-8"><a class="header" href="#other-8">Other</a></h3>
+<p><code>--help</code></p>
+<p><code>--verbose</code></p>
+<ul>
+<li>Verbose output.</li>
+</ul>
+<p><code>--debug</code></p>
+<ul>
+<li>Debugging output.</li>
+</ul>
+<p><code>--version</code></p>
+<ul>
+<li>Display version number and exit.</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="cbmc-viewer-resources"><a class="header" href="#cbmc-viewer-resources">CBMC viewer resources</a></h1>
 <ul>
