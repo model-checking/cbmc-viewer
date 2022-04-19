@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Getting started - CBMC viewer</title>
+        <title>CBMC Viewer - CBMC viewer</title>
         <!-- Custom HTML head -->
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
@@ -75,7 +75,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html" class="active"><strong aria-hidden="true">1.</strong> Getting started</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> User manual</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Reference manual</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Frequently asked questions</div></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html" class="active"><strong aria-hidden="true">1.</strong> CBMC Viewer</a></li><li class="chapter-item expanded "><a href="installation/index.html"><strong aria-hidden="true">2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="tutorial/index.html"><strong aria-hidden="true">3.</strong> Tutorial</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> User guide</div></li><li class="chapter-item expanded "><a href="reference-manual/index.html"><strong aria-hidden="true">5.</strong> Reference manual</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> Frequently asked questions</div></li><li class="chapter-item expanded "><a href="resources/index.html"><strong aria-hidden="true">7.</strong> Resources</a></li><li class="chapter-item expanded "><a href="contributing/index.html"><strong aria-hidden="true">8.</strong> Contributing</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -134,7 +134,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="getting-started-with-cbmc-viewer"><a class="header" href="#getting-started-with-cbmc-viewer">Getting started with CBMC viewer</a></h1>
+                        <h1 id="cbmc-viewer"><a class="header" href="#cbmc-viewer">CBMC viewer</a></h1>
 <p><a href="https://github.com/diffblue/cbmc">CBMC</a> is a model checker for
 C. This means that CBMC will explore all possible paths through your code
 on all possible inputs, and will check that all assertions in your code are
@@ -147,103 +147,32 @@ require restricting this set of all possible inputs to inputs of some
 bounded size.</p>
 <p><a href="https://github.com/model-checking/cbmc-viewer">CBMC Viewer</a> is a tool
 that scans the output of CBMC and produces a browsable summary of its findings.</p>
-<h2 id="example"><a class="header" href="#example">Example</a></h2>
-<p>Here is a simple example of using cbmc-viewer.
-Running this example requires installing <a href="https://github.com/diffblue/cbmc">CBMC</a>.
-Installation on MacOS is just <code>brew install cbmc</code>.
-Installation on other operation systems is described on the <a href="https://github.com/diffblue/cbmc/releases/latest">CBMC
-release page</a>.</p>
-<p>Create a source file <code>main.c</code> containing</p>
-<pre><code>#include &lt;stdlib.h&gt;
-
-static int global;
-
-int main() {
-  int *ptr = malloc(sizeof(int));
-
-  assert(global &gt; 0);
-  assert(*ptr &gt; 0);
-
-  return 0;
-}
-</code></pre>
-<p>and run the commands</p>
-<pre><code>goto-cc -o main.goto main.c
-cbmc main.goto --trace --xml-ui &gt; result.xml
-cbmc main.goto --cover location --xml-ui &gt; coverage.xml
-cbmc main.goto --show-properties --xml-ui &gt; property.xml
-cbmc-viewer --goto main.goto --result result.xml --coverage coverage.xml --property property.xml --srcdir .
-</code></pre>
-<p>and open the report created by cbmc-viewer in a web browser with</p>
-<pre><code>open report/html/index.html
-</code></pre>
-<p>What you will see is</p>
 <ul>
-<li>
-<p>A <em>coverage report</em> summarizing what lines of source code were
-exercised by cbmc.  In this case, coverage is 100%.  Clicking on <code>main</code>,
-you can see the source code for <code>main</code> annotated with coverage data
-(all lines are green because all lines were hit).</p>
-</li>
-<li>
-<p>A <em>bug report</em> summarizing what issues cbmc found with the code. In this case,
-the bugs are violations of the assertions because, for example, it is possible
-that the uninitialized integer allocated on the heap contains a negative value.
-For each bug, there is a link to</p>
-<ul>
-<li>
-<p>The line of code where the bug occurred.</p>
-</li>
-<li>
-<p>An error trace showing the steps of the program leading to the bug.
-For each step, there a link to the line of code that generated the step,
-making it easy to follow the error trace and root cause the bug.</p>
-</li>
+<li><a href="installation">Installation</a></li>
+<li><a href="tutorial">Tutorial</a></li>
+<li><a href="">User guide</a></li>
+<li><a href="reference-manual">Reference manual</a></li>
+<li><a href="">Frequently asked questions</a></li>
+<li><a href="resources">Resources</a></li>
+<li><a href="contributing">Contributing</a></li>
 </ul>
-</li>
-</ul>
-<h2 id="installation"><a class="header" href="#installation">Installation</a></h2>
-<p>Most people should just follow the instructions on the
-<a href="https://github.com/awslabs/aws-viewer-for-cbmc/releases/latest">release page</a>.</p>
-<p>Developers can install the package in Python &quot;development mode&quot; as follows.
-First, follow the instructions on the
-<a href="https://github.com/model-checking/cbmc-viewer/releases/latest">release page</a>
-to install the dependencies.  Then,</p>
-<ul>
-<li>Clone the repository with
-<pre><code>git clone https://github.com/model-checking/cbmc-viewer cbmc-viewer
-</code></pre>
-</li>
-<li>Install development mode with
-<pre><code>cd cbmc-viewer
-make develop
-export PATH=$PATH:$(pwd)
-</code></pre>
-</li>
-<li>Uninstall development mode with
-<pre><code>cd cbmc-viewer
-make undevelop
-</code></pre>
-</li>
-</ul>
-<h2 id="helping-others"><a class="header" href="#helping-others">Helping others</a></h2>
-<p>This training material is a work in progress.  If you have suggestions,
-corrections, or questions, contact us by submitting a
-<a href="https://github.com/model-checking/cbmc-viewer/issues">GitHub issue</a>.
-If you have some training of your own that you would like to contribute,
-submit your contributions as a
-<a href="https://github.com/model-checking/cbmc-viewer/pulls">GitHub pull request</a>.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                            <a rel="next" href="installation/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
                         <div style="clear: both"></div>
                     </nav>
                 </div>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="next" href="installation/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
             </nav>
 
         </div>
