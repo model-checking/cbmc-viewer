@@ -9,7 +9,6 @@ and with lists of property violations and traces for each violation.
 """
 
 from pathlib import Path
-import argparse
 import datetime
 import logging
 import os
