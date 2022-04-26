@@ -284,8 +284,41 @@ making it easy to follow the error trace and root cause the bug.</p>
 </li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="reference-manual"><a class="header" href="#reference-manual">Reference manual</a></h1>
+<p>CBMC Viewer produces a browsable summary of CBMC results.</p>
+<p>This report includes a summary of CBMC's property checking results. The
+summary lists each property CBMC was able to violate along with a error trace
+demonstrating the program execution CBMC discovered that violates the
+property.  Each step of the error trace is linked back to the line of
+source code that generated the step, making it easier to follow the error
+trace through the source code and debug the issue raised by CBMC.</p>
+<p>This report also includes a summary of the code coverage CBMC attained during
+property checking.  In the process of considering all possible executions
+through the code on all possible inputs, CBMC is able to exercise some lines
+of code and not other others.  The code coverage summary computes the fraction of
+statically reachable code that CBMC was able to exercise.  The source code
+itself is annotated in the style of <a href="https://en.wikipedia.org/wiki/Gcov">gcov</a>
+with reachable lines colored green and unreachable lines colored red.</p>
+<p>By default, this report is written to <code>report/html</code>.</p>
+<p>Here is the reference manual for <code>cbmc-viewer</code>:</p>
 <ul>
 <li><a href="reference-manual/cbmc-viewer.html">cbmc-viewer</a></li>
+</ul>
+<p>CBMC Viewer also produces summaries that will be of no interested to
+most users, but they summarize the analysis that
+CBMC Viewer does to produce the main report
+in the form of json files.
+By default, these summaries are written to <code>report/json</code>.
+For example, the file <code>report/json/viewer-coverage.json</code>
+lists each line of statically-reachable source code and whether that line
+was hit or missed by CBMC. It also lists for each statically-reachable
+function the fraction of lines hit.
+CBMC Viewer provides a collection
+of subcommands that provide command-line interfaces to these analyses.
+For example, the subcommand <code>cbmc-viewer coverage</code> will generate the
+the json describing code coverage
+that <code>cbmc-viewer</code> itself would write to <code>report/json/viewer-coverage.json</code>.</p>
+<p>Here are the reference manuals for <code>cbmc-viewer</code> subcommands:</p>
+<ul>
 <li><a href="reference-manual/cbmc-viewer-coverage.html">cbmc-viewer coverage</a>: Summarize coverage checking results</li>
 <li><a href="reference-manual/cbmc-viewer-loop.html">cbmc-viewer loop</a>: List loops found in the goto binary</li>
 <li><a href="reference-manual/cbmc-viewer-property.html">cbmc-viewer property</a>: List properties checked for during property checking</li>
@@ -913,10 +946,10 @@ the issues found during property checking.</li>
 <li><a href="https://github.com/diffblue/cbmc">CBMC</a> GitHub repository</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="contributing"><a class="header" href="#contributing">Contributing</a></h1>
-<p>This training material is a work in progress.  If you have suggestions,
+<p>This material is a work in progress.  If you have suggestions,
 corrections, or questions, contact us by submitting a
 <a href="https://github.com/model-checking/cbmc-viewer/issues">GitHub issue</a>.
-If you have some training of your own that you would like to contribute,
+If you have some examples of your own that you would like to contribute,
 submit your contributions as a
 <a href="https://github.com/model-checking/cbmc-viewer/pulls">GitHub pull request</a>.</p>
 
