@@ -375,7 +375,7 @@ class SourceFromMake(Source):
         output = []
         for name in files:
             try:
-                with open(name) as handle:
+                with open(name, encoding='utf-8') as handle:
                     output.extend(handle.read().splitlines())
             except FileNotFoundError:
                 # The output file for the failed linking step will be in list

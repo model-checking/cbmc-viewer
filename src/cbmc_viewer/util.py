@@ -62,7 +62,7 @@ def dump(data, filename=None, directory='.'):
     if filename:
         path = os.path.normpath(os.path.join(directory, filename))
         os.makedirs(os.path.dirname(path), exist_ok=True)
-        with open(path, 'w') as fileobj:
+        with open(path, 'w', encoding='utf-8') as fileobj:
             print(data, file=fileobj)
     else:
         print(data)
