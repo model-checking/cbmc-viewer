@@ -41,7 +41,7 @@ class Code:
 
         try:
             # load code into a string
-            with open(os.path.join(root, path)) as source:
+            with open(os.path.join(root, path), encoding='utf-8') as source:
                 code = html.escape(untabify_code(source.read()), quote=False)
 
             # split code into blocks of code, comments, and string literals

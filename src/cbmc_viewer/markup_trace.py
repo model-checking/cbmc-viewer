@@ -65,7 +65,7 @@ class CodeSnippet:
 
         try:
             if path not in self.source:
-                with open(os.path.join(self.root, path)) as code:
+                with open(os.path.join(self.root, path), encoding='utf-8') as code:
                     self.source[path] = code.read().splitlines()
         except FileNotFoundError as error:
             if srcloct.is_builtin(path): # <builtin-library-malloc>, etc.

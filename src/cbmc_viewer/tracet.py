@@ -172,7 +172,7 @@ class TraceFromJson(Trace):
 
 def load_traces(loadfile):
     """Load a trace file."""
-    with open(loadfile) as data:
+    with open(loadfile, encoding='utf-8') as data:
         return json.load(data)[JSON_TAG]
 
 ################################################################
@@ -190,7 +190,7 @@ class TraceFromCbmcText(Trace):
 def parse_text_traces(textfile, root=None, wkdir=None):
     """Parse a set of text traces."""
 
-    with open(textfile) as data:
+    with open(textfile, encoding='utf-8') as data:
         lines = '\n'.join(data.read().splitlines())
         blocks = re.split(r'\n\n+', lines)
 
