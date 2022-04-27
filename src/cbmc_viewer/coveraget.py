@@ -45,7 +45,7 @@ class Status(enum.Enum):
             return "missed"
         if self == Status.BOTH:
             return "both"
-        raise UserWarning("Found unknown line coverage status: {}".format(self))
+        raise UserWarning(f"Found unknown line coverage status: {self}")
 
     def __str__(self):
         """A string representation of line coverage"""
@@ -66,8 +66,7 @@ class Status(enum.Enum):
             return Status.MISSED
         if status.lower() == "both":
             return Status.BOTH
-        raise UserWarning("Found unknown line coverage status: {}"
-                          .format(status))
+        raise UserWarning(f"Found unknown line coverage status: {status}")
 
     def combine(self, status):
         """Combine line coverage"""
@@ -226,7 +225,7 @@ def merge_coverage_data(coverage_list):
     try:
         coverage and RAW_COVERAGE_DATA(coverage)
     except voluptuous.Error as error:
-        raise UserWarning("Error merging coverage data: {}".format(error)) from error
+        raise UserWarning(f"Error merging coverage data: {error}") from error
     return coverage
 
 
@@ -315,9 +314,7 @@ def load_json(json_file):
     try:
         RAW_COVERAGE_DATA(coverage)
     except voluptuous.Error as error:
-        raise UserWarning(
-            "Error loading json coverage data: {}: {}".format(json_file, error)
-        ) from error
+        raise UserWarning(f"Error loading json coverage data: {json_file}: {error}") from error
     return coverage
 
 def repair_json(coverage):
@@ -379,9 +376,7 @@ def load_cbmc_json(json_file, root):
     try:
         RAW_COVERAGE_DATA(coverage)
     except voluptuous.Error as error:
-        raise UserWarning(
-            "Error loading cbmc json coverage data: {}: {}".format(json_file, error)
-        ) from error
+        raise UserWarning(f"Error loading cbmc json coverage data: {json_file}: {error}") from error
     return coverage
 
 ################################################################
@@ -417,9 +412,7 @@ def load_cbmc_xml(xml_file, root):
     try:
         RAW_COVERAGE_DATA(coverage)
     except voluptuous.Error as error:
-        raise UserWarning(
-            "Error loading cbmc xml coverage data: {}: {}".format(xml_file, error)
-        ) from error
+        raise UserWarning(f"Error loading cbmc xml coverage data: {xml_file}: {error}") from error
     return coverage
 
 ################################################################
@@ -568,15 +561,14 @@ def make_coverage(args):
     if viewer_coverage:
         if filet.all_json_files(viewer_coverage):
             return CoverageFromJson(viewer_coverage)
-        fail("Expected json files: {}".format(viewer_coverage))
+        fail(f"Expected json files: {viewer_coverage}")
 
     if cbmc_coverage and srcdir:
         if filet.all_json_files(cbmc_coverage):
             return CoverageFromCbmcJson(cbmc_coverage, srcdir)
         if filet.all_xml_files(cbmc_coverage):
             return CoverageFromCbmcXml(cbmc_coverage, srcdir)
-        fail("Expected json files or xml files, not both: {}"
-             .format(cbmc_coverage))
+        fail(f"Expected json files or xml files, not both: {cbmc_coverage}")
 
     logging.info("make-coverage: nothing to do: need "
                  "cbmc coverage checking results and --srcdir or "

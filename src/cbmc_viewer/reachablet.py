@@ -189,7 +189,7 @@ class ReachableFromGoto(Reachable):
         try:
             runt.run(cmd, cwd=cwd)
         except subprocess.CalledProcessError as err:
-            raise UserWarning('Failed to run {}: {}'.format(cmd, str(err))) from err
+            raise UserWarning(f'Failed to run {cmd}: {err}') from err
 
         json_data = parse.parse_json_file(data.name)
         os.unlink(data.name)
@@ -218,15 +218,14 @@ def make_reachable(args):
     if viewer_reachable:
         if filet.all_json_files(viewer_reachable):
             return ReachableFromJson(viewer_reachable)
-        fail("Expected json files: {}".format(viewer_reachable))
+        fail(f"Expected json files: {viewer_reachable}")
 
     if cbmc_reachable and srcdir:
         if filet.all_json_files(cbmc_reachable):
             return ReachableFromCbmcJson(cbmc_reachable, srcdir)
         if filet.all_xml_files(cbmc_reachable):
             return ReachableFromCbmcXml(cbmc_reachable, srcdir)
-        fail("Expected json files or xml files, not both: {}"
-             .format(cbmc_reachable))
+        fail(f"Expected json files or xml files, not both: {cbmc_reachable}")
 
     if goto and srcdir:
         return ReachableFromGoto(goto, srcdir)

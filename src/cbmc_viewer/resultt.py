@@ -517,7 +517,7 @@ def make_result(args):
     if viewer_result:
         if filet.all_json_files(viewer_result):
             return ResultFromJson(viewer_result)
-        fail("Expected a list of json files: {}".format(viewer_result))
+        fail(f"Expected a list of json files: {viewer_result}")
 
     if cbmc_result:
         if filet.all_text_files(cbmc_result):
@@ -526,8 +526,7 @@ def make_result(args):
             return ResultFromCbmcJson(cbmc_result)
         if filet.all_xml_files(cbmc_result):
             return ResultFromCbmcXml(cbmc_result)
-        fail("Expected a list of text files, json files, or xml files: {}"
-             .format(cbmc_result))
+        fail(f"Expected a list of text files, json files, or xml files: {cbmc_result}")
 
     logging.info("make-result: nothing to do: need "
                  "cbmc property checking results or "

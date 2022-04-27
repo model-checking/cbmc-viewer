@@ -165,9 +165,7 @@ class SourceFromJson(Source):
             try:
                 source = parse.parse_json_file(source_json)[JSON_TAG]
             except TypeError:
-                raise UserWarning(
-                    "Failed to load sources from {}".format(source_json)
-                ) from None
+                raise UserWarning(f"Failed to load sources from {source_json}") from None
             self.validate(source)
             return source
 
@@ -177,9 +175,7 @@ class SourceFromJson(Source):
                           for source in sources
                           for src in source['all_files']})
             if len(roots) != 1:
-                raise UserWarning(
-                    'Source lists have different roots: {}'.format(roots)
-                )
+                raise UserWarning(f'Source lists have different roots: {roots}')
             return {'root': roots[0], 'files': files}
 
         source = merge([load(source_json) for source_json in source_jsons])
