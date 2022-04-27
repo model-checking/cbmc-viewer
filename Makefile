@@ -16,9 +16,6 @@ default:
 
 pylint:
 	pylint	\
-		--disable=unspecified-encoding \
-		--disable=consider-using-f-string \
-		\
 		--disable=duplicate-code \
 		--disable=fixme \
 		--disable=invalid-repr-returned \
