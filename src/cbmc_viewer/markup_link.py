@@ -31,10 +31,7 @@ def path_to_file(dst, src):
 
     path = os.path.relpath(dst, os.path.dirname(src))
     if dst != os.path.normpath(os.path.join(os.path.dirname(src), path)):
-        raise UserWarning(
-            "{} != {}".format(dst,
-                              os.path.normpath(os.path.join(os.path.dirname(src), path)))
-        )
+        raise UserWarning(f"{dst} != {os.path.normpath(os.path.join(os.path.dirname(src), path))}")
     return path
 
 ################################################################
@@ -62,7 +59,7 @@ def link_text_to_file(text, to_file, from_file=None, escape_text=True):
 
     from_file = from_file or '.'
     path = path_to_file(to_file, from_file)
-    return '<a href="{}.html">{}</a>'.format(path, text)
+    return f'<a href="{path}.html">{text}</a>'
 
 def link_text_to_line(text, to_file, line, from_file=None, escape_text=True):
     """Link text to a line in a file in the source tree."""
@@ -78,7 +75,7 @@ def link_text_to_line(text, to_file, line, from_file=None, escape_text=True):
     from_file = from_file or '.'
     line = int(line)
     path = path_to_file(to_file, from_file)
-    return '<a href="{}.html#{}">{}</a>'.format(path, line, text)
+    return f'<a href="{path}.html#{line}">{text}</a>'
 
 def link_text_to_srcloc(text, srcloc, from_file=None, escape_text=True):
     """Link text to a source location in a file in the source tree."""

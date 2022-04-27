@@ -223,7 +223,7 @@ def parse_text_traces(textfile, root=None, wkdir=None):
             if name:
                 traces[name] = list(visible_steps(trace))
             break
-        raise UserWarning("Unknown block: {}".format(block))
+        raise UserWarning(f"Unknown block: {block}")
 
     return traces
 
@@ -237,7 +237,7 @@ def parse_text_assignment(string):
     match = re.match('([^=]+)=(.+)', string.strip())
     if match:
         return list(match.groups()[:2]) + [None]
-    raise UserWarning("Can't parse assignment: {}".format(string))
+    raise UserWarning(f"Can't parse assignment: {string}")
 
 def parse_text_state(block, root=None, wkdir=None):
     """Parse the state block in a text trace."""
@@ -397,7 +397,7 @@ def parse_xml_assignment(step, root=None):
     kind = ('variable-assignment' if akind == 'state' else
             'parameter-assignment' if akind == 'actual_parameter' else None)
     if kind is None:
-        raise UserWarning("Unknown xml assignment type: {}".format(akind))
+        raise UserWarning(f"Unknown xml assignment type: {akind}")
 
     return {
         'kind': kind,
@@ -526,13 +526,13 @@ def parse_json_assignment(step, root=None):
     kind = ('variable-assignment' if akind == 'variable' else
             'parameter-assignment' if akind == 'actual-parameter' else None)
     if kind is None:
-        raise UserWarning("Unknown json assignment type: {}".format(akind))
+        raise UserWarning(f"Unknown json assignment type: {akind}")
 
     # &v is represented as {name: pointer, data: v}
     # NULL is represented as {name: pointer, data: {((basetype *)NULL)}}
     data = step['value'].get('data')
     if step['value'].get('name') == 'pointer' and data and 'NULL' not in data:
-        data = '&{}'.format(data)
+        data = f'&{data}'
 
     return {
         'kind': kind,
@@ -638,8 +638,7 @@ def close_function_stack_frames(trace):
             pair, stack = pop_stack(stack)
             callee_name_, _, _ = pair
             if callee_name != callee_name_:
-                raise UserWarning('Function call-return mismatch: {} {}'
-                                  .format(callee_name, callee_name_))
+                raise UserWarning(f'Function call-return mismatch: {callee_name} {callee_name_}')
             continue
 
     stack.reverse()
@@ -751,7 +750,7 @@ def make_trace(args):
     if viewer_trace:
         if filet.all_json_files(viewer_trace):
             return TraceFromJson(viewer_trace)
-        fail("Expected json files: {}".format(viewer_trace))
+        fail(f"Expected json files: {viewer_trace}")
 
     if cbmc_trace and srcdir:
         if filet.all_text_files(cbmc_trace):
@@ -762,8 +761,7 @@ def make_trace(args):
             return TraceFromCbmcJson(cbmc_trace, srcdir)
         if filet.all_xml_files(cbmc_trace):
             return TraceFromCbmcXml(cbmc_trace, srcdir)
-        fail("Expected json files or xml files, not both: {}"
-             .format(cbmc_trace))
+        fail(f"Expected json files or xml files, not both: {cbmc_trace}")
 
     return Trace()
 
