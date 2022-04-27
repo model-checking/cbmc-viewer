@@ -22,7 +22,7 @@ def filetype(filename):
         return None
 
     if not isinstance(filename, str):
-        raise UserWarning("Filename is not a string: {}".format(filename))
+        raise UserWarning(f"Filename is not a string: {filename}")
 
     # The filename extension: expected to be one of txt, jsn, json, or xml
     file_extension = os.path.splitext(filename)[1].lower().lstrip('.')
@@ -38,7 +38,7 @@ def filetype(filename):
         }[file_extension]
     except KeyError:
         raise UserWarning(
-            "Can't determine file type of file {}".format(filename)
+            f"Can't determine file type of file {filename}"
         ) from None # squash the KeyError context, raise just a UserWarning
 
 ################################################################

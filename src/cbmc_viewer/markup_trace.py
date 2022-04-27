@@ -70,9 +70,7 @@ class CodeSnippet:
         except FileNotFoundError as error:
             if srcloct.is_builtin(path): # <builtin-library-malloc>, etc.
                 return None
-            raise UserWarning(
-                "CodeSnippet lookup: file not found: {}".format(path)
-            ) from error
+            raise UserWarning(f"CodeSnippet lookup: file not found: {path}") from error
 
         # return the whole statement which may be broken over several lines
         snippet = ' '.join(self.source[path][line:line+5])
@@ -148,6 +146,7 @@ def format_srcloc(srcloc, symbols):
     func_srcloc = symbols.lookup(func)
     # Warning: next line assumes trace root is subdirectory of code root
     from_file = os.path.join(TRACES, 'foo.html') # any name foo.html will do
+    # pylint: disable=consider-using-f-string
     return 'Function {}, File {}, Line {}'.format(
         markup_link.link_text_to_srcloc(func, func_srcloc, from_file),
         markup_link.link_text_to_file(fyle, fyle, from_file),
@@ -175,18 +174,14 @@ def format_function_call(step):
 
     name, srcloc = step['detail']['name'], step['detail']['location']
 
-    line = '-> {}'.format(
-        markup_link.link_text_to_srcloc(name, srcloc, './trace/trace.html')
-    )
+    line = f'-> {markup_link.link_text_to_srcloc(name, srcloc, "./trace/trace.html")}'
     return line
 
 def format_function_return(step):
     """Format a function return."""
 
     name, srcloc = step['detail']['name'], step['detail']['location']
-    line = '<- {}'.format(
-        markup_link.link_text_to_srcloc(name, srcloc, './trace/trace.html')
-    )
+    line = f'<- {markup_link.link_text_to_srcloc(name, srcloc, "./trace/trace.html")}'
     return line
 
 def format_variable_assignment(step):
@@ -194,28 +189,28 @@ def format_variable_assignment(step):
 
     asn = step['detail']
     lhs, rhs, binary = asn['lhs'], asn['rhs-value'], asn['rhs-binary']
-    binary = '({})'.format(binary) if binary else ''
-    return '{} = {} {}'.format(lhs, rhs, binary)
+    binary = f'({binary})' if binary else ''
+    return f'{lhs} = {rhs} {binary}'
 
 def format_parameter_assignment(step):
     """Format an assignment of an actual to formal function argument."""
 
     asn = step['detail']
     lhs, rhs, binary = asn['lhs'], asn['rhs-value'], asn['rhs-binary']
-    binary = '({})'.format(binary) if binary else ''
-    return '{} = {} {}'.format(lhs, rhs, binary)
+    binary = f'({binary})' if binary else ''
+    return f'{lhs} = {rhs} {binary}'
 
 def format_assumption(step):
     """Format a proof assumption."""
 
     pred = step['detail']['predicate']
-    return 'assumption: {}'.format(pred)
+    return f'assumption: {pred}'
 
 def format_failure(step):
     """Format a proof failure."""
 
     prop = step['detail']['property'] or "Unnamed"
     reason = step['detail']['reason'] or "Not given"
-    return 'failure: {}: {}'.format(prop, reason)
+    return f'failure: {prop}: {reason}'
 
 ################################################################

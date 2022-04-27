@@ -90,7 +90,7 @@ class Loop:
         for long_name in static_names:
             long_func, index = long_name.split('.')
             short_func = long_func.split('$')[0]
-            short_name = '{}.{}'.format(short_func, index)
+            short_name = f'{short_func}.{index}'
             assert long_name != short_name
 
             if short_name in loops:
@@ -128,8 +128,7 @@ class Loop:
         if not keys:
             return None
         if len(keys) != 1:
-            raise UserWarning("Loop name {} matches {} static loop names: {}"
-                              .format(name, len(keys), keys))
+            raise UserWarning(f"Loop name {name} matches {len(keys)} static loop names: {keys}")
 
         return self.loops.get(keys[0])
 
@@ -142,7 +141,7 @@ class Loop:
         match = re.match(r'^(.*)\.unwind\.([0-9]+)$', name)
         if match is None:
             return None
-        loop = '{}.{}'.format(match.group(1), match.group(2))
+        loop = f'{match.group(1)}.{match.group(2)}'
 
         return self.lookup(loop) or self.lookup_static(loop)
 
@@ -185,8 +184,7 @@ def parse_cbmc_json(json_data, root):
     # Search cbmc output for {"loops": [ LOOP ]}
     loops = [json_map for json_map in json_data if "loops" in json_map]
     if len(loops) != 1:
-        raise UserWarning("Expected 1 set of loops in cbmc output, found {}".
-                          format(len(loops)))
+        raise UserWarning(f"Expected 1 set of loops in cbmc output, found {len(loops)}")
 
     # Each LOOP is a dict that gives a loop name and location.
     root = srcloct.abspath(root)
@@ -232,13 +230,9 @@ class LoopFromGoto(Loop):
                 [parse_cbmc_json(json.loads(runt.run(cmd, cwd=cwd)), root)]
             )
         except subprocess.CalledProcessError as err:
-            raise UserWarning(
-                'Failed to run {}: {}' .format(cmd, str(err))
-            ) from err
+            raise UserWarning(f'Failed to run {cmd}: {err}') from err
         except json.decoder.JSONDecodeError as err:
-            raise UserWarning(
-                'Failed to parse output of {}: {}'.format(cmd, str(err))
-            ) from err
+            raise UserWarning(f'Failed to parse output of {cmd}: {err}') from err
 
 ################################################################
 # make-loop
@@ -259,15 +253,14 @@ def make_loop(args):
     if viewer_loop:
         if filet.all_json_files(viewer_loop):
             return LoopFromJson(viewer_loop)
-        fail("Expected json files: {}".format(viewer_loop))
+        fail(f"Expected json files: {viewer_loop}")
 
     if cbmc_loop and srcdir:
         if filet.all_json_files(cbmc_loop):
             return LoopFromCbmcJson(cbmc_loop, srcdir)
         if filet.all_xml_files(cbmc_loop):
             return LoopFromCbmcXml(cbmc_loop, srcdir)
-        fail("Expected json files or xml files, not both: {}"
-             .format(cbmc_loop))
+        fail(f"Expected json files or xml files, not both: {cbmc_loop}")
 
     if goto and srcdir:
         return LoopFromGoto(goto, srcdir)

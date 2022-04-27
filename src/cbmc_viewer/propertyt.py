@@ -154,9 +154,7 @@ def load_cbmc_json(jsonfile, root):
     # Search cbmc output for {"properties": [ PROPERTY ]}
     asserts = [json_map for json_map in json_data if "properties" in json_map]
     if len(asserts) != 1:
-        raise UserWarning("Expected 1 set of properties in cbmc output, "
-                          "found {}".
-                          format(len(asserts)))
+        raise UserWarning(f"Expected 1 set of properties in cbmc output, found {len(asserts)}")
 
     # Each PROPERTY a loop property and definition
     root = srcloct.abspath(root)
@@ -217,15 +215,14 @@ def make_property(args):
     if viewer_property:
         if filet.all_json_files(viewer_property):
             return PropertyFromJson(viewer_property)
-        fail("Expected json files: {}".format(viewer_property))
+        fail(f"Expected json files: {viewer_property}")
 
     if cbmc_property and srcdir:
         if filet.all_json_files(cbmc_property):
             return PropertyFromCbmcJson(cbmc_property, srcdir)
         if filet.all_xml_files(cbmc_property):
             return PropertyFromCbmcXml(cbmc_property, srcdir)
-        fail("Expected json files or xml files, not both: {}"
-             .format(cbmc_property))
+        fail(f"Expected json files or xml files, not both: {cbmc_property}")
 
     logging.info("make-property: nothing to do: need "
                  "cbmc property listing results (cbmc --show-properties) and --srcdir or "
