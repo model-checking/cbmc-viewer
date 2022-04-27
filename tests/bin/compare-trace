@@ -10,6 +10,8 @@
 
 import json
 
+import arguments
+
 def parse_arguments():
     """Parse command line arguments"""
 
