@@ -31,7 +31,7 @@ def parse_json_file(jfile):
     """Parse an json file."""
 
     try:
-        with open(jfile) as data:
+        with open(jfile, encoding='utf-8') as data:
             return json.load(data)
     except (IOError, json.JSONDecodeError) as err:
         logging.debug("%s", err)
