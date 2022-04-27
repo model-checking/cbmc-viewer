@@ -170,7 +170,7 @@ def get_jobs(proof_root, litani):
     logging.info("Running litani get-jobs...")
     lines = run([litani, 'get-jobs'], cwd=proof_root)
     jobs = json.loads(' '.join(lines))
-    return [job for job in jobs if job["ci_stage"] == "report"]
+    return [job for job in jobs if job["ci_stage"] == "report" and "cbmc-viewer" in job["command"]]
 
 def set_jobs(proof_root, litani, jobs):
     logging.info("Running litani set-jobs...")
