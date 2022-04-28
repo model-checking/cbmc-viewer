@@ -29,10 +29,12 @@ def path_to_file(dst, src):
     the path from '.' to 'a/b/foo.html' is 'a/b/foo.html'.
     """
 
-    path = os.path.relpath(dst, os.path.dirname(src))
-    if dst != os.path.normpath(os.path.join(os.path.dirname(src), path)):
-        raise UserWarning(f"{dst} != {os.path.normpath(os.path.join(os.path.dirname(src), path))}")
-    return path
+    src_dir = os.path.dirname(src)
+    src_to_dst = os.path.relpath(dst, src_dir)
+    cwd_to_dst = os.path.normpath(os.path.join(src_dir, src_to_dst))
+    if dst != cwd_to_dst:
+        raise UserWarning(f"{dst} != {cwd_to_dst}")
+    return src_to_dst
 
 ################################################################
 # Method to link into the source tree.
