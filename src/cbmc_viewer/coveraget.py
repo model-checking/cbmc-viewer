@@ -481,7 +481,7 @@ def update_coverage(coverage, path, func, line, status):
 # subelements of the goal in CBMC's xml or json coverage output.
 
 def parse_lines(string):
-    "Extract line numbers from the string encoding of line numbers used in coverage output"
+    """Extract line numbers from the string encoding of line numbers used in coverage output"""
 
     # string is an encoding of a set of line numbers like
     #   "1,3,6" -> {1, 3, 6}
@@ -492,15 +492,14 @@ def parse_lines(string):
         bounds = group.split('-')
         if len(bounds) == 1:
             lines.add(int(bounds[0]))
-            continue
-        if len(bounds) == 2:
+        elif len(bounds) == 2:
             lines.update(range(int(bounds[0]), int(bounds[1])+1))
-            continue
-        raise UserWarning(f"Unexpected encoding of line numbers: {string}")
+        else:
+            raise UserWarning(f"Unexpected encoding of line numbers: {string}")
     return sorted(lines)
 
 def parse_description(description):
-    "Extract basic block source lines from a coverage goal's textual description"
+    """Extract basic block source lines from a coverage goal's textual description"""
 
     try:
         # description is "block N (lines BASIC_BLOCK)"
@@ -526,7 +525,7 @@ def parse_description(description):
         raise UserWarning(f'Unexpected coverage goal description: "{description}"') from error
 
 def parse_basic_block_lines(basic_block_lines):
-    "Extract basic block source lines from a coverage goal's xml subelement"
+    """Extract basic block source lines from a coverage goal's xml subelement"""
 
     if basic_block_lines is None:
         return []
@@ -548,7 +547,7 @@ def parse_basic_block_lines(basic_block_lines):
         raise UserWarning(f'Unexpected coverage goal xml data: "{basic_block_lines}"') from error
 
 def parse_basicBlockLines(basicBlockLines): # pylint: disable=invalid-name
-    "Extract basic block source lines from a coverage goal's json data"
+    """Extract basic block source lines from a coverage goal's json data"""
 
     if basicBlockLines is None:
         return []
