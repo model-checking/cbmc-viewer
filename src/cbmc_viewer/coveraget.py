@@ -365,11 +365,11 @@ def load_cbmc_json(json_file, root):
 
     coverage = {}
     for goal in goals:
-        description = goal["description"]
+        lines = (parse_basicBlockLines(goal.get("basicBlockLines")) or
+                 parse_description(goal.get("description")))
         status = goal["status"]
-        location = goal["sourceLocation"]
-        wkdir = srcloct.json_srcloc_wkdir(location)
-        coverage = add_coverage_data(coverage, description, status, wkdir, root)
+        wkdir = srcloct.json_srcloc_wkdir(goal["sourceLocation"])
+        coverage = add_coverage_data(coverage, lines, status, wkdir, root)
 
     try:
         RAW_COVERAGE_DATA(coverage)
@@ -399,11 +399,11 @@ def load_cbmc_xml(xml_file, root):
 
     coverage = {}
     for goal in xml.iter("goal"):
-        description = goal.get("description")
+        lines = (parse_basic_block_lines(goal.find("basic_block_lines")) or
+                 parse_description(goal.get("description")))
         status = goal.get("status")
-        location = goal.find("location")
-        wkdir = srcloct.xml_srcloc_wkdir(location)
-        coverage = add_coverage_data(coverage, description, status, wkdir, root)
+        wkdir = srcloct.xml_srcloc_wkdir(goal.find("location"))
+        coverage = add_coverage_data(coverage, lines, status, wkdir, root)
 
     try:
         RAW_COVERAGE_DATA(coverage)
@@ -414,27 +414,21 @@ def load_cbmc_xml(xml_file, root):
 ################################################################
 # Parse coverage data
 
-def add_coverage_data(coverage, description, status, wkdir, root):
+def add_coverage_data(coverage, lines, status, wkdir, root):
     """Add to coverage the coverage data reported for a coverage goal"""
 
-    if not description:
-        logging.debug("Found a missing coverage description in coverage data.")
-        return coverage
-
     # Warning: What follows assumes that all relative paths appearing
-    # in a basic block's coverage description are relative to the same
-    # working directory (the working directory in the source location
-    # labeling the basic block's coverage goal that contains the
-    # coverage description).  This is probably true.  A project can
+    # in a coverage goal's list of source lines are relative to the
+    # same working directory (the working directory in the coverage
+    # goal's source location).  This is probably true.  A project can
     # avoid this issue altogether, however, by invoking goto-cc on
     # absolute paths, ensuring that coverage descriptions contain only
     # absolute paths and no relative paths.
 
     hit = parse_coverage_status(status)
-    locations = parse_description(description)
-    locations = relative_locations(locations, wkdir, root)
+    lines = relative_locations(lines, wkdir, root)
 
-    for path, func, line in locations:
+    for path, func, line in lines:
         coverage = update_coverage(coverage, path, func, line, hit)
     return coverage
 
