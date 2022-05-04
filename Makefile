@@ -46,7 +46,9 @@ develop:
 	$(VENV)/bin/python3 -m pip install --upgrade pip
 	$(VENV)/bin/python3 -m pip install -e .
 	@ echo
-	@ echo "Add $(VENV)/bin to PATH with 'export PATH=\$$PATH:$(VENV)/bin'"
+	@ echo "Package installed into virtual environment at $(VENV)."
+	@ echo "Activate virtual environment with 'source $(VENV)/bin/activate'"
+	@ echo "(or add it to PATH with 'export PATH=\$$PATH:$(VENV)/bin')."
 	@ echo
 
 undevelop:
