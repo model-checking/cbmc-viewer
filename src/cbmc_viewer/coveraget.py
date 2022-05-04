@@ -481,6 +481,10 @@ def update_coverage(coverage, path, func, line, status):
 # Each coverage goal is a basic block in a goto program. Each
 # instruction in a basic block has a source location identifying the
 # source line that generated the instruction.
+#
+# CBMC encodes these source lines in the text of the goal description.
+# Later versions of CBMC also encode these source lines a xml or json
+# subelements of the goal in CBMC's xml or json coverage output.
 
 def parse_lines(string):
     "Extract line numbers from the string encoding of line numbers used in coverage output"
@@ -526,6 +530,51 @@ def parse_description(description):
         # ValueError after after split()/rsplit(): not enough values to unpack
         # ValueError in parse_lines(): invalid literal for int()
         raise UserWarning(f'Unexpected coverage goal description: "{description}"') from error
+
+def parse_basic_block_lines(basic_block_lines):
+    "Extract basic block source lines from a coverage goal's xml subelement"
+
+    if basic_block_lines is None:
+        return []
+
+    try:
+        # basic_block_lines is xml
+        #   <basic_block_lines>
+        #     <line file="test.c" function="foo">3,6-10</line>
+        #     ...
+        #   </basic_block_lines>
+        lines = [(fyle, func, line)
+                 for bbl in basic_block_lines.iter("line")
+                 for fyle, func, lines in [(bbl.get("file"), bbl.get("function"), bbl.text)]
+                 for line in parse_lines(lines)]
+        assert all(fyle and func and line for fyle, func, line in lines)
+        return lines
+    except (ValueError, AssertionError) as error:
+        # ValueError in parse_lines(): invalid literal for int()
+        raise UserWarning(f'Unexpected coverage goal xml data: "{basic_block_lines}"') from error
+
+def parse_basicBlockLines(basicBlockLines): # pylint: disable=invalid-name
+    "Extract basic block source lines from a coverage goal's json data"
+
+    if basicBlockLines is None:
+        return []
+
+    try:
+        # basicBlockLines is json
+        #   "basicBlockLines": {
+        #     "test.c": {
+        #       "main": "16,17"
+        #     }
+        #   }
+        lines = [(fyle, func, line)
+                 for fyle, fyle_data in basicBlockLines.items()
+                 for func, lines in fyle_data.items()
+                 for line in parse_lines(lines)]
+        assert all(fyle and func and line for fyle, func, line in lines)
+        return lines
+    except (ValueError, AssertionError) as error:
+        # ValueError in parse_lines(): invalid literal for int()
+        raise UserWarning(f'Unexpected coverage goal json data: "{basicBlockLines}"') from error
 
 ################################################################
 # Parse the hit/miss status in a coverage goal
