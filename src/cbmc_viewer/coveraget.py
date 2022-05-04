@@ -431,7 +431,7 @@ def add_coverage_data(coverage, description, status, wkdir, root):
     # absolute paths and no relative paths.
 
     hit = parse_coverage_status(status)
-    locations = parse_coverage_description(description)
+    locations = parse_description(description)
     locations = relative_locations(locations, wkdir, root)
 
     for path, func, line in locations:
@@ -476,59 +476,56 @@ def update_coverage(coverage, path, func, line, status):
     return coverage
 
 ################################################################
-# Parse the basic block of code in a coverage goal
+# Extract the source lines contributing to a coverage goal's basic block
+#
+# Each coverage goal is a basic block in a goto program. Each
+# instruction in a basic block has a source location identifying the
+# source line that generated the instruction.
 
-def parse_coverage_description(string):
-    """Parse a coverage description and extract the basic block covered."""
+def parse_lines(string):
+    "Extract line numbers from the string encoding of line numbers used in coverage output"
 
-    # The coverage description has the form "block N (lines BASIC_BLOCK)"
-    match = re.match(r'block [0-9]+ \(lines (.*)\)', string)
-    if not match:
-        logging.info("Found unparsable basic block description: %s", string)
-        return None
+    # string is an encoding of a set of line numbers like
+    #   "1,3,6" -> {1, 3, 6}
+    #   "1-3,6,20-32" -> {1, 2, 3, 6, 20, 21, 22}
 
-    return parse_basic_block(match.group(1))
-
-def parse_basic_block(basic_block):
-    """Parse a basic block of coverage"""
-
-    # The basic block is a sequence of chunks CHUNK1;CHUNK2;CHUNK3
-    return [location
-            for chunk in basic_block.split(';')
-            for location in parse_chunk(chunk)]
-
-def parse_chunk(chunk):
-    """Parse a chunk of coverage"""
-
-    # cbmc has added whitespace to coverage descriptions
-    chunk = chunk.strip()
-
-    # The chunk has the form FILE:FUNCTION:LINES
-    # Don't use split in order to allow FUNCTION to contain ':'
-    first_colon, last_colon = chunk.find(':'), chunk.rfind(':')
-    filename = chunk[:first_colon]
-    function = chunk[first_colon + 1:last_colon]
-    lines = chunk[last_colon + 1:]
-    return [(filename, function, line) for line in parse_lines(lines)]
-
-def parse_lines(lines):
-    """Parse the lines in a chunk of coverage"""
-
-    # groups of lines are separated by commas.
-    # a group of lines is either a single line N or a range of lines N-M
-    line_list = []
-    for line_range in lines.split(','):
-        bounds = line_range.split('-')
+    lines = set()
+    for group in string.split(','):
+        bounds = group.split('-')
         if len(bounds) == 1:
-            # Add the single line N
-            line_list.append(int(bounds[0]))
-        else:
-            # Add the range of lines N-M = N, N+1, ..., M
-            line_list.extend(range(int(bounds[0]), int(bounds[1])+1))
+            lines.add(int(bounds[0]))
+            continue
+        if len(bounds) == 2:
+            lines.update(range(int(bounds[0]), int(bounds[1])+1))
+            continue
+        raise UserWarning(f"Unexpected encoding of line numbers: {string}")
+    return sorted(lines)
 
-    # don't worry about duplicates in line_list: if a line is included
-    # twice it will be set to the same coverage status twice
-    return line_list
+def parse_description(description):
+    "Extract basic block source lines from a coverage goal's textual description"
+
+    try:
+        # description is "block N (lines BASIC_BLOCK)"
+        basic_block = re.match(r'block [0-9]+ \(lines (.*)\)', description).group(1)
+
+        # basic_block is
+        #   chunk1;chunk2;chunk3
+        # each chunk is
+        #   test.c:foo:3,6-10
+        # each function name foo from rust may include embedded semicolons like
+        #   main::foo
+        lines = [(fyle, func, line)
+                 for chunk in basic_block.split(';')
+                 for fyle, func_lines in [chunk.split(':',1)]  # fyle:func:lines -> fyle, func:lines
+                 for func, lines in [func_lines.rsplit(':',1)] # func:lines -> func, lines
+                 for line in parse_lines(lines)]
+        assert all(fyle and func and line for fyle, func, line in lines)
+        return lines
+    except (AttributeError, ValueError, AssertionError) as error:
+        # AttributeError after match(): 'NoneType' object has no attribute 'group'
+        # ValueError after after split()/rsplit(): not enough values to unpack
+        # ValueError in parse_lines(): invalid literal for int()
+        raise UserWarning(f'Unexpected coverage goal description: "{description}"') from error
 
 ################################################################
 # Parse the hit/miss status in a coverage goal
