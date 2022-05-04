@@ -306,15 +306,14 @@ def load_json(json_file):
     """Load json file produced by make-coverage"""
 
     json_data = parse.parse_json_file(json_file)
-    if json_data is None:
-        logging.info("Found empty json coverage data.")
-        return None
+    if not json_data:
+        raise UserWarning(f"Failed to load json coverage data: {json_file}")
 
     coverage = repair_json(json_data[JSON_TAG]['coverage'])
     try:
         RAW_COVERAGE_DATA(coverage)
     except voluptuous.Error as error:
-        raise UserWarning(f"Error loading json coverage data: {json_file}: {error}") from error
+        raise UserWarning(f"Invalid json coverage data: {json_file}: {error}") from error
     return coverage
 
 def repair_json(coverage):
@@ -354,19 +353,18 @@ def load_cbmc_json(json_file, root):
 
     json_data = parse.parse_json_file(json_file)
     if not json_data:
-        logging.info("Expected coverage data in json file %s, found none",
-                     json_file)
-        return None
+        raise UserWarning(f"Failed to load json coverage data: {json_file}")
 
-    goal_list = [entry for entry in json_data if 'goals' in entry]
-    if len(goal_list) != 1:
-        logging.info("Expected 1 block of goal data in json file %s, found %s",
-                     json_file, len(goal_list))
-        return None
-    goals = goal_list[0]
+    try:
+        goals_list = [entry for entry in json_data if 'goals' in entry]
+        assert len(goals_list) == 1
+        goals = goals_list[0]['goals']
+    except AssertionError as error:
+        raise UserWarning(
+            f"Failed to locate coverage goals in json coverage data: {json_file}") from error
 
     coverage = {}
-    for goal in goals["goals"]:
+    for goal in goals:
         description = goal["description"]
         status = goal["status"]
         location = goal["sourceLocation"]
@@ -376,7 +374,7 @@ def load_cbmc_json(json_file, root):
     try:
         RAW_COVERAGE_DATA(coverage)
     except voluptuous.Error as error:
-        raise UserWarning(f"Error loading cbmc json coverage data: {json_file}: {error}") from error
+        raise UserWarning(f"Invalid json coverage data: {json_file}: {error}") from error
     return coverage
 
 ################################################################
@@ -397,9 +395,7 @@ def load_cbmc_xml(xml_file, root):
 
     xml = parse.parse_xml_file(xml_file)
     if not xml or xml is None:   # Why is 'xml is None' required?
-        logging.info("Expected coverage data in xml file %s, found none",
-                     xml_file)
-        return None
+        raise UserWarning(f"Failed to load xml coverage data: {xml_file}")
 
     coverage = {}
     for goal in xml.iter("goal"):
@@ -412,7 +408,7 @@ def load_cbmc_xml(xml_file, root):
     try:
         RAW_COVERAGE_DATA(coverage)
     except voluptuous.Error as error:
-        raise UserWarning(f"Error loading cbmc xml coverage data: {xml_file}: {error}") from error
+        raise UserWarning(f"Invalid xml coverage data: {xml_file}: {error}") from error
     return coverage
 
 ################################################################
