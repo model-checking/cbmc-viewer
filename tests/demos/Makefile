@@ -4,7 +4,6 @@ REPO_URL = https://github.com/FreeRTOS/coreHTTP.git
 
 # Paths in the repository
 PROOF_DIR = test/cbmc/proofs
-TEMPLATE_DIR = test/cbmc/aws-templates-for-cbmc-proofs
 
 # Proofs in the repository
 PROOFS = \
@@ -27,8 +26,11 @@ PROOFS = \
 #	HTTPClient_InitializeRequestHeaders \
 #	HTTPClient_Send \
 
-default:
-	@ echo Nothing to do.
+# Commits of cbmc-viewer to compare on coreHTTP
+COMMIT1 ?= master
+COMMIT2 ?= $$(git branch --show-current)
+
+default: clone build compare
 
 # Clone the repository and break the proofs
 clone:
@@ -39,18 +41,19 @@ clone:
 
 # Run the proofs and build the reports (using any version of viewer)
 #   EXTERNAL_SAT_SOLVER= to ensure cbmc uses minisat and not kissat
-#   TERM=vt100 so ninja knows what screen formatting characters to use
 build:
 	cd $(REPO_DIR)/$(PROOF_DIR); \
 	    EXTERNAL_SAT_SOLVER= \
 	    run-cbmc-proofs.py --proofs $(PROOFS)
 
-COMMIT1 = master
-COMMIT2 = master
-
-demo:
+# Run the two commits of cbmc-viewer on the coreHTTP proofs and
+# compare the results
+compare:
 	../bin/difference.py --verbose --force \
-		--viewer ../.. \
+		--viewer $(abspath ../..) \
 		--commits $(COMMIT1) $(COMMIT2) \
-		--proofs coreHTTP/test/cbmc/proofs \
-		--litani coreHTTP/test/cbmc/litani/litani
+		--proofs $(abspath coreHTTP/test/cbmc/proofs)
+
+clean:
+	$(RM) *~
+	$(RM) -r $(REPO_DIR)
