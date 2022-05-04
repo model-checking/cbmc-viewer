@@ -1,14 +1,5 @@
-From 836159fb8f508ac7e3305d2ef75b858d0e3a8fba Mon Sep 17 00:00:00 2001
-From: "Mark R. Tuttle" <mrtuttle@amazon.com>
-Date: Thu, 5 Aug 2021 14:45:20 +0000
-Subject: [PATCH] Debug
-
----
- test/cbmc/sources/http_cbmc_state.c | 34 +++++++++++++++--------------
- 1 file changed, 18 insertions(+), 16 deletions(-)
-
 diff --git a/test/cbmc/sources/http_cbmc_state.c b/test/cbmc/sources/http_cbmc_state.c
-index f61be4e..82cf1bc 100644
+index 004e428..beb8993 100644
 --- a/test/cbmc/sources/http_cbmc_state.c
 +++ b/test/cbmc/sources/http_cbmc_state.c
 @@ -44,7 +44,7 @@ HTTPRequestHeaders_t * allocateHttpRequestHeaders( HTTPRequestHeaders_t * pReque
@@ -77,10 +68,10 @@ index f61be4e..82cf1bc 100644
          }
      }
  
-@@ -207,11 +207,11 @@ http_parser * allocateHttpSendParser( http_parser * pHttpParser )
+@@ -207,11 +207,11 @@ llhttp_t * allocateHttpSendParser( llhttp_t * pHttpParser )
      if( pHttpParser == NULL )
      {
-         pHttpParser = malloc( sizeof( http_parser ) );
+         pHttpParser = malloc( sizeof( llhttp_t ) );
 -        __CPROVER_assume( pHttpParser != NULL );
 +        // __CPROVER_assume( pHttpParser != NULL );
      }
@@ -91,7 +82,7 @@ index f61be4e..82cf1bc 100644
      pHttpParser->data = ( void * ) pHttpParsingContext;
  
      return pHttpParser;
-@@ -225,16 +225,18 @@ HTTPParsingContext_t * allocateHttpSendParsingContext( HTTPParsingContext_t * pH
+@@ -225,16 +225,16 @@ HTTPParsingContext_t * allocateHttpSendParsingContext( HTTPParsingContext_t * pH
      if( pHttpParsingContext == NULL )
      {
          pHttpParsingContext = malloc( sizeof( HTTPParsingContext_t ) );
@@ -100,12 +91,13 @@ index f61be4e..82cf1bc 100644
  
          pResponse = allocateHttpResponse( NULL );
 -        __CPROVER_assume( isValidHttpResponse( pResponse ) &&
-+        /*
-+	__CPROVER_assume( isValidHttpResponse( pResponse ) &&
-                           pResponse != NULL &&
-                           pResponse->pBuffer != NULL &&
-                           pResponse->bufferLen > 0 );
-+	*/
+-                          pResponse != NULL &&
+-                          pResponse->pBuffer != NULL &&
+-                          pResponse->bufferLen > 0 );
++        // __CPROVER_assume( isValidHttpResponse( pResponse ) &&
++        //                  pResponse != NULL &&
++        //                  pResponse->pBuffer != NULL &&
++        //                  pResponse->bufferLen > 0 );
          pHttpParsingContext->pResponse = pResponse;
  
 -        __CPROVER_assume( bufferOffset < pResponse->bufferLen );
@@ -113,16 +105,16 @@ index f61be4e..82cf1bc 100644
          pHttpParsingContext->pBufferCur = pResponse->pBuffer + bufferOffset;
      }
  
-@@ -258,7 +260,7 @@ http_parser * allocateHttpReadHeaderParser( http_parser * pHttpParser )
+@@ -258,7 +258,7 @@ llhttp_t * allocateHttpReadHeaderParser( llhttp_t * pHttpParser )
      if( pHttpParser == NULL )
      {
-         pHttpParser = malloc( sizeof( http_parser ) );
+         pHttpParser = malloc( sizeof( llhttp_t ) );
 -        __CPROVER_assume( pHttpParser != NULL );
 +        // __CPROVER_assume( pHttpParser != NULL );
      }
  
      pFindHeaderContext = allocateFindHeaderContext( NULL );
-@@ -272,7 +274,7 @@ findHeaderContext_t * allocateFindHeaderContext( findHeaderContext_t * pFindHead
+@@ -272,7 +272,7 @@ findHeaderContext_t * allocateFindHeaderContext( findHeaderContext_t * pFindHead
      if( pFindHeaderContext == NULL )
      {
          pFindHeaderContext = malloc( sizeof( findHeaderContext_t ) );
@@ -131,6 +123,3 @@ index f61be4e..82cf1bc 100644
      }
  
      return pFindHeaderContext;
--- 
-2.25.1
-
