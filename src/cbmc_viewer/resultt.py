@@ -194,7 +194,7 @@ def cbmc_text_sections(text_file):
     with open(text_file, encoding='utf-8') as blob:
         # The blob is an iterator that iterates through the lines of
         # the file and throws StopIteration at the end of the file.
-        next_line = lambda : next(blob).rstrip()
+        next_line = lambda: next(blob).rstrip()
         try:
             line = next_line()
 

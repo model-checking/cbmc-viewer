@@ -513,8 +513,8 @@ def parse_description(description):
         #   main::foo
         lines = [(fyle, func, line)
                  for chunk in basic_block.split(';')
-                 for fyle, func_lines in [chunk.split(':',1)]  # fyle:func:lines -> fyle, func:lines
-                 for func, lines in [func_lines.rsplit(':',1)] # func:lines -> func, lines
+                 for fyle, func_lines in [chunk.split(':', 1)]  # fyle:func:lines -> fyle,func:lines
+                 for func, lines in [func_lines.rsplit(':', 1)] # func:lines -> func,lines
                  for line in parse_lines(lines)]
         assert all(fyle and func and line for fyle, func, line in lines)
         return lines
