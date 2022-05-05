@@ -129,7 +129,7 @@ OPTION_GROUPS = [
           'help': """
               Load the output of "cbmc-viewer" or "cbmc-viewer property" listing the properties
               checked during CBMC property checking."""},
-        {'flag': '--viewer-reachable',
+         {'flag': '--viewer-reachable',
           'metavar': 'JSON',
           'nargs': '+',
           'help': """
