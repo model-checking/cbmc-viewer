@@ -14,8 +14,12 @@ default:
 ################################################################
 # Run pylint over the package
 
-pylint:
-	pylint	\
+PYLINT=pylint
+
+pylint: pylint-viewer pylint-tests
+
+pylint-viewer:
+	$(PYLINT) \
 		--disable=duplicate-code \
 		--disable=fixme \
 		--disable=invalid-repr-returned \
@@ -24,7 +28,9 @@ pylint:
 		--disable=too-many-branches \
 		--module-rgx '[\w-]+' \
 	    src/cbmc_viewer/*.py
-	$(MAKE) -C tests/bin pylint
+
+pylint-tests:
+	$(MAKE) -C tests/bin PYLINT=$(PYLINT) pylint
 
 ################################################################
 # Build the distribution package

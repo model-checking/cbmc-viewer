@@ -5,8 +5,10 @@ SCRIPTS = \
   compare-trace \
   compare-viewer-reports
 
+PYLINT=pylint
+
 pylint:
-	pylint	\
+	$(PYLINT) \
 		--disable=missing-function-docstring \
 		--disable=too-many-arguments \
 		\
