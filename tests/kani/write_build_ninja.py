@@ -11,7 +11,6 @@ import sys
 import ninja_syntax
 
 RULE_NAME = 'kani'
-BUILD_COUNT = 0
 
 def rust_sources(root):
     sources = subprocess.run(
@@ -25,7 +24,7 @@ def rust_sources(root):
     # source files with names including 'ignore' and 'fixme' are broken
     # source file 'ForeignItems/main.rs' is also broken
     tags = ['ignore', 'fixme', 'tests/kani/ForeignItems/main.rs']
-    return [src for src in sources if all(tag not in src for tag in tags)]
+    return [Path(src) for src in sources if all(tag not in src for tag in tags)]
 
 def kani_pragma(pragma, rust_code):
     # Examples of kani pragmas:
@@ -47,34 +46,40 @@ def kani_check_fail(rust_code):
 def kani_flags(rust_code):
     return kani_pragma('kani-flags:', rust_code) or ""
 
-def ninja_build_statements(source):
-    source = Path(source)
+def pool_name(pool):
+    return re.sub('[^a-zA-Z0-9_]', '_', str(pool))
+
+def ninja_pools(sources):
+    pools = {source.parent for source in sources}
+    return [{'name': pool_name(pool), 'depth': 1} for pool in pools]
+
+def ninja_rules(sources):
+    dirs = {source.parent for source in sources}
+    return [{'name': pool_name(dir),
+             'command': f'cd "{dir}" && kani ${{flags}} --visualize ${{src}}',
+             'pool': pool_name(dir)} for dir in dirs]
+
+def ninja_builds(source):
     with open(source, encoding='utf-8') as src:
         rust_code = src.read()
     if kani_verify_fail(rust_code) or kani_check_fail(rust_code):
         return []
 
-    # Warning: concurrent invocations of kani in a single directory
-    # should generate race conditions that have so far been
-    # unobserved.  The count variable here is just a hack just to get
-    # ninja to run.
-    # TODO: Define one pool of depth 1 for each directory, and assign
-    # all kani runs on all proofs in that directory to that pool.
-    global BUILD_COUNT
-    BUILD_COUNT += 1
-    return [{'outputs': [f'{source}-{BUILD_COUNT}'],
-             'rule': RULE_NAME,
+    return [{'outputs': [f'build-{source}'],
+             'rule': pool_name(source.parent),
              'inputs':  str(source),
-             'variables': {'dir': str(source.parent),
-                           'src': str(source.name),
+             'variables': {'src': str(source.name),
                            'flags': kani_flags(rust_code)}}]
 
-def build_ninja_file(sources, build='build.ninja'):
-    with open(build, 'w', encoding='utf-8') as output:
+def build_ninja_file(sources, build_ninja='build.ninja'):
+    with open(build_ninja, 'w', encoding='utf-8') as output:
         writer = ninja_syntax.Writer(output)
-        writer.rule(RULE_NAME, 'cd "${dir}" && kani ${flags} --visualize ${src}')
+        for pool in ninja_pools(sources):
+            writer.pool(**pool)
+        for rule in ninja_rules(sources):
+            writer.rule(**rule)
         for source in sources:
-            for build in ninja_build_statements(source):
+            for build in ninja_builds(source):
                 writer.build(**build)
 
 def main():
