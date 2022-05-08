@@ -9,6 +9,7 @@ import logging
 import voluptuous
 import voluptuous.humanize
 
+from cbmc_viewer import ctagst
 from cbmc_viewer import parse
 from cbmc_viewer import runt
 from cbmc_viewer import sourcet
@@ -106,11 +107,9 @@ class SymbolFromCtags(Symbol):
     """Create a symbol table with ctags."""
 
     def __init__(self, root, files):
-        """Run ctags on files in the source root."""
+        """Use ctags to list symbols defined in source files under source root."""
 
-        super().__init__(
-            parse_ctags_data(run_ctags(root, files), root)
-        )
+        super().__init__(ctagst.symbols(root, files))
 
 ################################################################
 
