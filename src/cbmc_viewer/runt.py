@@ -49,3 +49,30 @@ def run(cmd, cwd=None, ignored=None, encoding=None):
         logging.debug('Ignoring failure to run command: %s', cmd)
 
     return result.stdout
+
+def popen(cmd, cwd=None, stdin=None, encoding=None):
+    """Run a command with string stdin on stdin, return stdout and stderr."""
+
+    cmd = [str(word) for word in cmd]
+    kwds = {'cwd': cwd,
+            'text': True,
+            'stdin': subprocess.PIPE,
+            'stdout': subprocess.PIPE,
+            'stderr': subprocess.PIPE}
+    if sys.version_info >= (3, 6): # encoding is new in Python 3.6
+        kwds['encoding'] = encoding or 'utf-8'
+    try:
+        logging.debug('Command for popen: "%s"', ' '.join(cmd))
+        logging.debug('Command stdin: "%s"', stdin)
+        with subprocess.Popen(cmd, **kwds) as pipe:
+            stdout, stderr = pipe.communicate(input=stdin)
+        logging.debug('Command stdout: "%s"', stdout)
+        logging.debug('Command stderr: "%s"', stderr)
+        if pipe.returncode:
+            logging.debug('Command failed "%s"', ' '.join(cmd))
+            logging.debug('Command return code: "%s"', pipe.returncode)
+            raise UserWarning(f"Failed to run command: {' '.join(cmd)}")
+        return stdout, stderr
+    except FileNotFoundError as error:
+        logging.debug("FileNotFoundError: command '%s': %s", ' '.join(cmd), error)
+        raise UserWarning(f"Failed to run command: {' '.join(cmd)}") from error
