@@ -34,12 +34,13 @@ jobs:
           body: |
             This is CBMC Viewer version ${{ env.TAG_VERSION }}.
 
-            On MacOS, you can install with brew: Run
+            On MacOS, you can install with brew:
             ```
               brew install aws/tap/cbmc-viewer
             ```
+            The prefix `aws/tap` refers to the AWS repository with the brew package.
 
-            On all machines, you can install with pip: Run
+            On all machines, you can install with pip:
             ```
               python3 -m pip install cbmc-viewer
             ```
@@ -50,7 +51,12 @@ jobs:
             * Ubuntu: `sudo apt install universal-ctags` or `sudo apt install ctags`
             * Windows: Follow the installation instructions in the [universal-ctags](https://github.com/universal-ctags/ctags) or [exuberant ctags](http://ctags.sourceforge.net/) repository.
 
-            Universal ctags gives the best results.
-            ```
+            The installation of ctags is optional, but without ctags,
+            `cbmc-viewer` will fail to link some symbols appearing in
+            error traces to their definitions in the source code. The
+            ctags tool has a long history. The original ctags was
+            replaced by exhuberant ctags which was replaced by
+            universal ctags. They all claim to be backwards
+            compatible. We recommend universal ctags.
           draft: false
           prerelease: false
