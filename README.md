@@ -74,19 +74,19 @@ Most people should just follow the instructions on the
 [release page](https://github.com/awslabs/aws-viewer-for-cbmc/releases/latest).
 
 Developers can install the package in Python "development mode" as follows.
-First, follow the instructions on the
-[release page](https://github.com/awslabs/aws-viewer-for-cbmc/releases/latest) to install the dependencies,
-then
 
-* Clone the repository with
+* Clone the repository and install dependencies with
   ```
       git clone https://github.com/awslabs/aws-viewer-for-cbmc.git cbmc-viewer
+      apt install python3-pip python3-venv python3-jinja2 python3-voluptuous universal-ctags
   ```
+  Installing ctags is optional. See the ctags discussion at the end of the
+  [release page](https://github.com/awslabs/aws-viewer-for-cbmc/releases/latest).
 * Install development mode with
   ```
       cd cbmc-viewer
       make develop
-      export PATH=$(pwd):$PATH
+      export PATH=/tmp/cbmc-viewer/bin:$PATH
   ```
 * Uninstall development mode with
   ```
