@@ -58,7 +58,7 @@ def universal_ctags(root, files):
         '-L', '-', # read files from standard input, one file per line
         '-f', '-', # write tags to standard output, one tag per line
         '--output-format=json', # each tag is a one-line json blob
-        '--fields=FNn' # each json blob is {"name": symbol, "path": file, "line": line}
+        '--fields=FNnK' # json blob is {"name": symbol, "path": file, "line": line, "kind": kind}
     ]
     try:
         logging.info("Running universal ctags")
@@ -74,9 +74,10 @@ def universal_tag(root, string):
     """Extract tag from universal ctag output."""
 
     try:
-        # universal ctag json output is '{"symbol": symbol, "path": file, "line": line}'
+        # universal ctag json output is '{"name": symbol, "path": file, "line": line, "kind": kind}'
         blob = json.loads(string)
-        return [{'symbol': blob['name'], 'file': root/blob['path'], 'line': int(blob['line'])}]
+        return [{'symbol': blob['name'], 'file': root/blob['path'], 'line': int(blob['line']),
+                 'kind': blob['kind']}]
     except (json.decoder.JSONDecodeError, # json is unparsable
             KeyError,                     # json key is missing
             ValueError) as error:         # invalid literal for int()
@@ -94,6 +95,7 @@ def exhuberant_ctags(root, files):
         '-L', '-', # read files from standard input, one file per line
         '-f', '-', # write tags to standard output, one tag per line
         '-n', # use line numbers (not search expressions) to locate symbol in file
+        '--fields=K' # include symbol kind among extension fields
     ]
     try:
         logging.info("Running exhuberant ctags")
@@ -109,10 +111,12 @@ def exhuberant_tag(root, string):
     """Extract tag from exhuberant ctag output."""
 
     try:
-        # exhuberant ctag output is 'symbol<TAB>path<TAB>line;"<TAB>f'
-        symbol, path, line = string.split(';"')[0].split("\t")
-        return [{'symbol': symbol, 'file': root/path, 'line': int(line)}]
-    except ValueError: # not enough values to unpack, invalid literal for int()
+        # exhuberant ctag output is 'symbol<TAB>path<TAB>line;"<TAB>kind'
+        left, right = string.split(';"')[:2]
+        symbol, path, line = left.split("\t")[:3]
+        kind = right.split("\t")[1]
+        return [{'symbol': symbol, 'file': root/path, 'line': int(line), 'kind': kind}]
+    except (ValueError, IndexError): # not enough values to unpack, invalid literal for int()
         logging.debug('Bad exhuberant ctag: "%s"', string)
         return []
 
@@ -132,7 +136,7 @@ def legacy_ctags(root, files):
     except UserWarning:
         logging.info("Legacy ctags failed")
         strings = []
-
+    print(strings)
     return [tag for string in strings for tag in legacy_tag(root, string)]
 
 def legacy_tag(root, string):
@@ -141,7 +145,7 @@ def legacy_tag(root, string):
     try:
         # legacy ctag -x output is 'symbol line path source_code_fragment'
         symbol, line, path = string.split()[:3]
-        return [{'symbol': symbol, 'file': root/path, 'line': int(line)}]
+        return [{'symbol': symbol, 'file': root/path, 'line': int(line), 'kind': None}]
     except ValueError: # not enough values to unpack, invalid literal for int()
         logging.debug('Bad legacy ctag: "%s"', string)
         return []
