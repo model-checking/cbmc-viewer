@@ -109,7 +109,34 @@ class SymbolFromCtags(Symbol):
     def __init__(self, root, files):
         """Use ctags to list symbols defined in source files under source root."""
 
-        super().__init__(ctagst.symbols(root, files))
+        super().__init__(symbols_from_ctags(root, files))
+
+def symbols_from_ctags(root, files):
+    """Map symbol names to source locations for symbols defined in files under root."""
+
+    def well_typed_tags(tag):
+        """Ensure tag has the correct type"""
+
+        try:
+            symbol_, file_, line_ = str(tag['symbol']), str(tag['file']), int(tag['line'])
+            assert symbol_ and file_ and line_
+            return [{'symbol': symbol_, 'file': file_, 'line': line_}]
+        except (AssertionError, ValueError, KeyError):
+            logging.info('Skipping tag: "%s"', tag)
+            return []
+
+    tags = ctagst.ctags(root, files)
+    tags = [tag_ for tag in tags for tag_ in well_typed_tags(tag)]
+    tags = sorted(tags, key=lambda tag: (tag['symbol'], tag['file'], tag['line']))
+
+    symbol_map = {}
+    for tag in tags:
+        symbol = tag['symbol']
+        if symbol in symbol_map:
+            logging.info('Skipping tag: "%s"', tag)
+            continue
+        symbol_map[symbol] = srcloct.make_srcloc(tag['file'], None, tag['line'], root, root)
+    return symbol_map
 
 ################################################################
 

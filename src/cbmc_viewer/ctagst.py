@@ -3,9 +3,41 @@
 from pathlib import Path
 import json
 import logging
+import subprocess
+import sys
 
-from cbmc_viewer import runt
-from cbmc_viewer import srcloct
+################################################################
+# This popen method is used to subprocess-out the invocation of ctags.
+# This method duplicates code in other modules to make this ctags
+# module a stand-alone module that can be copied and reused in other
+# projects.
+
+def popen(cmd, cwd=None, stdin=None, encoding=None):
+    """Run a command with string stdin on stdin, return stdout and stderr."""
+
+    cmd = [str(word) for word in cmd]
+    kwds = {'cwd': cwd,
+            'text': True,
+            'stdin': subprocess.PIPE,
+            'stdout': subprocess.PIPE,
+            'stderr': subprocess.PIPE}
+    if sys.version_info >= (3, 6): # encoding is new in Python 3.6
+        kwds['encoding'] = encoding or 'utf-8'
+    try:
+        logging.debug('Popen command: "%s"', ' '.join(cmd))
+        logging.debug('Popen stdin: "%s"', stdin)
+        with subprocess.Popen(cmd, **kwds) as pipe:
+            stdout, stderr = pipe.communicate(input=stdin)
+        logging.debug('Popen stdout: "%s"', stdout)
+        logging.debug('Popen stderr: "%s"', stderr)
+        if pipe.returncode:
+            logging.debug('Popen command failed: "%s"', ' '.join(cmd))
+            logging.debug('Popen return code: "%s"', pipe.returncode)
+            raise UserWarning(f"Failed to run command: {' '.join(cmd)}")
+        return stdout, stderr
+    except FileNotFoundError as error:
+        logging.debug("FileNotFoundError: command '%s': %s", ' '.join(cmd), error)
+        raise UserWarning(f"Failed to run command: {' '.join(cmd)}") from error
 
 ################################################################
 
@@ -18,34 +50,6 @@ def ctags(root, files):
             exhuberant_ctags(root, files) or
             legacy_ctags(root, files) or
             [])
-
-def symbols(root, files):
-    """Map symbol names to source locations for symbols defined in files under root."""
-
-    def well_typed_tags(tag):
-        """Ensure tag has the correct type"""
-
-        try:
-            symbol_, file_, line_ = str(tag['symbol']), str(tag['file']), int(tag['line'])
-            assert symbol_ and file_ and line_
-            return [{'symbol': symbol_, 'file': file_, 'line': line_}]
-        except (AssertionError, ValueError, KeyError):
-            logging.info('Skipping tag: "%s"', tag)
-            return []
-
-    tags = ctags(root, files)
-    tags = [tag_ for tag in tags for tag_ in well_typed_tags(tag)]
-    tags = sorted(tags, key=lambda tag: (tag['symbol'], tag['file'], tag['line']))
-
-    symbol_map = {}
-    for tag in tags:
-        symbol = tag['symbol']
-        if symbol in symbol_map:
-            logging.info('Skipping tag: "%s"', tag)
-            continue
-        symbol_map[symbol] = srcloct.make_srcloc(tag['file'], None, tag['line'], root, root)
-    return symbol_map
-
 
 ################################################################
 
@@ -62,7 +66,7 @@ def universal_ctags(root, files):
     ]
     try:
         logging.info("Running universal ctags")
-        stdout, _ = runt.popen(cmd, cwd=root, stdin='\n'.join(files))
+        stdout, _ = popen(cmd, cwd=root, stdin='\n'.join(files))
         strings = stdout.splitlines()
     except UserWarning:
         logging.info("Universal ctags failed")
@@ -89,7 +93,7 @@ def universal_tag(root, string):
 def exhuberant_ctags(root, files):
     """Use exhuberant ctags to list symbols defined in files under root."""
 
-    # See exhuberant ctags man page at ...
+    # See exhuberant ctags man page at https://linux.die.net/man/1/ctags
     cmd = [
         'ctags',
         '-L', '-', # read files from standard input, one file per line
@@ -99,7 +103,7 @@ def exhuberant_ctags(root, files):
     ]
     try:
         logging.info("Running exhuberant ctags")
-        stdout, _ = runt.popen(cmd, cwd=root, stdin='\n'.join(files))
+        stdout, _ = popen(cmd, cwd=root, stdin='\n'.join(files))
         strings = stdout.splitlines()
     except UserWarning:
         logging.info("Exhuberant ctags failed")
@@ -125,13 +129,15 @@ def exhuberant_tag(root, string):
 def legacy_ctags(root, files):
     """Use legacy ctags to list symbols defined in files under root."""
 
+    # MacOS ships with a legacy ctags from BSD installed in /usr/bin/ctags.
+    # See the MacOS man page for the documentation used to implement this method.
     cmd = ['ctags',
            '-x',  # write human-readable summary to standard output
            *files # legacy ctags cannot read list of files from stdin
     ]
     try:
         logging.info("Running legacy ctags")
-        stdout, _ = runt.popen(cmd, cwd=root)
+        stdout, _ = popen(cmd, cwd=root)
         strings = stdout.splitlines()
     except UserWarning:
         logging.info("Legacy ctags failed")
