@@ -142,7 +142,6 @@ def legacy_ctags(root, files):
     except UserWarning:
         logging.info("Legacy ctags failed")
         strings = []
-    print(strings)
     return [tag for string in strings for tag in legacy_tag(root, string)]
 
 def legacy_tag(root, string):
