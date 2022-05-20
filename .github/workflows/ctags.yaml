@@ -1,0 +1,92 @@
+name: Test generating symbols from ctags
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, labeled, unlabeled]
+
+jobs:
+  legacy:
+    name: Legacy ctags test
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Install viewer
+        run: |
+          make install
+      - name: Install brew packages
+        run: |
+          brew uninstall ctags || true
+          brew uninstall universal-ctags || true
+          brew install cbmc cbmc-starter-kit litani
+      - name: Build goto
+        run: |
+          cd tests/unit-tests/ctags
+          make clone
+          pushd coreHTTP/test/cbmc
+          cbmc-starter-kit-update --remove-litani --remove-starter
+          popd
+          make build
+      - name: Test legacy ctags
+        run: |
+          cd tests/unit-tests/ctags
+          ctags || true
+          make legacy
+
+  exuberant:
+    name: Exuberant ctags test
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Install viewer
+        run: |
+          make install
+      - name: Install brew packages
+        run: |
+          brew uninstall ctags || true
+          brew uninstall universal-ctags || true
+          brew install cbmc cbmc-starter-kit litani ctags
+      - name: Build goto
+        run: |
+          cd tests/unit-tests/ctags
+          make clone
+          pushd coreHTTP/test/cbmc
+          cbmc-starter-kit-update --remove-litani --remove-starter
+          popd
+          make build
+      - name: Run exuberant ctags test
+        run: |
+          cd tests/unit-tests/ctags
+          ctags --version
+          make exuberant
+
+  universal:
+    name: Universal ctags test
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Install viewer
+        run: |
+          make install
+      - name: Install brew packages
+        run: |
+          brew uninstall ctags || true
+          brew uninstall universal-ctags || true
+          brew install cbmc cbmc-starter-kit litani universal-ctags
+      - name: Build goto
+        run: |
+          cd tests/unit-tests/ctags
+          make clone
+          pushd coreHTTP/test/cbmc
+          cbmc-starter-kit-update --remove-litani --remove-starter
+          popd
+          make build
+      - name: Run universal ctags test
+        run: |
+          cd tests/unit-tests/ctags
+          ctags --version
+          make universal
