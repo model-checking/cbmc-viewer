@@ -51,12 +51,6 @@ jobs:
             * Ubuntu: `sudo apt install universal-ctags` or `sudo apt install ctags`
             * Windows: Follow the installation instructions in the [universal-ctags](https://github.com/universal-ctags/ctags) or [exuberant ctags](http://ctags.sourceforge.net/) repository.
 
-            The installation of ctags is optional, but without ctags,
-            `cbmc-viewer` will fail to link some symbols appearing in
-            error traces to their definitions in the source code. The
-            ctags tool has a long history. The original ctags was
-            replaced by exhuberant ctags which was replaced by
-            universal ctags. They all claim to be backwards
-            compatible. We recommend universal ctags.
+            The installation of ctags is optional, but without ctags, `cbmc-viewer` will fail to link some symbols appearing in error traces to their definitions in the source code. The ctags tool has a long history. The original ctags was replaced by exhuberant ctags which was replaced by universal ctags. They all claim to be backwards compatible. We recommend universal ctags.
           draft: false
           prerelease: false
