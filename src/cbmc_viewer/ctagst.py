@@ -17,7 +17,7 @@ def popen(cmd, cwd=None, stdin=None, encoding=None):
 
     cmd = [str(word) for word in cmd]
     kwds = {'cwd': cwd,
-            'text': True,
+            'universal_newlines': True,
             'stdin': subprocess.PIPE,
             'stdout': subprocess.PIPE,
             'stderr': subprocess.PIPE}
