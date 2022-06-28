@@ -21,7 +21,7 @@ class Config:
             return
 
         if not Path(config_file).exists():
-            logging.error("Config file does not exist: %s", config_file)
+            logging.info("Config file does not exist: %s", config_file)
             return
 
         config_data = parse.parse_json_file(config_file)
