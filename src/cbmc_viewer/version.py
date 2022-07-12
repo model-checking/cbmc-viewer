@@ -4,7 +4,7 @@
 """Version number."""
 
 NAME = "CBMC viewer"
-NUMBER = "3.5"
+NUMBER = "3.6"
 VERSION = f"{NAME} {NUMBER}"
 
 def version(display=False):
