@@ -9,7 +9,7 @@ SHELL=/bin/bash
 
 KANI?=kani
 
-# ARCH is ubuntu or macos-10.15
+# ARCH is ubuntu
 ARCH?=ubuntu
 
 clone:
@@ -18,7 +18,6 @@ clone:
 
 # MacOS warning: If brew fails trying to install ctags over
 # universal-ctags, then replace ctags with universal-ctags
-# ./kani/scripts/setup/macos-10.15/install_deps.sh
 
 build:
 	PATH=$$HOME/.cargo/bin:$$PATH $(MAKE) build_
