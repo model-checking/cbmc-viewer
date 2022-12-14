@@ -25,6 +25,33 @@ from cbmc_viewer import util
 JSON_TAG = 'viewer-coverage'
 
 ################################################################
+# Incomplete coverage reporting
+#
+# CBMC coverage output may included malformed data that can't be
+# parsed and must be skipped.  Skipping coverage data may make the
+# coverage report incorrect.  For example, skipping coverage data
+# saying that some lines have been missed may cause the coverage
+# reported to be too high.
+#
+# This use of global state is not good python.
+
+INCOMPLETE_COVERAGE = False
+
+def set_incomplete_coverage():
+    global INCOMPLETE_COVERAGE
+    INCOMPLETE_COVERAGE = True
+
+def clear_incomplete_coverage():
+    global INCOMPLETE_COVERAGE
+    INCOMPLETE_COVERAGE = False
+
+def warn_of_incomplete_coverage(path):
+    global INCOMPLETE_COVERAGE
+    if INCOMPLETE_COVERAGE:
+        logging.warning("Skipping malformed coverage data in %s.", path)
+        logging.warning("Use the --verbose to see what coverage data was skipped.")
+
+################################################################
 # Line coverage status
 
 class Status(enum.Enum):
@@ -363,6 +390,7 @@ def load_cbmc_json(json_file, root):
         raise UserWarning(
             f"Failed to locate coverage goals in json coverage data: {json_file}") from error
 
+    clear_incomplete_coverage()
     coverage = {}
     for goal in goals:
         lines = (parse_basicBlockLines(goal.get("basicBlockLines")) or
@@ -370,6 +398,7 @@ def load_cbmc_json(json_file, root):
         status = goal["status"]
         wkdir = srcloct.json_srcloc_wkdir(goal["sourceLocation"])
         coverage = add_coverage_data(coverage, lines, status, wkdir, root)
+    warn_of_incomplete_coverage(json_file)
 
     try:
         RAW_COVERAGE_DATA(coverage)
@@ -397,6 +426,7 @@ def load_cbmc_xml(xml_file, root):
     if not xml or xml is None:   # Why is 'xml is None' required?
         raise UserWarning(f"Failed to load xml coverage data: {xml_file}")
 
+    clear_incomplete_coverage()
     coverage = {}
     for goal in xml.iter("goal"):
         lines = (parse_basic_block_lines(goal.find("basic_block_lines")) or
@@ -404,6 +434,7 @@ def load_cbmc_xml(xml_file, root):
         status = goal.get("status")
         wkdir = srcloct.xml_srcloc_wkdir(goal.find("location"))
         coverage = add_coverage_data(coverage, lines, status, wkdir, root)
+    warn_of_incomplete_coverage(xml_file)
 
     try:
         RAW_COVERAGE_DATA(coverage)
@@ -501,6 +532,7 @@ def parse_lines(string):
     except ValueError:
         # ValueError: invalid literal for int()
         logging.info("Skipping malformed line number encoding: %s", string)
+        set_incomplete_coverage()
         return []
 
 def parse_description(description):
@@ -531,10 +563,12 @@ def parse_description(description):
                         'Skipping malformed source location in coverage goal description: %s: '
                         'Found file:%s function:%s line:%s', description, fyle, func, line
                     )
+                    set_incomplete_coverage()
         return srclocs
     except ValueError:
         # ValueError after after split()/rsplit(): not enough values to unpack
         logging.info('Skipping malformed coverage goal description: %s', description)
+        set_incomplete_coverage()
         return []
 
 def parse_basic_block_lines(basic_block_lines):
@@ -558,7 +592,7 @@ def parse_basic_block_lines(basic_block_lines):
             else:
                 logging.info('Skipping malformed source location in coverage goal: '
                              'Found file:%s function:%s line:%s', fyle, func, line)
-
+                set_incomplete_coverage()
     return srclocs
 
 def parse_basicBlockLines(basicBlockLines): # pylint: disable=invalid-name
@@ -583,6 +617,7 @@ def parse_basicBlockLines(basicBlockLines): # pylint: disable=invalid-name
                 else:
                     logging.info('Skipping malformed source location in coverage goal: '
                                  'Found file:%s function:%s line:%s', fyle, func, line)
+                    set_incomplete_coverage()
     return srclocs
 
 ################################################################
