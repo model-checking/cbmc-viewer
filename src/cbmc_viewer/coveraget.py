@@ -481,93 +481,109 @@ def update_coverage(coverage, path, func, line, status):
 # subelements of the goal in CBMC's xml or json coverage output.
 
 def parse_lines(string):
-    """Extract line numbers from the string encoding of line numbers used in coverage output"""
+    """The line numbers denoted by a line number encoding found in coverage data"""
 
     # string is an encoding of a set of line numbers like
     #   "1,3,6" -> {1, 3, 6}
     #   "1-3,6,20-32" -> {1, 2, 3, 6, 20, 21, 22}
 
-    lines = set()
-    for group in string.split(','):
-        bounds = group.split('-')
-        if len(bounds) == 1:
-            lines.add(int(bounds[0]))
-        elif len(bounds) == 2:
-            lines.update(range(int(bounds[0]), int(bounds[1])+1))
-        else:
-            raise UserWarning(f"Unexpected encoding of line numbers: {string}")
-    return sorted(lines)
+    try:
+        lines = set()
+        for group in string.split(','):
+            bounds = group.split('-')
+            if len(bounds) == 1:
+                lines.add(int(bounds[0]))
+            elif len(bounds) == 2:
+                lines.update(range(int(bounds[0]), int(bounds[1])+1))
+            else:
+                raise ValueError
+        return sorted(lines)
+    except ValueError:
+        # ValueError: invalid literal for int()
+        logging.info("Skipping malformed line number encoding: %s", string)
+        return []
 
 def parse_description(description):
-    """Extract basic block source lines from a coverage goal's textual description"""
+    """The source locations in the basic block encoded by a coverage goal description"""
 
     try:
         # description is "block N (lines BASIC_BLOCK)"
         basic_block = re.match(r'block [0-9]+ \(lines (.*)\)', description).group(1)
 
+        if basic_block is None:
+            raise ValueError
+
         # basic_block is
         #   chunk1;chunk2;chunk3
         # each chunk is
         #   test.c:foo:3,6-10
-        # each function name foo from rust may include embedded semicolons like
-        #   main::foo
-        lines = [(fyle, func, line)
-                 for chunk in basic_block.split(';')
-                 for fyle, func_lines in [chunk.split(':', 1)]  # fyle:func:lines -> fyle,func:lines
-                 for func, lines in [func_lines.rsplit(':', 1)] # func:lines -> func,lines
-                 for line in parse_lines(lines)]
-        assert all(fyle and func and line for fyle, func, line in lines)
-        return lines
-    except (AttributeError, ValueError, AssertionError) as error:
-        # AttributeError after match(): 'NoneType' object has no attribute 'group'
+        # each function name foo from rust may include embedded semicolons like main::foo
+
+        srclocs = []
+        for chunk in basic_block.split(';'):
+            fyle, func_lines = chunk.split(':', 1)  # fyle:func:lines -> fyle,func:lines
+            func, lines = func_lines.rsplit(':', 1) # func:lines -> func,lines
+            for line in parse_lines(lines):
+                if fyle and func and line:
+                    lines.append((fyle, func, line))
+                else:
+                    logging.info(
+                        'Skipping malformed source location in coverage goal description: %s: '
+                        'Found file:%s function:%s line:%s', description, fyle, func, line
+                    )
+        return srclocs
+    except ValueError:
         # ValueError after after split()/rsplit(): not enough values to unpack
-        # ValueError in parse_lines(): invalid literal for int()
-        raise UserWarning(f'Unexpected coverage goal description: "{description}"') from error
+        logging.info('Skipping malformed coverage goal description: %s', description)
+        return []
 
 def parse_basic_block_lines(basic_block_lines):
-    """Extract basic block source lines from a coverage goal's xml subelement"""
+    """The source locations in a basic block of an xml coverage goal"""
+
+    # basic_block_lines is xml
+    #   <basic_block_lines>
+    #     <line file="test.c" function="foo">3,6-10</line>
+    #     ...
+    #   </basic_block_lines>
 
     if basic_block_lines is None:
         return []
 
-    try:
-        # basic_block_lines is xml
-        #   <basic_block_lines>
-        #     <line file="test.c" function="foo">3,6-10</line>
-        #     ...
-        #   </basic_block_lines>
-        lines = [(fyle, func, line)
-                 for bbl in basic_block_lines.iter("line")
-                 for fyle, func, lines in [(bbl.get("file"), bbl.get("function"), bbl.text)]
-                 for line in parse_lines(lines)]
-        assert all(fyle and func and line for fyle, func, line in lines)
-        return lines
-    except (ValueError, AssertionError) as error:
-        # ValueError in parse_lines(): invalid literal for int()
-        raise UserWarning(f'Unexpected coverage goal xml data: "{basic_block_lines}"') from error
+    srclocs = []
+    for bbl in basic_block_lines.iter("line"):
+        fyle, func, lines = bbl.get("file"), bbl.get("function"), bbl.text
+        for line in parse_lines(lines):
+            if fyle and func and line:
+                srclocs.append((fyle, func, line))
+            else:
+                logging.info('Skipping malformed source location in coverage goal: '
+                             'Found file:%s function:%s line:%s', fyle, func, line)
+
+    return srclocs
 
 def parse_basicBlockLines(basicBlockLines): # pylint: disable=invalid-name
-    """Extract basic block source lines from a coverage goal's json data"""
+    """The source locations in a basic block of a json coverage goal"""
+
+    # basicBlockLines is json
+    #   "basicBlockLines": {
+    #     "test.c": {
+    #       "main": "16,17"
+    #     }
+    #   }
 
     if basicBlockLines is None:
         return []
 
-    try:
-        # basicBlockLines is json
-        #   "basicBlockLines": {
-        #     "test.c": {
-        #       "main": "16,17"
-        #     }
-        #   }
-        lines = [(fyle, func, line)
-                 for fyle, fyle_data in basicBlockLines.items()
-                 for func, lines in fyle_data.items()
-                 for line in parse_lines(lines)]
-        assert all(fyle and func and line for fyle, func, line in lines)
-        return lines
-    except (ValueError, AssertionError) as error:
-        # ValueError in parse_lines(): invalid literal for int()
-        raise UserWarning(f'Unexpected coverage goal json data: "{basicBlockLines}"') from error
+    srclocs = []
+    for fyle, fyle_data in basicBlockLines.items():
+        for func, lines in fyle_data.items():
+            for line in parse_lines(lines):
+                if fyle and func and line:
+                    srclocs.append((fyle, func, line))
+                else:
+                    logging.info('Skipping malformed source location in coverage goal: '
+                                 'Found file:%s function:%s line:%s', fyle, func, line)
+    return srclocs
 
 ################################################################
 # Parse the hit/miss status in a coverage goal
