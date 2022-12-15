@@ -11,27 +11,16 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - name: Install viewer
-        run: |
-          make install
-      - name: Install brew packages
+      - name: Install brew packages and ensure legacy ctags
         run: |
           brew uninstall ctags || true
           brew uninstall universal-ctags || true
-          brew install cbmc cbmc-starter-kit litani
-      - name: Build goto
-        run: |
-          cd tests/unit-tests/ctags
-          make clone
-          pushd coreHTTP/test/cbmc
-          cbmc-starter-kit-update --remove-litani --remove-starter
-          popd
-          make build
-      - name: Test legacy ctags
+          brew install cbmc litani
+      - name: Compare symbol tables with legacy ctags
         run: |
           cd tests/unit-tests/ctags
           ctags || true
-          make legacy
+          make COMMIT1=${{ github.event.pull_request.head.sha }} COMMIT2=${{ github.event.pull_request.base.sha }}
 
   exuberant:
     name: Exuberant ctags test
@@ -40,27 +29,16 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - name: Install viewer
-        run: |
-          make install
-      - name: Install brew packages
+      - name: Install brew packages and ensure exuberant ctags
         run: |
           brew uninstall ctags || true
           brew uninstall universal-ctags || true
-          brew install cbmc cbmc-starter-kit litani ctags
-      - name: Build goto
+          brew install cbmc litani ctags
+      - name: Compare symbol tables with exuberant ctags
         run: |
           cd tests/unit-tests/ctags
-          make clone
-          pushd coreHTTP/test/cbmc
-          cbmc-starter-kit-update --remove-litani --remove-starter
-          popd
-          make build
-      - name: Run exuberant ctags test
-        run: |
-          cd tests/unit-tests/ctags
-          ctags --version
-          make exuberant
+          ctags || true
+          make COMMIT1=${{ github.event.pull_request.head.sha }} COMMIT2=${{ github.event.pull_request.base.sha }}
 
   universal:
     name: Universal ctags test
@@ -69,24 +47,13 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - name: Install viewer
-        run: |
-          make install
-      - name: Install brew packages
+      - name: Install brew packages and ensure universal ctags
         run: |
           brew uninstall ctags || true
           brew uninstall universal-ctags || true
-          brew install cbmc cbmc-starter-kit litani universal-ctags
-      - name: Build goto
+          brew install cbmc litani universal-ctags
+      - name: Compare symbol tables with universal ctags
         run: |
           cd tests/unit-tests/ctags
-          make clone
-          pushd coreHTTP/test/cbmc
-          cbmc-starter-kit-update --remove-litani --remove-starter
-          popd
-          make build
-      - name: Run universal ctags test
-        run: |
-          cd tests/unit-tests/ctags
-          ctags --version
-          make universal
+          ctags || true
+          make COMMIT1=${{ github.event.pull_request.head.sha }} COMMIT2=${{ github.event.pull_request.base.sha }}
