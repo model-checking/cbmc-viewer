@@ -20,19 +20,25 @@ TEMPLATE_DIR = test/cbmc/aws-templates-for-cbmc-proofs
 
 # Proofs in the repository
 PROOFS = \
-	HTTPClient_AddRangeHeader \
-	HTTPClient_ReadHeader \
-	HTTPClient_strerror \
 	findHeaderFieldParserCallback \
 	findHeaderOnHeaderCompleteCallback \
 	findHeaderValueParserCallback \
-	httpParserOnBodyCallback \
-	httpParserOnHeaderFieldCallback \
-	httpParserOnHeaderValueCallback \
-	httpParserOnHeadersCompleteCallback \
-	httpParserOnMessageBeginCallback \
-	httpParserOnMessageCompleteCallback \
 	httpParserOnStatusCallback
+
+# BUG: GitHub runners fail to terminate running all the fast proofs
+#	HTTPClient_AddRangeHeader \
+#	HTTPClient_ReadHeader \
+#	HTTPClient_strerror \
+#	findHeaderFieldParserCallback \
+#	findHeaderOnHeaderCompleteCallback \
+#	findHeaderValueParserCallback \
+#	httpParserOnBodyCallback \
+#	httpParserOnHeaderFieldCallback \
+#	httpParserOnHeaderValueCallback \
+#	httpParserOnHeadersCompleteCallback \
+#	httpParserOnMessageBeginCallback \
+#	httpParserOnMessageCompleteCallback \
+#	httpParserOnStatusCallback
 
 # Omit slow proofs in the repository
 #	HTTPClient_AddHeader \
@@ -62,12 +68,8 @@ clone:
 	cd $(REPO_DIR); git apply $(abspath bug.patch)
 
 # Run the proofs and build the reports (using any version of viewer)
-#   EXTERNAL_SAT_SOLVER= to ensure cbmc uses minisat and not kissat
-#   TERM=vt100 so ninja knows what screen formatting characters to use
 build:
-	cd $(REPO_DIR)/$(PROOF_DIR); \
-	    EXTERNAL_SAT_SOLVER= \
-	    TERM=vt100 \
+	cd $(REPO_DIR)/$(PROOF_DIR) && \
 	    python3 run-cbmc-proofs.py --proofs $(PROOFS)
 
 
