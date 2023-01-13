@@ -1,0 +1,13 @@
+name: Test workflow
+
+on:
+  pull_request:
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    environment: TEST_ENV
+
+    steps:
+    - name: Check access to secret
+      run: echo "${{ secrets.TEST_SECRET }}"
