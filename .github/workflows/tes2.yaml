@@ -9,4 +9,4 @@ jobs:
     environment: TEST_ENV
     steps:
       - name: Check access to ENV VAR from PR
-        run: echo $TEST_VAR
+        run: echo ${{ vars.TEST_VAR }}
