@@ -8,7 +8,5 @@ jobs:
     runs-on: ubuntu-latest
     environment: TEST_ENV
     steps:
-      - name: Check access to secret from PR
-        run: echo $TEST_SECRET
-        env:
-          TEST_SECRET: "${{ secrets.TEST_SECRET }}"
+      - name: Check access to ENV VAR from PR
+        run: echo $TEST_VAR
