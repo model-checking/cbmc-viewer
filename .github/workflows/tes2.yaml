@@ -11,4 +11,4 @@ jobs:
       - name: Check access to secret from PR
         run: echo $TEST_SECRET
         env:
-          TEST_SECRET: ${{ secrets.TEST_SECRET }}
+          TEST_SECRET: "${{ secrets.TEST_SECRET }}"
