@@ -18,7 +18,9 @@ jobs:
         with:
           persist-credentials: false
           ref: ${{ github.event.pull_request.head.sha }}
-
-      - name: Check access to secret
+      - name: print logs
+        run : |
+          git log --oneline -5
+      - name: Check access to secret from PR
         run: echo "${{ secrets.TEST_SECRET }}"
 
