@@ -9,4 +9,6 @@ jobs:
     environment: TEST_ENV
     steps:
       - name: Check access to secret from PR
-        run: echo "${{ secrets.TEST_SECRET }}"
+        run: echo "$TEST_SECRET"
+        env:
+          TEST_SECRET: ${{ secrets.TEST_SECRET }}
