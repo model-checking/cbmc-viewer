@@ -8,5 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     environment: TEST_ENV
     steps:
-    - name: echo SECRET
-      run: echo ${{ secrets.TEST_SECRET }}
+    - name: Check access to secret
+      run: echo "${{ secrets.TEST_SECRET }}"
+
