@@ -329,7 +329,7 @@ def parse_xml_traces(xmlfile, root=None):
     if xml.find('result') is not None:
         for line in xml.iter('result'):
             name, status = line.get('property'), line.get('status')
-            if status == 'SUCCESS':
+            if status == 'SUCCESS' or status == 'UNKNOWN':
                 continue
             traces[name] = parse_xml_trace(line.find('goto_trace'), root)
         return traces
