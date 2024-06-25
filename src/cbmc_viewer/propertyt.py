@@ -48,8 +48,6 @@ def key(name):
         dot = name.rindex('.')
         return (name[:dot].lower(), int(name[dot+1:]))
     except ValueError:
-        logging.warning("Property name not of the form STRING.INTEGER: %s",
-                        name)
         return (name, 0)
 
 ################################################################
