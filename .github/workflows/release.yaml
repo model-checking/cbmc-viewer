@@ -5,12 +5,14 @@ on:
     tags:
       - viewer-*
 
+env:
+  AWS_ROLE: arn:aws:iam::${{secrets.AWS_ACCOUNT}}:role/PublisherTokenReader
+  AWS_REGION: us-west-2
+
 jobs:
   Release:
     name: CBMC viewer release
     runs-on: ubuntu-20.04
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -26,6 +28,14 @@ jobs:
             echo "Setup and source versions ${{env.SETUP_VERSION}} and ${{env.SOURCE_VERSION}} did not match tag version ${{env.TAG_VERSION}}"
             exit 1
           fi
+      - name: Authenticate GitHub workflow to AWS
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ env.AWS_ROLE }}
+          aws-region: ${{ env.AWS_REGION }}
+      - name: Fetch secrets
+        run: |
+          echo "GITHUB_TOKEN=$(aws secretsmanager get-secret-value --secret-id RELEASE_CI_ACCESS_TOKEN | jq -r '.SecretString')" >> $GITHUB_ENV
       - name: Create release
         uses: actions/create-release@v1
         with:
