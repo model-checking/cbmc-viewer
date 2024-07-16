@@ -10,7 +10,7 @@ jobs:
     name: CBMC viewer release
     runs-on: ubuntu-20.04
     env:
-      GITHUB_TOKEN: ${{ secrets.RELEASE_CI_ACCESS_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
