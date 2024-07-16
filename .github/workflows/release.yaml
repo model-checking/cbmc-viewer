@@ -13,6 +13,9 @@ jobs:
   Release:
     name: CBMC viewer release
     runs-on: ubuntu-20.04
+    permissions:
+      id-token: write
+      contents: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v2

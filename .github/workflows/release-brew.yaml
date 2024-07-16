@@ -55,6 +55,8 @@ jobs:
   homebrew-pr:
     name: Homebrew Bump Formula PR
     runs-on: macos-latest
+    permissions:
+      id-token: write
     steps:
       - name: Authenticate GitHub workflow to AWS
         uses: aws-actions/configure-aws-credentials@v4
@@ -84,6 +86,9 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-latest]
     runs-on: ${{ matrix.os }}
+    permissions:
+      id-token: write
+      contents: write
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
@@ -100,6 +105,7 @@ jobs:
           echo "BOT_EMAIL=$(aws secretsmanager get-secret-value --secret-id BOT_EMAIL | jq -r '.SecretString')" >> $GITHUB_ENV
           echo "HOMEBREW_GITHUB_API_TOKEN=$(aws secretsmanager get-secret-value --secret-id RELEASE_CI_ACCESS_TOKEN | jq -r '.SecretString')" >> $GITHUB_ENV
           echo "FORK_REPO=https://$HOMEBREW_GITHUB_API_TOKEN@github.com/$BOT_USER/homebrew-$(echo $TAP |cut -d / -f 2).git" >> $GITHUB_ENV
+          echo "GITHUB_TOKEN=$HOMEBREW_GITHUB_API_TOKEN" >> $GITHUB_ENV
 
       - name: Checkout PR
         run: |
@@ -151,6 +157,8 @@ jobs:
   update-pr:
     needs: build-bottle
     runs-on: macos-latest
+    permissions:
+      id-token: write
     steps:
     - uses: actions/download-artifact@v3
       with:
