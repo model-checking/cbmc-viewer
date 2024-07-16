@@ -46,29 +46,37 @@ env:
   FORMULA: cbmc-viewer
   TAP: aws/tap
   BOT_USER: aws-viewer-for-cbmc-release-ci
-  BOT_EMAIL: ${{ secrets.BOT_EMAIL }}
-  BOT_TOKEN: ${{ secrets.RELEASE_CI_ACCESS_TOKEN }}
   RELEASE_TAG: ${GITHUB_REF/refs\/tags\/} # GITHUB_REF = refs/tags/STRING-MAJOR.MINOR
   VERSION: $(echo $GITHUB_REF | cut -d "/" -f 3 | cut -d "-" -f 2)
-  FORK_REPO: https://$BOT_TOKEN@github.com/$BOT_USER/homebrew-$(echo $TAP |cut -d "/" -f 2).git
+  AWS_ROLE: arn:aws:iam::${{secrets.AWS_ACCOUNT}}:role/PublisherTokenReader
+  AWS_REGION: us-west-2
 
 jobs:
   homebrew-pr:
     name: Homebrew Bump Formula PR
     runs-on: macos-latest
     steps:
+      - name: Authenticate GitHub workflow to AWS
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ env.AWS_ROLE }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Fetch secrets
+        run: |
+          echo "BOT_EMAIL=$(aws secretsmanager get-secret-value --secret-id BOT_EMAIL | jq -r '.SecretString')" >> $GITHUB_ENV
+          echo "HOMEBREW_GITHUB_API_TOKEN=$(aws secretsmanager get-secret-value --secret-id RELEASE_CI_ACCESS_TOKEN | jq -r '.SecretString')" >> $GITHUB_ENV
+
       - name: Configure git user name and email
         run: |
           git config --global user.name ${{ env.BOT_USER }}
-          git config --global user.email ${{ env.BOT_EMAIL }}
+          git config --global user.email $BOT_EMAIL
 
       - name: Create homebrew PR
         run: |
           brew tap ${{ env.TAP }}
           brew update-reset
           brew bump-formula-pr --tag "${{ env.RELEASE_TAG }}" --revision "$GITHUB_SHA" ${{ env.TAP }}/${{ env.FORMULA }} --force
-        env:
-          HOMEBREW_GITHUB_API_TOKEN: ${{ env.BOT_TOKEN }}
 
   build-bottle:
     needs: homebrew-pr
@@ -81,12 +89,24 @@ jobs:
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
 
+      - name: Authenticate GitHub workflow to AWS
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ env.AWS_ROLE }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Fetch secrets
+        run: |
+          echo "BOT_EMAIL=$(aws secretsmanager get-secret-value --secret-id BOT_EMAIL | jq -r '.SecretString')" >> $GITHUB_ENV
+          echo "HOMEBREW_GITHUB_API_TOKEN=$(aws secretsmanager get-secret-value --secret-id RELEASE_CI_ACCESS_TOKEN | jq -r '.SecretString')" >> $GITHUB_ENV
+          echo "FORK_REPO=https://$HOMEBREW_GITHUB_API_TOKEN@github.com/$BOT_USER/homebrew-$(echo $TAP |cut -d / -f 2).git" >> $GITHUB_ENV
+
       - name: Checkout PR
         run: |
           brew tap ${{ env.TAP }}
           brew update-reset
           cd $(brew --repo ${{ env.TAP }})
-          git remote add fork-repo ${{ env.FORK_REPO }}
+          git remote add fork-repo $FORK_REPO
           git fetch fork-repo
           git checkout -B bump-${{ env.FORMULA }}-${{ env.VERSION }} fork-repo/bump-${{ env.FORMULA }}-${{ env.VERSION }}
 
@@ -136,17 +156,29 @@ jobs:
       with:
         name: bottles
 
+      - name: Authenticate GitHub workflow to AWS
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ env.AWS_ROLE }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Fetch secrets
+        run: |
+          echo "BOT_EMAIL=$(aws secretsmanager get-secret-value --secret-id BOT_EMAIL | jq -r '.SecretString')" >> $GITHUB_ENV
+          echo "HOMEBREW_GITHUB_API_TOKEN=$(aws secretsmanager get-secret-value --secret-id RELEASE_CI_ACCESS_TOKEN | jq -r '.SecretString')" >> $GITHUB_ENV
+          echo "FORK_REPO=https://$HOMEBREW_GITHUB_API_TOKEN@github.com/$BOT_USER/homebrew-$(echo $TAP |cut -d / -f 2).git" >> $GITHUB_ENV
+
     - name: Configure git user name and email
       run: |
         git config --global user.name ${{ env.BOT_USER }}
-        git config --global user.email ${{ env.BOT_EMAIL }}
+        git config --global user.email BOT_EMAIL
 
     - name: Checkout PR
       run: |
         brew tap ${{ env.TAP }}
         brew update-reset
         cd $(brew --repo ${{ env.TAP }})
-        git remote add fork-repo ${{ env.FORK_REPO }}
+        git remote add fork-repo $FORK_REPO
         git fetch fork-repo
         git checkout -B bump-${{ env.FORMULA }}-${{ env.VERSION }} fork-repo/bump-${{ env.FORMULA }}-${{ env.VERSION }}
 

@@ -3,6 +3,10 @@ on:
   release:
     types: [created]
 
+env:
+  AWS_ROLE: arn:aws:iam::${{secrets.AWS_ACCOUNT}}:role/PublisherTokenReader
+  AWS_REGION: us-west-2
+
 jobs:
   upload-to-pypi:
     name: Upload to PyPi
@@ -27,8 +31,15 @@ jobs:
           asset_path: dist/${{ steps.get_package_name.outputs.package_name }}
           asset_name: ${{ steps.get_package_name.outputs.package_name }}
           asset_content_type: application/zip
+      - name: Authenticate GitHub workflow to AWS
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ env.AWS_ROLE }}
+          aws-region: ${{ env.AWS_REGION }}
+      - name: Fetch secrets
+        run: |
+          echo "TWINE_PASSWORD=$(aws secretsmanager get-secret-value --secret-id PYPI_ACCESS_TOKEN | jq -r '.SecretString')" >> $GITHUB_ENV
       - name: Upload to PyPi
         env:
           TWINE_USERNAME: __token__
-          TWINE_PASSWORD: ${{ secrets.PYPI_ACCESS_TOKEN }}
         run: python3 -m twine upload dist/*
