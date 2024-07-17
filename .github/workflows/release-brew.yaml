@@ -134,7 +134,6 @@ jobs:
       - name: Get File Name
         id: get_file_name
         run: |
-          brew install jq
           file_name="$(cat *.json | jq -r '."${{ env.TAP }}/${{ env.FORMULA }}".bottle.tags[].filename')"
           echo "::set-output name=file_name::$file_name"
 
