@@ -128,15 +128,14 @@ jobs:
       - name: Get Package Path
         id: get_package_path
         run: |
-          bottle_name="$(ls *.tar.gz)"
-          echo "::set-output name=bottle::$bottle_name"
+          echo "bottle_name=$(ls *.tar.gz)" >> $GITHUB_OUTPUT
 
       - name: Get File Name
         id: get_file_name
         run: |
           brew install jq
           file_name="$(cat *.json | jq -r '."${{ env.TAP }}/${{ env.FORMULA }}".bottle.tags[].filename')"
-          echo "::set-output name=file_name::$file_name"
+          echo "file_name=$file_name" >> $GITHUB_OUTPUT
 
       - name: Upload bottles as artifact
         uses: actions/upload-artifact@v4

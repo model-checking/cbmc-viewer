@@ -32,8 +32,7 @@ jobs:
       - name: set asset path and name
         id: get_package_name
         run: |
-          package_name="$(ls dist/*.whl | cut -d "/" -f 2)"
-          echo "::set-output name=package_name::$package_name"
+          echo "package_name=$(ls dist/*.whl | cut -d / -f 2)" >> $GITHUB_OUTPUT
       - name: Upload release binary
         uses: actions/upload-release-asset@v1.0.2
         with:
