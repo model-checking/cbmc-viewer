@@ -18,7 +18,7 @@ jobs:
       contents: write
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Get version
         run: |
           # The environment variable GITHUB_REF is refs/tags/viewer-*
