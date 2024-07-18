@@ -146,7 +146,7 @@ jobs:
         uses: actions/upload-release-asset@v1.0.2
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ${{ steps.get_package_path.outputs.bottle }}
+          asset_path: ${{ steps.get_package_path.outputs.bottle_name }}
           asset_name: ${{ steps.get_file_name.outputs.file_name }}
           asset_content_type: application/x-gzip
 
