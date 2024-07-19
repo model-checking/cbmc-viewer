@@ -161,6 +161,10 @@ jobs:
       with:
         pattern: bottle-*
 
+    - name: Set up Homebrew
+      id: set-up-homebrew
+      uses: Homebrew/actions/setup-homebrew@master
+
     - name: Authenticate GitHub workflow to AWS
       uses: aws-actions/configure-aws-credentials@v4
       with:
@@ -172,6 +176,7 @@ jobs:
         echo "BOT_EMAIL=$(aws secretsmanager get-secret-value --secret-id BOT_EMAIL | jq -r '.SecretString')" >> $GITHUB_ENV
         echo "HOMEBREW_GITHUB_API_TOKEN=$(aws secretsmanager get-secret-value --secret-id RELEASE_CI_ACCESS_TOKEN | jq -r '.SecretString')" >> $GITHUB_ENV
         echo "FORK_REPO=https://$HOMEBREW_GITHUB_API_TOKEN@github.com/$BOT_USER/homebrew-$(echo $TAP |cut -d / -f 2).git" >> $GITHUB_ENV
+        echo "GITHUB_TOKEN=$HOMEBREW_GITHUB_API_TOKEN" >> $GITHUB_ENV
 
     - name: Configure git user name and email
       run: |
