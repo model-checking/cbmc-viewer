@@ -155,6 +155,7 @@ jobs:
     runs-on: macos-latest
     permissions:
       id-token: write
+      contents: write
     steps:
     - uses: actions/download-artifact@v4
       with:
