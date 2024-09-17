@@ -4,7 +4,7 @@
 """Parsing of xml and json files with limited error handling."""
 
 from pathlib import Path
-from xml.etree import ElementTree
+import xml.etree.cElementTree as ElementTree
 
 import json
 import logging
