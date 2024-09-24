@@ -38,12 +38,9 @@ jobs:
         run: |
           echo "package_name=$(ls dist/*.whl | cut -d / -f 2)" >> $GITHUB_OUTPUT
       - name: Upload release binary
-        uses: actions/upload-release-asset@v1.0.2
+        uses: softprops/action-gh-release@v2
         with:
-          upload_url: ${{ github.event.release.upload_url }}
-          asset_path: dist/${{ steps.get_package_name.outputs.package_name }}
-          asset_name: ${{ steps.get_package_name.outputs.package_name }}
-          asset_content_type: application/zip
+          files: dist/${{ steps.get_package_name.outputs.package_name }}
       - name: Upload to PyPi
         env:
           TWINE_USERNAME: __token__
