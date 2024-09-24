@@ -290,6 +290,7 @@ JSON_STATUS_KEY = 'status'
 
 JSON_STATUS_MESSAGE = 'STATUS-MESSAGE'
 JSON_SUCCESS = 'SUCCESS'
+JSON_UNKNOWN = 'UNKNOWN'
 JSON_WARNING = 'WARNING'
 
 JSON_PROVER_STATUS_SUCCESS = 'success'
@@ -313,6 +314,7 @@ XML_RESULT_STATUS_ATTR = 'status'
 
 XML_STATUS_MESSAGE = 'STATUS-MESSAGE'
 XML_SUCCESS_STATUS = 'SUCCESS'
+XML_UNKNOWN_STATUS = 'UNKNOWN'
 XML_WARNING_MESSAGE = 'WARNING'
 
 ################################################################
@@ -421,8 +423,8 @@ def cbmc_text_results(results_section):
     results = EMPTY_RESULT_RESULTS
     for line in results_section:
         # Lines given property checking results have the form
-        # [name] srcloc description: SUCCESS|FAILURE
-        match = re.match(r'\[([^ ]*)\].*: ((FAILURE)|(SUCCESS))', line)
+        # [name] srcloc description: SUCCESS|FAILURE|UNKNOWN
+        match = re.match(r'\[([^ ]*)\].*: ((FAILURE)|(SUCCESS)|(UNKNOWN))', line)
         if match:
             name, status = match.groups()[:2]
             results[status == 'SUCCESS'].append(name)
@@ -435,7 +437,7 @@ def cbmc_json_results(blobs):
     for blob in blobs:
         for result in blob.get(JSON_RESULT_KEY) or []:
             name, status = result[JSON_PROPERTY_KEY], result[JSON_STATUS_KEY]
-            results[status == JSON_SUCCESS].append(name)
+            results[status in [JSON_SUCCESS, JSON_UNKNOWN]].append(name)
     return results
 
 def cbmc_xml_results(blob):
@@ -447,7 +449,7 @@ def cbmc_xml_results(blob):
     for result in blob.iter(XML_RESULT_TAG):
         name = result.get(XML_RESULT_PROPERTY_ATTR)
         status = result.get(XML_RESULT_STATUS_ATTR)
-        results[status == XML_SUCCESS_STATUS].append(name)
+        results[status in [XML_SUCCESS_STATUS, XML_UNKNOWN_STATUS]].append(name)
 
     # cbmc --stop-on-fail output produces one trace with one failure
     if not (results[True] or results[False]):
