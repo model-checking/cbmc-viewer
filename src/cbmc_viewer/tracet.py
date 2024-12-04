@@ -331,7 +331,9 @@ def parse_xml_traces(xmlfile, root=None):
             name, status = line.get('property'), line.get('status')
             if status == 'SUCCESS' or status == 'UNKNOWN':
                 continue
-            traces[name] = parse_xml_trace(line.find('goto_trace'), root)
+            trace = line.find('goto_trace')
+            if trace is not None:
+                traces[name] = parse_xml_trace(trace, root)
         return traces
 
     # cbmc produced only a one trace after being run with --stop-on-fail
