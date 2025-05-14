@@ -63,13 +63,13 @@ class Code:
             # CBMC implementation.
             #   * We skip source annotation: We treat the file as a
             #     zero-length file with nothing to annotate.
-            #   * We print a simple warning message: The relative path
+            #   * We print a simple info message: The relative path
             #     to the file in the symbol table was interpreted by
             #     the symbol table parser as relative to the working
-            #     directory.  Printing this path in the warning is
+            #     directory.  Printing this path in the message is
             #     confusing, so we print just the base name.
-            logging.warning("Skipping source file annotation: %s",
-                            os.path.basename(path))
+            logging.info("Skipping source file annotation: %s",
+                         os.path.basename(path))
             self.lines = []
 
         self.filename = path
