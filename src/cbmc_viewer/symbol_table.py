@@ -191,10 +191,10 @@ def symbol_definitions(goto, wkdir, srcdir=None):
 
         srcloc = srcloct.make_srcloc(src, None, num, wkdir, srcdir)
         if sym in symbols and srcloc != symbols[sym]:
-            logging.warning("Skipping redefinition of symbol name: %s", sym)
-            logging.warning("  Old symbol %s: file %s, line %s",
+            logging.info("Skipping redefinition of symbol name: %s", sym)
+            logging.info("  Old symbol %s: file %s, line %s",
                             sym, symbols[sym]["file"], symbols[sym]["line"])
-            logging.warning("  New symbol %s: file %s, line %s",
+            logging.info("  New symbol %s: file %s, line %s",
                             sym, srcloc["file"], srcloc["line"])
             continue
         symbols[sym] = srcloc
