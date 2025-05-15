@@ -10,7 +10,7 @@ env:
 jobs:
   upload-to-pypi:
     name: Upload to PyPi
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     permissions:
       id-token: write
       contents: write
