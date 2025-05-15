@@ -28,7 +28,7 @@ jobs:
           cbmc_latest_release=$(get_latest_release diffblue/cbmc)
           litani_latest_release=$(get_latest_release awslabs/aws-build-accumulator)
           curl -o cbmc.deb -L \
-            https://github.com/diffblue/cbmc/releases/download/$cbmc_latest_release/ubuntu-20.04-$cbmc_latest_release-Linux.deb
+            https://github.com/diffblue/cbmc/releases/download/$cbmc_latest_release/ubuntu-24.04-$cbmc_latest_release-Linux.deb
           curl -o litani.deb -L \
             https://github.com/awslabs/aws-build-accumulator/releases/download/$litani_latest_release/litani-$litani_latest_release.deb
           sudo apt-get update \
