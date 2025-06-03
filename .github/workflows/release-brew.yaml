@@ -116,6 +116,7 @@ jobs:
       - name: Checkout PR
         run: |
           brew tap ${{ env.TAP }}
+          brew untap --force hashicorp/tap
           brew update-reset
           cd $(brew --repo ${{ env.TAP }})
           git remote add fork-repo ${{ env.FORK_REPO }}
