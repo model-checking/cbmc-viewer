@@ -7,7 +7,7 @@ import logging
 import os
 import shutil
 
-import pkg_resources
+from importlib import resources as importlib_resources
 
 from cbmc_viewer import markup_code
 from cbmc_viewer import markup_summary
@@ -37,10 +37,11 @@ def report(config, sources, symbols, results, coverage, traces, properties,
     trace_dir = os.path.join(report_dir, markup_trace.TRACES)
 
     os.makedirs(report_dir, exist_ok=True)
-    shutil.copy(pkg_resources.resource_filename(PACKAGE, VIEWER_CSS),
-                report_dir)
-    shutil.copy(pkg_resources.resource_filename(PACKAGE, VIEWER_JS),
-                report_dir)
+
+    with importlib_resources.path(PACKAGE, VIEWER_CSS) as css_path:
+        shutil.copy(css_path, report_dir)
+    with importlib_resources.path(PACKAGE, VIEWER_JS) as js_path:
+        shutil.copy(js_path, report_dir)
 
     progress("Preparing report summary")
     markup_summary.Summary(

@@ -6,7 +6,7 @@
 import jinja2
 from jinja2 import select_autoescape
 
-import pkg_resources
+from importlib import resources as importlib_resources
 
 PACKAGE = 'cbmc_viewer'
 TEMPLATES = 'templates'
@@ -24,13 +24,19 @@ def env():
     global ENV
 
     if ENV is None:
-        template_dir = pkg_resources.resource_filename(PACKAGE, TEMPLATES)
-        ENV = jinja2.Environment(
-            loader=jinja2.FileSystemLoader(template_dir),
-            autoescape=select_autoescape(
-                enabled_extensions=('html'),
-                default_for_string=True)
-        )
+        try:
+            ctxmgr = importlib_resources.as_file(
+                        importlib_resources.files(PACKAGE) / TEMPLATES)
+        except AttributeError:
+            # Python 3.7 and 3.8
+            ctxmgr = importlib_resources.path(PACKAGE, TEMPLATES)
+        with ctxmgr as templates_path:
+            ENV = jinja2.Environment(
+                loader=jinja2.FileSystemLoader(str(templates_path)),
+                autoescape=select_autoescape(
+                    enabled_extensions=('html'),
+                    default_for_string=True)
+            )
     return ENV
 
 def render_summary(summary):
