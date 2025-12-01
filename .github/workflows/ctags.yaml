@@ -11,7 +11,7 @@ jobs:
     name: Legacy ctags test
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: Install brew packages and ensure legacy ctags
@@ -29,7 +29,7 @@ jobs:
     name: Exuberant ctags test
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: Install brew packages and ensure exuberant ctags
@@ -47,7 +47,7 @@ jobs:
     name: Universal ctags test
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: Install brew packages and ensure universal ctags
